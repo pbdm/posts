@@ -1,10 +1,10 @@
-h1. Introduce
+#Introduce
 
-This is the blog of PBDm
+This is the source code of the blog of [PBDm](http://blog.pbdm.cc)
 
-h1. License
+#License
 
-It is forked from mojombo/mojombo.github.com
+It is forked from [mojombo/mojombo.github.com](mojombo/mojombo.github.com)
 
 The following directories and their contents are Copyright PBDm. You may not reuse anything therein without permission:
 
