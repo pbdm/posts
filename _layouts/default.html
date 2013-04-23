@@ -17,7 +17,7 @@
   <!-- Le styles -->
   <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet"><!-- 造成打印显示链接.. -->
   <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
-  <link href="../public/css/docs.css" rel="stylesheet">
+  <link href="http://www.pbdm.cc/public/css/docs.css" rel="stylesheet">
   <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
   
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -26,11 +26,11 @@
   <![endif]-->
 
   <!-- Le fav and touch icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../public/img/icons/icon-144.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../public/img/icons/icon-114.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../public/img/icons/icon-72.png">
-  <link rel="apple-touch-icon-precomposed" href="../public/img/icons/icon-57.png">
-  <link rel="shortcut icon" href="../public/img/icons/favicon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.pbdm.cc/public/img/icons/icon-144.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.pbdm.cc/public/img/icons/icon-114.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.pbdm.cc/public/img/icons/icon-72.png">
+  <link rel="apple-touch-icon-precomposed" href="http://www.pbdm.cc/public/img/icons/icon-57.png">
+  <link rel="shortcut icon" href="http://www.pbdm.cc/public/img/icons/favicon.png">
 
   <!-- Typekit -->
   <!--<script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
@@ -62,19 +62,12 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="brand" href="/">{$Think.lang.name}</a>
+              <a class="brand" href="/">Amber</a>
               <div class="nav-collapse collapse">
                   <ul class="nav">
-                      <li <php>if($_GET["_URL_"][1]=='') echo "class=\"active\"";</php>><a href="/">{$Think.lang.home}</a></li>
-                      <li><a href="http://blog.pbdm.cc">{$Think.lang.blog}</a></li>
-                      <li <php>if($_GET["_URL_"][1]=='cv') echo "class=\"active\"";</php>><a href="/cv">{$Think.lang.cv}</a></li>
-                  </ul>
-              </div>
-              <div class="pull-right">
-                  <ul class="nav">
-                      <li><a href="?l=zh"><img src="../public/img/flags/cn.png"></a></li>
-                      <li><a href="?l=fr"><img src="../public/img/flags/fr.png"></a></li>
-                      <li><a href="?l=en"><img src="../public/img/flags/us.png"></a></li>         
+                      <li><a href="/">Home</a></li>
+                      <li class="active"><a href="http://blog.pbdm.cc">Blog</a></li>
+                      <li><a href="/cv">CV</a></li>
                   </ul>
               </div>
           </div>
@@ -87,7 +80,7 @@
   ================================================== -->
   <footer class="footer">
       <div class="container">
-           <p>{$Think.lang.written} <a href="mailto:g@pbdm.cc">{$Think.lang.name}</a> © 2012 - <php>echo date("Y");</php></p>
+           <p>This document was written by <a href="mailto:g@pbdm.cc">Amber</a> © 2012 - 2013</p>
       </div>
   </footer>
   <a href="http://github.com/pbdm"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
