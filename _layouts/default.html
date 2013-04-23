@@ -1,59 +1,117 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
-   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>{{ page.title }}</title>
-   <meta name="author" content="PBDm" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site perso of PENG Bo">
+  <meta name="author" content="PENG Bo">
   <!--  <link href="http://feeds.feedburner.com/tom-preston-werner" rel="alternate" title="Tom Preston-Werner" type="application/atom+xml" /> -->
 
-   <!-- syntax highlighting CSS -->
+  <!-- syntax highlighting CSS -->
    <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
 
-   <!-- Homepage CSS -->
-   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+  <!-- Homepage CSS -->
+  <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
 
-   <!-- Typekit -->
-   <!--<script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
-   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>-->
+  <!-- Le styles -->
+  <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet"><!-- 造成打印显示链接.. -->
+  <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="../public/css/docs.css" rel="stylesheet">
+  <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+  
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://twitter.github.com/bootstrap/assets/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Le fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../public/img/icons/icon-144.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../public/img/icons/icon-114.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../public/img/icons/icon-72.png">
+  <link rel="apple-touch-icon-precomposed" href="../public/img/icons/icon-57.png">
+  <link rel="shortcut icon" href="../public/img/icons/favicon.png">
+
+  <!-- Typekit -->
+  <!--<script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>-->
+
+  <!-- google analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-32140105-1']);
+    _gaq.push(['_setDomainName', 'pbdm.cc']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </head>
-<body>
+<body data-spy="scroll" data-target=".bs-docs-sidebar" >
 
-<!-- ClickTale Top part -->
-<!--<script type="text/javascript">
-var WRInitTime=(new Date()).getTime();
-</script>-->
-<!-- ClickTale end of Top part -->
-
-<div class="site">
-  <div class="title">
-    <a href="/">PBDm</a>
-    <a class="extra" href="/">home</a>
+  <!-- Navbar
+  ================================================== -->
+  <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+          <div class="container">
+              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="brand" href="/">{$Think.lang.name}</a>
+              <div class="nav-collapse collapse">
+                  <ul class="nav">
+                      <li <php>if($_GET["_URL_"][1]=='') echo "class=\"active\"";</php>><a href="/">{$Think.lang.home}</a></li>
+                      <li><a href="http://blog.pbdm.cc">{$Think.lang.blog}</a></li>
+                      <li <php>if($_GET["_URL_"][1]=='cv') echo "class=\"active\"";</php>><a href="/cv">{$Think.lang.cv}</a></li>
+                  </ul>
+              </div>
+              <div class="pull-right">
+                  <ul class="nav">
+                      <li><a href="?l=zh"><img src="../public/img/flags/cn.png"></a></li>
+                      <li><a href="?l=fr"><img src="../public/img/flags/fr.png"></a></li>
+                      <li><a href="?l=en"><img src="../public/img/flags/us.png"></a></li>         
+                  </ul>
+              </div>
+          </div>
+      </div>
   </div>
-  
+
   {{ content }}
-  
-  <div class="footer">
-    <div class="contact">
-      <p>
-        PBDm<br />
-        pbdm915@gmail.com
-      </p>
-    </div>
-    <div class="contact">
-      <p>
-        <a href="http://github.com/pbdm/">github.com/pbdm</a>
-      </p>
-    </div>
-   <!--  <div class="rss">
-      <a href="http://feeds.feedburner.com/">
-        <img src="/images/rss.png" alt="Subscribe to RSS Feed" />
-      </a>
-    </div> -->
-  </div>
-</div>
 
-<a href="http://github.com/pbdm"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+  <!-- Footer
+  ================================================== -->
+  <footer class="footer">
+      <div class="container">
+           <p>{$Think.lang.written} <a href="mailto:g@pbdm.cc">{$Think.lang.name}</a> © 2012 - <php>echo date("Y");</php></p>
+      </div>
+  </footer>
+  <a href="http://github.com/pbdm"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-transition.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-alert.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-modal.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-scrollspy.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tab.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tooltip.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-popover.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-button.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-carousel.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-typeahead.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-affix.js"></script>
 
+  <script src="http://twitter.github.com/bootstrap/assets/js/holder/holder.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
 
+  <script src="http://twitter.github.com/bootstrap/assets/js/application.js"></script>
 </body>
+
 </html>
