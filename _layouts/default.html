@@ -1,67 +1,60 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <title>{{ page.title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Site perso of PENG Bo">
-  <meta name="author" content="PENG Bo">
+<html lang="<?php echo $lang;?>">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="<?php echo $description;?>">
+        <meta name="author" content="<?php echo $author;?>">
+        <link rel="shortcut icon" href="/imagess/favicon.png">
 
-  <!-- Le styles -->
-  <link href="http://cdnjs.bootcss.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
-  <link href="http://www.pbdm.cc/public/css/docs.css" rel="stylesheet">
-  <link href="http://cdnjs.bootcss.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <title><?php echo $title;?></title>
 
- 
-  
-  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-  <!--[if lt IE 9]>
-    <script src="http://cdnjs.bootcss.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
-  <![endif]-->
+        <link rel="stylesheet" type="text/css" href="/css/github-7.5.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
 
-  <!-- Le fav and touch icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.pbdm.cc/public/img/icons/icon-144.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.pbdm.cc/public/img/icons/icon-114.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.pbdm.cc/public/img/icons/icon-72.png">
-  <link rel="apple-touch-icon-precomposed" href="http://www.pbdm.cc/public/img/icons/icon-57.png">
-  <link rel="shortcut icon" href="http://www.pbdm.cc/public/img/icons/favicon.png">
-</head>
-<body data-spy="scroll" data-target=".bs-docs-sidebar" >
+        <!-- <link rel="stylesheet/less" type="text/css" href="/less/override.less" /> -->
+        <!--<script src="/js/less.config.js"></script> -->
+        <!--<script src="/js/less-1.5.1.min.js"></script> -->
 
-  <!-- Navbar
-  ================================================== -->
-  <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="http://getbootstrap.com/assets/js/html5shiv.js"></script>
+          <script src="http://getbootstrap.com/assets/js/respond.min.js"></script>
+        <![endif]-->
+        <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
           <div class="container">
-              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
               </button>
-              <a class="brand" href="http://www.pbdm.cc">Ambers</a>
-              <div class="nav-collapse collapse">
-                  <ul class="nav">
-                      <li><a href="http://www.pbdm.cc">Home</a></li>
-                      <li class="active"><a href="http://blog.pbdm.cc">Blog</a></li>
-                  </ul>
-              </div>
+              <a class="navbar-brand" href="/">琥珀草</a>
+            </div>
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="http://wiki.pbdm.cc">Wiki</a></li>
+              </ul>
+            </div>
           </div>
-      </div>
-  </div>
-
-  {{ content }}
-
-  <!-- Footer
-  ================================================== -->
-  <footer class="footer">
-      <div class="container">
-           <p>This document was written by <a href="mailto:g@pbdm.cc">Amber</a> © 2012 - 2013</p>
-      </div>
-  </footer>
- 
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="http://cdnjs.bootcss.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="http://cdnjs.bootcss.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
-</body>
-
+        </nav>
+        <div class="container">
+            <div class="row">
+                {{ content }}
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                 <p class="text-muted credit"><a href="mailto:<?php echo $email;?>"><?php echo $author;?></a> © 2012 - <?php echo date("Y");?> | Powered by <a href="http://getbootstrap.com/">Bootstrap</a> &amp; <a href="http://bootswatch.com/yeti/">Yeti</a></p>
+            </div>
+        </footer>
+        <script type="text/javascript" src="/bootstrap/js/collapse.js"></script>
+        <script type="text/javascript" src="/js/highlight-7.5.min.js"></script>
+        <script>
+            hljs.initHighlightingOnLoad();
+        </script>
+    </body>
 </html>
