@@ -1,6 +1,5 @@
 markdown: rdiscount
 pygments: true
 prose:
-  rooturl: '_posts'
   siteurl: 'http://pbdm.cc/'
  
