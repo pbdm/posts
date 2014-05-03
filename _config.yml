@@ -1,5 +1,6 @@
 markdown: rdiscount
 pygments: true
+encoding: utf-8
 prose:
   siteurl: 'http://pbdm.cc/'
  
