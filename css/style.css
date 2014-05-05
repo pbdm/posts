@@ -81,6 +81,10 @@ nav ul li a:hover {
 	width: 25%;
 	padding: 0 15px;
 }
+#body .post-list .fixed {
+	position: fixed;
+	top: 0;
+}
 
 /*footer*/
 footer {
