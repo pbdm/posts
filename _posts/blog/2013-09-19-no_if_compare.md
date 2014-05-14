@@ -2,6 +2,7 @@
 layout: post
 title: 不用if比较两个数大小
 date: 2013-09-19
+category: blog
 published: true
 ---
 

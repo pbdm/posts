@@ -2,6 +2,7 @@
 layout: post
 title: Short Resume
 date: 2013-10-08
+category: blog
 published: true
 ---
 

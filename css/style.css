@@ -74,13 +74,13 @@ nav ul li a:hover {
 	line-height: 25px;
 }
 #body .post {
-	float: left;
+	float: right;
 	width: 75%;
 	padding: 0 15px;
 
 }
 #body .post-list {
-	float: right;
+	float: left;
 	width: 25%;
 	padding: 0 15px;
 }
