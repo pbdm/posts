@@ -6,6 +6,8 @@
 }
 body {
 	font-family: Monaco, 'Courier New', monospace;
+	line-height: 25px;
+	font-size: 15px;
 }
 .container {
 	width: 1170px;
@@ -31,18 +33,20 @@ h2 {
 	margin: 20px 0;
 
 }
-p {
-	line-height: 25px;
-}
-pre {
-	padding: 10px;
+pre {	
 	margin: 0 0 10.5px;
 	font-size: 14px;
 	line-height: 20px;
 	word-break: break-all;
 	word-wrap: break-word;
 	background-color: #f5f5f5;
-	border: 1px solid #ccc;
+}
+code {
+	margin: 0;
+	border: 1px solid #ddd;
+	background-color: #f8f8f8;
+	border-radius: 3px;
+	padding: 0;
 }
 blockquote {
 	border-left: 1px solid #ddd;
