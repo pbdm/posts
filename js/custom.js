@@ -1,7 +1,7 @@
 "use strict";
 (function($) {
 	//Affix for posts list sidebar
-	if ($("#blog").length > 0) {
+	
 		var posts_top = $(".post-list").offset().top;
 		var posts = $(".post-list-container");
 		var posts_width = posts.width();
@@ -14,5 +14,5 @@
 				posts.removeAttr("style");
 			}
 		}
-	}
+	
 }(jQuery));
