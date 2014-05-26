@@ -2,7 +2,7 @@
 (function($) {
 	//Affix for posts list sidebar
 	if ($(".post").length > 0) {
-		var posts_top = $(".post-list").offset().top;
+		var posts_top = $(".post-list").offset().top - 10;
 		var posts = $(".post-list-container");
 		var posts_width = posts.width();
 		window.onscroll = function(){

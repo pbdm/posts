@@ -5,9 +5,12 @@
 	box-sizing: border-box;
 }
 body {
-	font-family: Monaco, 'Courier New', monospace;
-	line-height: 25px;
-	font-size: 15px;
+	font-family: Helvetica, Arial, sans-serif;
+	line-height: 18px;
+	font-size: 12px;
+}
+ol, ul {
+	list-style: disc;
 }
 .container {
 	width: 1170px;
@@ -22,21 +25,27 @@ body {
 a {
 	text-decoration: none;
 }
+a:hover {
+	color: #fff;
+	background: #37a;
+}
 h1 {
-	font-size: 32px;
-	line-height: 32px;
-	margin: 20px 0;
+	font-size: 25px;
+	line-height: 25px;
+	font-weight: bold;
+	color: #494949;
+	margin: 0 0 15px 0;
+	padding: 0 0 15px 0;
+	text-transform: uppercase;
 }
 h2 {
-	font-size: 24px;
-	line-height: 24px;
+	font-size: 20px;
+	line-height: 20px;
 	margin: 20px 0;
 
 }
 pre {	
 	margin: 0 0 10.5px;
-	font-size: 14px;
-	line-height: 20px;
 	word-break: break-all;
 	word-wrap: break-word;
 	background-color: #f5f5f5;
@@ -58,48 +67,61 @@ blockquote {
 	text-align: center;
 }
 nav {
-	padding: 10px 0;
-	background-color: #557d0d;
+	padding: 0;
+	background-color: #545652;
 	border-bottom: 1px solid #000;
 	min-width: 1170px;
+	line-height: 28px;
+	margin-bottom: 50px;
 }
 nav ul li {
 	display: inline;
 }
-nav ul li a {
-	padding: 15px;
-	color: #fff;
-}
-nav ul li a:hover {
-	background-color: #406903;
-}
+	nav ul li a {
+		padding: 0 12px;
+		color: #d5d5d5;
+	}
+	nav ul li a:hover {
+		color: #fff;
+		background-color: #545652;
+	}
 
 /*body*/
 #body ul {
 	line-height: 25px;
 }
 #body .post {
-	float: right;
+	float: left;
 	width: 75%;
 	padding: 0 15px;
-
 }
+ #body .post .data {
+ 	color: #aaa;;
+ }
 #body .post-list {
-	float: left;
+	float: right;
 	width: 25%;
 	padding: 0 15px;
 }
-#body .post-list .fixed {
-	position: fixed;
-	top: 0;
-}
-
+	#body .post-list .fixed {
+		position: fixed;
+		top: 10px;
+	}
+	#body .post-list .post-list-container {
+		background: #f9f9f9;
+	}
+		#body .post-list .post-list-container ul {
+			font-size: 14px;
+			list-style: disc inside;
+			color: #cedcd9;
+			padding: 10px;
+		}
 /*footer*/
 footer {
 	text-align: center;
-	background-color: #f5f5f5;
-	padding: 30px 0;
-	margin-top: 70px;
-	border-top: 1px solid #e5e5e5;
+	color: #999;
+	padding-top: 6px;
+	margin: 40px 0 20px 0;
+	border-top: 1px dashed #ddd;
 	min-width: 1170px;
 }
