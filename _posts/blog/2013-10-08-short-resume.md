@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: blog
 title: Short Resume
 date: 2013-10-08
 category: blog
