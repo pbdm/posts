@@ -136,15 +136,15 @@ footer {
 
 /*head_animation*/
 #head-animation {
-	width: 800px;
-	height: 600px;
+	width: 400px;
+	height: 300px;
 	margin: 0 auto;
 	background-color: black;
 }
 	#head-animation > div {
 		width: 100%;
 		height: 100%;
-		background-size: 800px 600px;
+		background-size: 400px 300px;
 	}
 	#head-animation > div.top-left {
 		background-image: url("/images/head/top-left.jpg");
