@@ -1,10 +1,22 @@
 ---
 layout: default
 ---
-
+<div id="head-animation">
+  <div class="top-left"></div>
+  <div class="top-center"></div>
+  <div class="top-right"></div>
+  <div class="center-left"></div>
+  <div class="center-center"></div>
+  <div class="center-right"></div>
+  <div class="bottom-left"></div>
+  <div class="bottom-center"></div>
+  <div class="bottom-right"></div>
+</div>
 <ul>
 {% for post in site.categories.blog %}
   <li><a href="{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
 </ul>
+<!-- 
+<li class="layer layer2 noie" data-depth="0.60" style="position: relative; display: block; height: 100%; width: 100%; left: 0px; top: 0px; -webkit-transform: translate3d(-4.940021810248646%, 0.3340703517587922%, 0px); -webkit-transform-style: preserve-3d; -webkit-backface-visibility: hidden;"><img src="./images/parallax/3.png"></li> -->
 
