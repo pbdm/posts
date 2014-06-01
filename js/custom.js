@@ -22,10 +22,10 @@
 		});
 	}
 	var headAnimation = $("#head-animation")[0];
-	var headTop = headAnimation.clientHeight/3+headAnimation.offsetTop;
-	var headBottom = headAnimation.clientHeight*2/3+headAnimation.offsetTop;
-	var headLeft = headAnimation.clientWidth/3+headAnimation.offsetLeft;
-	var headRight = headAnimation.clientWidth*2/3+headAnimation.offsetLeft;
+	var headTop = headAnimation.offsetTop;
+	var headBottom = headAnimation.clientHeight+headAnimation.offsetTop;
+	var headLeft = headAnimation.offsetLeft;
+	var headRight = headAnimation.clientWidth+headAnimation.offsetLeft;
 	var myX,myY;
 	hideHead();
 	$("#head-animation .center-center").show();
