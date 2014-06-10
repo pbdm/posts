@@ -2,9 +2,10 @@
 (function($) {
 	//Affix for posts list sidebar
 	if ($(".post").length > 0) {
-		var postsTop = $(".post-list").offset().top - 10;
-		var $posts = $(".post-list-container");
-		var postsWidth = $posts.width();
+		var 
+			postsTop = $(".post-list").offset().top - 10,
+			$posts = $(".post-list-container"),
+			postsWidth = $posts.width();
 		window.onscroll = function(){
 			if ($(window).scrollTop() > postsTop) {
 				$posts.addClass("fixed")
@@ -21,16 +22,18 @@
 			$(this).hide();
 		});
 	}
-	var $headAnimations = $("#head-animation");
-	var $headAnimation = $headAnimations[0];
-	var headTop = $headAnimation.offsetTop;
-	var headMid = $headAnimation.offsetTop+$headAnimation.clientHeight/2;
-	var headBottom = $headAnimation.clientHeight+$headAnimation.offsetTop;
-	var headLeft = $headAnimation.offsetLeft;
-	var headCenter = $headAnimation.offsetLeft+$headAnimation.clientWidth/2;
-	var headRight = $headAnimation.clientWidth+$headAnimation.offsetLeft;
-	var myX,myY;
-	var Ratio = -50;
+	var 
+		$headAnimations = $("#head-animation"),
+		$headAnimation = $headAnimations[0],
+		headTop = $headAnimation.offsetTop,
+		headMid = $headAnimation.offsetTop+$headAnimation.clientHeight/2,
+		headBottom = $headAnimation.clientHeight+$headAnimation.offsetTop,
+		headLeft = $headAnimation.offsetLeft,
+		headCenter = $headAnimation.offsetLeft+$headAnimation.clientWidth/2,
+		headRight = $headAnimation.clientWidth+$headAnimation.offsetLeft,
+		myX,
+		myY,
+		Ratio = -50;
 	hideHead();
 	$("#head-animation .center-center").show();
 	$(document).mousemove(function(e){
