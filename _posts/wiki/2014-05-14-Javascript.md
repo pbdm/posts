@@ -50,3 +50,6 @@ category: wiki
 
 ##[闭包(Closure)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Closures)
 内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。
+
+##`splice()` 方法与 `slice()` 方法的作用是不同的，splice() 方法会直接对数组进行修改
+`splice()` 返回被删除元素 
