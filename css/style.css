@@ -76,7 +76,9 @@ blockquote {
 	border-left: 1px solid #ddd;
 	padding: 10.5px 21px;
 }
-
+.myPointer {
+	cursor: pointer;
+}
 /*nav*/
 #old-browser {
 	text-align: center;
@@ -88,17 +90,22 @@ nav {
 	line-height: 28px;
 	margin-bottom: 50px;
 }
-nav ul li {
-	display: inline;
-}
-	nav ul li a {
-		padding: 0 12px;
+	nav .nav-info {
+		float: right;
 		color: #d5d5d5;
+		padding: 0 12px;
 	}
-	nav ul li a:hover {
-		color: #fff;
-		background-color: #545652;
+	nav ul li {
+		display: inline;
 	}
+		nav ul li a {
+			padding: 0 12px;
+			color: #d5d5d5;
+		}
+		nav ul li a:hover {
+			color: #fff;
+			background-color: #545652;
+		}
 
 /*body*/
 #body #index ul{
