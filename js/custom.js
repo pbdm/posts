@@ -1,21 +1,31 @@
 "use strict";
-(function($) {
-	//Affix for posts list sidebar
-	var postList = document.querySelector(".post-list");
-	if (document.querySelector(".post") && postList.clientHeight < window.innerHeight) {
-		var 
-			posts = document.querySelector(".post-list-container"),
-			postsWidth = posts.clientWidth;
-		window.onscroll = function(){
+/**
+ * [affix description]
+ * @param  {[type]} postList [description]
+ * @param  {[type]} posts    [description]
+ * @return {[type]}          [description]
+ */
+var affix = function(postList, postContainer) {
+	if (postList.clientHeight < window.innerHeight) {
+		var postsWidth = postContainer.clientWidth;
+		window.onscroll = function() {
 			if (document.body.scrollTop > postList.offsetTop) {
-				posts.classList.add("fixed");
-				posts.style.width = postsWidth + 'px';
+				postContainer.classList.add("fixed");
+				postContainer.style.width = postsWidth + 'px';
 			} else {
-				posts.classList.remove("fixed");
-				posts.style.width = 'auto';
+				postContainer.classList.remove("fixed");
+				postContainer.style.width = 'auto';
 			}
 		}
 	}
+}
+
+document.getElementsByClassName("post") ?
+	affix(document.getElementsByClassName("post-list")[0], 
+		document.getElementsByClassName("post-list-container")[0])
+	:'';
+	
+(function($) {
 	//head-animation
 	$("#head-animation").headAnimation({
 		'ratio': -50
