@@ -129,7 +129,7 @@ nav {
 }
 	#body .post-list .fixed {
 		position: fixed;
-		top: 10px;
+		top: 0px;
 	}
 	#body .post-list .post-list-container {
 		background: #f9f9f9;

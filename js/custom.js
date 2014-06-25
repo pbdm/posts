@@ -1,18 +1,18 @@
 "use strict";
 (function($) {
 	//Affix for posts list sidebar
-	if ($(".post").length > 0) {
+	var postList = document.querySelector(".post-list");
+	if (document.querySelector(".post") && postList.clientHeight < window.innerHeight) {
 		var 
-			postsTop = $(".post-list").offset().top - 10,
-			$posts = $(".post-list-container"),
-			postsWidth = $posts.width();
+			posts = document.querySelector(".post-list-container"),
+			postsWidth = posts.clientWidth;
 		window.onscroll = function(){
-			if ($(window).scrollTop() > postsTop) {
-				$posts.addClass("fixed")
-				$posts.css("width",postsWidth);
+			if (document.body.scrollTop > postList.offsetTop) {
+				posts.classList.add("fixed");
+				posts.style.width = postsWidth + 'px';
 			} else {
-				$posts.removeClass("fixed")
-				$posts.removeAttr("style");
+				posts.classList.remove("fixed");
+				posts.style.width = 'auto';
 			}
 		}
 	}
