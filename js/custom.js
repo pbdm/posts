@@ -20,11 +20,11 @@ var affix = function(postList, postContainer) {
 	}
 }
 
-document.getElementsByClassName("post") ?
+document.getElementsByClassName("post").length > 0 ?
 	affix(document.getElementsByClassName("post-list")[0], 
 		document.getElementsByClassName("post-list-container")[0])
 	:'';
-	
+
 (function($) {
 	//head-animation
 	$("#head-animation").headAnimation({
