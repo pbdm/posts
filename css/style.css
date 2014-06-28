@@ -188,3 +188,16 @@ footer {
 		background-image: url("/images/head/bottom-right.jpg");
 	}
 
+/*football*/
+#football {
+	text-align: center;
+}
+	#football .playgroundWapper {
+		background: green;
+		width: 440px;
+		margin: 0 auto;
+	}
+	#football .playground {
+		background: green;
+		padding: 10px 0;
+	}
