@@ -163,17 +163,17 @@ var
     cf:  '',
   },
   myPlayers = players;
-  myPlayers.gk  = '唐骞'
-  myPlayers.lcb = '蒂亚戈席尔瓦'
-  myPlayers.rcb = '拉莫斯'
-  myPlayers.lb  = '科恩特朗'
-  myPlayers.rb  = '拉姆'
-  myPlayers.rdm = '亚亚图雷'
+  myPlayers.gk  = '塞萨尔'
+  myPlayers.lcb = '萨穆埃尔'
+  myPlayers.rcb = '卢西奥'
+  myPlayers.lb  = '齐沃'
+  myPlayers.rb  = '麦孔'
+  myPlayers.rdm = '萨内蒂'
   myPlayers.ldm = '坎比亚索'
   myPlayers.cam = '斯内德'
-  myPlayers.lwf = '梅西'
-  myPlayers.rwf = 'C罗'
-  myPlayers.cf  = '伊布'
+  myPlayers.lwf = '埃托奥'
+  myPlayers.rwf = '潘德夫'
+  myPlayers.cf  = '米利托'
  
 drawPlayGround(meazza, m, myPlayers);
 
