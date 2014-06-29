@@ -142,6 +142,9 @@ nav ul li a:hover {
   color: #cedcd9;
   padding: 10px;
 }
+#body #doubanMovie {
+  display: none;
+}
 /*footer*/
 footer {
   text-align: center;
