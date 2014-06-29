@@ -2,7 +2,7 @@
   "use strict";
   function hideHead(arg) {
     arg.children("div").each(function() {
-      $(this).hide();
+      $(this).css("z-index", -1)
     });
   }
   var methods = {
@@ -22,8 +22,6 @@
             'ratio': 50
           },
           settings = $.extend({}, defaults, options);
-        hideHead($this);
-        $this.children(".center-center").show();
         $(document).mousemove(function(e) {
           myX = (e.clientX - headCenter) / settings.ratio;
           myY = (e.clientY - headMid) / settings.ratio;
@@ -37,27 +35,27 @@
           hideHead($this);
           if (e.clientY < headTop) {
             if (e.clientX < headLeft) {
-              $this.children(".top-left").show();
+              $this.children(".top-left").css("z-index", 0);
             } else if (e.clientX < headRight) {
-              $this.children(".top-center").show();
+              $this.children(".top-center").css("z-index", 0);
             } else {
-              $this.children(".top-right").show();
+              $this.children(".top-right").css("z-index", 0);
             }
           } else if (e.clientY < headBottom) {
             if (e.clientX < headLeft) {
-              $this.children(".center-left").show();
+              $this.children(".center-left").css("z-index", 0);
             } else if (e.clientX < headRight) {
-              $this.children(".center-center").show();
+              $this.children(".center-center").css("z-index", 0);
             } else {
-              $this.children(".center-right").show();
+              $this.children(".center-right").css("z-index", 0);
             }
           } else {
             if (e.clientX < headLeft) {
-              $this.children(".bottom-left").show();
+              $this.children(".bottom-left").css("z-index", 0);
             } else if (e.clientX < headRight) {
-              $this.children(".bottom-center").show();
+              $this.children(".bottom-center").css("z-index", 0);
             } else {
-              $this.children(".bottom-right").show();
+              $this.children(".bottom-right").css("z-index", 0);
             }
           }
         });
