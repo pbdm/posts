@@ -5,7 +5,7 @@ category: wiki
 ---
 
 * [jsPerf - JavaScript performance playground](http://jsperf.com)
-
+* [NATIVE EQUIVALENTS OF JQUERY FUNCTIONS](http://www.leebrimelow.com/native-methods-jQuery/)
 ## 删除元素
 如需删除 HTML 元素，必须首先获得该元素的父元素
 
