@@ -21,8 +21,8 @@ var affix = function(postList, postContainer) {
 }
 
 document.getElementsByClassName("post").length > 0 ?
-	affix(document.getElementsByClassName("post-list")[0], 
-		document.getElementsByClassName("post-list-container")[0])
+	affix(document.getElementsByClassName("list")[0], 
+		document.getElementsByClassName("list-container")[0])
 	:'';
 
 (function($) {
@@ -30,4 +30,5 @@ document.getElementsByClassName("post").length > 0 ?
 	$("#head-animation").headAnimation({
 		'ratio': -50
 	});
+	$(".post").toc();
 }(jQuery));
