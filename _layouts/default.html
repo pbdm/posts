@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="zh-cn" ng-app="amber">
-  {% include header.html %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site perso of PENG Bo">
+    <meta name="author" content="PENG Bo">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <title>琥珀草</title>      
+    <link rel="stylesheet" type="text/css" href="//cdn.staticfile.org/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.staticfile.org/highlight.js/7.5/styles/github.min.css">
+    <link rel="stylesheet/less" type="text/css" href="/css/style.less">
+    <script type="text/javascript" src="http://cdn.staticfile.org/less.js/1.7.3/less.min.js"></script>
+  </head>
   <body>
-    {% include nav.html %}
+    <!--[if lt IE 9]>
+      <div id="old-browser">
+        您的浏览器版本很旧很旧，为了更好的访问网站，请升级至新版浏览器。
+        <a target="_blank" href="http://browsehappy.com">立即升级</a>
+      </div>
+    <![endif]-->
+    <nav>
+      <div class="nav-info" ng-hide="dialogIsHidden" ng-controller="dateCtrl" my-current-time on-close="hideDialog()">
+      </div>
+      <ul>
+        <li><a class="navbar-brand" href="/">琥珀草</a></li>
+        <li><a href="/wiki/Links">Wiki</a></li>
+        <li><a href="/football">Football</a></li>
+      </ul>
+    </nav>
     <div id="body">
       {{ content }}
     </div>
-    {% include footer.html %}
+    <footer>
+      <div class="container">
+        <p><a href="mailto:pbdm915@gmail.com">PENG Bo</a> © 2012 - 2014 | Powered by <a href="https://pages.github.com/">Github Pages</a> &amp; <a href="http://jekyllrb.com/">Jekyll</a></p>
+      </div>
+    </footer>
+    <script type="text/javascript" src="//cdn.staticfile.org/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.staticfile.org/angular.js/1.2.18/angular.min.js"></script>
+    <script type="text/javascript" src="//cdn.staticfile.﻿﻿﻿﻿org﻿﻿﻿﻿/angular.js/1.2.18/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="//cdn.staticfile.org/highlight.js/7.5/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script type="text/javascript" src="/js/jquery.headanimation.js"></script>
+    <script type="text/javascript" src="/js/jquery.toc.js"></script>
+    <script type="text/javascript" src="/js/football.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
   </body>
 </html>
 
