@@ -23,6 +23,8 @@
         scrollTop.push($(this).offset().top);
       });
       $(".list-container").prepend($ul);
+
+      //auto scroll
       length = scrollTop.length;
       $(window).scroll(function(){
         top = $(window).scrollTop() + 50;
