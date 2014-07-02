@@ -10,11 +10,13 @@ var affix = function(postList, postContainer) {
 		var postsWidth = postContainer.clientWidth;
 		window.onscroll = function() {
 			if (document.body.scrollTop > postList.offsetTop) {
-				postContainer.classList.add("fixed");
+				postContainer.style.position = "fixed";
+				postContainer.style.top = "0px";
 				postContainer.style.width = postsWidth + 'px';
 			} else {
-				postContainer.classList.remove("fixed");
+				postContainer.style.position = "static";
 				postContainer.style.width = 'auto';
+				postContainer.style.top = 'auto';
 			}
 		}
 	}
