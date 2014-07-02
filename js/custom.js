@@ -6,10 +6,14 @@
  * @return {[type]}          [description]
  */
 var affix = function(postList, postContainer) {
+	var 
+		postsWidth,
+		scrollTop;
 	if (postList.clientHeight < window.innerHeight) {
-		var postsWidth = postContainer.clientWidth;
+		postsWidth = postContainer.clientWidth;
 		window.onscroll = function() {
-			if (document.body.scrollTop > postList.offsetTop) {
+			scrollTop = document.body.scrollTop || document.documentElement.scrollTop //for IE...
+			if (scrollTop > postList.offsetTop) {
 				postContainer.style.position = "fixed";
 				postContainer.style.top = "0px";
 				postContainer.style.width = postsWidth + 'px';
