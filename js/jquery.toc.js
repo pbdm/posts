@@ -11,6 +11,7 @@
         scrollTop = [],
         top,
         index,
+        length,
         $ul = $('<ul/>').attr("id", "toc");
 
       this.find(":header").each(function(){       
