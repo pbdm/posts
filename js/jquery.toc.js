@@ -13,7 +13,7 @@
         index,
         $ul = $('<ul/>').attr("id", "toc");
 
-      this.children(":header").each(function(){       
+      this.find(":header").each(function(){       
         $t = $(this).prop("tagName").toLowerCase();
         $c = $(this).text();
         $(this).attr("id",$c);
