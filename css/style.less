@@ -1,4 +1,13 @@
-/*global*/
+/* Mixins */
+.tran(@value: 0.2s) {
+  transition: all @value; 
+  -webkit-transition: all @value; 
+  -moz-transition: all @value; 
+  -o-transition: all @value; 
+  -ms-transition: all @value;
+}
+
+/* global */
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -29,11 +38,7 @@ td {
 }
 a {
   text-decoration: none;
-  transition: all 0.2s; 
-  -webkit-transition: all 0.2s; 
-  -moz-transition: all 0.2s; 
-  -o-transition: all 0.2s; 
-  -ms-transition: all 0.2s;
+  .tran;
   &:hover {
     color: #fff;
     background: #37a;
@@ -89,13 +94,14 @@ blockquote {
 .myPointer {
   cursor: pointer;
 }
-/*nav*/
+/* nav */
 #old-browser {
   text-align: center;
 }
 nav {
   padding: 0;
   line-height: 28px;
+  .tran;
   .wrapper {
     background-color: #545652;
     width: 100%;
@@ -120,14 +126,57 @@ nav {
   }
 }
 
-/*body*/
+/* body */
 #body {
   padding-top: 50px;
+  ul {
+    line-height: 25px;
+  }
   #index {
     font-size: 16px;
     ul {
       text-align: center;
       list-style: none;
+    }
+    /*head_animation*/
+    #head-animation {
+      width: 400px;
+      height: 300px;
+      margin: 0 auto;
+      position: relative;
+      > div {
+        width: 100%;
+        height: 100%;
+        background-size: 400px 300px;
+        position: absolute;
+        &.top-left {
+          background-image: url("http://pbdm.qiniudn.com/top-left.jpg");
+        }
+        &.top-center {
+          background-image: url("http://pbdm.qiniudn.com/top-center.jpg");
+        }
+        &.top-right {
+          background-image: url("http://pbdm.qiniudn.com/top-right.jpg");
+        }
+        &.center-left {
+          background-image: url("http://pbdm.qiniudn.com/center-left.jpg");
+        }
+        &.center-center {
+          background-image: url("http://pbdm.qiniudn.com/center-center.jpg");
+        }
+        &.center-right {
+          background-image: url("http://pbdm.qiniudn.com/center-right.jpg");
+        }
+        &.bottom-left {
+          background-image: url("http://pbdm.qiniudn.com/bottom-left.jpg");
+        }
+        &.bottom-center {
+          background-image: url("http://pbdm.qiniudn.com/bottom-center.jpg");
+        }
+        &.bottom-right {
+          background-image: url("http://pbdm.qiniudn.com/bottom-right.jpg");
+        }
+      }
     }
   }
   #blog {
@@ -160,9 +209,6 @@ nav {
       }
       padding-bottom: 20px;
     }
-  }
-  ul {
-    line-height: 25px;
   }
   .post {
     float: left;
@@ -200,77 +246,31 @@ nav {
       }
     }
   }
-  #doubanMovie {
-    display: none;
+  /*football*/
+  #football {
+    text-align: center;
+    .playgroundWapper {
+      background: green;
+      width: 440px;
+      margin: 0 auto 30px auto;
+    }
+    .playground {
+      background: green;
+      padding: 10px 0;
+    }
+  }
+  /* cv */
+  #cv {
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 
-/*footer*/
+/* footer */
 footer {
   text-align: center;
   color: #999;
   padding-top: 6px;
   margin: 40px 0 20px 0;
   border-top: 1px dashed #ddd;
-}
-
-/*head_animation*/
-#head-animation {
-  width: 400px;
-  height: 300px;
-  margin: 0 auto;
-  position: relative;
-  > div {
-    width: 100%;
-    height: 100%;
-    background-size: 400px 300px;
-    position: absolute;
-    &.top-left {
-      background-image: url("http://pbdm.qiniudn.com/top-left.jpg");
-    }
-    &.top-center {
-      background-image: url("http://pbdm.qiniudn.com/top-center.jpg");
-    }
-    &.top-right {
-      background-image: url("http://pbdm.qiniudn.com/top-right.jpg");
-    }
-    &.center-left {
-      background-image: url("http://pbdm.qiniudn.com/center-left.jpg");
-    }
-    &.center-center {
-      background-image: url("http://pbdm.qiniudn.com/center-center.jpg");
-    }
-    &.center-right {
-      background-image: url("http://pbdm.qiniudn.com/center-right.jpg");
-    }
-    &.bottom-left {
-      background-image: url("http://pbdm.qiniudn.com/bottom-left.jpg");
-    }
-    &.bottom-center {
-      background-image: url("http://pbdm.qiniudn.com/bottom-center.jpg");
-    }
-    &.bottom-right {
-      background-image: url("http://pbdm.qiniudn.com/bottom-right.jpg");
-    }
-  }
-}
- 
-/*football*/
-#football {
-  text-align: center;
-  .playgroundWapper {
-    background: green;
-    width: 440px;
-    margin: 0 auto 30px auto;
-  }
-  .playground {
-    background: green;
-    padding: 10px 0;
-  }
-}
-
-// cv
-#cv {
-  font-size: 16px;
-  line-height: 20px;
 }
