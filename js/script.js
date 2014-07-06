@@ -30,7 +30,7 @@ amberApp.directive('myCurrentTime', function($interval, dateFilter) {
 });
 
 // football
-amberApp.directive('playground',  function($http) {
+amberApp.directive('playground', function($http) {
   var i,
     parent = document.getElementsByClassName("team")[0];
   function link(scope, element, attres) { 
