@@ -51,3 +51,5 @@ category: wiki
 
 ##`splice()` 方法与 `slice()` 方法的作用是不同的，splice() 方法会直接对数组进行修改
 `splice()` 返回被删除元素 
+
+## [JavaScript获取DOM元素位置和尺寸大小](http://www.cnblogs.com/dolphinX/archive/2012/11/19/2777756.html)

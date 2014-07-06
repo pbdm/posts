@@ -95,10 +95,13 @@ blockquote {
 }
 nav {
   padding: 0;
-  background-color: #545652;
-  border-bottom: 1px solid #000;
   line-height: 28px;
-  margin-bottom: 50px;
+  z-index: 1;
+  .wrapper {
+    background-color: #545652;
+    width: 100%;
+    border-bottom: 1px solid #000;
+  }
   .nav-info {
     float: right;
     color: #d5d5d5;
@@ -119,6 +122,7 @@ nav {
 
 /*body*/
 #body {
+  padding-top: 50px;
   #index {
     font-size: 16px;
     ul {
@@ -172,10 +176,12 @@ nav {
     float: right;
     width: 25%;
     padding: 0 15px;
+    margin-top: -50px;
     .list-container {
       background: #f9f9f9;
+      margin-top: 50px;
       #toc {
-        border-bottom: 1px solid #ddd;
+        border-top: 1px solid #ddd;
         .toc-h3 {
           padding-left: 10px;
         }
@@ -255,7 +261,7 @@ footer {
   .playgroundWapper {
     background: green;
     width: 440px;
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
   }
   .playground {
     background: green;
