@@ -133,10 +133,61 @@ nav {
     line-height: 25px;
   }
   #index {
+    margin-top: -50px;
     font-size: 16px;
     ul {
       text-align: center;
       list-style: none;
+    }
+    #slide-show {
+      height: 550px;
+      position: relative;
+      .container {
+        position: relative;
+        height: 100%;
+        .arrow {
+          position: absolute;
+          top: 50%;
+          cursor: pointer;
+          display: block;
+          &.left {
+            left: 0;
+            &:before {
+              content: '';
+              display: block;
+              border: 20px transparent solid;
+              border-right-color: #333;
+            }
+          }
+          &.right {
+            right: 0;
+            &:before {
+              content: '';
+              display: block;
+              border: 20px transparent solid;
+              border-left-color: #333;
+            }
+          }
+        }
+      }
+      .slide {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        .tran(2s);
+        &#slide-1 {
+          background-image: url("http://pbdm.qiniudn.com/psu.jpg");
+          background-color: #545652;
+          background-position: center center;
+          background-repeat: no-repeat;
+        }
+        &#slide-2 {
+          background-image: url("http://pbdm.qiniudn.com/ldw.jpg");
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-color: #545652;
+        }
+      }
     }
     /*head_animation*/
     #head-animation {
@@ -263,6 +314,24 @@ nav {
   #cv {
     font-size: 16px;
     line-height: 20px;
+  }
+  /* about me */
+  #aboutme {
+    .intro-image {
+      background-attachment: fixed;
+      height: 60vh;
+      background-size: cover;
+    }
+    #who {
+      .intro-image {
+        background-image: url("http://www.ncnews.com.cn/zt/hqhk/08hqhk/W020080620363152657439.jpg");
+      }
+    }
+    #what {
+      .intro-image {
+        background-image: url("http://pbdm.qiniudn.com/psu.jpg");
+      }
+    }
   }
 }
 

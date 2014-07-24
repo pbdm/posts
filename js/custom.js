@@ -13,4 +13,5 @@ whichBrowser().ie ? '' : navTop();
 		'ratio': -50
 	});
 	$(".post").toc();
+  $("#slide-show").slideshow();
 }(jQuery));
