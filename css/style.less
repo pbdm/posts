@@ -18,6 +18,7 @@ body {
   line-height: 18px;
   font-size: 12px;
   min-width: 1170px;
+  -webkit-font-smoothing: antialiased;
 }
 ol, ul {
   list-style: disc;
@@ -342,4 +343,22 @@ footer {
   padding-top: 6px;
   margin: 40px 0 20px 0;
   border-top: 1px dashed #ddd;
+}
+
+/* back to top */
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0;
+  text-transform: uppercase;
+  .tran(1s);
+  &:before {
+    content: '';
+    display: block;
+    border: 15px transparent solid;
+    border-bottom-color: #333;
+  }
 }

@@ -1,4 +1,3 @@
 markdown: rdiscount
-pygments: true
 encoding: utf-8
 permalink: :categories/:title

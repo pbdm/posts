@@ -28,7 +28,7 @@
       //auto scroll
       length = scrollTop.length;
       $(window).scroll(function(){
-        top = $(window).scrollTop() + 50;
+        top = $(window).scrollTop() + 200;
         for(var i=0;i<length;i++){
           if(top <= scrollTop[i]){
             index = i;
