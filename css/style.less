@@ -138,13 +138,15 @@ nav {
       text-align: center;
       list-style: none;
     }
-    #slide-show {  
-      .container {     
+    #slide-show {
+      height: 450px;
+      position: relative;
+      .container {
         position: relative;
-        margin-top: -23%;
+        height: 100%;
         .arrow {
           position: absolute;
-          top: 20%;
+          top: 45%;
           cursor: pointer;
           display: block;
           &.left {
@@ -167,23 +169,20 @@ nav {
           }
         }
       }
-      .slide-show-wrapper {
-        padding-bottom: 40%;
-        position: relative;
-        .slide {
-          height: 100%;
-          width: 100%;
-          position: absolute;
-          .tran(2s);
+      .slide {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        .tran(2s);
+        &#slide-1 {
+          background-image: url("http://pbdm.qiniudn.com/inter.jpg");        
           background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-          &#slide-1 {
-            background-image: url("http://pbdm.qiniudn.com/inter.jpg");        
-          }
-          &#slide-2 {
-            background-image: url("http://pbdm.qiniudn.com/ldw.jpg");
-          }
+          background-repeat: no-repeat;
+        }
+        &#slide-2 {
+          background-image: url("http://pbdm.qiniudn.com/ldw.jpg");
+          background-position: center center;
+          background-repeat: no-repeat;      
         }
       }
     }
@@ -191,7 +190,7 @@ nav {
     #head-animation {
       width: 400px;
       height: 300px;
-      margin: 25% auto 0 auto;
+      margin: 0 auto;
       position: relative;
       > div {
         width: 100%;
