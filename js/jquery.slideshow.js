@@ -11,7 +11,7 @@
     init: function(options) {
       var 
         $this = this,
-        $slides = $this.children(".slide"),
+        $slides = $this.find(".slide"),
         num = $slides.length,
         n = num - 1;
       $this.children(".slide").each(function() {

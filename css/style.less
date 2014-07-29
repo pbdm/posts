@@ -17,7 +17,6 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   line-height: 18px;
   font-size: 12px;
-  min-width: 1170px;
   -webkit-font-smoothing: antialiased;
 }
 ol, ul {
@@ -28,7 +27,6 @@ td {
   padding-right: 20px;
 }
 .container {
-  width: 1170px;
   margin-right: auto;
   margin-left: auto;
   &:after {
@@ -140,15 +138,13 @@ nav {
       text-align: center;
       list-style: none;
     }
-    #slide-show {
-      height: 450px;
-      position: relative;
-      .container {
+    #slide-show {  
+      .container {     
         position: relative;
-        height: 100%;
+        margin-top: -23%;
         .arrow {
           position: absolute;
-          top: 45%;
+          top: 20%;
           cursor: pointer;
           display: block;
           &.left {
@@ -171,20 +167,23 @@ nav {
           }
         }
       }
-      .slide {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        .tran(2s);
-        &#slide-1 {
-          background-image: url("http://pbdm.qiniudn.com/inter.jpg");        
+      .slide-show-wrapper {
+        padding-bottom: 40%;
+        position: relative;
+        .slide {
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          .tran(2s);
           background-position: center center;
-          background-repeat: no-repeat;
-        }
-        &#slide-2 {
-          background-image: url("http://pbdm.qiniudn.com/ldw.jpg");
-          background-position: center center;
-          background-repeat: no-repeat;      
+            background-repeat: no-repeat;
+            background-size: cover;
+          &#slide-1 {
+            background-image: url("http://pbdm.qiniudn.com/inter.jpg");        
+          }
+          &#slide-2 {
+            background-image: url("http://pbdm.qiniudn.com/ldw.jpg");
+          }
         }
       }
     }
@@ -192,7 +191,7 @@ nav {
     #head-animation {
       width: 400px;
       height: 300px;
-      margin: 0 auto;
+      margin: 25% auto 0 auto;
       position: relative;
       > div {
         width: 100%;
@@ -358,5 +357,34 @@ footer {
     display: block;
     border: 15px transparent solid;
     border-bottom-color: #333;
+  }
+}
+
+/* responsive */
+@media (min-width: 768px) {
+  .container {
+      width:750px
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+      width:970px
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+      width:1170px
+  }
+}
+@media (max-width: 767px) {
+  #body {
+    .list {
+      display: none;
+    }
+    .post {
+      width: 100%;
+    }
   }
 }
