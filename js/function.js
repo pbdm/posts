@@ -8,11 +8,16 @@ var affix = function() {
   var 
     postList = document.getElementsByClassName("list")[0],
     postContainer = document.getElementsByClassName("list-container")[0],
+    container = document.getElementsByClassName("container")[0],
     myBody = document.getElementById("body"),
     postsWidth,
     scrollTop;
   if (postList && postList.clientHeight < window.innerHeight) {
-    postsWidth = postContainer.clientWidth;
+    postsWidth = container.clientWidth * 0.25;
+    window.onresize = function(event) {
+      postsWidth = container.clientWidth * 0.25;
+      postContainer.style.width = postsWidth + 'px';
+    };
     document.addEventListener ('scroll',function() {
       scrollTop = document.body.scrollTop || document.documentElement.scrollTop //for IE,firefox..
       if (scrollTop > postList.offsetTop) {
