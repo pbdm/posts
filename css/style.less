@@ -100,12 +100,13 @@ blockquote {
 nav {
   padding: 0;
   line-height: 28px;
-  .tran;
+  // .tran;
   .wrapper {
     background-color: #545652;
     width: 100%;
     border-bottom: 1px solid #000;
     z-index: 1;
+    position: fixed;
     .nav-info {
       float: right;
       color: #d5d5d5;
@@ -127,12 +128,26 @@ nav {
 
 /* body */
 #body {
-  padding-top: 50px;
+  padding-top: 29px;
   ul {
     line-height: 25px;
   }
+  #header {
+    height: 75px;
+    background-color: #edf4ed;
+    .logo {
+      color: #072;
+      font-size: 25px;
+      line-height: 75px;
+      font-weight: bolder;
+      padding: 0 4%;
+      &:hover {
+        background: none;
+      }
+    }
+    margin-bottom: 20px;
+  }
   #index {
-    margin-top: -50px;
     font-size: 16px;
     ul {
       text-align: center;
@@ -261,7 +276,7 @@ nav {
   .post {
     float: left;
     width: 75%;
-    padding: 0 15px;
+    padding: 0 2%;
     .data {
       color: #aaa;
     }
@@ -269,7 +284,6 @@ nav {
   .list {
     float: right;
     width: 25%;
-    padding: 0 15px;
     margin-top: -50px;
     .list-container {
       background: #f9f9f9;
@@ -342,12 +356,6 @@ footer {
   .row {
     float: left;
     width: 50%;
-    &.links {
-      text-align: left;
-    }
-    &.social {
-      text-align: right;
-    }
   }
 }
 
@@ -388,9 +396,15 @@ footer {
   }
 }
 @media (max-width: 767px) {
+  nav {
+    .wrapper {
+      position: static;
+    }
+  }
   #body {
+    padding-top: 0;
     .list {
-      display: none;
+      width: 100%;
     }
     .post {
       width: 100%;

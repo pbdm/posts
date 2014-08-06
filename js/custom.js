@@ -7,13 +7,13 @@ var scrollEventType;
 affix();
 
 // navtop
-whichBrowser().ie ? '' : navTop();
+// whichBrowser().ie ? '' : navTop();
 
 (function($) {
 	// head-animation
-	$("#head-animation").headAnimation({
-		'ratio': -50
-	});
+	// $("#head-animation").headAnimation({
+	// 	'ratio': -50
+	// });
 
   // toc
 	$(".post").toc();

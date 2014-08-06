@@ -15,17 +15,30 @@ var affix = function() {
   if (postList && postList.clientHeight < window.innerHeight) {
     postsWidth = container.clientWidth * 0.25;
     window.onresize = function(event) {
-      postsWidth = container.clientWidth * 0.25;
-      postContainer.style.width = postsWidth + 'px';
-    };
-    document.addEventListener ('scroll',function() {
-      scrollTop = document.body.scrollTop || document.documentElement.scrollTop //for IE,firefox..
-      if (scrollTop > postList.offsetTop) {
-        postContainer.style.position = "fixed";
-        postContainer.style.top = "0px";
+      if (window.innerWidth > 767) {
+        scrollTop = document.body.scrollTop || document.documentElement.scrollTop //for IE,firefox..
+        postsWidth = container.clientWidth * 0.25;
         postContainer.style.width = postsWidth + 'px';
+        if (scrollTop > postList.offsetTop) {
+          postContainer.style.position = "fixed";
+          postContainer.style.top = "0px";
+        }
       } else {
         postContainer.style.position = "static";
+        postsWidth = container.clientWidth;
+        postContainer.style.width = postsWidth + 'px';
+      }
+    };
+    document.addEventListener ('scroll',function() {
+      if (window.innerWidth > 767) {
+        scrollTop = document.body.scrollTop || document.documentElement.scrollTop //for IE,firefox..
+        if (scrollTop > postList.offsetTop) {
+          postContainer.style.position = "fixed";
+          postContainer.style.top = "0px";
+          postContainer.style.width = postsWidth + 'px';
+        } else {
+          postContainer.style.position = "static";
+        }
       }
     });
   }
