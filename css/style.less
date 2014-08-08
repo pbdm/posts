@@ -29,6 +29,7 @@ td {
 .container {
   margin-right: auto;
   margin-left: auto;
+  padding: 0 15px;
   &:after {
     clear: both;
     display: table;
@@ -145,7 +146,6 @@ nav {
         background: none;
       }
     }
-    margin-bottom: 20px;
   }
   #index {
     font-size: 16px;
@@ -328,19 +328,42 @@ nav {
   }
   /* about me */
   #aboutme {
-    .intro-image {
-      background-attachment: fixed;
-      height: 60vh;
-      background-size: cover;
-    }
-    #who {
-      .intro-image {
-        background-image: url("http://www.ncnews.com.cn/zt/hqhk/08hqhk/W020080620363152657439.jpg");
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      font-size: 20px;
+      line-height: 20px;
+      h2 {
+        line-height: 40px;
+        font-size: 40px;
+        box-shadow: -5px 5px 5px #000;
+        float: left;
+        margin-top: 600px;
+        background-color: rgba(255,255,255,0.8);
+        padding: 10px;
       }
-    }
-    #what {
+      h3 {
+        line-height: 30px;
+        font-size: 30px;
+      }
       .intro-image {
-        background-image: url("http://pbdm.qiniudn.com/psu.jpg");
+        background-attachment: fixed;
+        height: 723px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        margin-bottom: 20px;
+      }
+      #who {
+        .intro-image {
+          background-image: url("http://pbdm.qiniudn.com/nc0.jpg");
+        }
+      }
+      #inter {
+        margin-top: 30px;
+        .intro-image {
+          background-image: url("http://pbdm.qiniudn.com/interO.jpg");
+        }
       }
     }
   }
@@ -405,6 +428,9 @@ footer {
     padding-top: 0;
     .list {
       width: 100%;
+      #toc {
+        display: none;
+      }
     }
     .post {
       width: 100%;
