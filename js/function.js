@@ -195,3 +195,14 @@ var drawPlayGround = function (parent, p, m, players) {
   ctx.fillText(players.lf  || '', (p.w / 4) * m, p.l * m * 1 / 7);
   ctx.fillText(players.rf  || '', (p.w / 4 * 3) * m, p.l * m * 1 / 7);
 };
+
+var gravatar = function ( profile ) {
+  document.getElementsByClassName("accounts_weibo")[0].setAttribute('href',profile.entry[0].urls[1].value);
+  document.getElementsByClassName("accounts_twitter")[0].setAttribute('href',profile.entry[0].accounts[2].url);
+  document.getElementsByClassName("accounts_facebook")[0].setAttribute('href',profile.entry[0].accounts[0].url);
+  document.getElementsByClassName("accounts_google")[0].setAttribute('href',profile.entry[0].accounts[1].url);
+  document.getElementsByClassName("accounts_linkedin")[0].setAttribute('href',profile.entry[0].accounts[3].url);
+  document.getElementsByClassName("email")[0].setAttribute('href',"mailto:" + profile.entry[0].emails[0].value);
+  document.getElementsByClassName("fn")[0].setAttribute('href',profile.entry[0].profileUrl);
+  document.getElementsByClassName("fn")[0].innerHTML = profile.entry[0].name.givenName + ' ' + profile.entry[0].name.familyName;
+}

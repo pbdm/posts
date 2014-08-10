@@ -29,7 +29,7 @@ td {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding: 0 15px;
+  padding: 15px;
   &:after {
     clear: both;
     display: table;
@@ -139,9 +139,8 @@ nav {
     .logo {
       color: #072;
       font-size: 25px;
-      line-height: 75px;
+      line-height: 45px;
       font-weight: bolder;
-      padding: 0 4%;
       &:hover {
         background: none;
       }
@@ -190,12 +189,12 @@ nav {
         position: absolute;
         .tran(2s);
         &#slide-1 {
-          background-image: url("http://pbdm.qiniudn.com/inter.jpg");        
+          background-image: url("//pbdm.qiniudn.com/inter.jpg");        
           background-position: center center;
           background-repeat: no-repeat;
         }
         &#slide-2 {
-          background-image: url("http://pbdm.qiniudn.com/ldw.jpg");
+          background-image: url("//pbdm.qiniudn.com/ldw.jpg");
           background-position: center center;
           background-repeat: no-repeat;      
         }
@@ -213,31 +212,31 @@ nav {
         background-size: 400px 300px;
         position: absolute;
         &.top-left {
-          background-image: url("http://pbdm.qiniudn.com/top-left.jpg");
+          background-image: url("//pbdm.qiniudn.com/top-left.jpg");
         }
         &.top-center {
-          background-image: url("http://pbdm.qiniudn.com/top-center.jpg");
+          background-image: url("//pbdm.qiniudn.com/top-center.jpg");
         }
         &.top-right {
-          background-image: url("http://pbdm.qiniudn.com/top-right.jpg");
+          background-image: url("//pbdm.qiniudn.com/top-right.jpg");
         }
         &.center-left {
-          background-image: url("http://pbdm.qiniudn.com/center-left.jpg");
+          background-image: url("//pbdm.qiniudn.com/center-left.jpg");
         }
         &.center-center {
-          background-image: url("http://pbdm.qiniudn.com/center-center.jpg");
+          background-image: url("//pbdm.qiniudn.com/center-center.jpg");
         }
         &.center-right {
-          background-image: url("http://pbdm.qiniudn.com/center-right.jpg");
+          background-image: url("//pbdm.qiniudn.com/center-right.jpg");
         }
         &.bottom-left {
-          background-image: url("http://pbdm.qiniudn.com/bottom-left.jpg");
+          background-image: url("//pbdm.qiniudn.com/bottom-left.jpg");
         }
         &.bottom-center {
-          background-image: url("http://pbdm.qiniudn.com/bottom-center.jpg");
+          background-image: url("//pbdm.qiniudn.com/bottom-center.jpg");
         }
         &.bottom-right {
-          background-image: url("http://pbdm.qiniudn.com/bottom-right.jpg");
+          background-image: url("//pbdm.qiniudn.com/bottom-right.jpg");
         }
       }
     }
@@ -276,7 +275,7 @@ nav {
   .post {
     float: left;
     width: 75%;
-    padding: 0 2%;
+    padding-right: 2%;
     .data {
       color: #aaa;
     }
@@ -356,13 +355,13 @@ nav {
       }
       #who {
         .intro-image {
-          background-image: url("http://pbdm.qiniudn.com/nc0.jpg");
+          background-image: url("//pbdm.qiniudn.com/nc0.jpg");
         }
       }
       #inter {
         margin-top: 30px;
         .intro-image {
-          background-image: url("http://pbdm.qiniudn.com/interO.jpg");
+          background-image: url("//pbdm.qiniudn.com/interO.jpg");
         }
       }
     }
@@ -376,9 +375,53 @@ footer {
   padding-top: 6px;
   margin: 40px 0 20px 0;
   border-top: 1px dashed #ddd;
-  .row {
+  .column {
     float: left;
     width: 50%;
+  }
+  h2 {
+    font-size: 15px;
+    line-height: 15px;
+    margin: 10px 0;
+  }
+  .friend-links {
+    text-align: left;
+    a {
+      display: inline-block;
+      margin-right: 20px;
+    }
+  }
+  .vcard {
+    .column {
+      text-align: right;
+      a {
+        background: url("//v3.jiathis.com/code/images/jiathis_ico_32x32.png");
+        width: 32px;
+        height: 32px;
+        display: inline-block;
+        &:hover {
+          opacity: 0.8;
+        }
+        &.accounts_weibo {
+          background-position: 0px 0px;
+        }
+        &.accounts_twitter {
+          background-position: 0px -1024px;
+        }
+        &.accounts_facebook {
+          background-position: 0px -960px;
+        }
+        &.accounts_google {
+          background-position: 0px -3936px;
+        }
+        &.accounts_linkedin {
+          background-position: 0px -1536px;
+        }
+        &.email {
+          background-position: 0px -96px;
+        }
+      }
+    }
   }
 }
 
