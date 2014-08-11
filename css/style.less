@@ -160,26 +160,15 @@ nav {
         height: 100%;
         .arrow {
           position: absolute;
-          top: 45%;
+          top: 50%;
+          margin-top: -25px;
           cursor: pointer;
-          display: block;
+          font-size: 50px;
           &.left {
             left: 0;
-            &:before {
-              content: '';
-              display: block;
-              border: 20px transparent solid;
-              border-right-color: #333;
-            }
           }
           &.right {
             right: 0;
-            &:before {
-              content: '';
-              display: block;
-              border: 20px transparent solid;
-              border-left-color: #333;
-            }
           }
         }
       }
@@ -395,30 +384,12 @@ footer {
     .column {
       text-align: right;
       a {
-        background: url("//v3.jiathis.com/code/images/jiathis_ico_32x32.png");
-        width: 32px;
-        height: 32px;
+        font-size: 32px;
         display: inline-block;
+        color: #222;
+        background: #fff;
         &:hover {
-          opacity: 0.8;
-        }
-        &.accounts_weibo {
-          background-position: 0px 0px;
-        }
-        &.accounts_twitter {
-          background-position: 0px -1024px;
-        }
-        &.accounts_facebook {
-          background-position: 0px -960px;
-        }
-        &.accounts_google {
-          background-position: 0px -3936px;
-        }
-        &.accounts_linkedin {
-          background-position: 0px -1536px;
-        }
-        &.email {
-          background-position: 0px -96px;
+          opacity: 0.6;
         }
       }
     }
