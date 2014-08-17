@@ -207,6 +207,7 @@ var gravatar = function ( profile ) {
   document.getElementsByClassName("accounts_facebook")[0].setAttribute('href',profile.entry[0].accounts[0].url);
   document.getElementsByClassName("accounts_google")[0].setAttribute('href',profile.entry[0].accounts[1].url);
   document.getElementsByClassName("accounts_linkedin")[0].setAttribute('href',profile.entry[0].accounts[2].url);
+  document.getElementsByClassName("accounts_github")[0].setAttribute('href',profile.entry[0].urls[2].value);
   document.getElementsByClassName("email")[0].setAttribute('href',"mailto:" + profile.entry[0].emails[0].value);
   document.getElementsByClassName("fn")[0].setAttribute('href',profile.entry[0].profileUrl);
   document.getElementsByClassName("fn")[0].innerHTML = profile.entry[0].name.givenName + ' ' + profile.entry[0].name.familyName;
