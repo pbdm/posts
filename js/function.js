@@ -9,15 +9,17 @@ var affix = function() {
     postList = document.getElementsByClassName("list")[0],
     postContainer = document.getElementsByClassName("list-container")[0],
     container = document.getElementsByClassName("container")[0],
+    containerPadding = parseInt(getComputedStyle(container)['padding-left']) 
+    + parseInt(getComputedStyle(container)['padding-right']),
     myBody = document.getElementById("body"),
     postsWidth,
     scrollTop;
   if (postList && postList.clientHeight < window.innerHeight) {
-    postsWidth = container.clientWidth * 0.25;
+    postsWidth = (container.clientWidth - containerPadding ) * 0.25;
     window.onresize = function(event) {
       if (window.innerWidth > 767) {
         scrollTop = document.body.scrollTop || document.documentElement.scrollTop //for IE,firefox..
-        postsWidth = container.clientWidth * 0.25;
+        postsWidth = (container.clientWidth - containerPadding )* 0.25;
         postContainer.style.width = postsWidth + 'px';
         if (scrollTop > postList.offsetTop) {
           postContainer.style.position = "fixed";
@@ -25,7 +27,7 @@ var affix = function() {
         }
       } else {
         postContainer.style.position = "static";
-        postsWidth = container.clientWidth;
+        postsWidth = container.clientWidth - containerPadding;
         postContainer.style.width = postsWidth + 'px';
       }
     };
