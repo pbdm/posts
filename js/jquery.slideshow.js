@@ -1,33 +1,44 @@
 // slideshow
 ;(function ($) {
   "use strict";
-  function change(n, l, m) {
+  var $slides, n, num, timer, settings;
+  function change(m) {
+    $slides.eq(n).css("opacity", 0);
     m ? n++ : n--;
-    n > l ? n = 0 : '';
-    n < 0 ? n = l : ''; 
-    return n;
+    n > num ? n = 0 : '';
+    n < 0 ? n = num : ''; 
+    $slides.eq(n).css("opacity", 1);
+  }
+  function setTimer() {
+    clearInterval(timer);
+    timer = setInterval(function(){
+      change(false)
+    }, settings.delay);
   }
   var methods = {
     init: function(options) {
-      var 
-        $this = this,
-        $slides = $this.children(".slide"),
-        num = $slides.length,
-        n = num - 1;
-      $this.children(".slide").each(function() {
+      var defaults = {
+        'delay': 5000
+      };
+      settings = $.extend({}, defaults, options);
+      $slides = this.children(".slide");
+      num = $slides.length - 1;
+      n = num;
+
+      this.children(".slide").each(function() {
         $(this).css("opacity", 0);
       });
-      $slides.eq(n).css("opacity", 1);
-      $this.find(".left").click(function(){
-        $slides.eq(n).css("opacity", 0);
-        n = change(n, num - 1, true);
-        $slides.eq(n).css("opacity", 1);
+      change(false);
+      
+      this.find(".left").click(function(){
+        change(true);
+        setTimer();
       });
-      $this.find(".right").click(function(){
-        $slides.eq(n).css("opacity", 0);
-        n = change(n, num - 1, false);
-        $slides.eq(n).css("opacity", 1);
+      this.find(".right").click(function(){
+        change(false);
+        setTimer();
       });
+      setTimer();
     },
   };
   $.fn.slideshow = function(options) {
