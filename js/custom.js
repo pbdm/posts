@@ -10,15 +10,7 @@ affix();
 // whichBrowser().ie ? '' : navTop();
 
 //responsive menu
-var navList = document.querySelector("nav .wrapper > ul");
-var navMenu = document.getElementsByClassName("fa-list-ul")[0];
-navMenu.addEventListener ('click',function() {
-  if (getComputedStyle(navList)['height'] == "1px") {
-    navList.style.height = "auto";
-  } else {
-    navList.style.height = "1px";
-  }
-});
+responsiveMenu();
 
 (function($) {
 	// head-animation

@@ -214,3 +214,21 @@ var gravatar = function ( profile ) {
   document.getElementsByClassName("fn")[0].setAttribute('href',profile.entry[0].profileUrl);
   document.getElementsByClassName("fn")[0].innerHTML = profile.entry[0].name.givenName + ' ' + profile.entry[0].name.familyName;
 }
+
+var responsiveMenu = function () {
+  var navList = document.querySelector("nav .wrapper > ul");
+  var navMenu = document.getElementsByClassName("fa-list-ul")[0];
+  navMenu.addEventListener ('click',function() {
+    if (getComputedStyle(navList)['height'] == "1px") {
+      navList.style.height = (function() {
+        var height = 1; //1px for border
+        Array.prototype.slice.call(navList.children).forEach(function(child){
+          height += child.clientHeight;
+        });
+        return height;
+      })() + "px";
+    } else {
+      navList.style.height = "1px";
+    }
+  });
+}
