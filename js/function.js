@@ -5,7 +5,7 @@
  * [affix description]
  * @return {[type]} [description]
  */
-var affix = function() {
+window.affix = function() {
     var postList = document.getElementsByClassName("list")[0],
     postContainer = document.getElementsByClassName("list-container")[0],
     container = document.getElementsByClassName("container")[0],
@@ -49,7 +49,7 @@ var affix = function() {
  * [navTop description]
  * @return {[type]} [description]
  */
-var navTop = function() {
+window.navTop = function() {
     var myNav = document.getElementsByTagName("nav")[0],
         navW = document.getElementsByClassName("wrapper")[0],
         navY,
@@ -76,11 +76,16 @@ var navTop = function() {
  * [whichBrowser description]
  * @return {[type]} [browser type]
  */
-var whichBrowser = function() {
+window.whichBrowser = function() {
     var sys = {},
-    ua = navigator.userAgent.toLowerCase(),
-    s; (s = ua.match(/msie ([\d.]+)/)) ? sys.ie = s[1] : (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? sys.ie = s[1] : //ie11
-    (s = ua.match(/firefox\/([\d.]+)/)) ? sys.firefox = s[1] : (s = ua.match(/chrome\/([\d.]+)/)) ? sys.chrome = s[1] : (s = ua.match(/opera.([\d.]+)/)) ? sys.opera = s[1] : (s = ua.match(/version\/([\d.]+).*safari/)) ? sys.safari = s[1] : 0;
+        ua = navigator.userAgent.toLowerCase(),
+        s; 
+    (s = ua.match(/msie ([\d.]+)/)) ? sys.ie = s[1] : 
+    (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? sys.ie = s[1] : //ie11
+    (s = ua.match(/firefox\/([\d.]+)/)) ? sys.firefox = s[1] : 
+    (s = ua.match(/chrome\/([\d.]+)/)) ? sys.chrome = s[1] : 
+    (s = ua.match(/opera.([\d.]+)/)) ? sys.opera = s[1] : 
+    (s = ua.match(/version\/([\d.]+).*safari/)) ? sys.safari = s[1] : 0;
     return sys;
 };
 
@@ -92,7 +97,7 @@ var whichBrowser = function() {
  * @param  {[type]} players    [players date]
  * @return {[type]}            [description]
  */
-var drawPlayGround = function(parent, p, m, players) {
+window.drawPlayGround = function(parent, p, m, players) {
     var playgroundWapper = document.createElement("div"),
     playgroundName = document.createElement("h2"),
     name = document.createTextNode(players.date),
@@ -195,7 +200,7 @@ var drawPlayGround = function(parent, p, m, players) {
  * @param  {[type]} profile [description]
  * @return {[type]}         [description]
  */
-var gravatar = function(profile) {
+window.gravatar = function(profile) {
     document.getElementsByClassName("accounts_weibo")[0].setAttribute("href", profile.entry[0].urls[1].value);
     document.getElementsByClassName("accounts_twitter")[0].setAttribute("href", profile.entry[0].accounts[3].url);
     document.getElementsByClassName("accounts_facebook")[0].setAttribute("href", profile.entry[0].accounts[0].url);
@@ -207,7 +212,7 @@ var gravatar = function(profile) {
     document.getElementsByClassName("fn")[0].innerHTML = profile.entry[0].name.givenName + " " + profile.entry[0].name.familyName;
 };
 
-var responsiveMenu = function() {
+window.responsiveMenu = function() {
     var navList = document.querySelector("nav .wrapper > ul"),
         navMenu = document.getElementsByClassName("fa-list-ul")[0];
     navMenu.addEventListener("click",
