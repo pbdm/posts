@@ -1,17 +1,20 @@
 ; (function() {
-"use strict";
+  "use strict";
 
-var scrollEventType; (whichBrowser().firefox) ? scrollEventType = "DOMMouseScroll": scrollEventType = "mousewheel";
+  this.PBDm = this.PBDm || {};
 
-// sidebarfix
-affix();
+  var scrollEventType;
+  (PBDm.whichBrowser().firefox) ? scrollEventType = "DOMMouseScroll": scrollEventType = "mousewheel";
 
-// navtop
-// whichBrowser().ie ? '' : navTop();
-//responsive menu
-responsiveMenu();
+  // sidebarfix
+  PBDm.affix();
 
-(function($) {
+  // navtop
+  // whichBrowser().ie ? '' : navTop();
+  //responsive menu
+  PBDm.responsiveMenu();
+
+  (function($) {
     // head-animation
     // $("#head-animation").headAnimation({
     //  'ratio': -50
@@ -25,17 +28,18 @@ responsiveMenu();
     // back to top
     var $btt = $("#back-to-top");
     $(window).scroll(function() {
-        if ($(this).scrollTop() > 50) {
-            $btt.css("opacity", 1);
-        } else {
-            $btt.css("opacity", 0);
-        }
+      if ($(this).scrollTop() > 50) {
+        $btt.css("opacity", 1);
+      } else {
+        $btt.css("opacity", 0);
+      }
     });
     $btt.click(function() {
-        $("html, body").animate({
-            scrollTop: 0
+      $("html, body").animate({
+          scrollTop: 0
         },
         500);
     });
-} (jQuery));
-})();
+  }(jQuery));
+}).call(this);
+

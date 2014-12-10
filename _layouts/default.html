@@ -2,93 +2,95 @@
 <html lang="zh-cn" ng-app="amber">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site perso of PENG Bo">
-    <meta name="author" content="PENG Bo">
-    <link rel="shortcut icon" href="/images/favicon.png">
-    <title>琥珀草</title>
-    <link rel="stylesheet" type="text/css" href="//cdn.staticfile.org/meyer-reset/2.0/reset.min.css">
-    <link rel="stylesheet" type="text/css" href="//cdn.staticfile.org/highlight.js/7.5/styles/github.min.css">
-    <link rel="stylesheet" type="text/css" href="//cdn.staticfile.org/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link rel="stylesheet/less" type="text/css" href="/css/style.less">
-    <script type="text/javascript" src="//cdn.staticfile.org/less.js/1.7.3/less.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site perso of PENG Bo">
+  <meta name="author" content="PENG Bo">
+  <link rel="shortcut icon" href="/images/favicon.png">
+  <title>琥珀草</title>
+  <link rel="stylesheet" type="text/css" href="//cdn.staticfile.org/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.staticfile.org/highlight.js/7.5/styles/github.min.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.staticfile.org/font-awesome/4.1.0/css/font-awesome.min.css">
+  <link rel="stylesheet/less" type="text/css" href="/css/style.less">
+  <script type="text/javascript" src="//cdn.staticfile.org/less.js/1.7.3/less.min.js"></script>
 </head>
 
 <body>
-    <!--[if lt IE 9]>
+  <!--[if lt IE 9]>
       <div id="old-browser">
         您的浏览器版本很旧很旧，为了更好的访问网站，请升级至新版浏览器。
         <a target="_blank" href="http://browsehappy.com">立即升级</a>
       </div>
     <![endif]-->
-    <nav>
-        <div class="wrapper">
-            <div class="responsive-nav">
-                <i class="fa fa-list-ul fa-2x"></i>
-                <div class="nav-info" ng-hide="dialogIsHidden" ng-controller="dateCtrl" my-current-time on-close="hideDialog()"></div>
-            </div>
-            <ul>
-                <li><a href="/">Home</a>
-                </li>
-                <li><a href="/blog">Blog</a>
-                </li>
-                <li><a href="/wiki/Links">Wiki</a>
-                </li>
-                <li><a href="/football">Football</a>
-                </li>
-                <li><a href="/aboutme">About me</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div id="body">
-        <div id="header">
-            <div class="container">
-                <a class="logo" href="/">琥珀草</a>
-            </div>
-        </div>
-        {{ content }}
+  <nav>
+    <div class="wrapper">
+      <div class="responsive-nav">
+        <i class="fa fa-list-ul fa-2x"></i>
+        <div class="nav-info" ng-hide="dialogIsHidden" ng-controller="dateCtrl" my-current-time on-close="hideDialog()"></div>
+      </div>
+      <ul>
+        <li><a href="/">Home</a>
+        </li>
+        <li><a href="/blog">Blog</a>
+        </li>
+        <li><a href="/wiki/Links">Wiki</a>
+        </li>
+        <li><a href="/football">Football</a>
+        </li>
+        <li><a href="/aboutme">About me</a>
+        </li>
+      </ul>
     </div>
-    <footer>
-        <div class="container">
-            <div class="friend-links column">
-                <h2>友情链接</h2>
-                <a href="http://www.rockimba.com/">Rock</a>
-                <a href="#">某人</a>
-            </div>
-            <div class="vcard">
-                <div class=" column">
-                    <h2>联系我(Gravatar已被GFW认证,你懂的)</h2>
-                    <a title="Weibo" class="url accounts_weibo" rel="me"><i class="fa fa-weibo"></i></a>
-                    <a title="Twitter" class="accounts_twitter url" rel="me"><i class="fa fa-twitter-square"></i></a>
-                    <a title="Facebook" class="accounts_facebook url" rel="me"><i class="fa fa-facebook-square"></i></a>
-                    <a title="Google+" class="accounts_google url" rel="me"><i class="fa fa-google-plus-square"></i></a>
-                    <a title="Linkedin" class="accounts_linkedin url" rel="me"><i class="fa fa-linkedin-square"></i></a>
-                    <a title="Github" class="accounts_github url" rel="me"><i class="fa fa-github-square"></i></a>
-                    <a title="Email" class="email"><i class="fa fa-envelope-square"></i></a>
-                </div>
-                <a class="fn"></a>© 2012 - 2014 | Powered by <a href="https://pages.github.com/">Github Pages</a> &amp; <a href="http://jekyllrb.com/">Jekyll</a>
-            </div>
-        </div>
-    </footer>
-    <div id="back-to-top">
-        top
+  </nav>
+  <div id="body">
+    <div id="header">
+      <div class="container">
+        <a class="logo" href="/">琥珀草</a>
+      </div>
     </div>
-    <script type="text/javascript" src="//cdn.staticfile.org/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="//cdn.staticfile.org/angular.js/1.2.18/angular.min.js"></script>
-    <script type="text/javascript" src="//cdn.staticfile.﻿﻿﻿﻿org﻿﻿﻿﻿/angular.js/1.2.18/angular-resource.min.js"></script>
-    <script type="text/javascript" src="/js/script.js"></script>
-    <script type="text/javascript" src="//cdn.staticfile.org/highlight.js/7.5/highlight.min.js"></script>
-    <script>
-    hljs.initHighlightingOnLoad();
-    </script>
-    <script type="text/javascript" src="/js/jquery.slideshow.js"></script>
-    <script type="text/javascript" src="/js/jquery.headanimation.js"></script>
-    <script type="text/javascript" src="/js/jquery.toc.js"></script>
-    <script type="text/javascript" src="/js/function.js"></script>
-    <script type="text/javascript" src="/js/custom.js"></script>
-    <script type="text/javascript" src="//www.gravatar.com/630014a2c794d879d6041d84808e3ceb.json?callback=gravatar"></script>
+    {{ content }}
+  </div>
+  <footer>
+    <div class="container">
+      <div class="friend-links column">
+        <h2>友情链接</h2>
+        <a href="http://www.rockimba.com/">Rock</a>
+        <a href="#">某人</a>
+      </div>
+      <div class="vcard">
+        <div class=" column">
+          <h2>联系我(Gravatar已被GFW认证,你懂的)</h2>
+          <a title="Weibo" class="url accounts_weibo" rel="me"><i class="fa fa-weibo"></i></a>
+          <a title="Twitter" class="accounts_twitter url" rel="me"><i class="fa fa-twitter-square"></i></a>
+          <a title="Facebook" class="accounts_facebook url" rel="me"><i class="fa fa-facebook-square"></i></a>
+          <a title="Google+" class="accounts_google url" rel="me"><i class="fa fa-google-plus-square"></i></a>
+          <a title="Linkedin" class="accounts_linkedin url" rel="me"><i class="fa fa-linkedin-square"></i></a>
+          <a title="Github" class="accounts_github url" rel="me"><i class="fa fa-github-square"></i></a>
+          <a title="Email" class="email"><i class="fa fa-envelope-square"></i></a>
+        </div>
+        <a class="fn"></a>© 2012 - 2014 | Powered by <a href="https://pages.github.com/">Github Pages</a> &amp; <a href="http://jekyllrb.com/">Jekyll</a>
+      </div>
+    </div>
+  </footer>
+  <div id="back-to-top">
+    top
+  </div>
+  <script type="text/javascript" src="//cdn.staticfile.org/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdn.staticfile.org/angular.js/1.2.18/angular.min.js"></script>
+  <script type="text/javascript" src="//cdn.staticfile.﻿﻿﻿﻿org﻿﻿﻿﻿/angular.js/1.2.18/angular-resource.min.js"></script>
+  <script type="text/javascript" src="/js/script.js"></script>
+  <script type="text/javascript" src="//cdn.staticfile.org/highlight.js/7.5/highlight.min.js"></script>
+  <script>
+  hljs.initHighlightingOnLoad();
+
+  </script>
+  <script type="text/javascript" src="/js/jquery.slideshow.js"></script>
+  <script type="text/javascript" src="/js/jquery.headanimation.js"></script>
+  <script type="text/javascript" src="/js/jquery.toc.js"></script>
+  <script type="text/javascript" src="/js/function.js"></script>
+  <script type="text/javascript" src="/js/custom.js"></script>
+  <script type="text/javascript" src="//www.gravatar.com/630014a2c794d879d6041d84808e3ceb.json?callback=gravatar"></script>
 </body>
 
 </html>
+

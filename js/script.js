@@ -1,48 +1,54 @@
 ; (function() {
-"use strict";
+  "use strict";
 
-var amberApp = angular.module("amber", ["ngResource"]);
+  this.PBDm = this.PBDm || {};
 
-// date
-amberApp.controller("dateCtrl", function($scope) {
+  var amberApp = angular.module("amber", ["ngResource"]);
+
+  // date
+  amberApp.controller("dateCtrl", function($scope) {
     $scope.hideDialog = function() {
-        $scope.dialogIsHidden = true;
+      $scope.dialogIsHidden = true;
     };
-});
+  });
 
-amberApp.directive("myCurrentTime", function($interval, dateFilter) {
+  amberApp.directive("myCurrentTime", function($interval, dateFilter) {
     var format = "yyyy/MM/dd HH:mm:ss";
+
     function link(scope, element, attres) {
-        function updateTime() {
-            scope.myDate = dateFilter(new Date(), format);
-        }
-        updateTime();
-        $interval(function() {
-            updateTime();
+      function updateTime() {
+        scope.myDate = dateFilter(new Date(), format);
+      }
+      updateTime();
+      $interval(function() {
+          updateTime();
         },
         1000);
     }
     return {
-        link: link,
-        templateUrl: "/tmpl/my-date.html",
-        scope: {
-            "close": "&onClose"
-        }
+      link: link,
+      templateUrl: "/tmpl/my-date.html",
+      scope: {
+        "close": "&onClose"
+      }
     };
-});
+  });
 
-// football
-amberApp.directive("playground", function($http) {
+  // football
+  amberApp.directive("playground", function($http) {
     var parent = document.getElementsByClassName("team")[0];
+
     function link(scope, element, attres) {
-        $http.get("/json/football.json").success(function(data) {
-            for (var i in data.teams) {
-                drawPlayGround(parent, data.meazza, data.m, data.teams[i]);
-            }
-        });
+      $http.get("/json/football.json").success(function(data) {
+        for (var i in data.teams) {
+          PBDm.drawPlayGround(parent, data.meazza, data.m, data.teams[i]);
+        }
+      });
     }
     return {
-        link: link,
+      link: link,
     };
-});
-})();
+  });
+
+}).call(this);
+

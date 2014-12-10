@@ -1,110 +1,112 @@
 ; (function() {
-"use strict";
+  "use strict";
 
-/**
- * [affix description]
- * @return {[type]} [description]
- */
-window.affix = function() {
+  this.PBDm = this.PBDm || {};
+
+  /**
+   * [affix description]
+   * @return {[type]} [description]
+   */
+  PBDm.affix = function() {
     var postList = document.getElementsByClassName("list")[0],
-    postContainer = document.getElementsByClassName("list-container")[0],
-    container = document.getElementsByClassName("container")[0],
-    containerPadding = parseInt(getComputedStyle(container)["padding-left"]) + parseInt(getComputedStyle(container)["padding-right"]),
-    postsWidth,
-    scrollTop;
+      postContainer = document.getElementsByClassName("list-container")[0],
+      container = document.getElementsByClassName("container")[0],
+      containerPadding = parseInt(getComputedStyle(container)["padding-left"]) + parseInt(getComputedStyle(container)["padding-right"]),
+      postsWidth,
+      scrollTop;
     if (postList && postList.clientHeight < window.innerHeight) {
-        postsWidth = (container.clientWidth - containerPadding) * 0.25;
-        window.onresize = function() {
-            if (window.innerWidth > 767) {
-                scrollTop = document.body.scrollTop || document.documentElement.scrollTop; //for IE,firefox..
-                postsWidth = (container.clientWidth - containerPadding) * 0.25;
-                postContainer.style.width = postsWidth + "px";
-                if (scrollTop > postList.offsetTop) {
-                    postContainer.style.position = "fixed";
-                    postContainer.style.top = "0px";
-                }
-            } else {
-                postContainer.style.position = "static";
-                postsWidth = container.clientWidth - containerPadding;
-                postContainer.style.width = postsWidth + "px";
-            }
-        };
-        document.addEventListener("scroll",
+      postsWidth = (container.clientWidth - containerPadding) * 0.25;
+      window.onresize = function() {
+        if (window.innerWidth > 767) {
+          scrollTop = document.body.scrollTop || document.documentElement.scrollTop; //for IE,firefox..
+          postsWidth = (container.clientWidth - containerPadding) * 0.25;
+          postContainer.style.width = postsWidth + "px";
+          if (scrollTop > postList.offsetTop) {
+            postContainer.style.position = "fixed";
+            postContainer.style.top = "0px";
+          }
+        } else {
+          postContainer.style.position = "static";
+          postsWidth = container.clientWidth - containerPadding;
+          postContainer.style.width = postsWidth + "px";
+        }
+      };
+      document.addEventListener("scroll",
         function() {
-            if (window.innerWidth > 767) {
-                scrollTop = document.body.scrollTop || document.documentElement.scrollTop; //for IE,firefox..
-                if (scrollTop > postList.offsetTop) {
-                    postContainer.style.position = "fixed";
-                    postContainer.style.top = "0px";
-                    postContainer.style.width = postsWidth + "px";
-                } else {
-                    postContainer.style.position = "static";
-                }
+          if (window.innerWidth > 767) {
+            scrollTop = document.body.scrollTop || document.documentElement.scrollTop; //for IE,firefox..
+            if (scrollTop > postList.offsetTop) {
+              postContainer.style.position = "fixed";
+              postContainer.style.top = "0px";
+              postContainer.style.width = postsWidth + "px";
+            } else {
+              postContainer.style.position = "static";
             }
+          }
         });
     }
-};
+  };
 
-/**
- * [navTop description]
- * @return {[type]} [description]
- */
-window.navTop = function() {
+  /**
+   * [navTop description]
+   * @return {[type]} [description]
+   */
+  PBDm.navTop = function() {
     var myNav = document.getElementsByTagName("nav")[0],
-        navW = document.getElementsByClassName("wrapper")[0],
-        navY,
-        navH = myNav.offsetHeight,
-        scrollTop;
+      navW = document.getElementsByClassName("wrapper")[0],
+      navY,
+      navH = myNav.offsetHeight,
+      scrollTop;
     document.addEventListener("scroll",
-    function() {
+      function() {
         scrollTop = document.body.scrollTop || document.documentElement.scrollTop; //for IE,firefox..
         //nav bar
         if (scrollTop < navY) {
-            navW.style.position = "fixed";
-            myNav.style.marginTop = navH + "px";
-            navW.style.marginTop = "-" + navH + "px";
+          navW.style.position = "fixed";
+          myNav.style.marginTop = navH + "px";
+          navW.style.marginTop = "-" + navH + "px";
         } else {
-            navW.style.position = "static";
-            myNav.style.marginTop = 0;
-            navW.style.marginTop = 0;
+          navW.style.position = "static";
+          myNav.style.marginTop = 0;
+          navW.style.marginTop = 0;
         }
         navY = scrollTop;
-    });
-};
+      });
+  };
 
-/**
- * [whichBrowser description]
- * @return {[type]} [browser type]
- */
-window.whichBrowser = function() {
+  /**
+   * [whichBrowser description]
+   * @return {[type]} [browser type]
+   */
+  PBDm.whichBrowser = function() {
     var sys = {},
-        ua = navigator.userAgent.toLowerCase(),
-        s; 
-    (s = ua.match(/msie ([\d.]+)/)) ? sys.ie = s[1] : 
-    (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? sys.ie = s[1] : //ie11
-    (s = ua.match(/firefox\/([\d.]+)/)) ? sys.firefox = s[1] : 
-    (s = ua.match(/chrome\/([\d.]+)/)) ? sys.chrome = s[1] : 
-    (s = ua.match(/opera.([\d.]+)/)) ? sys.opera = s[1] : 
-    (s = ua.match(/version\/([\d.]+).*safari/)) ? sys.safari = s[1] : 0;
+      ua = navigator.userAgent.toLowerCase(),
+      s;
+    (s = ua.match(/msie ([\d.]+)/)) ? sys.ie = s[1]:
+      (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? sys.ie = s[1] : //ie11
+      (s = ua.match(/firefox\/([\d.]+)/)) ? sys.firefox = s[1] :
+      (s = ua.match(/chrome\/([\d.]+)/)) ? sys.chrome = s[1] :
+      (s = ua.match(/opera.([\d.]+)/)) ? sys.opera = s[1] :
+      (s = ua.match(/version\/([\d.]+).*safari/)) ? sys.safari = s[1] : 0;
     return sys;
-};
+  };
 
-/**
- * [drawPlayGround description]
- * @param  {[type]} parent     [parent element]
- * @param  {[type]} p          [stadium size]
- * @param  {[type]} m          [zoom ratio]
- * @param  {[type]} players    [players date]
- * @return {[type]}            [description]
- */
-window.drawPlayGround = function(parent, p, m, players) {
+  /**
+   * [drawPlayGround description]
+   * @param  {[type]} parent     [parent element]
+   * @param  {[type]} p          [stadium size]
+   * @param  {[type]} m          [zoom ratio]
+   * @param  {[type]} players    [players date]
+   * @return {[type]}            [description]
+   */
+  PBDm.drawPlayGround = function(parent, p, m, players) {
     var playgroundWapper = document.createElement("div"),
-    playgroundName = document.createElement("h2"),
-    name = document.createTextNode(players.date),
-    playGround = document.createElement("canvas"),
-    begin,
-    end,
-    ctx = playGround.getContext("2d");
+      playgroundName = document.createElement("h2"),
+      name = document.createTextNode(players.date),
+      playGround = document.createElement("canvas"),
+      begin,
+      end,
+      ctx = playGround.getContext("2d");
     playgroundWapper.classList.add("playgroundWapper");
     playGround.classList.add("playground");
     playgroundName.appendChild(name);
@@ -193,14 +195,14 @@ window.drawPlayGround = function(parent, p, m, players) {
     ctx.fillText(players.cf || "", (p.w / 2) * m, p.l * m * 1 / 7);
     ctx.fillText(players.lf || "", (p.w / 4) * m, p.l * m * 1 / 7);
     ctx.fillText(players.rf || "", (p.w / 4 * 3) * m, p.l * m * 1 / 7);
-};
+  };
 
-/**
- * [gravatar description]
- * @param  {[type]} profile [description]
- * @return {[type]}         [description]
- */
-window.gravatar = function(profile) {
+  /**
+   * [gravatar description]
+   * @param  {[type]} profile [description]
+   * @return {[type]}         [description]
+   */
+  PBDm.gravatar = function(profile) {
     document.getElementsByClassName("accounts_weibo")[0].setAttribute("href", profile.entry[0].urls[1].value);
     document.getElementsByClassName("accounts_twitter")[0].setAttribute("href", profile.entry[0].accounts[3].url);
     document.getElementsByClassName("accounts_facebook")[0].setAttribute("href", profile.entry[0].accounts[0].url);
@@ -210,24 +212,26 @@ window.gravatar = function(profile) {
     document.getElementsByClassName("email")[0].setAttribute("href", "mailto:" + profile.entry[0].emails[0].value);
     document.getElementsByClassName("fn")[0].setAttribute("href", profile.entry[0].profileUrl);
     document.getElementsByClassName("fn")[0].innerHTML = profile.entry[0].name.givenName + " " + profile.entry[0].name.familyName;
-};
+  };
 
-window.responsiveMenu = function() {
+  PBDm.responsiveMenu = function() {
     var navList = document.querySelector("nav .wrapper > ul"),
-        navMenu = document.getElementsByClassName("fa-list-ul")[0];
+      navMenu = document.getElementsByClassName("fa-list-ul")[0];
     navMenu.addEventListener("click",
-    function() {
+      function() {
         if (getComputedStyle(navList).height == "1px") {
-            navList.style.height = (function() {
-                var height = 1; //1px for border
-                Array.prototype.slice.call(navList.children).forEach(function(child) {
-                    height += child.clientHeight;
-                });
-                return height;
-            })() + "px";
+          navList.style.height = (function() {
+            var height = 1; //1px for border
+            Array.prototype.slice.call(navList.children).forEach(function(child) {
+              height += child.clientHeight;
+            });
+            return height;
+          })() + "px";
         } else {
-            navList.style.height = "1px";
+          navList.style.height = "1px";
         }
-    });
-};
-})();
+      });
+  };
+
+}).call(this);
+
