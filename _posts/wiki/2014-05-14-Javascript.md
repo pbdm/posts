@@ -17,7 +17,7 @@ category: wiki
     <![endif]-->
 
 ##强制转换boolean
-在前面加两个感叹号`!!`
+在变量前面加`!!`
 
 ##iPad Touch事件
 * [集合贴](http://m.oschina.net/blog/88086)
@@ -30,7 +30,7 @@ category: wiki
 
 ### [阻止超链接跳转](http://www.suchso.com/projecteactual/javascript-event-up-stopPropagation-cancelBubble.html)
 #### [jQuery](http://blog.csdn.net/woshixuye/article/details/7422985)
-`return false`： 同时调用一下两种
+`return false`： 同时调用以下两种
 
 `e.stopPropagation()`： 阻止事件冒泡 (对`live`绑定的事件没有作用)
 
