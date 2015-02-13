@@ -95,11 +95,11 @@ blockquote {
 .myPointer {
   cursor: pointer;
 }
-/* nav */
 
 #old-browser {
   text-align: center;
 }
+
 nav {
   padding: 0;
   line-height: 28px;
@@ -110,6 +110,7 @@ nav {
     border-bottom: 1px solid #000;
     z-index: 1;
     position: fixed;
+     top: 0;
     .nav-info {
       float: right;
       color: #d5d5d5;
@@ -131,29 +132,30 @@ nav {
     }
   }
 }
-/* body */
 
-#body {
-  padding-top: 29px;
+#header {
+  margin-top: 29px;
+  height: 75px;
+  background-color: #edf4ed;
+  .logo {
+    background-color: #edf4ed;
+    color: #072;
+    font-size: 25px;
+    line-height: 45px;
+    font-weight: bolder;
+    letter-spacing: 0; //for firefox transition
+    &:hover {
+      background: none;
+      letter-spacing: 3px;
+    }
+  }
+}
+
+.content {
   ul {
     line-height: 25px;
   }
-  #header {
-    height: 75px;
-    background-color: #edf4ed;
-    .logo {
-      color: #072;
-      font-size: 25px;
-      line-height: 45px;
-      font-weight: bolder;
-      letter-spacing: 0; //for firefox transition
-      &:hover {
-        background: none;
-        letter-spacing: 3px;
-      }
-    }
-  }
-  #index {
+  &#index {
     font-size: 16px;
     ul {
       text-align: center;
@@ -238,7 +240,7 @@ nav {
       }
     }
   }
-  #blog {
+  &#blog {
     font-size: 14px;
     line-height: 28px;
     .article {
@@ -306,7 +308,7 @@ nav {
   }
   /*football*/
   
-  #football {
+  &#football {
     text-align: center;
     .playgroundWapper {
       background: green;
@@ -320,13 +322,13 @@ nav {
   }
   /* cv */
   
-  #cv {
+  &#cv {
     font-size: 16px;
     line-height: 20px;
   }
   /* about me */
   
-  #aboutme {
+  &#aboutme {
     .container {
       width: 80%;
       margin: 0 auto;
@@ -367,6 +369,7 @@ nav {
     }
   }
 }
+
 /* footer */
 
 footer {
@@ -483,8 +486,10 @@ footer {
       }
     }
   }
-  #body {
-    padding-top: 0;
+  #header {
+    margin-top: 0;
+  }
+  .content {
     .list {
       width: 100%;
       #toc {
