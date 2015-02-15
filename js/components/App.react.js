@@ -1,13 +1,11 @@
 'use strict';
 
-var React = require('react'),
-    Router = require('react-router'),
-    RouteHandler = Router.RouteHandler,
+var RouteHandler = ReactRouter.RouteHandler,
     Top = require('./Top.react'),
     Bottom = require('./Bottom.react');
 
 module.exports = React.createClass({
-  mixins: [ Router.State ],
+  mixins: [ ReactRouter.State ],
   render: function () {
     return (
       <div>

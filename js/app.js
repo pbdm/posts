@@ -1,10 +1,16 @@
 'use strict';
 
-var React         = require('react'),
-    Router        = require('react-router'),
-    Route         = Router.Route,
-    DefaultRoute  = Router.DefaultRoute,
-    NotFoundRoute = Router.NotFoundRoute;
+// require('react');
+// require('react-router');
+// require('jquery');
+require('./function');
+require('./jquery.slideshow');
+require('./jquery.headanimation');
+require('./jquery.toc');
+
+var Route         = ReactRouter.Route,
+    DefaultRoute  = ReactRouter.DefaultRoute,
+    NotFoundRoute = ReactRouter.NotFoundRoute;
  
 
 var App      = require('./components/App.react'),
@@ -28,8 +34,8 @@ var routes = (
   </Route>
 );
 
-
-
-Router.run(routes, function (Handler) {
+ReactRouter.run(routes, function (Handler) {
   React.render(<Handler/>, document.getElementById('app'));
 });
+
+require('./custom');

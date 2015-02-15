@@ -1,8 +1,9 @@
 'use strict';
 
-var React = require('react');
-
 module.exports = React.createClass({
+  componentDidMount: function() {
+   jQuery("#slide-show").slideshow();
+  },
   render: function () {
     return (
       <div>
