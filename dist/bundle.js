@@ -71,7 +71,7 @@
 	var routes = (
 	  React.createElement(Route, {handler: App}, 
 	    React.createElement(DefaultRoute, {name: "index", handler: Index}), 
-	    React.createElement(Route, {name: "blog", handler: Blog}), 
+	    React.createElement(Route, {name: "blog", handler: Blog, path: "blog/:name"}), 
 	    React.createElement(Route, {name: "wiki", handler: Wiki, path: "wiki/:name"}), 
 	    React.createElement(Route, {name: "cv", handler: Cv}), 
 	    React.createElement(Route, {name: "about", handler: About}), 
@@ -239,6 +239,7 @@
 	  "use strict";
 	  var methods = {
 	    init: function() {
+	      $('#toc').remove();
 	      var $t,
 	        $c,
 	        $a,
@@ -385,11 +386,34 @@
 
 	'use strict';
 
+	var converter = new Showdown.converter(),
+	    Link = ReactRouter.Link,
+	    Post = __webpack_require__(17);
+
 	module.exports = React.createClass({displayName: "exports",
+	  mixins: [ Post ],
+	  getDefaultProps: function() {
+	    return {
+	      url: '/dist/blog.json'
+	    };
+	  },
 	  render: function () {
+	    var rawMarkup = converter.makeHtml(this.state.content.toString()),
+	        listDom = this.state.list.map(function(list) {
+	          return React.createElement("li", null, React.createElement(Link, {to: "blog", params: {name: list.path}}, list.title));
+	        });
 	    return (
-	      React.createElement("div", null, 
-	        "Blog"
+	      React.createElement("div", {id: "blog"}, 
+	        React.createElement("div", {className: "container"}, 
+	          React.createElement("div", {className: "post", dangerouslySetInnerHTML: {__html: rawMarkup}}), 
+	          React.createElement("div", {className: "list"}, 
+	            React.createElement("div", {className: "list-container"}, 
+	              React.createElement("ul", null, 
+	                listDom
+	              )
+	            )
+	          )
+	        )
 	      )
 	    );
 	  }
@@ -403,48 +427,17 @@
 	'use strict';
 
 	var converter = new Showdown.converter(),
-	    Link = ReactRouter.Link;
+	    Link = ReactRouter.Link,
+	    Post = __webpack_require__(17);
 
 	module.exports = React.createClass({displayName: "exports",
-	  mixins: [ ReactRouter.State ],
-	  getInitialState: function() {
+	  mixins: [ Post ],
+	  getDefaultProps: function() {
 	    return {
-	      content: '',
-	      date:    '',
-	      title:   '',
-	      list:    []
+	      url: '/dist/wiki.json'
 	    };
 	  },
-	  componentDidMount: function() {
-	    this.changeWiki(this.getParams().name);
-	  },
-	  componentWillReceiveProps: function() {
-	    this.changeWiki(this.getParams().name);
-	  },
-	  changeWiki: function(name) {
-	    var listTmp = [],
-	        key;
-	    $.get('/dist/wiki.json', function(list) {
-	      if (this.isMounted() && list[name]) {
-	        $.get(list[name].fullpath, function(content) {
-	          for (key in list) {
-	            listTmp.push(list[key]);
-	          }
-	          if (this.isMounted()) {
-	            this.setState({
-	              content: content,
-	              title: list[name].title,
-	              date:  list[name].date,
-	              list: listTmp
-	            });
-	          }
-	        }.bind(this));
-	      } else {
-	        
-	      }
-	    }.bind(this));
-	  },
-	  render: function () {debugger;
+	  render: function () {
 	    var rawMarkup = converter.makeHtml(this.state.content.toString()),
 	        listDom = this.state.list.map(function(list) {
 	          return React.createElement("li", null, React.createElement(Link, {to: "wiki", params: {name: list.path}}, list.title));
@@ -452,7 +445,7 @@
 	    return (
 	      React.createElement("div", {id: "wiki"}, 
 	        React.createElement("div", {className: "container"}, 
-	          React.createElement("h1", null, this.state.title), 
+	          React.createElement("h1", null, this.state.data.title), 
 	          React.createElement("div", {className: "post", dangerouslySetInnerHTML: {__html: rawMarkup}}), 
 	          React.createElement("div", {className: "list"}, 
 	            React.createElement("div", {className: "list-container"}, 
@@ -528,7 +521,7 @@
 
 	'use strict';
 
-	var DuoShuo = __webpack_require__(17);
+	var DuoShuo = __webpack_require__(18);
 
 	module.exports = React.createClass({displayName: "exports",
 	  getDefaultProps: function() {
@@ -584,7 +577,7 @@
 	  //  'ratio': -50
 	  // });
 	  // toc
-	  $(".post").toc();
+	  //$(".post").toc();
 
 	  // back to top
 	  var $btt = $("#back-to-top");
@@ -921,6 +914,54 @@
 
 /***/ },
 /* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = {
+	  mixins: [ ReactRouter.State ],
+	  getInitialState: function() {
+	    return {
+	      content: '',
+	      data:    {},
+	      list:    []
+	    };
+	  },
+	  componentDidMount: function() {
+	    this.changeWiki(this.getParams().name);
+	  },
+	  componentWillReceiveProps: function() {
+	    this.changeWiki(this.getParams().name);
+	  },
+	  componentDidUpdate: function(prevProps, prevState) {
+	    $(".post").toc();
+	  },
+	  changeWiki: function(name) {
+	    var tmp = {};
+	    $.get(this.props.url, function(list) {
+	      if (this.isMounted()) {
+	        tmp = _.filter(list, function(n) {
+	          return n.path == name;
+	        }); 
+	        $.get(tmp[0].fullpath, function(content) {
+	          if (this.isMounted()) {
+	            this.setState({
+	              content: content,
+	              data: tmp[0],
+	              list: list
+	            });
+	          }
+	        }.bind(this));
+	      } else {
+
+	      }
+	    }.bind(this));
+	  },
+	}
+
+
+/***/ },
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

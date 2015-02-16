@@ -2,6 +2,7 @@
   "use strict";
   var methods = {
     init: function() {
+      $('#toc').remove();
       var $t,
         $c,
         $a,

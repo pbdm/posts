@@ -17,7 +17,7 @@ PBDm.responsiveMenu();
   //  'ratio': -50
   // });
   // toc
-  $(".post").toc();
+  //$(".post").toc();
 
   // back to top
   var $btt = $("#back-to-top");

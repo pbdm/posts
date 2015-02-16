@@ -25,8 +25,8 @@ var App      = require('./components/App.react'),
 var routes = (
   <Route handler={App}>
     <DefaultRoute name="index"    handler={Index} />
-    <Route        name="blog"     handler={Blog} />
-    <Route        name="wiki"     handler={Wiki} path="wiki/:name"/>
+    <Route        name="blog"     handler={Blog} path="blog/:name" />
+    <Route        name="wiki"     handler={Wiki} path="wiki/:name" />
     <Route        name="cv"       handler={Cv} />
     <Route        name="about"    handler={About} />
     <Route        name="football" handler={Football} />

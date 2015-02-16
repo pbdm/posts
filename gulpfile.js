@@ -12,19 +12,19 @@ var tree = function(filepath) {
 
   filepath = path.normalize(filepath);
 
-  var result = {};
+  var result = [];
 
   var files = fs.readdirSync(filepath);
 
   for (key in files) {
     file = files[key];
     if (files[key].substr(-2,2) == 'md') {
-      result[files[key].slice(11,-3).toLowerCase()] = {
+      result.push ({
         date:  files[key].substr(0,10),
         fullpath:  filepath + '/' + files[key],
         path: files[key].slice(11,-3).toLowerCase(),
         title: files[key].slice(11,-3)
-      }
+      });
     }
   }
 
@@ -56,10 +56,18 @@ gulp.task('build:css', function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('manifest', function () {
+gulp.task('manifest:wiki', function () {
   gulp.src("dist/wiki.json")
   .pipe(jeditor(function(json) {
     return tree('_posts/wiki');
+  }))
+  .pipe(gulp.dest("dist"));
+});
+
+gulp.task('manifest:blog', function () {
+  gulp.src("dist/blog.json")
+  .pipe(jeditor(function(json) {
+    return tree('_posts/blog');
   }))
   .pipe(gulp.dest("dist"));
 });
@@ -78,6 +86,6 @@ gulp.task('webserver', function() {
 });
 
 gulp.task('default', function(cb){
-  runSequence('manifest', 'build:js', 'build:css', 'webserver', 'watch', cb);
+  runSequence(['manifest:wiki', 'manifest:blog'], 'build:js', 'build:css', 'webserver', 'watch', cb);
 });
 
