@@ -72,7 +72,7 @@
 	  React.createElement(Route, {handler: App}, 
 	    React.createElement(DefaultRoute, {name: "index", handler: Index}), 
 	    React.createElement(Route, {name: "blog", handler: Blog}), 
-	    React.createElement(Route, {name: "wiki", handler: Wiki}), 
+	    React.createElement(Route, {name: "wiki", handler: Wiki, path: "wiki/:name"}), 
 	    React.createElement(Route, {name: "cv", handler: Cv}), 
 	    React.createElement(Route, {name: "about", handler: About}), 
 	    React.createElement(Route, {name: "football", handler: Football}), 
@@ -402,11 +402,66 @@
 
 	'use strict';
 
+	var converter = new Showdown.converter(),
+	    Link = ReactRouter.Link;
+
 	module.exports = React.createClass({displayName: "exports",
-	  render: function () {
+	  mixins: [ ReactRouter.State ],
+	  getInitialState: function() {
+	    return {
+	      content: '',
+	      date:    '',
+	      title:   '',
+	      list:    []
+	    };
+	  },
+	  componentDidMount: function() {
+	    this.changeWiki(this.getParams().name);
+	  },
+	  componentWillReceiveProps: function() {
+	    this.changeWiki(this.getParams().name);
+	  },
+	  changeWiki: function(name) {
+	    var listTmp = [],
+	        key;
+	    $.get('/dist/wiki.json', function(list) {
+	      if (this.isMounted() && list[name]) {
+	        $.get(list[name].fullpath, function(content) {
+	          for (key in list) {
+	            listTmp.push(list[key]);
+	          }
+	          if (this.isMounted()) {
+	            this.setState({
+	              content: content,
+	              title: list[name].title,
+	              date:  list[name].date,
+	              list: listTmp
+	            });
+	          }
+	        }.bind(this));
+	      } else {
+	        
+	      }
+	    }.bind(this));
+	  },
+	  render: function () {debugger;
+	    var rawMarkup = converter.makeHtml(this.state.content.toString()),
+	        listDom = this.state.list.map(function(list) {
+	          return React.createElement("li", null, React.createElement(Link, {to: "wiki", params: {name: list.path}}, list.title));
+	        });
 	    return (
-	      React.createElement("div", null, 
-	        "Wiki"
+	      React.createElement("div", {id: "wiki"}, 
+	        React.createElement("div", {className: "container"}, 
+	          React.createElement("h1", null, this.state.title), 
+	          React.createElement("div", {className: "post", dangerouslySetInnerHTML: {__html: rawMarkup}}), 
+	          React.createElement("div", {className: "list"}, 
+	            React.createElement("div", {className: "list-container"}, 
+	              React.createElement("ul", null, 
+	                listDom
+	              )
+	            )
+	          )
+	        )
 	      )
 	    );
 	  }
@@ -473,6 +528,8 @@
 
 	'use strict';
 
+	var DuoShuo = __webpack_require__(17);
+
 	module.exports = React.createClass({displayName: "exports",
 	  getDefaultProps: function() {
 	    return {
@@ -496,8 +553,8 @@
 	        React.createElement("div", {id: "football"}, 
 	          React.createElement("div", {className: "team", playground: true}
 	          )
-	        )
-	      /*{% include duoshuo.html %}*/
+	        ), 
+	      React.createElement(DuoShuo, null)
 	      )
 	    );
 	  }
@@ -858,6 +915,32 @@
 	          )
 	        )
 	      )
+	    );
+	  }
+	});
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = React.createClass({displayName: "exports",
+	  componentDidMount: function() {
+	    window.duoshuoQuery = {
+	      short_name: "pbdm"
+	    };
+	    debugger;
+	    var ds = document.createElement("script");
+	    ds.type = "text/javascript";
+	    ds.async = true;
+	    ds.src = (document.location.protocol == "https:" ? "https:" : "http:") + "//static.duoshuo.com/embed.js";
+	    ds.charset = "UTF-8";
+	    eval(document.getElementsByTagName("head")[0].appendChild(ds));
+	  },
+	  render: function () {
+	    return (
+	      React.createElement("div", {class: "ds-thread", "data-thread-key": "/wiki/Links", "data-title": "Links", "data-url": "请替换成文章的网址"})
 	    );
 	  }
 	});

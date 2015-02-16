@@ -3,6 +3,33 @@ var webpack = require('gulp-webpack');
 var runSequence = require('run-sequence');
 var webserver = require('gulp-webserver');
 var less = require('gulp-less');
+var jeditor = require('gulp-json-editor');
+var fs = require('fs');
+var path = require('path');
+
+
+var tree = function(filepath) {
+
+  filepath = path.normalize(filepath);
+
+  var result = {};
+
+  var files = fs.readdirSync(filepath);
+
+  for (key in files) {
+    file = files[key];
+    if (files[key].substr(-2,2) == 'md') {
+      result[files[key].slice(11,-3).toLowerCase()] = {
+        date:  files[key].substr(0,10),
+        fullpath:  filepath + '/' + files[key],
+        path: files[key].slice(11,-3).toLowerCase(),
+        title: files[key].slice(11,-3)
+      }
+    }
+  }
+
+  return result;
+}
 
 gulp.task('build:js', function(){
   return gulp.src('js/app.js')
@@ -29,6 +56,14 @@ gulp.task('build:css', function () {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('manifest', function () {
+  gulp.src("dist/wiki.json")
+  .pipe(jeditor(function(json) {
+    return tree('_posts/wiki');
+  }))
+  .pipe(gulp.dest("dist"));
+});
+
 gulp.task('watch', function(){
   gulp.watch(['js/*.js', 'js/*/*.js'], ['build:js']);
   gulp.watch(['css/style.less'], ['build:css']);
@@ -43,6 +78,6 @@ gulp.task('webserver', function() {
 });
 
 gulp.task('default', function(cb){
-  runSequence('build:js', 'build:css', 'webserver', 'watch', cb);
+  runSequence('manifest', 'build:js', 'build:css', 'webserver', 'watch', cb);
 });
 

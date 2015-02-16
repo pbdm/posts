@@ -1,5 +1,7 @@
 'use strict';
 
+var DuoShuo = require('./DuoShuo.react');
+
 module.exports = React.createClass({
   getDefaultProps: function() {
     return {
@@ -24,7 +26,7 @@ module.exports = React.createClass({
           <div className="team" playground>
           </div>
         </div>
-      {/*{% include duoshuo.html %}*/}
+      <DuoShuo />
       </div>
     );
   }

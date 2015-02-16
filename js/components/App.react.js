@@ -16,7 +16,7 @@ module.exports = React.createClass({
           </div>
         </div>
         <div className="content" id={this.getRoutes()[1].name}>
-          <RouteHandler/>
+          <RouteHandler />
         </div>
         <Bottom/>
         <div id="back-to-top">top</div>
