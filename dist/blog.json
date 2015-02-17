@@ -1,61 +1,61 @@
 [{
   "date": "2006-12-02",
-  "fullpath": "_posts/blog/2006-12-02-one-yuan.md",
+  "fullpath": "posts/blog/2006-12-02-one-yuan.md",
   "path": "one-yuan",
   "title": "one-yuan"
 }, {
   "date": "2011-08-11",
-  "fullpath": "_posts/blog/2011-08-11-milan-kyj.md",
+  "fullpath": "posts/blog/2011-08-11-milan-kyj.md",
   "path": "milan-kyj",
   "title": "milan-kyj"
 }, {
   "date": "2013-05-10",
-  "fullpath": "_posts/blog/2013-05-10-php-sort.md",
+  "fullpath": "posts/blog/2013-05-10-php-sort.md",
   "path": "php-sort",
   "title": "php-sort"
 }, {
   "date": "2013-07-09",
-  "fullpath": "_posts/blog/2013-07-09-lbs-2km.md",
+  "fullpath": "posts/blog/2013-07-09-lbs-2km.md",
   "path": "lbs-2km",
   "title": "lbs-2km"
 }, {
   "date": "2013-09-19",
-  "fullpath": "_posts/blog/2013-09-19-noif-compare.md",
+  "fullpath": "posts/blog/2013-09-19-noif-compare.md",
   "path": "noif-compare",
   "title": "noif-compare"
 }, {
   "date": "2013-12-10",
-  "fullpath": "_posts/blog/2013-12-10-strrev.md",
+  "fullpath": "posts/blog/2013-12-10-strrev.md",
   "path": "strrev",
   "title": "strrev"
 }, {
   "date": "2014-03-17",
-  "fullpath": "_posts/blog/2014-03-17-work-co.md",
+  "fullpath": "posts/blog/2014-03-17-work-co.md",
   "path": "work-co",
   "title": "work-co"
 }, {
   "date": "2014-05-29",
-  "fullpath": "_posts/blog/2014-05-29-gfw-goagent.md",
+  "fullpath": "posts/blog/2014-05-29-gfw-goagent.md",
   "path": "gfw-goagent",
   "title": "gfw-goagent"
 }, {
   "date": "2014-06-30",
-  "fullpath": "_posts/blog/2014-06-30-history.md",
+  "fullpath": "posts/blog/2014-06-30-history.md",
   "path": "history",
   "title": "history"
 }, {
   "date": "2014-07-16",
-  "fullpath": "_posts/blog/2014-07-16-traversal-binary-tree.md",
+  "fullpath": "posts/blog/2014-07-16-traversal-binary-tree.md",
   "path": "traversal-binary-tree",
   "title": "traversal-binary-tree"
 }, {
   "date": "2014-12-01",
-  "fullpath": "_posts/blog/2014-12-01-work-pa.md",
+  "fullpath": "posts/blog/2014-12-01-work-pa.md",
   "path": "work-pa",
   "title": "work-pa"
 }, {
   "date": "2014-12-03",
-  "fullpath": "_posts/blog/2014-12-03-find-job.md",
+  "fullpath": "posts/blog/2014-12-03-find-job.md",
   "path": "find-job",
   "title": "find-job"
 }]

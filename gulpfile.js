@@ -59,7 +59,7 @@ gulp.task('build:css', function () {
 gulp.task('manifest:wiki', function () {
   gulp.src("dist/wiki.json")
   .pipe(jeditor(function(json) {
-    return tree('_posts/wiki');
+    return tree('posts/wiki');
   }))
   .pipe(gulp.dest("dist"));
 });
@@ -67,7 +67,7 @@ gulp.task('manifest:wiki', function () {
 gulp.task('manifest:blog', function () {
   gulp.src("dist/blog.json")
   .pipe(jeditor(function(json) {
-    return tree('_posts/blog');
+    return tree('posts/blog');
   }))
   .pipe(gulp.dest("dist"));
 });
