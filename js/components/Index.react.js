@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = React.createClass({
+var Index = React.createClass({
   componentDidMount: function() {
    jQuery("#slide-show").slideshow();
   },
@@ -32,3 +32,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = Index;

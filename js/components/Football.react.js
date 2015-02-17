@@ -2,7 +2,7 @@
 
 var DuoShuo = require('./DuoShuo.react');
 
-module.exports = React.createClass({
+var Football = React.createClass({
   getDefaultProps: function() {
     return {
       football: '/json/football.json'
@@ -29,8 +29,10 @@ module.exports = React.createClass({
           <div className="team" playground>
           </div>
         </div>
-      <DuoShuo />
+      {/*<DuoShuo />*/}
       </div>
     );
   }
 });
+
+module.exports = Football;

@@ -46,11 +46,10 @@
 
 	'use strict';
 
-	window.React       = __webpack_require__(16);
-	window.ReactRouter = __webpack_require__(15);
-	window.$           = __webpack_require__(17);
-	window.jQuery      = __webpack_require__(17);
-	window._           = __webpack_require__(14);
+	window.React       = __webpack_require__(15);
+	window.ReactRouter = __webpack_require__(16);
+	window.$ = window.jQuery = __webpack_require__(17);
+	window._ = __webpack_require__(14);
 	window.PBDm = __webpack_require__(1);
 
 	__webpack_require__(2);
@@ -499,7 +498,7 @@
 
 	'use strict';
 
-	module.exports = React.createClass({displayName: "exports",
+	var Index = React.createClass({displayName: "Index",
 	  componentDidMount: function() {
 	   jQuery("#slide-show").slideshow();
 	  },
@@ -532,6 +531,8 @@
 	  }
 	});
 
+	module.exports = Index;
+
 
 /***/ },
 /* 6 */
@@ -539,7 +540,7 @@
 
 	'use strict';
 
-	module.exports = React.createClass({displayName: "exports",
+	var NotFound = React.createClass({displayName: "NotFound",
 	  render: function () {
 	    return (
 	      React.createElement("div", null, 
@@ -548,6 +549,9 @@
 	    );
 	  }
 	});
+
+	module.exports = NotFound;
+
 
 /***/ },
 /* 7 */
@@ -559,7 +563,7 @@
 	    Link = ReactRouter.Link,
 	    Post = __webpack_require__(20);
 
-	module.exports = React.createClass({displayName: "exports",
+	var Blog = React.createClass({displayName: "Blog",
 	  mixins: [ Post ],
 	  getDefaultProps: function() {
 	    return {
@@ -568,8 +572,8 @@
 	  },
 	  render: function () {
 	    var rawMarkup = converter.makeHtml(this.state.content.toString()),
-	        listDom = this.state.list.map(function(list) {
-	          return React.createElement("li", null, React.createElement(Link, {to: "blog", params: {name: list.path}}, list.title));
+	        listDom = this.state.list.map(function(list, key) {
+	          return React.createElement("li", {key: key}, React.createElement(Link, {to: "blog", params: {name: list.path}}, list.title));
 	        });
 	    return (
 	      React.createElement("div", {className: "container"}, 
@@ -585,6 +589,8 @@
 	    );
 	  }
 	});
+
+	module.exports = Blog
 
 
 /***/ },
@@ -597,7 +603,7 @@
 	    Link = ReactRouter.Link,
 	    Post = __webpack_require__(20);
 
-	module.exports = React.createClass({displayName: "exports",
+	var Wiki = React.createClass({displayName: "Wiki",
 	  mixins: [ Post ],
 	  getDefaultProps: function() {
 	    return {
@@ -606,8 +612,8 @@
 	  },
 	  render: function () {
 	    var rawMarkup = converter.makeHtml(this.state.content.toString()),
-	        listDom = this.state.list.map(function(list) {
-	          return React.createElement("li", null, React.createElement(Link, {to: "wiki", params: {name: list.path}}, list.title));
+	        listDom = this.state.list.map(function(list, key) {
+	          return React.createElement("li", {key: key}, React.createElement(Link, {to: "wiki", params: {name: list.path}}, list.title));
 	        });
 	    return (
 	      React.createElement("div", {className: "container"}, 
@@ -624,6 +630,8 @@
 	  }
 	});
 
+	module.exports = Wiki;
+
 
 /***/ },
 /* 9 */
@@ -631,7 +639,7 @@
 
 	'use strict';
 
-	module.exports = React.createClass({displayName: "exports",
+	var Cv = React.createClass({displayName: "Cv",
 	  render: function () {
 	    return (
 	      React.createElement("div", null, 
@@ -641,6 +649,8 @@
 	  }
 	});
 
+	module.exports = Cv;
+
 
 /***/ },
 /* 10 */
@@ -648,7 +658,7 @@
 
 	'use strict';
 
-	module.exports = React.createClass({displayName: "exports",
+	var About = React.createClass({displayName: "About",
 	  render: function () {
 	    return (
 	      React.createElement("div", {className: "container"}, 
@@ -678,6 +688,7 @@
 	  }
 	});
 
+	module.exports = About;
 
 /***/ },
 /* 11 */
@@ -687,7 +698,7 @@
 
 	var DuoShuo = __webpack_require__(21);
 
-	module.exports = React.createClass({displayName: "exports",
+	var Football = React.createClass({displayName: "Football",
 	  getDefaultProps: function() {
 	    return {
 	      football: '/json/football.json'
@@ -713,12 +724,14 @@
 	        React.createElement("div", {id: "football"}, 
 	          React.createElement("div", {className: "team", playground: true}
 	          )
-	        ), 
-	      React.createElement(DuoShuo, null)
+	        )
+	      /*<DuoShuo />*/
 	      )
 	    );
 	  }
 	});
+
+	module.exports = Football;
 
 
 /***/ },
@@ -730,7 +743,7 @@
 	var converter = new Showdown.converter(),
 	    Link = ReactRouter.Link;
 
-	var List = React.createClass({displayName: "List",
+	var Toc = React.createClass({displayName: "Toc",
 	  getDefaultProps: function() {
 	    return {
 	      list: {},
@@ -752,7 +765,7 @@
 	  }
 	});
 
-	module.exports = React.createClass({displayName: "exports",
+	var List = React.createClass({displayName: "List",
 	  mixins: [ ReactRouter.State ],
 	  getInitialState: function() {
 	    return {
@@ -807,8 +820,8 @@
 	  render: function () {
 	    var rawMarkup,
 	        type = this.getParams().name,
-	        listDom = this.state.data.map(function(list) {
-	          return React.createElement(List, {list: list, type: type});
+	        listDom = this.state.data.map(function(list, key) {
+	          return React.createElement(Toc, {key: key, list: list, type: type});
 	        });
 	    return (
 	      React.createElement("div", {className: "container"}, 
@@ -825,6 +838,8 @@
 	    );
 	  }
 	});
+
+	module.exports = List;
 
 
 /***/ },
@@ -12125,6 +12140,13 @@
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__(22);
+
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
 	exports.DefaultRoute = __webpack_require__(23);
 	exports.Link = __webpack_require__(24);
 	exports.NotFoundRoute = __webpack_require__(25);
@@ -12144,16 +12166,9 @@
 	exports.RouteHandlerMixin = __webpack_require__(36);
 	exports.State = __webpack_require__(37);
 
-	exports.create = __webpack_require__(39);
-	exports.run = __webpack_require__(38);
+	exports.create = __webpack_require__(38);
+	exports.run = __webpack_require__(39);
 
-
-
-/***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(22);
 
 
 /***/ },
@@ -21507,7 +21522,7 @@
 
 	'use strict';
 
-	module.exports = React.createClass({displayName: "exports",
+	var DuoShuo = React.createClass({displayName: "DuoShuo",
 	  componentDidMount: function() {
 	    window.duoshuoQuery = {
 	      short_name: "pbdm"
@@ -21526,6 +21541,9 @@
 	    );
 	  }
 	});
+
+	module.exports = DuoShuo;
+
 
 /***/ },
 /* 22 */
@@ -21722,7 +21740,7 @@
 /* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(16);
+	var React = __webpack_require__(15);
 	var Configuration = __webpack_require__(43);
 	var PropTypes = __webpack_require__(44);
 
@@ -21754,7 +21772,7 @@
 /* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(16);
+	var React = __webpack_require__(15);
 	var classSet = __webpack_require__(45);
 	var assign = __webpack_require__(41);
 	var Navigation = __webpack_require__(35);
@@ -21868,7 +21886,7 @@
 /* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(16);
+	var React = __webpack_require__(15);
 	var Configuration = __webpack_require__(43);
 	var PropTypes = __webpack_require__(44);
 
@@ -21901,7 +21919,7 @@
 /* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(16);
+	var React = __webpack_require__(15);
 	var Configuration = __webpack_require__(43);
 	var PropTypes = __webpack_require__(44);
 
@@ -21931,7 +21949,7 @@
 /* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(16);
+	var React = __webpack_require__(15);
 	var Configuration = __webpack_require__(43);
 	var PropTypes = __webpack_require__(44);
 	var RouteHandler = __webpack_require__(28);
@@ -22003,7 +22021,7 @@
 /* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(16);
+	var React = __webpack_require__(15);
 	var RouteHandlerMixin = __webpack_require__(36);
 
 	/**
@@ -22452,7 +22470,7 @@
 /* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(16);
+	var React = __webpack_require__(15);
 	var assign = __webpack_require__(41);
 	var PropTypes = __webpack_require__(44);
 
@@ -22593,62 +22611,8 @@
 /* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var createRouter = __webpack_require__(39);
-
-	/**
-	 * A high-level convenience method that creates, configures, and
-	 * runs a router in one shot. The method signature is:
-	 *
-	 *   Router.run(routes[, location ], callback);
-	 *
-	 * Using `window.location.hash` to manage the URL, you could do:
-	 *
-	 *   Router.run(routes, function (Handler) {
-	 *     React.render(<Handler/>, document.body);
-	 *   });
-	 * 
-	 * Using HTML5 history and a custom "cursor" prop:
-	 * 
-	 *   Router.run(routes, Router.HistoryLocation, function (Handler) {
-	 *     React.render(<Handler cursor={cursor}/>, document.body);
-	 *   });
-	 *
-	 * Returns the newly created router.
-	 *
-	 * Note: If you need to specify further options for your router such
-	 * as error/abort handling or custom scroll behavior, use Router.create
-	 * instead.
-	 *
-	 *   var router = Router.create(options);
-	 *   router.run(function (Handler) {
-	 *     // ...
-	 *   });
-	 */
-	function runRouter(routes, location, callback) {
-	  if (typeof location === 'function') {
-	    callback = location;
-	    location = null;
-	  }
-
-	  var router = createRouter({
-	    routes: routes,
-	    location: location
-	  });
-
-	  router.run(callback);
-
-	  return router;
-	}
-
-	module.exports = runRouter;
-
-
-/***/ },
-/* 39 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/* WEBPACK VAR INJECTION */(function(process) {/* jshint -W058 */
-	var React = __webpack_require__(16);
+	var React = __webpack_require__(15);
 	var warning = __webpack_require__(48);
 	var invariant = __webpack_require__(47);
 	var canUseDOM = __webpack_require__(42).canUseDOM;
@@ -23177,6 +23141,60 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(81)))
 
 /***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var createRouter = __webpack_require__(38);
+
+	/**
+	 * A high-level convenience method that creates, configures, and
+	 * runs a router in one shot. The method signature is:
+	 *
+	 *   Router.run(routes[, location ], callback);
+	 *
+	 * Using `window.location.hash` to manage the URL, you could do:
+	 *
+	 *   Router.run(routes, function (Handler) {
+	 *     React.render(<Handler/>, document.body);
+	 *   });
+	 * 
+	 * Using HTML5 history and a custom "cursor" prop:
+	 * 
+	 *   Router.run(routes, Router.HistoryLocation, function (Handler) {
+	 *     React.render(<Handler cursor={cursor}/>, document.body);
+	 *   });
+	 *
+	 * Returns the newly created router.
+	 *
+	 * Note: If you need to specify further options for your router such
+	 * as error/abort handling or custom scroll behavior, use Router.create
+	 * instead.
+	 *
+	 *   var router = Router.create(options);
+	 *   router.run(function (Handler) {
+	 *     // ...
+	 *   });
+	 */
+	function runRouter(routes, location, callback) {
+	  if (typeof location === 'function') {
+	    callback = location;
+	    location = null;
+	  }
+
+	  var router = createRouter({
+	    routes: routes,
+	    location: location
+	  });
+
+	  router.run(callback);
+
+	  return router;
+	}
+
+	module.exports = runRouter;
+
+
+/***/ },
 /* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -23338,7 +23356,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var assign = __webpack_require__(41);
-	var ReactPropTypes = __webpack_require__(16).PropTypes;
+	var ReactPropTypes = __webpack_require__(15).PropTypes;
 
 	var PropTypes = assign({
 
@@ -23770,7 +23788,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint -W084 */
-	var React = __webpack_require__(16);
+	var React = __webpack_require__(15);
 	var invariant = __webpack_require__(47);
 	var DefaultRoute = __webpack_require__(23);
 	var NotFoundRoute = __webpack_require__(25);
@@ -23933,7 +23951,7 @@
 /* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(16);
+	var React = __webpack_require__(15);
 
 	function isValidChild(object) {
 	  return object == null || React.isValidElement(object);

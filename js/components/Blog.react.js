@@ -4,7 +4,7 @@ var converter = new Showdown.converter(),
     Link = ReactRouter.Link,
     Post = require('../mixins/post');
 
-module.exports = React.createClass({
+var Blog = React.createClass({
   mixins: [ Post ],
   getDefaultProps: function() {
     return {
@@ -13,8 +13,8 @@ module.exports = React.createClass({
   },
   render: function () {
     var rawMarkup = converter.makeHtml(this.state.content.toString()),
-        listDom = this.state.list.map(function(list) {
-          return <li><Link to='blog' params={{name: list.path}}>{list.title}</Link></li>;
+        listDom = this.state.list.map(function(list, key) {
+          return <li key={key}><Link to='blog' params={{name: list.path}}>{list.title}</Link></li>;
         });
     return (
       <div className="container">
@@ -30,3 +30,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = Blog

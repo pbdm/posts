@@ -2,9 +2,8 @@
 
 window.React       = require('react');
 window.ReactRouter = require('react-router');
-window.$           = require('jquery');
-window.jQuery      = require('jquery');
-window._           = require('lodash');
+window.$ = window.jQuery = require('jquery');
+window._ = require('lodash');
 window.PBDm = require('./function');
 
 require('./plugins/jquery.slideshow');
@@ -31,7 +30,7 @@ var routes = (
     <DefaultRoute name="index"    handler={Index} />
     <Route        name="blog"     handler={Blog} path="blog/:name" />
     <Route        name="wiki"     handler={Wiki} path="wiki/:name" />
-    <Route        name="list"     handler={List} path="list/:name"/>
+    <Route        name="list"     handler={List} path="list/:name" />
     <Route        name="cv"       handler={Cv} />
     <Route        name="about"    handler={About} />
     <Route        name="football" handler={Football} />

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = React.createClass({
+var DuoShuo = React.createClass({
   componentDidMount: function() {
     window.duoshuoQuery = {
       short_name: "pbdm"
@@ -19,3 +19,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = DuoShuo;

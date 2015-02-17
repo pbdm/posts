@@ -3,7 +3,7 @@
 var converter = new Showdown.converter(),
     Link = ReactRouter.Link;
 
-var List = React.createClass({
+var Toc = React.createClass({
   getDefaultProps: function() {
     return {
       list: {},
@@ -25,7 +25,7 @@ var List = React.createClass({
   }
 });
 
-module.exports = React.createClass({
+var List = React.createClass({
   mixins: [ ReactRouter.State ],
   getInitialState: function() {
     return {
@@ -80,8 +80,8 @@ module.exports = React.createClass({
   render: function () {
     var rawMarkup,
         type = this.getParams().name,
-        listDom = this.state.data.map(function(list) {
-          return <List list={list} type={type}/>;
+        listDom = this.state.data.map(function(list, key) {
+          return <Toc key={key} list={list} type={type}/>;
         });
     return (
       <div className="container">
@@ -98,3 +98,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = List;

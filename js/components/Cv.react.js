@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = React.createClass({
+var Cv = React.createClass({
   render: function () {
     return (
       <div>
@@ -9,3 +9,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = Cv;
