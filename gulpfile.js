@@ -43,7 +43,7 @@ gulp.task('build:js', function(){
           //{ test: require.resolve("jquery"), loader: "expose?jQuery" },
           //{ test: require.resolve("react"), loader: "expose?React" },
           //{ test: require.resolve("react-router"), loader: "expose?Router" },
-          { test: require.resolve("./js/function.js"), loader: "expose?PBDm" }
+          //{ test: require.resolve("./js/function.js"), loader: "expose?PBDm" }
         ]
       }
     }))

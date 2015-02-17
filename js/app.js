@@ -1,9 +1,12 @@
 'use strict';
 
-// require('react');
-// require('react-router');
-// require('jquery');
-require('./function');
+window.React       = require('react');
+window.ReactRouter = require('react-router');
+window.$           = require('jquery');
+window.jQuery      = require('jquery');
+window._           = require('lodash');
+window.PBDm = require('./function');
+
 require('./plugins/jquery.slideshow');
 //require('./plugins/jquery.headanimation');
 require('./plugins/jquery.toc');
