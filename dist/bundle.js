@@ -49,26 +49,26 @@
 	// require('react');
 	// require('react-router');
 	// require('jquery');
-	__webpack_require__(15);
+	__webpack_require__(14);
 	__webpack_require__(1);
+	//require('./plugins/jquery.headanimation');
 	__webpack_require__(2);
-	__webpack_require__(3);
 
 	var Route         = ReactRouter.Route,
 	    DefaultRoute  = ReactRouter.DefaultRoute,
 	    NotFoundRoute = ReactRouter.NotFoundRoute;
 	 
 
-	var App      = __webpack_require__(4),
-	    Index    = __webpack_require__(5),
-	    NotFound = __webpack_require__(6),
-	    Blog     = __webpack_require__(7),
-	    Wiki     = __webpack_require__(8),
-	    Cv       = __webpack_require__(9),
-	    About    = __webpack_require__(10),
-	    Football = __webpack_require__(11),
-	    BlogList = __webpack_require__(12),
-	    WikiList = __webpack_require__(13);
+	var App      = __webpack_require__(3),
+	    Index    = __webpack_require__(4),
+	    NotFound = __webpack_require__(5),
+	    Blog     = __webpack_require__(6),
+	    Wiki     = __webpack_require__(7),
+	    Cv       = __webpack_require__(8),
+	    About    = __webpack_require__(9),
+	    Football = __webpack_require__(10),
+	    BlogList = __webpack_require__(11),
+	    WikiList = __webpack_require__(12);
 
 	var routes = (
 	  React.createElement(Route, {handler: App}, 
@@ -88,7 +88,7 @@
 	  React.render(React.createElement(Handler, null), document.getElementById('app'));
 	});
 
-	__webpack_require__(14);
+	__webpack_require__(13);
 
 
 /***/ },
@@ -161,86 +161,6 @@
 
 	; (function($) {
 	  "use strict";
-
-	  function hideHead(arg) {
-	    arg.children("div").each(function() {
-	      $(this).css("z-index", -1);
-	    });
-	  }
-	  var methods = {
-	    init: function(options) {
-	      var $this = this;
-	      return this.each(function() {
-	        var headTop = this.offsetTop,
-	          headMid = this.offsetTop + this.clientHeight / 2,
-	          headBottom = this.clientHeight + this.offsetTop,
-	          headLeft = this.offsetLeft,
-	          headCenter = this.offsetLeft + this.clientWidth / 2,
-	          headRight = this.clientWidth + this.offsetLeft,
-	          myX, myY, defaults = {
-	            "ratio": 50
-	          },
-	          settings = $.extend({}, defaults, options);
-	        $(document).mousemove(function(e) {
-	          myX = (e.clientX - headCenter) / settings.ratio;
-	          myY = (e.clientY - headMid) / settings.ratio;
-	          $this.css({
-	            "transform": "translate(" + myX + "px," + myY + "px)",
-	            "-webkit-transform": "translate(" + myX + "px," + myY + "px)",
-	            "-ms-transform": "translate(" + myX + "px," + myY + "px)",
-	            "-moz-transform": "translate(" + myX + "px," + myY + "px)",
-	            "-o-transform": "translate(" + myX + "px," + myY + "px)",
-	          });
-	          hideHead($this);
-	          if (e.clientY < headTop) {
-	            if (e.clientX < headLeft) {
-	              $this.children(".top-left").css("z-index", 0);
-	            } else if (e.clientX < headRight) {
-	              $this.children(".top-center").css("z-index", 0);
-	            } else {
-	              $this.children(".top-right").css("z-index", 0);
-	            }
-	          } else if (e.clientY < headBottom) {
-	            if (e.clientX < headLeft) {
-	              $this.children(".center-left").css("z-index", 0);
-	            } else if (e.clientX < headRight) {
-	              $this.children(".center-center").css("z-index", 0);
-	            } else {
-	              $this.children(".center-right").css("z-index", 0);
-	            }
-	          } else {
-	            if (e.clientX < headLeft) {
-	              $this.children(".bottom-left").css("z-index", 0);
-	            } else if (e.clientX < headRight) {
-	              $this.children(".bottom-center").css("z-index", 0);
-	            } else {
-	              $this.children(".bottom-right").css("z-index", 0);
-	            }
-	          }
-	        });
-	      });
-	    },
-	  };
-	  $.fn.headAnimation = function() {
-	    var method = arguments[0];
-	    if (methods[method]) {
-	      return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-	    } else if (typeof method === "object" || !method) {
-	      return methods.init.apply(this, arguments);
-	    } else {
-	      $.error("Method " + method + " does not exist on jQuery.headanimation");
-	    }
-	  };
-	})(jQuery);
-
-
-
-/***/ },
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	; (function($) {
-	  "use strict";
 	  var methods = {
 	    init: function() {
 	      $('#toc').remove();
@@ -297,14 +217,14 @@
 
 
 /***/ },
-/* 4 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var RouteHandler = ReactRouter.RouteHandler,
-	    Top = __webpack_require__(17),
-	    Bottom = __webpack_require__(18);
+	    Top = __webpack_require__(16),
+	    Bottom = __webpack_require__(17);
 
 	module.exports = React.createClass({displayName: "exports",
 	  mixins: [ ReactRouter.State ],
@@ -329,7 +249,7 @@
 
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -369,7 +289,7 @@
 
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -385,14 +305,14 @@
 	});
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var converter = new Showdown.converter(),
 	    Link = ReactRouter.Link,
-	    Post = __webpack_require__(19);
+	    Post = __webpack_require__(18);
 
 	module.exports = React.createClass({displayName: "exports",
 	  mixins: [ Post ],
@@ -425,14 +345,14 @@
 
 
 /***/ },
-/* 8 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var converter = new Showdown.converter(),
 	    Link = ReactRouter.Link,
-	    Post = __webpack_require__(19);
+	    Post = __webpack_require__(18);
 
 	module.exports = React.createClass({displayName: "exports",
 	  mixins: [ Post ],
@@ -466,7 +386,7 @@
 
 
 /***/ },
-/* 9 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -483,7 +403,7 @@
 
 
 /***/ },
-/* 10 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -520,12 +440,12 @@
 
 
 /***/ },
-/* 11 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var DuoShuo = __webpack_require__(20);
+	var DuoShuo = __webpack_require__(19);
 
 	module.exports = React.createClass({displayName: "exports",
 	  getDefaultProps: function() {
@@ -559,14 +479,14 @@
 
 
 /***/ },
-/* 12 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var converter = new Showdown.converter(),
 	    Link = ReactRouter.Link,
-	    List = __webpack_require__(21);
+	    List = __webpack_require__(20);
 
 	var ListBlog = React.createClass({displayName: "ListBlog",
 	  getDefaultProps: function() {
@@ -620,14 +540,14 @@
 
 
 /***/ },
-/* 13 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var converter = new Showdown.converter(),
 	    Link = ReactRouter.Link,
-	    List = __webpack_require__(21);
+	    List = __webpack_require__(20);
 
 	var ListBlog = React.createClass({displayName: "ListBlog",
 	  getDefaultProps: function() {
@@ -681,7 +601,7 @@
 
 
 /***/ },
-/* 14 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -726,14 +646,14 @@
 
 
 /***/ },
-/* 15 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["PBDm"] = __webpack_require__(16);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["PBDm"] = __webpack_require__(15);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 16 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -975,7 +895,7 @@
 
 
 /***/ },
-/* 17 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict'
@@ -1004,7 +924,7 @@
 
 
 /***/ },
-/* 18 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict'
@@ -1039,7 +959,7 @@
 	});
 
 /***/ },
-/* 19 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1087,7 +1007,7 @@
 
 
 /***/ },
-/* 20 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1113,13 +1033,13 @@
 	});
 
 /***/ },
-/* 21 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var BlogStore = __webpack_require__(22);
-	var WikiStore = __webpack_require__(23);
+	var BlogStore = __webpack_require__(21);
+	var WikiStore = __webpack_require__(22);
 
 	module.exports = {
 	  mixins: [ ReactRouter.State ],
@@ -1171,7 +1091,7 @@
 
 
 /***/ },
-/* 22 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1189,7 +1109,7 @@
 	};
 
 /***/ },
-/* 23 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

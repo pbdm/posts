@@ -4,9 +4,9 @@
 // require('react-router');
 // require('jquery');
 require('./function');
-require('./jquery.slideshow');
-require('./jquery.headanimation');
-require('./jquery.toc');
+require('./plugins/jquery.slideshow');
+//require('./plugins/jquery.headanimation');
+require('./plugins/jquery.toc');
 
 var Route         = ReactRouter.Route,
     DefaultRoute  = ReactRouter.DefaultRoute,
