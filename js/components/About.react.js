@@ -1,10 +1,11 @@
---- 
-layout: default 
----
-<div id="aboutme">
-    <div class="container">
+'use strict';
+
+module.exports = React.createClass({
+  render: function () {
+    return (
+      <div className="container">
         <div id="who">
-            <div class="intro-image">
+            <div className="intro-image">
                 <h2>我是谁</h2>
             </div>
             <div clsss="intro-acticle">
@@ -17,13 +18,14 @@ layout: default
             </div>
         </div>
         <div id="inter">
-            <div class="intro-image">
+            <div className="intro-image">
                 <h2>国际米兰</h2>
             </div>
             <p>
                 我是国际米兰的忠实伪球迷(内拉......), 和很多其他的内拉一样, 因为大罗而喜欢国米, 然后是雷科巴, 萨内蒂, 师奶~~
             </p>
-            </p>
         </div>
     </div>
-</div>
+    );
+  }
+});

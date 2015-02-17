@@ -1,13 +1,12 @@
-; (function() {
-  "use strict";
+'use strict';
 
-  this.PBDm = this.PBDm || {};
+module.exports = {
 
   /**
    * [affix description]
    * @return {[type]} [description]
    */
-  PBDm.affix = function() {
+  affix: function() {
     var postList = document.getElementsByClassName("list")[0],
       postContainer = document.getElementsByClassName("list-container")[0],
       container = document.getElementsByClassName("container")[0],
@@ -45,13 +44,13 @@
           }
         });
     }
-  };
+  },
 
   /**
    * [navTop description]
    * @return {[type]} [description]
    */
-  PBDm.navTop = function() {
+  navTop: function() {
     var myNav = document.getElementsByTagName("nav")[0],
       navW = document.getElementsByClassName("wrapper")[0],
       navY,
@@ -72,13 +71,13 @@
         }
         navY = scrollTop;
       });
-  };
+  },
 
   /**
    * [whichBrowser description]
    * @return {[type]} [browser type]
    */
-  PBDm.whichBrowser = function() {
+  whichBrowser: function() {
     var sys = {},
       ua = navigator.userAgent.toLowerCase(),
       s;
@@ -89,7 +88,7 @@
       (s = ua.match(/opera.([\d.]+)/)) ? sys.opera = s[1] :
       (s = ua.match(/version\/([\d.]+).*safari/)) ? sys.safari = s[1] : 0;
     return sys;
-  };
+  },
 
   /**
    * [drawPlayGround description]
@@ -99,7 +98,7 @@
    * @param  {[type]} players    [players date]
    * @return {[type]}            [description]
    */
-  PBDm.drawPlayGround = function(parent, p, m, players) {
+  drawPlayGround: function(parent, p, m, players) {
     var playgroundWapper = document.createElement("div"),
       playgroundName = document.createElement("h2"),
       name = document.createTextNode(players.date),
@@ -195,14 +194,14 @@
     ctx.fillText(players.cf || "", (p.w / 2) * m, p.l * m * 1 / 7);
     ctx.fillText(players.lf || "", (p.w / 4) * m, p.l * m * 1 / 7);
     ctx.fillText(players.rf || "", (p.w / 4 * 3) * m, p.l * m * 1 / 7);
-  };
+  },
 
   /**
    * [gravatar description]
    * @param  {[type]} profile [description]
    * @return {[type]}         [description]
    */
-  PBDm.gravatar = function(profile) {
+  gravatar: function(profile) {
     document.getElementsByClassName("accounts_weibo")[0].setAttribute("href", profile.entry[0].urls[1].value);
     document.getElementsByClassName("accounts_twitter")[0].setAttribute("href", profile.entry[0].accounts[3].url);
     document.getElementsByClassName("accounts_facebook")[0].setAttribute("href", profile.entry[0].accounts[0].url);
@@ -212,9 +211,9 @@
     document.getElementsByClassName("email")[0].setAttribute("href", "mailto:" + profile.entry[0].emails[0].value);
     document.getElementsByClassName("fn")[0].setAttribute("href", profile.entry[0].profileUrl);
     document.getElementsByClassName("fn")[0].innerHTML = profile.entry[0].name.givenName + " " + profile.entry[0].name.familyName;
-  };
+  },
 
-  PBDm.responsiveMenu = function() {
+  responsiveMenu: function() {
     var navList = document.querySelector("nav .wrapper > ul"),
       navMenu = document.getElementsByClassName("fa-list-ul")[0];
     navMenu.addEventListener("click",
@@ -231,7 +230,7 @@
           navList.style.height = "1px";
         }
       });
-  };
+  }
 
-}).call(this);
+};
 

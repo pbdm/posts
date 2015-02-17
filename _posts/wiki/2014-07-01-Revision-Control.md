@@ -1,8 +1,4 @@
----
-layout: wiki
-published: true
-category: wiki
----
+# Revision Control
 
 ## Git
 * `git add -i`: 一个好使的add代码到`缓存区(Index)`的工具

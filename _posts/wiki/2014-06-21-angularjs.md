@@ -1,8 +1,4 @@
----
-layout: wiki
-published: true
-category: wiki
----
+# Angular.js
 
 * [从这开始吧](http://www.cnblogs.com/harvey-he/p/3226789.html)
 * [CN API](http://www.ngnice.com/docs/api)

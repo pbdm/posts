@@ -1,8 +1,4 @@
----
-layout: wiki
-published: true
-category: wiki
----
+# Regular Expression
 
 ## Perl风格
 * `+` 前导字符，一个或多个  ex: `ph+p`:`php` `phhhp` `phhhhhhp`

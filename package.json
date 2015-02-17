@@ -1,0 +1,21 @@
+{
+  "name": "pbdm.cc",
+  "version": "3.0.1",
+  "dependencies": {
+    "jquery": "^2.1.3",
+    "react": "^0.12.2",
+    "react-router": "^0.12.0"
+  },
+  "devDependencies": {
+    "expose-loader": "^0.6.0",
+    "fs": "0.0.2",
+    "gulp": "^3.8.11",
+    "gulp-json-editor": "^2.2.1",
+    "gulp-less": "^3.0.0",
+    "gulp-webpack": "^1.2.0",
+    "gulp-webserver": "^0.9.0",
+    "jsx-loader": "^0.12.2",
+    "path": "^0.11.14",
+    "run-sequence": "^1.0.2"
+  }
+}
