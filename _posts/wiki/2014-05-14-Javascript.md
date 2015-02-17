@@ -1,8 +1,4 @@
----
-layout: wiki
-published: true
-category: wiki
----
+# Javascript
 
 ## 删除元素
 如需删除 HTML 元素，必须首先获得该元素的父元素

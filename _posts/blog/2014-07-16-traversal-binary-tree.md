@@ -1,10 +1,4 @@
----
-layout: blog
-title: javascript二叉树遍历
-date: 2014-07-16
-category: blog
-published: true
----
+# javascript二叉树遍历
 
 ```
 function Node() {
