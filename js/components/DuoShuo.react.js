@@ -15,7 +15,7 @@ var DuoShuo = React.createClass({
   },
   render: function () {
     return (
-      <div class="ds-thread" data-thread-key="/wiki/Links" data-title="Links" data-url="请替换成文章的网址"></div>
+      <div className="ds-thread" data-thread-key="/wiki/Links" data-title="Links" data-url="请替换成文章的网址"></div>
     );
   }
 });

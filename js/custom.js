@@ -4,7 +4,7 @@ var scrollEventType;
 (PBDm.whichBrowser().firefox) ? scrollEventType = "DOMMouseScroll": scrollEventType = "mousewheel";
 
 // sidebarfix
-PBDm.affix();
+//PBDm.affix();
 
 // navtop
 // whichBrowser().ie ? '' : navTop();

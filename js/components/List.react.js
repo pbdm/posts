@@ -39,6 +39,7 @@ var List = React.createClass({
     this.getData(this.getParams().name);
   },
   componentDidUpdate: function(prevProps, prevState) {
+    PBDm.affix();
     $(".post").toc();
   },
   getData: function(name) {

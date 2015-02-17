@@ -16,6 +16,7 @@ module.exports = {
     this.getData(this.getParams().name);
   },
   componentDidUpdate: function(prevProps, prevState) {
+    PBDm.affix();
     $(".post").toc();
   },
   getData: function(name) {
