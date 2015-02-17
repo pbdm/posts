@@ -20,13 +20,17 @@ var App      = require('./components/App.react'),
     Wiki     = require('./components/Wiki.react'),
     Cv       = require('./components/Cv.react'),
     About    = require('./components/About.react'),
-    Football = require('./components/Football.react');
+    Football = require('./components/Football.react'),
+    BlogList = require('./components/BlogList.react'),
+    WikiList = require('./components/WikiList.react');
 
 var routes = (
   <Route handler={App}>
     <DefaultRoute name="index"    handler={Index} />
     <Route        name="blog"     handler={Blog} path="blog/:name" />
+    <Route        name="bloglist" handler={BlogList} />
     <Route        name="wiki"     handler={Wiki} path="wiki/:name" />
+    <Route        name="wikilist" handler={WikiList} />
     <Route        name="cv"       handler={Cv} />
     <Route        name="about"    handler={About} />
     <Route        name="football" handler={Football} />

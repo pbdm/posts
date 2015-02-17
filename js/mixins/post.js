@@ -10,15 +10,15 @@ module.exports = {
     };
   },
   componentDidMount: function() {
-    this.changeWiki(this.getParams().name);
+    this.getData(this.getParams().name);
   },
   componentWillReceiveProps: function() {
-    this.changeWiki(this.getParams().name);
+    this.getData(this.getParams().name);
   },
   componentDidUpdate: function(prevProps, prevState) {
     $(".post").toc();
   },
-  changeWiki: function(name) {
+  getData: function(name) {
     var tmp = {};
     $.get(this.props.url, function(list) {
       if (this.isMounted()) {

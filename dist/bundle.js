@@ -49,7 +49,7 @@
 	// require('react');
 	// require('react-router');
 	// require('jquery');
-	__webpack_require__(13);
+	__webpack_require__(15);
 	__webpack_require__(1);
 	__webpack_require__(2);
 	__webpack_require__(3);
@@ -66,13 +66,17 @@
 	    Wiki     = __webpack_require__(8),
 	    Cv       = __webpack_require__(9),
 	    About    = __webpack_require__(10),
-	    Football = __webpack_require__(11);
+	    Football = __webpack_require__(11),
+	    BlogList = __webpack_require__(12),
+	    WikiList = __webpack_require__(13);
 
 	var routes = (
 	  React.createElement(Route, {handler: App}, 
 	    React.createElement(DefaultRoute, {name: "index", handler: Index}), 
 	    React.createElement(Route, {name: "blog", handler: Blog, path: "blog/:name"}), 
+	    React.createElement(Route, {name: "bloglist", handler: BlogList}), 
 	    React.createElement(Route, {name: "wiki", handler: Wiki, path: "wiki/:name"}), 
+	    React.createElement(Route, {name: "wikilist", handler: WikiList}), 
 	    React.createElement(Route, {name: "cv", handler: Cv}), 
 	    React.createElement(Route, {name: "about", handler: About}), 
 	    React.createElement(Route, {name: "football", handler: Football}), 
@@ -84,7 +88,7 @@
 	  React.render(React.createElement(Handler, null), document.getElementById('app'));
 	});
 
-	__webpack_require__(12);
+	__webpack_require__(14);
 
 
 /***/ },
@@ -299,8 +303,8 @@
 	'use strict';
 
 	var RouteHandler = ReactRouter.RouteHandler,
-	    Top = __webpack_require__(15),
-	    Bottom = __webpack_require__(16);
+	    Top = __webpack_require__(17),
+	    Bottom = __webpack_require__(18);
 
 	module.exports = React.createClass({displayName: "exports",
 	  mixins: [ ReactRouter.State ],
@@ -388,7 +392,7 @@
 
 	var converter = new Showdown.converter(),
 	    Link = ReactRouter.Link,
-	    Post = __webpack_require__(17);
+	    Post = __webpack_require__(19);
 
 	module.exports = React.createClass({displayName: "exports",
 	  mixins: [ Post ],
@@ -428,7 +432,7 @@
 
 	var converter = new Showdown.converter(),
 	    Link = ReactRouter.Link,
-	    Post = __webpack_require__(17);
+	    Post = __webpack_require__(19);
 
 	module.exports = React.createClass({displayName: "exports",
 	  mixins: [ Post ],
@@ -521,7 +525,7 @@
 
 	'use strict';
 
-	var DuoShuo = __webpack_require__(18);
+	var DuoShuo = __webpack_require__(20);
 
 	module.exports = React.createClass({displayName: "exports",
 	  getDefaultProps: function() {
@@ -556,6 +560,128 @@
 
 /***/ },
 /* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var converter = new Showdown.converter(),
+	    Link = ReactRouter.Link,
+	    List = __webpack_require__(21);
+
+	var ListBlog = React.createClass({displayName: "ListBlog",
+	  getDefaultProps: function() {
+	    return {
+	      list: {}
+	    };
+	  },
+	  render: function () {
+	    var rawMarkup = converter.makeHtml(this.props.list.content.toString().slice(0,200));
+	    return (
+	      React.createElement("div", {class: "article"}, 
+	        React.createElement("h2", null, React.createElement(Link, {to: "blog", params: {name: this.props.list.path}}, this.props.list.title)), 
+	        React.createElement("span", {class: "date"}, 
+	            this.props.list.date
+	        ), 
+	        React.createElement("div", {dangerouslySetInnerHTML: {__html: rawMarkup}}), 
+	        React.createElement(Link, {to: "blog", params: {name: this.props.list.path}}, "浏览全文...")
+	      )
+	    );
+	  }
+	});
+
+	module.exports = React.createClass({displayName: "exports",
+	  mixins: [ List ],
+	  getDefaultProps: function() {
+	    return {
+	      url: '/dist/blog.json',
+	      type: 'blog'
+	    };
+	  },
+	  render: function () {
+	    var rawMarkup,
+	        listDom = this.state.data.map(function(list) {
+	          return React.createElement(ListBlog, {list: list});
+	        });
+	    return (
+	      React.createElement("div", {id: "blog"}, 
+	          React.createElement("div", {className: "container"}, 
+	              React.createElement("div", {className: "post"}, 
+	                listDom
+	              )
+	              /*<div className="list">
+	                  <div className="list-container">
+	                  </div>
+	              </div>*/
+	          )
+	      )
+	    );
+	  }
+	});
+
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var converter = new Showdown.converter(),
+	    Link = ReactRouter.Link,
+	    List = __webpack_require__(21);
+
+	var ListBlog = React.createClass({displayName: "ListBlog",
+	  getDefaultProps: function() {
+	    return {
+	      list: {}
+	    };
+	  },
+	  render: function () {
+	    var rawMarkup = converter.makeHtml(this.props.list.content.toString().slice(0,200));
+	    return (
+	      React.createElement("div", {class: "article"}, 
+	        React.createElement("h2", null, React.createElement(Link, {to: "wiki", params: {name: this.props.list.path}}, this.props.list.title)), 
+	        React.createElement("span", {class: "date"}, 
+	            this.props.list.date
+	        ), 
+	        React.createElement("div", {dangerouslySetInnerHTML: {__html: rawMarkup}}), 
+	        React.createElement(Link, {to: "wiki", params: {name: this.props.list.path}}, "浏览全文...")
+	      )
+	    );
+	  }
+	});
+
+	module.exports = React.createClass({displayName: "exports",
+	  mixins: [ List ],
+	  getDefaultProps: function() {
+	    return {
+	      url: '/dist/wiki.json',
+	      type: 'wiki'
+	    };
+	  },
+	  render: function () {
+	    var rawMarkup,
+	        listDom = this.state.data.map(function(list) {
+	          return React.createElement(ListBlog, {list: list});
+	        });
+	    return (
+	      React.createElement("div", {id: "blog"}, 
+	          React.createElement("div", {className: "container"}, 
+	              React.createElement("div", {className: "post"}, 
+	                listDom
+	              ), 
+	              React.createElement("div", {className: "list"}, 
+	                  React.createElement("div", {className: "list-container"}
+	                  )
+	              )
+	          )
+	      )
+	    );
+	  }
+	});
+
+
+/***/ },
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -600,14 +726,14 @@
 
 
 /***/ },
-/* 13 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["PBDm"] = __webpack_require__(14);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["PBDm"] = __webpack_require__(16);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 14 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -849,7 +975,7 @@
 
 
 /***/ },
-/* 15 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict'
@@ -865,8 +991,8 @@
 	          ), 
 	          React.createElement("ul", null, 
 	            React.createElement("li", null, React.createElement("a", {href: "#"}, "Home")), 
-	            React.createElement("li", null, React.createElement("a", {href: "#blog"}, "Blog")), 
-	            React.createElement("li", null, React.createElement("a", {href: "#wiki"}, "Wiki")), 
+	            React.createElement("li", null, React.createElement("a", {href: "#bloglist"}, "Blog")), 
+	            React.createElement("li", null, React.createElement("a", {href: "#wiki/links"}, "Wiki")), 
 	            React.createElement("li", null, React.createElement("a", {href: "#football"}, "Football")), 
 	            React.createElement("li", null, React.createElement("a", {href: "#about"}, "About me"))
 	          )
@@ -878,7 +1004,7 @@
 
 
 /***/ },
-/* 16 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict'
@@ -913,7 +1039,7 @@
 	});
 
 /***/ },
-/* 17 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -928,15 +1054,15 @@
 	    };
 	  },
 	  componentDidMount: function() {
-	    this.changeWiki(this.getParams().name);
+	    this.getData(this.getParams().name);
 	  },
 	  componentWillReceiveProps: function() {
-	    this.changeWiki(this.getParams().name);
+	    this.getData(this.getParams().name);
 	  },
 	  componentDidUpdate: function(prevProps, prevState) {
 	    $(".post").toc();
 	  },
-	  changeWiki: function(name) {
+	  getData: function(name) {
 	    var tmp = {};
 	    $.get(this.props.url, function(list) {
 	      if (this.isMounted()) {
@@ -961,7 +1087,7 @@
 
 
 /***/ },
-/* 18 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -985,6 +1111,100 @@
 	    );
 	  }
 	});
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var BlogStore = __webpack_require__(22);
+	var WikiStore = __webpack_require__(23);
+
+	module.exports = {
+	  mixins: [ ReactRouter.State ],
+	  getInitialState: function() {
+	    return {
+	      data:    []
+	    };
+	  },
+	  componentDidMount: function() {
+	    this.getList();
+	  },
+	  componentDidUpdate: function(prevProps, prevState) {
+	    $(".post").toc();
+	  },
+	  getList: function(name) {
+	    var key,
+	        flag = 0,
+	        Store;  
+	    switch (this.props.type) {
+	      case 'blog':
+	        Store = BlogStore;
+	      case 'wiki':
+	        Store = WikiStore;
+	    }
+
+	    $.get(this.props.url, function(data) {
+	      if (this.isMounted()) {
+	        for (key in data) {
+	          (function() {
+	            var tmp = data[key];
+	            $.get(tmp.fullpath, function(content) {
+	              if (this.isMounted()) {
+	                flag++;
+	                tmp.content = content;
+	                Store.push(tmp);
+	                if (flag == data.length) {
+	                  this.setState({
+	                    data: Store.getAll()
+	                  });
+	                }
+	              }
+	            }.bind(this));
+	          }.bind(this)());
+	        }
+	      }
+	    }.bind(this));
+	  },
+	}
+
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = {
+	  data: [],
+	  push: function(options){
+	    if(options && _.isObject(options)){
+	      this.data.push(options);
+	    }
+	  },
+	  getAll: function(){
+	    return this.data;
+	  },
+	};
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = {
+	  data: [],
+	  push: function(options){
+	    if(options && _.isObject(options)){
+	      this.data.push(options);
+	    }
+	  },
+	  getAll: function(){
+	    return this.data;
+	  },
+	};
 
 /***/ }
 /******/ ])
