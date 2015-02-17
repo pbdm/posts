@@ -1,13 +1,27 @@
 'use strict'
 
-module.exports = React.createClass({
+var Bottom = React.createClass({
+  componentDidMount: function() {
+    this.getData();
+  },
+  getData: function() {
+    // http://cn.gravatar.com/630014a2c794d879d6041d84808e3ceb.json
+    $.get('json/gravatar.json', function(data) {
+      if (this.isMounted()) {
+        if (!_.isObject(data)) {
+          data = JSON.parse(data);
+        }
+        PBDm.gravatar(data);
+      }
+    }.bind(this));
+  },
   render: function () {
     return (
       <footer>
         <div className="container">
           <div className="friend-links column">
             <h2>友情链接</h2>
-            <a href="http://www.rockimba.com/">Rock</a>
+            <a href="http://www.rockimba.com/" target='_blank'>Rock</a>
             <a href="#">某人</a>
           </div>
           <div className="vcard">
@@ -21,10 +35,12 @@ module.exports = React.createClass({
               <a title="Github" className="accounts_github url" rel="me"><i className="fa fa-github-square"></i></a>
               <a title="Email" className="email"><i className="fa fa-envelope-square"></i></a>
             </div>
-            <a className="fn"></a>© 2012 - 2014 | Powered by <a href="https://pages.github.com/">Github Pages</a> &amp; <a href="http://jekyllrb.com/">Jekyll</a>
+            <a className="fn"></a>© 2012 - 2014 | Powered by <a href="http://facebook.github.io/react/" target='_blank'>React</a>
           </div>
         </div>
       </footer>
     );
   }
 });
+
+module.exports = Bottom;

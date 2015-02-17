@@ -46,8 +46,8 @@
 
 	'use strict';
 
-	window.React       = __webpack_require__(15);
-	window.ReactRouter = __webpack_require__(16);
+	window.React       = __webpack_require__(16);
+	window.ReactRouter = __webpack_require__(15);
 	window.$           = __webpack_require__(17);
 	window.jQuery      = __webpack_require__(17);
 	window._           = __webpack_require__(14);
@@ -469,7 +469,7 @@
 	    Top = __webpack_require__(18),
 	    Bottom = __webpack_require__(19);
 
-	module.exports = React.createClass({displayName: "exports",
+	var App =  React.createClass({displayName: "App",
 	  mixins: [ ReactRouter.State ],
 	  render: function () {
 	    return (
@@ -489,6 +489,8 @@
 	    );
 	  }
 	});
+
+	module.exports = App;
 
 
 /***/ },
@@ -12123,13 +12125,6 @@
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(22);
-
-
-/***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
 	exports.DefaultRoute = __webpack_require__(23);
 	exports.Link = __webpack_require__(24);
 	exports.NotFoundRoute = __webpack_require__(25);
@@ -12149,9 +12144,16 @@
 	exports.RouteHandlerMixin = __webpack_require__(36);
 	exports.State = __webpack_require__(37);
 
-	exports.create = __webpack_require__(38);
-	exports.run = __webpack_require__(39);
+	exports.create = __webpack_require__(39);
+	exports.run = __webpack_require__(38);
 
+
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(22);
 
 
 /***/ },
@@ -21371,7 +21373,7 @@
 
 	'use strict'
 
-	module.exports = React.createClass({displayName: "exports",
+	var Top = React.createClass({displayName: "Top",
 	  render: function () {
 	    return (
 	      React.createElement("nav", null, 
@@ -21393,6 +21395,8 @@
 	  }
 	});
 
+	module.exports = Top;
+
 
 /***/ },
 /* 19 */
@@ -21400,14 +21404,28 @@
 
 	'use strict'
 
-	module.exports = React.createClass({displayName: "exports",
+	var Bottom = React.createClass({displayName: "Bottom",
+	  componentDidMount: function() {
+	    this.getData();
+	  },
+	  getData: function() {
+	    // http://cn.gravatar.com/630014a2c794d879d6041d84808e3ceb.json
+	    $.get('json/gravatar.json', function(data) {
+	      if (this.isMounted()) {
+	        if (!_.isObject(data)) {
+	          data = JSON.parse(data);
+	        }
+	        PBDm.gravatar(data);
+	      }
+	    }.bind(this));
+	  },
 	  render: function () {
 	    return (
 	      React.createElement("footer", null, 
 	        React.createElement("div", {className: "container"}, 
 	          React.createElement("div", {className: "friend-links column"}, 
 	            React.createElement("h2", null, "友情链接"), 
-	            React.createElement("a", {href: "http://www.rockimba.com/"}, "Rock"), 
+	            React.createElement("a", {href: "http://www.rockimba.com/", target: "_blank"}, "Rock"), 
 	            React.createElement("a", {href: "#"}, "某人")
 	          ), 
 	          React.createElement("div", {className: "vcard"}, 
@@ -21421,13 +21439,16 @@
 	              React.createElement("a", {title: "Github", className: "accounts_github url", rel: "me"}, React.createElement("i", {className: "fa fa-github-square"})), 
 	              React.createElement("a", {title: "Email", className: "email"}, React.createElement("i", {className: "fa fa-envelope-square"}))
 	            ), 
-	            React.createElement("a", {className: "fn"}), "© 2012 - 2014 | Powered by ", React.createElement("a", {href: "https://pages.github.com/"}, "Github Pages"), " & ", React.createElement("a", {href: "http://jekyllrb.com/"}, "Jekyll")
+	            React.createElement("a", {className: "fn"}), "© 2012 - 2014 | Powered by ", React.createElement("a", {href: "http://facebook.github.io/react/", target: "_blank"}, "React")
 	          )
 	        )
 	      )
 	    );
 	  }
 	});
+
+	module.exports = Bottom;
+
 
 /***/ },
 /* 20 */
@@ -21701,7 +21722,7 @@
 /* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(15);
+	var React = __webpack_require__(16);
 	var Configuration = __webpack_require__(43);
 	var PropTypes = __webpack_require__(44);
 
@@ -21733,7 +21754,7 @@
 /* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(15);
+	var React = __webpack_require__(16);
 	var classSet = __webpack_require__(45);
 	var assign = __webpack_require__(41);
 	var Navigation = __webpack_require__(35);
@@ -21847,7 +21868,7 @@
 /* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(15);
+	var React = __webpack_require__(16);
 	var Configuration = __webpack_require__(43);
 	var PropTypes = __webpack_require__(44);
 
@@ -21880,7 +21901,7 @@
 /* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(15);
+	var React = __webpack_require__(16);
 	var Configuration = __webpack_require__(43);
 	var PropTypes = __webpack_require__(44);
 
@@ -21910,7 +21931,7 @@
 /* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(15);
+	var React = __webpack_require__(16);
 	var Configuration = __webpack_require__(43);
 	var PropTypes = __webpack_require__(44);
 	var RouteHandler = __webpack_require__(28);
@@ -21982,7 +22003,7 @@
 /* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(15);
+	var React = __webpack_require__(16);
 	var RouteHandlerMixin = __webpack_require__(36);
 
 	/**
@@ -22431,7 +22452,7 @@
 /* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(15);
+	var React = __webpack_require__(16);
 	var assign = __webpack_require__(41);
 	var PropTypes = __webpack_require__(44);
 
@@ -22572,8 +22593,62 @@
 /* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var createRouter = __webpack_require__(39);
+
+	/**
+	 * A high-level convenience method that creates, configures, and
+	 * runs a router in one shot. The method signature is:
+	 *
+	 *   Router.run(routes[, location ], callback);
+	 *
+	 * Using `window.location.hash` to manage the URL, you could do:
+	 *
+	 *   Router.run(routes, function (Handler) {
+	 *     React.render(<Handler/>, document.body);
+	 *   });
+	 * 
+	 * Using HTML5 history and a custom "cursor" prop:
+	 * 
+	 *   Router.run(routes, Router.HistoryLocation, function (Handler) {
+	 *     React.render(<Handler cursor={cursor}/>, document.body);
+	 *   });
+	 *
+	 * Returns the newly created router.
+	 *
+	 * Note: If you need to specify further options for your router such
+	 * as error/abort handling or custom scroll behavior, use Router.create
+	 * instead.
+	 *
+	 *   var router = Router.create(options);
+	 *   router.run(function (Handler) {
+	 *     // ...
+	 *   });
+	 */
+	function runRouter(routes, location, callback) {
+	  if (typeof location === 'function') {
+	    callback = location;
+	    location = null;
+	  }
+
+	  var router = createRouter({
+	    routes: routes,
+	    location: location
+	  });
+
+	  router.run(callback);
+
+	  return router;
+	}
+
+	module.exports = runRouter;
+
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(process) {/* jshint -W058 */
-	var React = __webpack_require__(15);
+	var React = __webpack_require__(16);
 	var warning = __webpack_require__(48);
 	var invariant = __webpack_require__(47);
 	var canUseDOM = __webpack_require__(42).canUseDOM;
@@ -23102,60 +23177,6 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(81)))
 
 /***/ },
-/* 39 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var createRouter = __webpack_require__(38);
-
-	/**
-	 * A high-level convenience method that creates, configures, and
-	 * runs a router in one shot. The method signature is:
-	 *
-	 *   Router.run(routes[, location ], callback);
-	 *
-	 * Using `window.location.hash` to manage the URL, you could do:
-	 *
-	 *   Router.run(routes, function (Handler) {
-	 *     React.render(<Handler/>, document.body);
-	 *   });
-	 * 
-	 * Using HTML5 history and a custom "cursor" prop:
-	 * 
-	 *   Router.run(routes, Router.HistoryLocation, function (Handler) {
-	 *     React.render(<Handler cursor={cursor}/>, document.body);
-	 *   });
-	 *
-	 * Returns the newly created router.
-	 *
-	 * Note: If you need to specify further options for your router such
-	 * as error/abort handling or custom scroll behavior, use Router.create
-	 * instead.
-	 *
-	 *   var router = Router.create(options);
-	 *   router.run(function (Handler) {
-	 *     // ...
-	 *   });
-	 */
-	function runRouter(routes, location, callback) {
-	  if (typeof location === 'function') {
-	    callback = location;
-	    location = null;
-	  }
-
-	  var router = createRouter({
-	    routes: routes,
-	    location: location
-	  });
-
-	  router.run(callback);
-
-	  return router;
-	}
-
-	module.exports = runRouter;
-
-
-/***/ },
 /* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -23317,7 +23338,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var assign = __webpack_require__(41);
-	var ReactPropTypes = __webpack_require__(15).PropTypes;
+	var ReactPropTypes = __webpack_require__(16).PropTypes;
 
 	var PropTypes = assign({
 
@@ -23749,7 +23770,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint -W084 */
-	var React = __webpack_require__(15);
+	var React = __webpack_require__(16);
 	var invariant = __webpack_require__(47);
 	var DefaultRoute = __webpack_require__(23);
 	var NotFoundRoute = __webpack_require__(25);
@@ -23912,7 +23933,7 @@
 /* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(15);
+	var React = __webpack_require__(16);
 
 	function isValidChild(object) {
 	  return object == null || React.isValidElement(object);
@@ -34654,15 +34675,15 @@
 
 	"use strict";
 
-	var ReactDOMIDOperations = __webpack_require__(163);
+	var ReactDOMIDOperations = __webpack_require__(162);
 	var ReactMarkupChecksum = __webpack_require__(137);
 	var ReactMount = __webpack_require__(73);
 	var ReactPerf = __webpack_require__(75);
-	var ReactReconcileTransaction = __webpack_require__(164);
+	var ReactReconcileTransaction = __webpack_require__(163);
 
 	var getReactRootElementInContainer = __webpack_require__(134);
 	var invariant = __webpack_require__(47);
-	var setInnerHTML = __webpack_require__(165);
+	var setInnerHTML = __webpack_require__(164);
 
 
 	var ELEMENT_NODE_TYPE = 1;
@@ -34854,7 +34875,7 @@
 
 	"use strict";
 
-	var AutoFocusMixin = __webpack_require__(162);
+	var AutoFocusMixin = __webpack_require__(165);
 	var ReactBrowserComponentMixin = __webpack_require__(104);
 	var ReactCompositeComponent = __webpack_require__(63);
 	var ReactElement = __webpack_require__(66);
@@ -35029,7 +35050,7 @@
 
 	"use strict";
 
-	var AutoFocusMixin = __webpack_require__(162);
+	var AutoFocusMixin = __webpack_require__(165);
 	var DOMPropertyOperations = __webpack_require__(59);
 	var LinkedValueUtils = __webpack_require__(167);
 	var ReactBrowserComponentMixin = __webpack_require__(104);
@@ -35266,7 +35287,7 @@
 
 	"use strict";
 
-	var AutoFocusMixin = __webpack_require__(162);
+	var AutoFocusMixin = __webpack_require__(165);
 	var LinkedValueUtils = __webpack_require__(167);
 	var ReactBrowserComponentMixin = __webpack_require__(104);
 	var ReactCompositeComponent = __webpack_require__(63);
@@ -35454,7 +35475,7 @@
 
 	"use strict";
 
-	var AutoFocusMixin = __webpack_require__(162);
+	var AutoFocusMixin = __webpack_require__(165);
 	var DOMPropertyOperations = __webpack_require__(59);
 	var LinkedValueUtils = __webpack_require__(167);
 	var ReactBrowserComponentMixin = __webpack_require__(104);
@@ -39598,37 +39619,6 @@
 /* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule AutoFocusMixin
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	var focusNode = __webpack_require__(192);
-
-	var AutoFocusMixin = {
-	  componentDidMount: function() {
-	    if (this.props.autoFocus) {
-	      focusNode(this.getDOMNode());
-	    }
-	  }
-	};
-
-	module.exports = AutoFocusMixin;
-
-
-/***/ },
-/* 163 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2014, Facebook, Inc.
 	 * All rights reserved.
@@ -39652,7 +39642,7 @@
 	var ReactPerf = __webpack_require__(75);
 
 	var invariant = __webpack_require__(47);
-	var setInnerHTML = __webpack_require__(165);
+	var setInnerHTML = __webpack_require__(164);
 
 	/**
 	 * Errors for properties that should not be updated with `updatePropertyById()`.
@@ -39815,7 +39805,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(81)))
 
 /***/ },
-/* 164 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -39995,7 +39985,7 @@
 
 
 /***/ },
-/* 165 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -40074,6 +40064,37 @@
 	}
 
 	module.exports = setInnerHTML;
+
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule AutoFocusMixin
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	var focusNode = __webpack_require__(192);
+
+	var AutoFocusMixin = {
+	  componentDidMount: function() {
+	    if (this.props.autoFocus) {
+	      focusNode(this.getDOMNode());
+	    }
+	  }
+	};
+
+	module.exports = AutoFocusMixin;
 
 
 /***/ },

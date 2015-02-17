@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = React.createClass({
+var Top = React.createClass({
   render: function () {
     return (
       <nav>
@@ -21,3 +21,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = Top;

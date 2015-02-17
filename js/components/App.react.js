@@ -4,7 +4,7 @@ var RouteHandler = ReactRouter.RouteHandler,
     Top = require('./Top.react'),
     Bottom = require('./Bottom.react');
 
-module.exports = React.createClass({
+var App =  React.createClass({
   mixins: [ ReactRouter.State ],
   render: function () {
     return (
@@ -24,3 +24,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = App;
