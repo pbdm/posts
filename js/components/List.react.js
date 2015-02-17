@@ -54,7 +54,6 @@ module.exports = React.createClass({
     }
     $.get(url, function(data) {
       if (this.isMounted()) {
-        debugger;
         if (!_.isObject(data)) {
           data = JSON.parse(data);
         }

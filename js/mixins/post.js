@@ -22,6 +22,9 @@ module.exports = {
     var tmp = {};
     $.get(this.props.url, function(list) {
       if (this.isMounted()) {
+        if (!_.isObject(list)) {
+          list = JSON.parse(list);
+        }
         tmp = _.filter(list, function(n) {
           return n.path == name;
         }); 
