@@ -11,7 +11,7 @@ module.exports = React.createClass({
           </div>
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#bloglist">Blog</a></li>
+            <li><a href="#list/blog">Blog</a></li>
             <li><a href="#wiki/links">Wiki</a></li>
             <li><a href="#football">Football</a></li>
             <li><a href="#about">About me</a></li>

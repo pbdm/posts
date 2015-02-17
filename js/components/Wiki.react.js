@@ -17,16 +17,13 @@ module.exports = React.createClass({
           return <li><Link to='wiki' params={{name: list.path}}>{list.title}</Link></li>;
         });
     return (
-      <div id="wiki">
-        <div className="container">
-          <h1>{this.state.data.title}</h1>
-          <div className="post" dangerouslySetInnerHTML={{__html: rawMarkup}} />
-          <div className="list">
-            <div className="list-container">
-              <ul>
-                {listDom}
-              </ul>
-            </div>
+      <div className="container">
+        <div className="post" dangerouslySetInnerHTML={{__html: rawMarkup}} />
+        <div className="list">
+          <div className="list-container">
+            <ul>
+              {listDom}
+            </ul>
           </div>
         </div>
       </div>

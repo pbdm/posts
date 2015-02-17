@@ -49,7 +49,7 @@
 	// require('react');
 	// require('react-router');
 	// require('jquery');
-	__webpack_require__(14);
+	__webpack_require__(13);
 	__webpack_require__(1);
 	//require('./plugins/jquery.headanimation');
 	__webpack_require__(2);
@@ -67,16 +67,14 @@
 	    Cv       = __webpack_require__(8),
 	    About    = __webpack_require__(9),
 	    Football = __webpack_require__(10),
-	    BlogList = __webpack_require__(11),
-	    WikiList = __webpack_require__(12);
+	    List     = __webpack_require__(11);
 
 	var routes = (
 	  React.createElement(Route, {handler: App}, 
 	    React.createElement(DefaultRoute, {name: "index", handler: Index}), 
 	    React.createElement(Route, {name: "blog", handler: Blog, path: "blog/:name"}), 
-	    React.createElement(Route, {name: "bloglist", handler: BlogList}), 
 	    React.createElement(Route, {name: "wiki", handler: Wiki, path: "wiki/:name"}), 
-	    React.createElement(Route, {name: "wikilist", handler: WikiList}), 
+	    React.createElement(Route, {name: "list", handler: List, path: "list/:name"}), 
 	    React.createElement(Route, {name: "cv", handler: Cv}), 
 	    React.createElement(Route, {name: "about", handler: About}), 
 	    React.createElement(Route, {name: "football", handler: Football}), 
@@ -88,7 +86,7 @@
 	  React.render(React.createElement(Handler, null), document.getElementById('app'));
 	});
 
-	__webpack_require__(13);
+	__webpack_require__(12);
 
 
 /***/ },
@@ -223,8 +221,8 @@
 	'use strict';
 
 	var RouteHandler = ReactRouter.RouteHandler,
-	    Top = __webpack_require__(16),
-	    Bottom = __webpack_require__(17);
+	    Top = __webpack_require__(15),
+	    Bottom = __webpack_require__(16);
 
 	module.exports = React.createClass({displayName: "exports",
 	  mixins: [ ReactRouter.State ],
@@ -312,7 +310,7 @@
 
 	var converter = new Showdown.converter(),
 	    Link = ReactRouter.Link,
-	    Post = __webpack_require__(18);
+	    Post = __webpack_require__(17);
 
 	module.exports = React.createClass({displayName: "exports",
 	  mixins: [ Post ],
@@ -327,14 +325,12 @@
 	          return React.createElement("li", null, React.createElement(Link, {to: "blog", params: {name: list.path}}, list.title));
 	        });
 	    return (
-	      React.createElement("div", {id: "blog"}, 
-	        React.createElement("div", {className: "container"}, 
-	          React.createElement("div", {className: "post", dangerouslySetInnerHTML: {__html: rawMarkup}}), 
-	          React.createElement("div", {className: "list"}, 
-	            React.createElement("div", {className: "list-container"}, 
-	              React.createElement("ul", null, 
-	                listDom
-	              )
+	      React.createElement("div", {className: "container"}, 
+	        React.createElement("div", {className: "post", dangerouslySetInnerHTML: {__html: rawMarkup}}), 
+	        React.createElement("div", {className: "list"}, 
+	          React.createElement("div", {className: "list-container"}, 
+	            React.createElement("ul", null, 
+	              listDom
 	            )
 	          )
 	        )
@@ -352,7 +348,7 @@
 
 	var converter = new Showdown.converter(),
 	    Link = ReactRouter.Link,
-	    Post = __webpack_require__(18);
+	    Post = __webpack_require__(17);
 
 	module.exports = React.createClass({displayName: "exports",
 	  mixins: [ Post ],
@@ -367,15 +363,12 @@
 	          return React.createElement("li", null, React.createElement(Link, {to: "wiki", params: {name: list.path}}, list.title));
 	        });
 	    return (
-	      React.createElement("div", {id: "wiki"}, 
-	        React.createElement("div", {className: "container"}, 
-	          React.createElement("h1", null, this.state.data.title), 
-	          React.createElement("div", {className: "post", dangerouslySetInnerHTML: {__html: rawMarkup}}), 
-	          React.createElement("div", {className: "list"}, 
-	            React.createElement("div", {className: "list-container"}, 
-	              React.createElement("ul", null, 
-	                listDom
-	              )
+	      React.createElement("div", {className: "container"}, 
+	        React.createElement("div", {className: "post", dangerouslySetInnerHTML: {__html: rawMarkup}}), 
+	        React.createElement("div", {className: "list"}, 
+	          React.createElement("div", {className: "list-container"}, 
+	            React.createElement("ul", null, 
+	              listDom
 	            )
 	          )
 	        )
@@ -445,7 +438,7 @@
 
 	'use strict';
 
-	var DuoShuo = __webpack_require__(19);
+	var DuoShuo = __webpack_require__(18);
 
 	module.exports = React.createClass({displayName: "exports",
 	  getDefaultProps: function() {
@@ -485,54 +478,96 @@
 	'use strict';
 
 	var converter = new Showdown.converter(),
-	    Link = ReactRouter.Link,
-	    List = __webpack_require__(20);
+	    Link = ReactRouter.Link;
 
-	var ListBlog = React.createClass({displayName: "ListBlog",
+	var List = React.createClass({displayName: "List",
 	  getDefaultProps: function() {
 	    return {
-	      list: {}
+	      list: {},
+	      type: ''
 	    };
 	  },
 	  render: function () {
 	    var rawMarkup = converter.makeHtml(this.props.list.content.toString().slice(0,200));
 	    return (
-	      React.createElement("div", {class: "article"}, 
-	        React.createElement("h2", null, React.createElement(Link, {to: "blog", params: {name: this.props.list.path}}, this.props.list.title)), 
-	        React.createElement("span", {class: "date"}, 
+	      React.createElement("div", {className: "article"}, 
+	        React.createElement("h2", null, React.createElement(Link, {to: this.props.type, params: {name: this.props.list.path}}, this.props.list.title)), 
+	        React.createElement("span", {className: "date"}, 
 	            this.props.list.date
 	        ), 
 	        React.createElement("div", {dangerouslySetInnerHTML: {__html: rawMarkup}}), 
-	        React.createElement(Link, {to: "blog", params: {name: this.props.list.path}}, "浏览全文...")
+	        React.createElement(Link, {to: this.props.type, params: {name: this.props.list.path}}, "浏览全文...")
 	      )
 	    );
 	  }
 	});
 
 	module.exports = React.createClass({displayName: "exports",
-	  mixins: [ List ],
-	  getDefaultProps: function() {
+	  mixins: [ ReactRouter.State ],
+	  getInitialState: function() {
 	    return {
-	      url: '/dist/blog.json',
-	      type: 'blog'
+	      data:    []
 	    };
+	  },
+	  componentDidMount: function() {
+	    this.getData(this.getParams().name);
+	  },
+	  componentWillReceiveProps: function() {
+	    this.getData(this.getParams().name);
+	  },
+	  componentDidUpdate: function(prevProps, prevState) {
+	    $(".post").toc();
+	  },
+	  getData: function(name) {
+	    var key,
+	        flag = 0,
+	        Store = [],
+	        url;
+	    switch (name) {
+	      case 'blog':
+	        url = 'dist/' +  name + '.json';
+	      case 'wiki':
+	        url = 'dist/' +  name + '.json';
+	    }
+	    $.get(url, function(data) {
+	      if (this.isMounted()) {
+	        for (key in data) {
+	          (function() {
+	            var tmp = data[key];
+	            $.get(tmp.fullpath, function(content) {
+	              if (this.isMounted()) {
+	                flag++;
+	                tmp.content = content;
+	                Store.push(tmp);
+	                if (flag == data.length) {
+	                  this.setState({
+	                    data: Store
+	                  });
+	                }
+	              }
+	            }.bind(this));
+	          }.bind(this)());
+	        }
+	      }
+	    }.bind(this));
 	  },
 	  render: function () {
 	    var rawMarkup,
+	        type = this.getParams().name,
 	        listDom = this.state.data.map(function(list) {
-	          return React.createElement(ListBlog, {list: list});
+	          return React.createElement(List, {list: list, type: type});
 	        });
 	    return (
-	      React.createElement("div", {id: "blog"}, 
-	          React.createElement("div", {className: "container"}, 
-	              React.createElement("div", {className: "post"}, 
-	                listDom
-	              )
-	              /*<div className="list">
-	                  <div className="list-container">
-	                  </div>
-	              </div>*/
-	          )
+	      React.createElement("div", {className: "container"}, 
+	        React.createElement("div", {className: "post"}, 
+	          listDom
+	        )
+	        /*
+	        <div className="list">
+	          <div className="list-container">
+	          </div>
+	        </div>
+	        */
 	      )
 	    );
 	  }
@@ -541,67 +576,6 @@
 
 /***/ },
 /* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var converter = new Showdown.converter(),
-	    Link = ReactRouter.Link,
-	    List = __webpack_require__(20);
-
-	var ListBlog = React.createClass({displayName: "ListBlog",
-	  getDefaultProps: function() {
-	    return {
-	      list: {}
-	    };
-	  },
-	  render: function () {
-	    var rawMarkup = converter.makeHtml(this.props.list.content.toString().slice(0,200));
-	    return (
-	      React.createElement("div", {class: "article"}, 
-	        React.createElement("h2", null, React.createElement(Link, {to: "wiki", params: {name: this.props.list.path}}, this.props.list.title)), 
-	        React.createElement("span", {class: "date"}, 
-	            this.props.list.date
-	        ), 
-	        React.createElement("div", {dangerouslySetInnerHTML: {__html: rawMarkup}}), 
-	        React.createElement(Link, {to: "wiki", params: {name: this.props.list.path}}, "浏览全文...")
-	      )
-	    );
-	  }
-	});
-
-	module.exports = React.createClass({displayName: "exports",
-	  mixins: [ List ],
-	  getDefaultProps: function() {
-	    return {
-	      url: '/dist/wiki.json',
-	      type: 'wiki'
-	    };
-	  },
-	  render: function () {
-	    var rawMarkup,
-	        listDom = this.state.data.map(function(list) {
-	          return React.createElement(ListBlog, {list: list});
-	        });
-	    return (
-	      React.createElement("div", {id: "blog"}, 
-	          React.createElement("div", {className: "container"}, 
-	              React.createElement("div", {className: "post"}, 
-	                listDom
-	              ), 
-	              React.createElement("div", {className: "list"}, 
-	                  React.createElement("div", {className: "list-container"}
-	                  )
-	              )
-	          )
-	      )
-	    );
-	  }
-	});
-
-
-/***/ },
-/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -646,14 +620,14 @@
 
 
 /***/ },
-/* 14 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["PBDm"] = __webpack_require__(15);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["PBDm"] = __webpack_require__(14);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 15 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -895,7 +869,7 @@
 
 
 /***/ },
-/* 16 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict'
@@ -911,7 +885,7 @@
 	          ), 
 	          React.createElement("ul", null, 
 	            React.createElement("li", null, React.createElement("a", {href: "#"}, "Home")), 
-	            React.createElement("li", null, React.createElement("a", {href: "#bloglist"}, "Blog")), 
+	            React.createElement("li", null, React.createElement("a", {href: "#list/blog"}, "Blog")), 
 	            React.createElement("li", null, React.createElement("a", {href: "#wiki/links"}, "Wiki")), 
 	            React.createElement("li", null, React.createElement("a", {href: "#football"}, "Football")), 
 	            React.createElement("li", null, React.createElement("a", {href: "#about"}, "About me"))
@@ -924,7 +898,7 @@
 
 
 /***/ },
-/* 17 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict'
@@ -959,7 +933,7 @@
 	});
 
 /***/ },
-/* 18 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1007,7 +981,7 @@
 
 
 /***/ },
-/* 19 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1031,100 +1005,6 @@
 	    );
 	  }
 	});
-
-/***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var BlogStore = __webpack_require__(21);
-	var WikiStore = __webpack_require__(22);
-
-	module.exports = {
-	  mixins: [ ReactRouter.State ],
-	  getInitialState: function() {
-	    return {
-	      data:    []
-	    };
-	  },
-	  componentDidMount: function() {
-	    this.getList();
-	  },
-	  componentDidUpdate: function(prevProps, prevState) {
-	    $(".post").toc();
-	  },
-	  getList: function(name) {
-	    var key,
-	        flag = 0,
-	        Store;  
-	    switch (this.props.type) {
-	      case 'blog':
-	        Store = BlogStore;
-	      case 'wiki':
-	        Store = WikiStore;
-	    }
-
-	    $.get(this.props.url, function(data) {
-	      if (this.isMounted()) {
-	        for (key in data) {
-	          (function() {
-	            var tmp = data[key];
-	            $.get(tmp.fullpath, function(content) {
-	              if (this.isMounted()) {
-	                flag++;
-	                tmp.content = content;
-	                Store.push(tmp);
-	                if (flag == data.length) {
-	                  this.setState({
-	                    data: Store.getAll()
-	                  });
-	                }
-	              }
-	            }.bind(this));
-	          }.bind(this)());
-	        }
-	      }
-	    }.bind(this));
-	  },
-	}
-
-
-/***/ },
-/* 21 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = {
-	  data: [],
-	  push: function(options){
-	    if(options && _.isObject(options)){
-	      this.data.push(options);
-	    }
-	  },
-	  getAll: function(){
-	    return this.data;
-	  },
-	};
-
-/***/ },
-/* 22 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = {
-	  data: [],
-	  push: function(options){
-	    if(options && _.isObject(options)){
-	      this.data.push(options);
-	    }
-	  },
-	  getAll: function(){
-	    return this.data;
-	  },
-	};
 
 /***/ }
 /******/ ])
