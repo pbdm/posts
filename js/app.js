@@ -24,6 +24,7 @@ var App      = require('./components/App.react'),
     About    = require('./components/About.react'),
     Football = require('./components/Football.react'),
     List     = require('./components/List.react');
+    Tq     = require('./components/Tq.react');
 
 var routes = (
   <Route handler={App}>
@@ -32,6 +33,7 @@ var routes = (
     <Route        name="wiki"     handler={Wiki} path="wiki/:name" />
     <Route        name="list"     handler={List} path="list/:name" />
     <Route        name="cv"       handler={Cv} />
+    <Route        name="tq"       handler={Tq} />
     <Route        name="about"    handler={About} />
     <Route        name="football" handler={Football} />
     <NotFoundRoute                handler={NotFound} />
