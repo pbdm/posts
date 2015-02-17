@@ -10,8 +10,11 @@ module.exports = React.createClass({
   },
   componentDidMount: function() {
     var parent = document.getElementsByClassName("team")[0];
-    jQuery.get(this.props.football, function(data) {
+    $.get(this.props.football, function(data) {
       if (this.isMounted()) {
+        if (!_.isObject(data)) {
+          data = JSON.parse(data);
+        }
         for (var i in data.teams) {
           PBDm.drawPlayGround(parent, data.meazza, data.m, data.teams[i]);
         }
