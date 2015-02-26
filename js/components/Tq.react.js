@@ -4,7 +4,7 @@ var Tq = React.createClass({
   render: function () {
     return (
       <div>
-        404
+        Tq
       </div>
     );
   }

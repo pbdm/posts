@@ -23,7 +23,7 @@ var App      = require('./components/App.react'),
     Cv       = require('./components/Cv.react'),
     About    = require('./components/About.react'),
     Football = require('./components/Football.react'),
-    List     = require('./components/List.react');
+    List     = require('./components/List.react'),
     Tq     = require('./components/Tq.react');
 
 var routes = (
