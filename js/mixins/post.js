@@ -18,6 +18,7 @@ module.exports = {
   componentDidUpdate: function(prevProps, prevState) {
     PBDm.affix();
     $(".post").toc();
+    hljs.initHighlighting();
   },
   getData: function(name) {
     var tmp = {};
