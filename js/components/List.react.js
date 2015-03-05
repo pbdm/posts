@@ -41,7 +41,9 @@ var List = React.createClass({
   componentDidUpdate: function(prevProps, prevState) {
     PBDm.affix();
     $(".post").toc();
-    hljs.initHighlighting();
+    $('pre code').each(function(i, block) {     
+      hljs.highlightBlock(block);
+    });
   },
   getData: function(name) {
     var key,
