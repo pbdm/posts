@@ -10,5 +10,12 @@
 #### `orderBy`
 ### `ng-model` 绑定模型变量
 
+* do not use angular-md5 plugins if we have chinese charaters to submit [ex:](https://github.com/gdi2290/angular-md5/issues/5#issuecomment-68249712)
+
+## [Ionic](http://ionicframework.com/)
+* banner width is wrong if we open a modal(暂时用popup代替)[wrong ion-slide-box width after opening modal](https://github.com/driftyco/ionic/issues/2817#issue-52962366)
+* Slides generated with ng-repeat causing issues--用`ng-if`解决
+
+
 
 
