@@ -17,8 +17,8 @@
         $t = $(this).prop("tagName").toLowerCase();
         $c = $(this).text();
         $(this).attr("id", $c);
-        $a = $("<a/>").attr("href", "#" + $c).text($c);
-        $li = $("<li/>").addClass("toc-" + $t).append($a);
+        //$a = $("<a/>").attr("href", "#" + $c).text($c);
+        $li = $("<li/>").addClass("toc-" + $t).append($c);
         $ul.append($li);
         scrollTop.push($(this).offset().top);
       });
