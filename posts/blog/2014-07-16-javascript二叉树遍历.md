@@ -1,5 +1,3 @@
-# javascript二叉树遍历
-
 ```
 function Node() {
   this.text = '';

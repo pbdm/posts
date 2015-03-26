@@ -1,5 +1,3 @@
-# Revision Control
-
 ## Git
 * `git add -i`: 一个好使的add代码到`缓存区(Index)`的工具
 * `git log --name-status` 查看文件修改列表
