@@ -6,6 +6,7 @@ window.$ = window.jQuery = require('jquery');
 window._ = require('lodash');
 window.PBDm = require('./function');
 window.hljs = require('highlight.js');
+window.DuoShuo = require('./components/DuoShuo.react');
 
 require('./plugins/jquery.slideshow');
 //require('./plugins/jquery.headanimation');

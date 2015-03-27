@@ -21,6 +21,7 @@ var Blog = React.createClass({
         <div className='post'>
           <h1>{this.getParams().name}</h1>
           <div dangerouslySetInnerHTML={{__html: rawMarkup}} />
+          <DuoShuo name={this.getParams().name}/>
         </div>
         <div className="list">
           <div className="list-container">

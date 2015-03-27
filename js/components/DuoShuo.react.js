@@ -5,7 +5,6 @@ var DuoShuo = React.createClass({
     window.duoshuoQuery = {
       short_name: "pbdm"
     };
-    debugger;
     var ds = document.createElement("script");
     ds.type = "text/javascript";
     ds.async = true;
@@ -15,7 +14,7 @@ var DuoShuo = React.createClass({
   },
   render: function () {
     return (
-      <div className="ds-thread" data-thread-key="/wiki/Links" data-title="Links" data-url="请替换成文章的网址"></div>
+      <div className="ds-thread" data-thread-key={this.props.name} data-title={this.props.name} data-url={this.props.name}></div>
     );
   }
 });

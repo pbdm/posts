@@ -1,7 +1,5 @@
 'use strict';
 
-var DuoShuo = require('./DuoShuo.react');
-
 var Football = React.createClass({
   getDefaultProps: function() {
     return {
@@ -29,7 +27,7 @@ var Football = React.createClass({
           <div className="team" playground>
           </div>
         </div>
-      {/*<DuoShuo />*/}
+        <DuoShuo name="football"/>
       </div>
     );
   }
