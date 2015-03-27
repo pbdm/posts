@@ -19,7 +19,7 @@ var Blog = React.createClass({
     return (
       <div className="container">
         <div className='post'>
-          <h2>{this.getParams().name}</h2>
+          <h1>{this.getParams().name}</h1>
           <div dangerouslySetInnerHTML={{__html: rawMarkup}} />
         </div>
         <div className="list">

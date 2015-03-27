@@ -35,7 +35,7 @@ var Bottom = React.createClass({
               <a title="Github" className="accounts_github url" rel="me"><i className="fa fa-github-square"></i></a>
               <a title="Email" className="email"><i className="fa fa-envelope-square"></i></a>
             </div>
-            <a className="fn"></a>© 2012 - 2014 | Powered by <a href="http://facebook.github.io/react/" target='_blank'>React</a>
+            <a className="fn"></a>© 2012 - {new Date().getFullYear()} | Powered by <a href="http://facebook.github.io/react/" target='_blank'>React</a>
           </div>
         </div>
       </footer>

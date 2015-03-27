@@ -1,3 +1,7 @@
+* [JavaScript获取DOM元素位置和尺寸大小](http://www.cnblogs.com/dolphinX/archive/2012/11/19/2777756.html)
+* `splice()` 方法与 `slice()` 方法的作用是不同的，splice() 方法会直接对数组进行修改
+`splice()` 返回被删除元素 
+
 ## 删除元素
 如需删除 HTML 元素，必须首先获得该元素的父元素
 
@@ -42,11 +46,6 @@
 
 ##[闭包(Closure)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Closures)
 内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。
-
-##`splice()` 方法与 `slice()` 方法的作用是不同的，splice() 方法会直接对数组进行修改
-`splice()` 返回被删除元素 
-
-## [JavaScript获取DOM元素位置和尺寸大小](http://www.cnblogs.com/dolphinX/archive/2012/11/19/2777756.html)
 
 ## [Simple JavaScript Inheritance](http://ejohn.org/blog/simple-javascript-inheritance/)
 [注释 by purplebamboo](http://purplebamboo.github.io/2014/07/13/javascript-oo-class/)
