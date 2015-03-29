@@ -1,7 +1,9 @@
 'use strict';
 
 module.exports = {
-  mixins: [ ReactRouter.State ],
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   getInitialState: function() {
     return {
       content: '',
@@ -10,10 +12,14 @@ module.exports = {
     };
   },
   componentDidMount: function() {
-    this.getData(this.getParams().name);
+    if (this.context.router.getCurrentParams().name) {
+      this.getData(this.context.router.getCurrentParams().name);
+    }
   },
   componentWillReceiveProps: function() {
-    this.getData(this.getParams().name);
+    if (this.context.router.getCurrentParams().name) {
+      this.getData(this.context.router.getCurrentParams().name);
+    }
   },
   componentDidUpdate: function(prevProps, prevState) {
     PBDm.affix();

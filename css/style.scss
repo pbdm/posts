@@ -1,15 +1,18 @@
-@import (less) "reset.css";
-@import (less) "github.css";
-@import (less) "font-awesome.css";
+@import "../css/reset.css";
+@import "../css/github.css";
+@import "../css/font-awesome.css";
+
+
 /* Mixins */
 
-.tran(@value: 0.2s) {
-  transition: all @value;
-  -webkit-transition: all @value;
-  -moz-transition: all @value;
-  -o-transition: all @value;
-  -ms-transition: all @value;
+@mixin transition($value: 0.2s) {
+  transition: all $value;
+  -webkit-transition: all $value;
+  -moz-transition: all $value;
+  -o-transition: all $value;
+  -ms-transition: all $value;
 }
+
 /* global */
 
 *, *:before, *:after {
@@ -42,7 +45,7 @@ td {
 }
 a {
   text-decoration: none;
-  .tran;
+  @include transition();
   &:hover {
     color: #fff;
     background: #37a;
@@ -106,7 +109,6 @@ blockquote {
 nav {
   padding: 0;
   line-height: 28px;
-  // .tran;
   .wrapper {
     background-color: #545652;
     width: 100%;
@@ -188,7 +190,7 @@ nav {
         height: 100%;
         width: 100%;
         position: absolute;
-        .tran(2s);
+        @include transition(2s);
         &#slide-1 {
           background-image: url("//pbdm.qiniudn.com/inter.jpg");
           background-position: center center;
@@ -243,7 +245,7 @@ nav {
       }
     }
   }
-  &#list {
+  #list {
     font-size: 14px;
     line-height: 28px;
     .article {
@@ -425,7 +427,7 @@ footer {
   cursor: pointer;
   opacity: 0;
   text-transform: uppercase;
-  .tran(1s);
+  @include transition(1s);
   &:before {
     content: '';
     display: block;
@@ -476,7 +478,7 @@ footer {
         }
       }
       > ul {
-        .tran;
+        @include transition(1s);
         overflow: hidden;
         padding-left: 5px;
         border-top: 1px solid transparent;

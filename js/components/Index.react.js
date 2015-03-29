@@ -2,11 +2,12 @@
 
 var Index = React.createClass({
   componentDidMount: function() {
-   jQuery("#slide-show").slideshow();
+    // jQuery("#slide-show").slideshow();
   },
   render: function () {
     return (
       <div>
+        {/*}
         <div id="slide-show">
           <div className="slide" id="slide-1"></div>
           <div className="slide" id="slide-2"></div>
@@ -17,7 +18,7 @@ var Index = React.createClass({
                   </span>
           </div>
         </div>
-        {/*<!--     <div id="head-animation">
+        <!--     <div id="head-animation">
               <div className="top-left"></div>
               <div className="top-center"></div>
               <div className="top-right"></div>

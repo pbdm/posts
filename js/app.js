@@ -6,10 +6,9 @@ window.$ = window.jQuery = require('jquery');
 window._ = require('lodash');
 window.PBDm = require('./function');
 window.hljs = require('highlight.js');
-window.DuoShuo = require('./components/DuoShuo.react');
 
-require('./plugins/jquery.slideshow');
-//require('./plugins/jquery.headanimation');
+// require('./plugins/jquery.slideshow');
+// require('./plugins/jquery.headanimation');
 require('./plugins/jquery.toc');
 
 var Route         = ReactRouter.Route,
@@ -31,9 +30,8 @@ var App      = require('./components/App.react'),
 var routes = (
   <Route handler={App}>
     <DefaultRoute name="index"    handler={Index} />
-    <Route        name="blog"     handler={Blog} path="blog/:name" />
-    <Route        name="wiki"     handler={Wiki} path="wiki/:name" />
-    <Route        name="list"     handler={List} path="list/:name" />
+    <Route        name="blog"     handler={Blog} path="blog/?:name?" />
+    <Route        name="wiki"     handler={Wiki} path="wiki/?:name?" />
     <Route        name="cv"       handler={Cv} />
     <Route        name="tq"       handler={Tq} />
     <Route        name="about"    handler={About} />

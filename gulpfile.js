@@ -2,11 +2,10 @@ var gulp = require('gulp');
 var webpack = require('gulp-webpack');
 var runSequence = require('run-sequence');
 var webserver = require('gulp-webserver');
-var less = require('gulp-less');
+var sass = require('gulp-sass');
 var jeditor = require('gulp-json-editor');
 var fs = require('fs');
 var path = require('path');
-
 
 var tree = function(filepath) {
 
@@ -51,13 +50,13 @@ gulp.task('build:js', function(){
 });
 
 gulp.task('build:css', function () {
-  gulp.src('./css/style.less')
-    .pipe(less())
+  return gulp.src('./css/style.scss')
+    .pipe(sass())
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('manifest:wiki', function () {
-  gulp.src("dist/wiki.json")
+  return gulp.src("dist/wiki.json")
   .pipe(jeditor(function(json) {
     return tree('posts/wiki');
   }))
@@ -65,7 +64,7 @@ gulp.task('manifest:wiki', function () {
 });
 
 gulp.task('manifest:blog', function () {
-  gulp.src("dist/blog.json")
+  return gulp.src("dist/blog.json")
   .pipe(jeditor(function(json) {
     return tree('posts/blog');
   }))
@@ -74,11 +73,11 @@ gulp.task('manifest:blog', function () {
 
 gulp.task('watch', function(){
   gulp.watch(['js/*.js', 'js/*/*.js'], ['build:js']);
-  gulp.watch(['css/style.less'], ['build:css']);
+  gulp.watch(['css/style.scss'], ['build:css']);
 });
 
 gulp.task('webserver', function() {
-  gulp.src('./')
+  return gulp.src('./')
     .pipe(webserver({
       //livereload: true,
       open: 'http://127.0.0.1:8000/'

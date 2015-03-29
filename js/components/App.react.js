@@ -5,7 +5,9 @@ var RouteHandler = ReactRouter.RouteHandler,
     Bottom = require('./Bottom.react');
 
 var App =  React.createClass({
-  mixins: [ ReactRouter.State ],
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   render: function () {
     return (
       <div>
@@ -15,7 +17,8 @@ var App =  React.createClass({
             <a className="logo" href="/">琥珀草</a>
           </div>
         </div>
-        <div className="content" id={this.getRoutes()[1].name}>
+               
+        <div className="content" id={this.context.router.getCurrentRoutes()[1].name}>
           <RouteHandler />
         </div>
         <Bottom/>

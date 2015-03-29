@@ -7,12 +7,11 @@ var Top = React.createClass({
         <div className="wrapper">
           <div className="responsive-nav">
             <i className="fa fa-list-ul fa-2x"></i>
-            <div className="nav-info" ng-hide="dialogIsHidden" ng-controller="dateCtrl" my-current-time on-close="hideDialog()"></div>
           </div>
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#list/blog">Blog</a></li>
-            <li><a href="#wiki/links">Wiki</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#wiki">Wiki</a></li>
             <li><a href="#football">Football</a></li>
             <li><a href="#about">About me</a></li>
           </ul>

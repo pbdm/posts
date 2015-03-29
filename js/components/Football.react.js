@@ -27,7 +27,6 @@ var Football = React.createClass({
           <div className="team" playground>
           </div>
         </div>
-        <DuoShuo name="football"/>
       </div>
     );
   }

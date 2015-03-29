@@ -26,17 +26,21 @@ var Toc = React.createClass({
 });
 
 var List = React.createClass({
-  mixins: [ ReactRouter.State ],
   getInitialState: function() {
     return {
       data:    []
     };
   },
+  getDefaultProps: function() {
+    return {
+      type: ''
+    };
+  },
   componentDidMount: function() {
-    this.getData(this.getParams().name);
+    this.getData(this.props.type);
   },
   componentWillReceiveProps: function() {
-    this.getData(this.getParams().name);
+    this.getData(this.props.type);
   },
   componentDidUpdate: function(prevProps, prevState) {
     PBDm.affix();
@@ -83,14 +87,13 @@ var List = React.createClass({
   },
   render: function () {
     var rawMarkup,
-        type = this.getParams().name,
-        listDom = this.state.data.map(function(list, key) {
-          return <Toc key={key} list={list} type={type}/>;
-        });
+        listDom = this.state.data.map(_.bind(function(list, key) {
+          return <Toc key={key} list={list} type={this.props.type}/>;
+        }, this));
     return (
-      <div className="container">
+      <div className="container" id="list">
         <div className="post">
-          {listDom}  
+          {listDom}
         </div>
         {/*
         <div className="list">
