@@ -60,7 +60,9 @@ var List = React.createClass({
       case 'wiki':
         url = 'dist/' +  name + '.json';
     }
+    toggleLoader();
     $.get(url, function(data) {
+      toggleLoader();
       if (this.isMounted()) {
         if (!_.isObject(data)) {
           data = JSON.parse(data);

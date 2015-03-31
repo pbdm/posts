@@ -8,7 +8,9 @@ var Football = React.createClass({
   },
   componentDidMount: function() {
     var parent = document.getElementsByClassName("team")[0];
+    toggleLoader();
     $.get(this.props.football, function(data) {
+      toggleLoader();
       if (this.isMounted()) {
         if (!_.isObject(data)) {
           data = JSON.parse(data);

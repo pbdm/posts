@@ -30,7 +30,9 @@ module.exports = {
   },
   getData: function(name) {
     var tmp = {};
+    toggleLoader();
     $.get(this.props.url, function(list) {
+      toggleLoader();
       if (this.isMounted()) {
         if (!_.isObject(list)) {
           list = JSON.parse(list);

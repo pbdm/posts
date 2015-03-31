@@ -2,11 +2,21 @@
 
 var RouteHandler = ReactRouter.RouteHandler,
     Top = require('./Top.react'),
-    Bottom = require('./Bottom.react');
+    Bottom = require('./Bottom.react'),
+    Loader = require('./Loader.react');
 
 var App =  React.createClass({
   contextTypes: {
     router: React.PropTypes.func
+  },
+  getInitialState: function() {
+    window.toggleLoader = this.toggleLoader;
+    return {
+      showLoader: false 
+    };
+  },
+  toggleLoader: function() {
+    this.setState({ showLoader: !this.state.showLoader });
   },
   render: function () {
     return (
@@ -23,6 +33,7 @@ var App =  React.createClass({
         </div>
         <Bottom/>
         <div id="back-to-top">top</div>
+        <Loader visible={this.state.showLoader} />
       </div>
     );
   }
