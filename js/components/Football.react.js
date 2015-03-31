@@ -21,7 +21,6 @@ var Football = React.createClass({
       }
     }.bind(this));
   },
-
   render: function () {
     return (
       <div className="container">
