@@ -1,9 +1,17 @@
 'use strict';
 
 var Loader = React.createClass({
-
+  getInitialState: function() {
+    window.toggleLoader = this.toggleLoader;
+    return {
+      showLoader: false 
+    };
+  },
+  toggleLoader: function() {
+    this.setState({ showLoader: !this.state.showLoader });
+  },
   render: function() {
-    if (!this.props.visible) return null;
+    if (!this.state.showLoader) return null;
     return (
       <div className="backdrop">
         <i className="fa fa-spinner fa-2x" />

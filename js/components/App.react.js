@@ -9,15 +9,6 @@ var App =  React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
-  getInitialState: function() {
-    window.toggleLoader = this.toggleLoader;
-    return {
-      showLoader: false 
-    };
-  },
-  toggleLoader: function() {
-    this.setState({ showLoader: !this.state.showLoader });
-  },
   render: function () {
     return (
       <div>
@@ -33,7 +24,7 @@ var App =  React.createClass({
         </div>
         <Bottom/>
         <div id="back-to-top">top</div>
-        <Loader visible={this.state.showLoader} />
+        <Loader />
       </div>
     );
   }
