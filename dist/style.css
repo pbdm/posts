@@ -1,4 +1,4 @@
-@import url(../css/reset.css);
+@import url(../css/normalize.css);
 @import url(../css/github.css);
 @import url(../css/font-awesome.css);
 /* Mixins */
@@ -110,14 +110,16 @@ nav {
       padding: 0 12px; }
     nav .wrapper .fa-list-ul {
       display: none; }
-    nav .wrapper ul li {
-      display: inline; }
-      nav .wrapper ul li a {
-        padding: 0 12px;
-        color: #d5d5d5; }
-        nav .wrapper ul li a:hover {
-          color: #fff;
-          background-color: #545652; }
+    nav .wrapper ul {
+      margin: 0; }
+      nav .wrapper ul li {
+        display: inline; }
+        nav .wrapper ul li a {
+          padding: 0 12px;
+          color: #d5d5d5; }
+          nav .wrapper ul li a:hover {
+            color: #fff;
+            background-color: #545652; }
 
 #header {
   margin-top: 29px;

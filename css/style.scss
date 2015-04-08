@@ -1,4 +1,4 @@
-@import "../css/reset.css";
+@import "../css/normalize.css";
 @import "../css/github.css";
 @import "../css/font-awesome.css";
 
@@ -124,14 +124,17 @@ nav {
     .fa-list-ul {
       display: none;
     }
-    ul li {
-      display: inline;
-      a {
-        padding: 0 12px;
-        color: #d5d5d5;
-        &:hover {
-          color: #fff;
-          background-color: #545652;
+    ul {
+      margin: 0;
+      li {
+        display: inline;
+        a {
+          padding: 0 12px;
+          color: #d5d5d5;
+          &:hover {
+            color: #fff;
+            background-color: #545652;
+          }
         }
       }
     }
