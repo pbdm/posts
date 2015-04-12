@@ -22,6 +22,11 @@
 
 `git revert`与`git reset`最大的不同是，`git revert` 仅仅是撤销某次提交。
 
+### Proxy
+`git config --global http.proxy http://127.0.0.1:1080`
+`git config --global --unset-all https.proxy`
+`git config --local --add http.proxy ""`
+
 ## SVN
 * 批量删除文件
 `svn status|grep ! |awk '{print $2}'|xargs svn del`
