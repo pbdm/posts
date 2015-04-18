@@ -94,9 +94,7 @@ var List = React.createClass({
         }, this));
     return (
       <div className="container" id="list">
-        <div className="post">
-          {listDom}
-        </div>
+        {listDom}
         {/*
         <div className="list">
           <div className="list-container">

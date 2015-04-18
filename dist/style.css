@@ -241,13 +241,11 @@ nav {
       color: #aaa; }
   .content .list {
     float: right;
-    width: 25%;
-    margin-top: -50px; }
+    width: 25%; }
     .content .list .list-container {
-      background: #f9f9f9;
       margin-top: 50px; }
       .content .list .list-container #toc {
-        border-top: 1px solid #ddd; }
+        background: #f9f9f9; }
         .content .list .list-container #toc .toc-h3 {
           padding-left: 10px; }
         .content .list .list-container #toc .toc-h4 {

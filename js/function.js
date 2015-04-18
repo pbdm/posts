@@ -12,7 +12,11 @@ module.exports = {
       container = document.getElementsByClassName("container")[0],
       containerPadding = parseInt(getComputedStyle(container)["padding-left"]) + parseInt(getComputedStyle(container)["padding-right"]),
       postsWidth,
+      postContainerTop,
       scrollTop;
+    if (postContainer) {
+      postContainerTop = parseInt(window.getComputedStyle(postContainer, null).getPropertyValue('margin-top'));
+    }
     if (postList && postList.clientHeight < window.innerHeight) {
       postsWidth = (container.clientWidth - containerPadding) * 0.25;
       window.onresize = function() {
@@ -20,7 +24,7 @@ module.exports = {
           scrollTop = document.body.scrollTop || document.documentElement.scrollTop; //for IE,firefox..
           postsWidth = (container.clientWidth - containerPadding) * 0.25;
           postContainer.style.width = postsWidth + "px";
-          if (scrollTop > postList.offsetTop) {
+          if (scrollTop > (postContainer.offsetTop - postContainerTop)) {
             postContainer.style.position = "fixed";
             postContainer.style.top = "0px";
           }
@@ -34,7 +38,7 @@ module.exports = {
         function() {
           if (window.innerWidth > 767) {
             scrollTop = document.body.scrollTop || document.documentElement.scrollTop; //for IE,firefox..
-            if (scrollTop > postList.offsetTop) {
+            if (scrollTop > postContainer.offsetTop - postContainerTop) {
               postContainer.style.position = "fixed";
               postContainer.style.top = "0px";
               postContainer.style.width = postsWidth + "px";

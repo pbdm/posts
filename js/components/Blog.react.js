@@ -26,10 +26,10 @@ var Blog = React.createClass({
             <div dangerouslySetInnerHTML={{__html: rawMarkup}} />
           </div>
           <div className="list">
+            <ul>
+              {listDom}
+            </ul>
             <div className="list-container">
-              <ul>
-                {listDom}
-              </ul>
             </div>
           </div>
         </div>
