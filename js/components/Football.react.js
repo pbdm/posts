@@ -1,5 +1,7 @@
 'use strict';
 
+var Actions = require('../actions/Actions');
+
 var Football = React.createClass({
   getDefaultProps: function() {
     return {
@@ -8,9 +10,9 @@ var Football = React.createClass({
   },
   componentDidMount: function() {
     var parent = document.getElementsByClassName("team")[0];
-    toggleLoader();
+    Actions.togglePopover('showLoader');
     $.get(this.props.football, function(data) {
-      toggleLoader();
+      Actions.togglePopover('hideLoader');
       if (this.isMounted()) {
         if (!_.isObject(data)) {
           data = JSON.parse(data);

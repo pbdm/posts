@@ -3,12 +3,14 @@
 var RouteHandler = ReactRouter.RouteHandler,
     Top = require('./Top.react'),
     Bottom = require('./Bottom.react'),
-    Loader = require('../UIs/Loader.react');
+    Loader = require('../UIs/Loader.react'),
+    Store = require('../stores/Store');
 
 var App =  React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
+
   render: function () {
     return (
       <div>

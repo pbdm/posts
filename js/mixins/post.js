@@ -1,5 +1,7 @@
 'use strict';
 
+var Actions = require('../actions/Actions');
+
 module.exports = {
   contextTypes: {
     router: React.PropTypes.func
@@ -30,9 +32,8 @@ module.exports = {
   },
   getData: function(name) {
     var tmp = {};
-    toggleLoader();
+    Actions.togglePopover('showLoader');
     $.get(this.props.url, function(list) {
-      toggleLoader();
       if (this.isMounted()) {
         if (!_.isObject(list)) {
           list = JSON.parse(list);
@@ -46,6 +47,8 @@ module.exports = {
               content: content,
               data: tmp[0],
               list: list
+            }, function() {
+              Actions.togglePopover('hideLoader');
             });
           }
         }.bind(this));

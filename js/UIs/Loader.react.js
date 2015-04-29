@@ -1,23 +1,36 @@
 'use strict';
 
+var Store = require('../stores/Store');
+
 var Loader = React.createClass({
-  getInitialState: function() {
-    window.toggleLoader = this.toggleLoader;
+
+  getLoaderState: function() {
     return {
-      showLoader: false 
+      isShowLoader: Store.getLoaderState()
     };
   },
-  toggleLoader: function() {
-    this.setState({ showLoader: !this.state.showLoader });
+
+  getInitialState: function() {
+    Store.addChangeListener(this._onChange);
+    return this.getLoaderState()
   },
+
+  _onChange: function() {
+    this.setState(this.getLoaderState());
+  },
+
+  componentWillUnmount: function() {
+    Store.removeChangeListener(this._onChange);
+  },
+
   render: function() {
-    if (!this.state.showLoader) return null;
+    if (!this.state.isShowLoader) return null;
     return (
       <div className="backdrop">
         <i className="fa fa-spinner fa-2x" />
       </div>
     );
-  }
+  },
 
 });
 

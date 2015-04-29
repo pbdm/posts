@@ -1,7 +1,8 @@
 'use strict';
 
 var converter = new Showdown.converter(),
-    Link = ReactRouter.Link;
+    Link = ReactRouter.Link,
+    Actions = require('../actions/Actions');
 
 var Toc = React.createClass({
   getDefaultProps: function() {
@@ -39,9 +40,6 @@ var List = React.createClass({
   componentDidMount: function() {
     this.getData(this.props.type);
   },
-  componentWillReceiveProps: function() {
-    this.getData(this.props.type);
-  },
   componentDidUpdate: function(prevProps, prevState) {
     PBDm.affix();
     $(".post").toc();
@@ -60,9 +58,8 @@ var List = React.createClass({
       case 'wiki':
         url = 'dist/' +  name + '.json';
     }
-    toggleLoader();
+    Actions.togglePopover('showLoader');
     $.get(url, function(data) {
-      toggleLoader();
       if (this.isMounted()) {
         if (!_.isObject(data)) {
           data = JSON.parse(data);
@@ -78,6 +75,8 @@ var List = React.createClass({
                 if (flag == data.length) {
                   this.setState({
                     data: Store
+                  }, function() {
+                    Actions.togglePopover('hideLoader');
                   });
                 }
               }
