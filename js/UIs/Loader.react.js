@@ -30,7 +30,7 @@ var Loader = React.createClass({
         <i className="fa fa-spinner fa-2x" />
       </div>
     );
-  },
+  }
 
 });
 

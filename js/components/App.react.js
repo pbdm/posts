@@ -3,8 +3,7 @@
 var RouteHandler = ReactRouter.RouteHandler,
     Top = require('./Top.react'),
     Bottom = require('./Bottom.react'),
-    Loader = require('../UIs/Loader.react'),
-    Store = require('../stores/Store');
+    Loader = require('../UIs/Loader.react');
 
 var App =  React.createClass({
   contextTypes: {
