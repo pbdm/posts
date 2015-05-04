@@ -21,20 +21,28 @@ module.exports = {
   },
 
   componentDidMount: function() {
-    if (this.context.router.getCurrentParams().name) {
-      this.getPostData(this.context.router.getCurrentParams().name);
+    this.setData();
+    this.queryData();
+  },
+
+  setData: function() {
+    this.type = this.context.router.getCurrentRoutes()[1].name;
+    this.url = 'dist/' + this.type + '.json';
+    this.name = this.context.router.getCurrentParams().name;
+  },
+
+  queryData: function() {
+    if (this.name) {
+      this.getPostData();
     } else {
-      this.getListData(this.props.type);
+      this.getListData();
     }
   },
 
   componentWillReceiveProps: function() {
     this.setState(this.setInitState);
-    if (this.context.router.getCurrentParams().name) {
-      this.getPostData(this.context.router.getCurrentParams().name);
-    } else {
-      this.getListData(this.props.type);
-    }
+    this.setData();
+    this.queryData();
   },
 
   componentDidUpdate: function(prevProps, prevState) {
@@ -45,19 +53,12 @@ module.exports = {
     });
   },
 
-  getListData: function(name) {
+  getListData: function() {
     var key,
         flag = 0,
-        Store = [],
-        url;
-    switch (name) {
-      case 'blog':
-        url = 'dist/' +  name + '.json';
-      case 'wiki':
-        url = 'dist/' +  name + '.json';
-    }
+        Store = [];
     Actions.togglePopover('showLoader');
-    $.get(url, function(data) {
+    $.get(this.url, function(data) {
       if (this.isMounted()) {
         if (!_.isObject(data)) {
           data = JSON.parse(data);
@@ -85,17 +86,17 @@ module.exports = {
     }.bind(this));
   },
 
-  getPostData: function(name) {
+  getPostData: function() {
     var tmp = {};
     Actions.togglePopover('showLoader');
-    $.get(this.props.url, function(list) {
+    $.get(this.url, function(list) {
       if (this.isMounted()) {
         if (!_.isObject(list)) {
           list = JSON.parse(list);
         }
         tmp = _.filter(list, function(n) {
-          return n.path == name;
-        }); 
+          return n.path == this.name;
+        }.bind(this)); 
         $.get(tmp[0].fullpath, function(content) {
           if (this.isMounted()) {
             this.setState({

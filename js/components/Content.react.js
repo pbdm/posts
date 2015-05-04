@@ -6,25 +6,20 @@ var converter = new Showdown.converter(),
     Post = require('../UIs/Post.react');
     Request = require('../mixins/request');
 
-var Blog = React.createClass({
+var Content = React.createClass({
   mixins: [ Request ],
-  getDefaultProps: function() {
-    return {
-      url: '/dist/blog.json',
-      type: 'blog'
-    };
-  },
+
   render: function () {
     if (this.context.router.getCurrentParams().name) {
       return (
-        <Post content={this.state.content} list={this.state.list} name={this.context.router.getCurrentParams().name} />
+        <Post type={this.type} content={this.state.content} list={this.state.list} name={this.context.router.getCurrentParams().name} />
       );
     } else {
       return (
-        <List type={this.props.type} data={this.state.list}/>
+        <List type={this.type} data={this.state.list}/>
       );
     }
   }
 });
 
-module.exports = Blog
+module.exports = Content;

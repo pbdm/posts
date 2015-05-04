@@ -19,18 +19,17 @@ var Route         = ReactRouter.Route,
 var App      = require('./components/App.react'),
     Index    = require('./components/Index.react'),
     NotFound = require('./components/NotFound.react'),
-    Blog     = require('./components/Blog.react'),
-    Wiki     = require('./components/Wiki.react'),
+    Content  = require('./components/Content.react'),
     Cv       = require('./components/Cv.react'),
     About    = require('./components/About.react'),
     Football = require('./components/Football.react'),
-    Tq     = require('./components/Tq.react');
+    Tq       = require('./components/Tq.react');
 
 var routes = (
   <Route handler={App}>
     <DefaultRoute name="index"    handler={Index} />
-    <Route        name="blog"     handler={Blog} path="blog/?:name?" />
-    <Route        name="wiki"     handler={Wiki} path="wiki/?:name?" />
+    <Route        name="blog"     handler={Content} path="blog/?:name?" />
+    <Route        name="wiki"     handler={Content} path="wiki/?:name?" />
     <Route        name="cv"       handler={Cv} />
     <Route        name="tq"       handler={Tq} />
     <Route        name="about"    handler={About} />
