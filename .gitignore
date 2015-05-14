@@ -4,3 +4,6 @@ _site/
 *.swp
 node_modules/
 npm-debug.log
+local.json
+posts/.weiyun
+posts/local
