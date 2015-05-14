@@ -83,6 +83,14 @@ gulp.task('manifest:blog', function () {
   .pipe(gulp.dest("dist"));
 });
 
+gulp.task('manifest:local', function () {
+  return gulp.src("dist/local.json")
+  .pipe(jeditor(function(json) {
+    return tree('posts/local');
+  }))
+  .pipe(gulp.dest("dist"));
+});
+
 gulp.task('watch', function(){
   gulp.watch(['js/*.js', 'js/*/*.js'], ['build:js']);
   gulp.watch(['css/style.scss'], ['build:css']);
@@ -98,6 +106,6 @@ gulp.task('webserver', function() {
 });
 
 gulp.task('default', function(cb){
-  runSequence(['manifest:wiki', 'manifest:blog'], 'build:js', 'build:css', 'webserver', 'watch', cb);
+  runSequence(['manifest:wiki', 'manifest:blog', 'manifest:local'], 'build:js', 'build:css', 'webserver', 'watch', cb);
 });
 

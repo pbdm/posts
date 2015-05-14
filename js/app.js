@@ -23,6 +23,7 @@ var routes = (
     <DefaultRoute name="index"    handler={Index} />
     <Route        name="blog"     handler={Content} path="blog/?:name?" />
     <Route        name="wiki"     handler={Content} path="wiki/?:name?" />
+    <Route        name="local"     handler={Content} path="local/?:name?" />
     <Route        name="cv"       handler={Cv} />
     <Route        name="tq"       handler={Tq} />
     <Route        name="about"    handler={About} />
