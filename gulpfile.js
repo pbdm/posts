@@ -1,5 +1,6 @@
 var gulp = require('gulp');
-var webpack = require('gulp-webpack');
+var gulpWebpack = require('gulp-webpack');
+var webpack = require('webpack');
 var runSequence = require('run-sequence');
 var webserver = require('gulp-webserver');
 var sass = require('gulp-sass');
@@ -32,10 +33,21 @@ var tree = function(filepath) {
 
 gulp.task('build:js', function(){
   return gulp.src('js/app.js')
-    .pipe(webpack({
+    .pipe(gulpWebpack({
       output: {
         filename: "bundle.js"
       },
+      plugins: [
+        new webpack.ProvidePlugin({
+          ReactRouter: 'react-router',
+          React: 'react',
+          jQuery: 'jquery',
+          $: 'jquery',
+          _: 'lodash',
+          PBDm: path.join(__dirname,'./js/function'),
+          hljs: 'highlight.js'
+        })
+      ],
       module: {
         loaders:[
           { test: /\.js$/, loader: "jsx-loader" },

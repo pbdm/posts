@@ -1,8 +1,6 @@
 'use strict';
 
-var converter = new Showdown.converter(),
-    Link = ReactRouter.Link,
-    List = require('../UIs/List.react'),
+var List = require('../UIs/List.react'),
     Post = require('../UIs/Post.react');
     Request = require('../mixins/request');
 
