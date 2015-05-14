@@ -8,6 +8,8 @@
   <meta name="author" content="PENG Bo">
   <link rel="shortcut icon" href="/images/favicon.png">
   <title>琥珀草</title>
+  <script src='js/lib/nprogress.js'></script>
+  <link rel='stylesheet' href='css/nprogress.css'/>
   <link rel="stylesheet" type="text/css" href="dist/style.css">
 </head>
 
@@ -19,6 +21,10 @@
       </div>
     <![endif]-->
   <div id="app"></div>
+  <script>
+    NProgress.configure({ showSpinner: false });
+    NProgress.start();
+  </script>
   <script type="text/javascript" src="js/lib/showdown.min.js"></script>
   <script src="dist/bundle.js"></script>
 </body>

@@ -2,6 +2,7 @@
 
 var Index = React.createClass({
   componentDidMount: function() {
+    NProgress.done();
     // jQuery("#slide-show").slideshow();
   },
   render: function () {

@@ -92,7 +92,8 @@ gulp.task('webserver', function() {
   return gulp.src('./')
     .pipe(webserver({
       //livereload: true,
-      open: 'http://127.0.0.1:8000/'
+      port: '7000',
+      open: 'http://127.0.0.1:7000/'
     }));
 });
 
