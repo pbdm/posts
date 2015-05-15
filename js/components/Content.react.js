@@ -1,8 +1,8 @@
 'use strict';
 
-var List = require('../UIs/List.react'),
-    Post = require('../UIs/Post.react');
-    Request = require('../mixins/request');
+var List = require('../UIs/List.react');
+var Post = require('../UIs/Post.react');
+var Request = require('../mixins/request');
 
 var Content = React.createClass({
   mixins: [ Request ],

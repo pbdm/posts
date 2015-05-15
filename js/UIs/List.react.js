@@ -1,6 +1,6 @@
 'use strict';
 
-var converter = new Showdown.converter(),
+var converter = new Showdown.converter({extensions: ['table']}),
     Link = ReactRouter.Link;
 
 var Toc = React.createClass({
