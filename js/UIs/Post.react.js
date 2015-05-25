@@ -1,7 +1,6 @@
 'use strict';
 
-var converter = new Showdown.converter({extensions: ['table']}),
-    Link = ReactRouter.Link;
+var Link = ReactRouter.Link;
 
 var Post = React.createClass({
 
@@ -15,7 +14,7 @@ var Post = React.createClass({
   },
 
   render: function () {
-    var rawMarkup = converter.makeHtml(this.props.content.toString()),
+    var rawMarkup = marked(this.props.content.toString()),
         listDom = this.props.list.map(function(list, key) {
           return <li key={key}><Link to={this.props.type} params={{name: list.path}}>{list.title}</Link></li>;
         }.bind(this));

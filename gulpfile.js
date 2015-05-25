@@ -44,6 +44,7 @@ gulp.task('build:js', function(){
           jQuery: 'jquery',
           $: 'jquery',
           _: 'lodash',
+          marked: 'marked',
           PBDm: path.join(__dirname,'./js/function'),
           hljs: 'highlight.js'
         })
@@ -94,12 +95,13 @@ gulp.task('manifest:local', function () {
 gulp.task('watch', function(){
   gulp.watch(['js/*.js', 'js/*/*.js'], ['build:js']);
   gulp.watch(['css/style.scss'], ['build:css']);
+  gulp.watch(['post/*/*.*'], ['build:css']);
 });
 
 gulp.task('webserver', function() {
   return gulp.src('./')
     .pipe(webserver({
-      //livereload: true,
+      livereload: true,
       port: '7000',
       open: 'http://127.0.0.1:7000/'
     }));

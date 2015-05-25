@@ -1,7 +1,6 @@
 'use strict';
 
-var converter = new Showdown.converter({extensions: ['table']}),
-    Link = ReactRouter.Link;
+var Link = ReactRouter.Link;
 
 var Toc = React.createClass({
   getDefaultProps: function() {
@@ -10,7 +9,7 @@ var Toc = React.createClass({
     };
   },
   render: function () {
-    var rawMarkup = converter.makeHtml(this.props.content.toString().slice(0,200));
+    var rawMarkup = marked(this.props.content.toString().slice(0,200));
     return (
       <div className="article">
         <h2><Link to={this.props.type} params={{name: this.props.path}}>{this.props.title}</Link></h2>
