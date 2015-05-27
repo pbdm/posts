@@ -1,17 +1,19 @@
 {
   "name": "pbdm.cc",
-  "version": "3.0.1",
+  "version": "3.1.1",
   "dependencies": {
+    "director": "^1.2.8",
     "events": "^1.0.2",
     "flux": "^2.0.3",
     "highlight.js": "^8.4.0",
     "jquery": "^2.1.3",
     "lodash": "^3.2.0",
     "marked": "^0.3.3",
-    "react": "^0.13.1",
-    "react-router": "^0.13.2"
+    "react": "^0.13.1"
   },
   "devDependencies": {
+    "babel-core": "^5.4.7",
+    "babel-loader": "^5.1.3",
     "expose-loader": "^0.6.0",
     "fs": "0.0.2",
     "gulp": "^3.8.11",
@@ -19,7 +21,6 @@
     "gulp-sass": "^1.3.3",
     "gulp-webpack": "^1.2.0",
     "gulp-webserver": "^0.9.0",
-    "jsx-loader": "^0.12.2",
     "node-libs-browser": "^0.5.0",
     "path": "^0.11.14",
     "run-sequence": "^1.0.2",

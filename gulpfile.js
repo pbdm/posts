@@ -21,8 +21,8 @@ var tree = function(filepath) {
     if (files[key].substr(-2,2) == 'md') {
       result.push ({
         date:  files[key].substr(0,10),
-        fullpath:  filepath + '/' + files[key],
-        path: files[key].slice(11,-3).toLowerCase(),
+        fullpath:  encodeURIComponent(filepath + '/' + files[key]),
+        path: encodeURIComponent(files[key].slice(11,-3).toLowerCase()),
         title: files[key].slice(11,-3)
       });
     }
@@ -39,7 +39,7 @@ gulp.task('build:js', function(){
       },
       plugins: [
         new webpack.ProvidePlugin({
-          ReactRouter: 'react-router',
+          Director: 'director',
           React: 'react',
           jQuery: 'jquery',
           $: 'jquery',
@@ -51,7 +51,9 @@ gulp.task('build:js', function(){
       ],
       module: {
         loaders:[
-          { test: /\.js$/, loader: "jsx-loader" },
+          { test: /\.js$/, 
+            exclude: /(node_modules)/,
+            loader: "babel" },
           //{ test: require.resolve("jquery"), loader: "expose?jQuery" },
           //{ test: require.resolve("react"), loader: "expose?React" },
           //{ test: require.resolve("react-router"), loader: "expose?Router" },
@@ -101,9 +103,9 @@ gulp.task('watch', function(){
 gulp.task('webserver', function() {
   return gulp.src('./')
     .pipe(webserver({
-      livereload: true,
+      //livereload: true,
       port: '7000',
-      open: 'http://127.0.0.1:7000/'
+      //open: 'http://127.0.0.1:7000/'
     }));
 });
 

@@ -2,38 +2,131 @@
 
 // require('./plugins/jquery.slideshow');
 // require('./plugins/jquery.headanimation');
+
 require('./plugins/jquery.toc');
 
-var Route         = ReactRouter.Route,
-    DefaultRoute  = ReactRouter.DefaultRoute,
-    NotFoundRoute = ReactRouter.NotFoundRoute;
- 
+var Index    = require('./components/Index.react');
+var NotFound = require('./components/NotFound.react');
+var About    = require('./components/About.react');
+var Football = require('./components/Football.react');
 
-var App      = require('./components/App.react'),
-    Index    = require('./components/Index.react'),
-    NotFound = require('./components/NotFound.react'),
-    Content  = require('./components/Content.react'),
-    Cv       = require('./components/Cv.react'),
-    About    = require('./components/About.react'),
-    Football = require('./components/Football.react'),
-    Tq       = require('./components/Tq.react');
+var List = require('./components/List.react');
+var Post = require('./components/Post.react');
 
-var routes = (
-  <Route handler={App}>
-    <DefaultRoute name="index"    handler={Index} />
-    <Route        name="blog"     handler={Content} path="blog/?:name?" />
-    <Route        name="wiki"     handler={Content} path="wiki/?:name?" />
-    <Route        name="local"     handler={Content} path="local/?:name?" />
-    <Route        name="cv"       handler={Cv} />
-    <Route        name="tq"       handler={Tq} />
-    <Route        name="about"    handler={About} />
-    <Route        name="football" handler={Football} />
-    <NotFoundRoute                handler={NotFound} />
-  </Route>
-);
+var Top = require('./components/Top.react');
+var Bottom = require('./components/Bottom.react');
+var Loader = require('./UIs/Loader.react');
 
-ReactRouter.run(routes, function (Handler) {
-  React.render(<Handler/>, document.getElementById('app'));
+var App =  React.createClass({
+
+  getInitialState: function() {
+    return {
+      nowShowing: 'index',
+      name: ''
+    };
+  },
+
+  componentDidMount: function() {
+    var scope = this;
+    var router = Director.Router({
+      '/': () => { scope.setState({'nowShowing': 'index'});},
+      '/about': () => { scope.setState({'nowShowing': 'about'});},
+      '/football': () => { scope.setState({'nowShowing': 'football'});},
+      '/blog/': {
+        ':name': (name) => {
+          scope.setState({
+            nowShowing: 'blog',
+            name: name
+          });
+        }, 
+        on: () => {
+          scope.setState({
+            nowShowing: 'blog',
+            name: ''
+          });
+        }
+      },
+      '/wiki/': {
+        ':name': (name) => {
+          scope.setState({
+            nowShowing: 'wiki',
+            name: name
+          });
+        }, 
+        on: () => {
+          scope.setState({
+            nowShowing: 'wiki',
+            name: ''
+          });
+        }
+      },
+      '/local/': {
+        ':name': (name) => {
+          scope.setState({
+            nowShowing: 'local',
+            name: name
+          });
+        }, 
+        on: () => {
+          scope.setState({
+            nowShowing: 'local',
+            name: ''
+          });
+        }
+      },
+    });
+    router.init('/');
+  },
+
+  render: function () {
+    var handler;
+    switch (this.state.nowShowing) {
+      case 'index': 
+        handler =  <Index />;
+        break;
+      case 'about': 
+        handler =  <About />;
+        break;
+      case 'football': 
+        handler =  <Football />;
+        break;
+      case 'blog':
+        handler = this.state.name ? 
+        <Post type={this.state.nowShowing} name={this.state.name} /> : 
+        <List type={this.state.nowShowing} /> ;
+        break;
+      case 'wiki': 
+        handler = this.state.name ? 
+        <Post type={this.state.nowShowing} name={this.state.name} /> : 
+        <List type={this.state.nowShowing} /> ;
+        break;
+      case 'local': 
+        handler = this.state.name ? 
+        <Post type={this.state.nowShowing} name={this.state.name} /> : 
+        <List type={this.state.nowShowing} /> ;
+        break;
+      default:
+        handler =  <NoteFound />;
+    }
+    return (
+      <div>
+        <Top/>
+        <div id="header">
+          <div className="container">
+            <a className="logo" href="/">琥珀草</a>
+          </div>
+        </div>           
+        <div className="content" id={this.state.nowShowing}>
+          {handler}
+        </div>
+        <Bottom/>
+        <div id="back-to-top">top</div>
+        <Loader />
+      </div>
+    );
+  }
 });
 
+React.render(<App />, document.getElementById('app'));
+ 
 require('./custom');
