@@ -1,0 +1,4 @@
+{
+  "dist/style.css": "static/style.css",
+  "dist/bundle.js": "static/bundle.js"
+}

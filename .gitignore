@@ -7,3 +7,5 @@ npm-debug.log
 local.json
 posts/.weiyun
 posts/local
+local.html
+static/

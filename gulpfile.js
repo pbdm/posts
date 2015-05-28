@@ -1,12 +1,18 @@
 var gulp = require('gulp');
 var gulpWebpack = require('gulp-webpack');
+var uglify = require('gulp-uglify');
+var minifycss = require('gulp-minify-css');
 var webpack = require('webpack');
 var runSequence = require('run-sequence');
 var webserver = require('gulp-webserver');
 var sass = require('gulp-sass');
 var jeditor = require('gulp-json-editor');
 var fs = require('fs');
+var gulpif = require('gulp-if');
 var path = require('path');
+var rename = require("gulp-rename");
+var revCollector = require('gulp-rev-collector');
+var des;
 
 var tree = function(filepath) {
 
@@ -61,13 +67,15 @@ gulp.task('build:js', function(){
         ]
       }
     }))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulpif(des == 'dist', uglify()))
+    .pipe(gulp.dest(des));
 });
 
 gulp.task('build:css', function () {
   return gulp.src('./css/style.scss')
     .pipe(sass())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulpif(des == 'dist', minifycss()))
+    .pipe(gulp.dest(des));
 });
 
 gulp.task('manifest:wiki', function () {
@@ -94,6 +102,20 @@ gulp.task('manifest:local', function () {
   .pipe(gulp.dest("dist"));
 });
 
+gulp.task('copy', function(){
+  return gulp.src('index.html')
+  .pipe(rename('local.html'))
+  .pipe(gulp.dest('./'));
+});
+
+gulp.task('revCollector', function () {
+  return gulp.src(['rev.json', 'local.html'])
+    .pipe(revCollector({
+      replaceReved: true,
+    }))
+    .pipe(gulp.dest('./'));
+});
+
 gulp.task('watch', function(){
   gulp.watch(['js/*.js', 'js/*/*.js'], ['build:js']);
   gulp.watch(['css/style.scss'], ['build:css']);
@@ -110,6 +132,12 @@ gulp.task('webserver', function() {
 });
 
 gulp.task('default', function(cb){
-  runSequence(['manifest:wiki', 'manifest:blog', 'manifest:local'], 'build:js', 'build:css', 'webserver', 'watch', cb);
+  des = 'static'
+  runSequence(['manifest:wiki', 'manifest:blog', 'manifest:local'], 'copy', 'revCollector', ['build:js', 'build:css'], 'webserver', 'watch', cb);
+});
+
+gulp.task('build', function(cb){
+  des = 'dist'
+  runSequence(['manifest:wiki', 'manifest:blog', 'manifest:local'], ['build:js', 'build:css'], cb);
 });
 
