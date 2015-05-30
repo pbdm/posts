@@ -9,8 +9,6 @@ var Index    = require('./components/Index.react');
 var NotFound = require('./components/NotFound.react');
 var About    = require('./components/About.react');
 var Football = require('./components/Football.react');
-
-var List = require('./components/List.react');
 var Post = require('./components/Post.react');
 
 var Top = require('./components/Top.react');
@@ -32,50 +30,27 @@ var App =  React.createClass({
       '/': () => { scope.setState({'nowShowing': 'index'});},
       '/about': () => { scope.setState({'nowShowing': 'about'});},
       '/football': () => { scope.setState({'nowShowing': 'football'});},
-      '/blog/': {
-        ':name': (name) => {
-          scope.setState({
-            nowShowing: 'blog',
-            name: name
-          });
-        }, 
-        on: () => {
-          scope.setState({
-            nowShowing: 'blog',
-            name: ''
-          });
-        }
+      '/blog/:name': (name) => {
+        scope.setState({
+          nowShowing: 'blog',
+          name: name
+        });
       },
-      '/wiki/': {
-        ':name': (name) => {
-          scope.setState({
-            nowShowing: 'wiki',
-            name: name
-          });
-        }, 
-        on: () => {
-          scope.setState({
-            nowShowing: 'wiki',
-            name: ''
-          });
-        }
+      '/wiki/:name': (name) => {
+        scope.setState({
+          nowShowing: 'wiki',
+          name: name
+        });
       },
-      '/local/': {
-        ':name': (name) => {
-          scope.setState({
-            nowShowing: 'local',
-            name: name
-          });
-        }, 
-        on: () => {
-          scope.setState({
-            nowShowing: 'local',
-            name: ''
-          });
-        }
-      },
+      '/local/:name': (name) => {
+        scope.setState({
+          nowShowing: 'local',
+          name: name
+        });
+      }
     });
     router.init('/');
+    NProgress.done();
   },
 
   render: function () {
@@ -91,19 +66,13 @@ var App =  React.createClass({
         handler =  <Football />;
         break;
       case 'blog':
-        handler = this.state.name ? 
-        <Post type={this.state.nowShowing} name={this.state.name} /> : 
-        <List type={this.state.nowShowing} /> ;
+        handler = <Post type={this.state.nowShowing} name={this.state.name} /> 
         break;
       case 'wiki': 
-        handler = this.state.name ? 
-        <Post type={this.state.nowShowing} name={this.state.name} /> : 
-        <List type={this.state.nowShowing} /> ;
+        handler = <Post type={this.state.nowShowing} name={this.state.name} />
         break;
       case 'local': 
-        handler = this.state.name ? 
-        <Post type={this.state.nowShowing} name={this.state.name} /> : 
-        <List type={this.state.nowShowing} /> ;
+        handler = <Post type={this.state.nowShowing} name={this.state.name} />
         break;
       default:
         handler =  <NoteFound />;

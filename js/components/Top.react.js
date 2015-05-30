@@ -10,8 +10,6 @@ var Top = React.createClass({
           </div>
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#wiki">Wiki</a></li>
             <li><a href="#football">Football</a></li>
             <li><a href="#about">About me</a></li>
           </ul>
