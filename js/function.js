@@ -7,15 +7,18 @@ module.exports = {
    * @return {[type]} [description]
    */
   affix: function() {
+    console.log('here');
     var postList = document.getElementsByClassName("list")[0],
       postContainer = document.getElementsByClassName("list-container")[0],
       container = document.getElementsByClassName("container")[0],
       containerPadding = parseInt(getComputedStyle(container)["padding-left"]) + parseInt(getComputedStyle(container)["padding-right"]),
       postsWidth,
       postContainerTop,
-      scrollTop;
+      scrollTop,
+      needFixTop;
     if (postContainer) {
       postContainerTop = parseInt(window.getComputedStyle(postContainer, null).getPropertyValue('margin-top'));
+      needFixTop = postContainer.offsetTop - postContainerTop;
     }
     if (postList && postList.clientHeight < window.innerHeight) {
       postsWidth = (container.clientWidth - containerPadding) * 0.25;
@@ -38,7 +41,7 @@ module.exports = {
         function() {
           if (window.innerWidth > 767) {
             scrollTop = document.body.scrollTop || document.documentElement.scrollTop; //for IE,firefox..
-            if (scrollTop > postContainer.offsetTop - postContainerTop) {
+            if (scrollTop > needFixTop) {
               postContainer.style.position = "fixed";
               postContainer.style.top = "0px";
               postContainer.style.width = postsWidth + "px";
