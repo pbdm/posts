@@ -39,11 +39,6 @@
   "path": "goagent",
   "title": "Goagent"
 }, {
-  "date": "2014-06-30",
-  "fullpath": "posts%2Fblog%2F2014-06-30-%E5%8E%86%E5%8F%B2.md",
-  "path": "%E5%8E%86%E5%8F%B2",
-  "title": "历史"
-}, {
   "date": "2014-07-16",
   "fullpath": "posts%2Fblog%2F2014-07-16-javascript%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86.md",
   "path": "javascript%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86",
@@ -70,7 +65,7 @@
   "title": "近期关于React一些东西"
 }, {
   "date": "2015-05-23",
-  "fullpath": "posts%2Fblog%2F2015-05-23-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%B3%B0%E4%BC%9A.md",
-  "path": "%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%B3%B0%E4%BC%9A",
-  "title": "前端技术峰会"
+  "fullpath": "posts%2Fblog%2F2015-05-23-2015%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%B3%B0%E4%BC%9A.md",
+  "path": "2015%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%B3%B0%E4%BC%9A",
+  "title": "2015前端技术峰会"
 }]
