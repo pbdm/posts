@@ -13,6 +13,7 @@ var path = require('path');
 var rename = require("gulp-rename");
 var revCollector = require('gulp-rev-collector');
 var des;
+var types = ['wiki', 'blog', 'local'];
 
 var tree = function(filepath) {
 

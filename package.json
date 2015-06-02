@@ -3,7 +3,6 @@
   "version": "3.1.1",
   "dependencies": {
     "director": "^1.2.8",
-    "events": "^1.0.2",
     "flux": "^2.0.3",
     "highlight.js": "^8.4.0",
     "jquery": "^2.1.3",
@@ -15,7 +14,6 @@
     "babel-core": "^5.4.7",
     "babel-loader": "^5.1.3",
     "expose-loader": "^0.6.0",
-    "fs": "0.0.2",
     "gulp": "^3.8.11",
     "gulp-if": "^1.2.5",
     "gulp-json-editor": "^2.2.1",
@@ -24,10 +22,9 @@
     "gulp-rev-collector": "^1.0.0",
     "gulp-sass": "^1.3.3",
     "gulp-uglify": "^1.2.0",
-    "gulp-webpack": "^1.2.0",
+    "gulp-webpack": "^1.4.0",
     "gulp-webserver": "^0.9.0",
     "node-libs-browser": "^0.5.0",
-    "path": "^0.11.14",
     "run-sequence": "^1.0.2",
     "webpack": "^1.9.5"
   }
