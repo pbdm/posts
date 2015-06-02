@@ -1,6 +1,6 @@
 # Introduce
 
-[![npm version](https://badge.fury.io/js/pbdm.cc.svg)](http://badge.fury.io/js/pbdm.cc)
+[![npm version](https://badge.fury.io/js/pbdm.cc.svg)](npm-url)
 
 This is the source code of the personal site of [PBDm](http://pbdm.cc)
 
