@@ -2,8 +2,8 @@
   "name": "pbdm.cc",
   "version": "3.1.1",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/pbdm/pbdm.github.com.git"    
+    "type": "git",
+    "url": "https://github.com/pbdm/pbdm.github.com.git"
   },
   "dependencies": {
     "director": "^1.2.8",
@@ -17,14 +17,13 @@
   "devDependencies": {
     "babel-core": "^5.4.7",
     "babel-loader": "^5.1.3",
-    "expose-loader": "^0.6.0",
     "gulp": "^3.8.11",
     "gulp-if": "^1.2.5",
     "gulp-json-editor": "^2.2.1",
     "gulp-minify-css": "^1.1.1",
     "gulp-rename": "^1.2.2",
     "gulp-rev-collector": "^1.0.0",
-    "gulp-sass": "^1.3.3",
+    "gulp-sass": "^2.0.1",
     "gulp-uglify": "^1.2.0",
     "gulp-webpack": "^1.4.0",
     "gulp-webserver": "^0.9.0",
