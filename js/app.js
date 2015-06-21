@@ -40,7 +40,6 @@ let render = (params, name) => {
   PBDm.responsiveMenu();
   PBDm.btt();
   PBDm.gravatar(gravatar); 
-  NProgress.done();
 }
 
 Path.map("#/about").to(function() {

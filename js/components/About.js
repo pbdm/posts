@@ -23,5 +23,10 @@ module.exports = {
         </p>
       </div>
     </div>
-  `
+  `,
+
+  onLoad: () => {
+    NProgress.start();
+    NProgress.done();
+  }
 };
