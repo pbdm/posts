@@ -5,25 +5,17 @@ import Bottom from'./components/Bottom';
 import Top from './components/Top';
 
 import './plugins/jquery.toc';
-// require('./plugins/jquery.slideshow');
-// require('./plugins/jquery.headanimation');
 
 import gravatar from '../json/gravatar.json';
 
+import Home from './components/Home';
+import About from './components/About';
+import Football from './components/Football';
+import Post from './components/Post';
+import NotFound from './components/NotFound';
+
 let Path = Pathjs.pathjs;
 let page;
-
-Store.addChangeListener(function(){
-  render ({ tmpl : Store.getTemplate() });
-});
-
-let components = {
-  home: require('./components/Home'),
-  about: require('./components/About'),
-  football: require('./components/Football'),
-  post: require('./components/Post'),
-  notfound: require('./components/NotFound')
-}
 
 let render = (params, name) => {
   params.setQuery ? params.setQuery({
@@ -53,40 +45,44 @@ let render = (params, name) => {
 
 Path.map("#/about").to(function() {
   page = 'about';
-  render(components.about);
+  render(About);
 });
 
 Path.map("#/").to(function() {
   page = 'home';
-  render(components.home);
+  render(Home);
 });
 
 Path.map("#/football").to(function() {
   page = 'football';
-  render(components.football);
+  render(Football);
 });
 
 Path.map("#/wiki/:name").to(function() {
   page = 'wiki';
-  render(components.post, this.params.name);
+  render(Post, this.params.name);
 });
 
 Path.map("#/blog/:name").to(function() {
   page = 'blog';
-  render(components.post, this.params.name);
+  render(Post, this.params.name);
 });
 
 Path.map("#/local/:name").to(function() {
   page = 'local';
-  render(components.post, this.params.name);
+  render(Post, this.params.name);
 });
 
 Path.rescue(() => {
   page = 'notfound'
-  render(components.notfound);
+  render(NotFound);
 
 });
 
 Path.root("#/");
 
 Path.listen();
+
+Store.addChangeListener(function(){
+  render ({ tmpl : Store.getTemplate() });
+});

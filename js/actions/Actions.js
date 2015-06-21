@@ -4,12 +4,6 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 
 var Actions = {
 
-  togglePopover: function(type) {
-    AppDispatcher.dispatch({
-      actionType: type
-    });
-  },
-
   updateTemplate: function(tmpl) {
     AppDispatcher.dispatch({
       actionType: 'updateTemplate',

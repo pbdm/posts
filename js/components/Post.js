@@ -14,6 +14,7 @@ let getPostData = () => {
       $('pre code').each( (i, block) => {     
         hljs.highlightBlock(block);
       });
+      NProgress.done();
     });
    
   });
@@ -49,6 +50,7 @@ module.exports = {
   tmpl: '',
   
   onLoad: () => {
+    NProgress.start();
     getPostData();
   },
 

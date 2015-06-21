@@ -11,6 +11,7 @@ let getListData = (type) => {
     tmpl[type] = getListTmpl(type, data);
     if (tmpl.wiki && tmpl.blog) {
       Actions.updateTemplate(render(tmpl.blog, tmpl.wiki));
+      NProgress.done();
     }
   });
 };
@@ -42,7 +43,8 @@ module.exports = {
   tmpl: '',
   
   onLoad: () => {
-   getListData('blog');
-   getListData('wiki');
+    NProgress.start();
+    getListData('blog');
+    getListData('wiki');
   }
 };
