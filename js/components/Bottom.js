@@ -17,7 +17,7 @@ module.exports =  `
         <a title="Github" class="accounts_github url" rel="me"><i class="fa fa-github-square"></i></a>
         <a title="Email" class="email"><i class="fa fa-envelope-square"></i></a>
       </div>
-      <a class="fn"></a>© 2012 - ${new Date().getFullYear()} | Powered by <a href="http://facebook.github.io/react/" target='_blank'>React</a>
+      <a class="fn"></a> © 2012 - ${new Date().getFullYear()}
     </div>
   </div>
 </footer>
