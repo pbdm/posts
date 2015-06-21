@@ -46,26 +46,22 @@ gulp.task('build:js', function(){
       },
       plugins: [
         new webpack.ProvidePlugin({
-          Director: 'director',
-          React: 'react',
-          jQuery: 'jquery',
           $: 'jquery',
-          _: 'lodash',
+          Pathjs: 'pathjs',
           marked: 'marked',
           PBDm: path.join(__dirname,'./js/function'),
           hljs: 'highlight.js'
         })
       ],
       module: {
-        loaders:[
-          { test: /\.js$/, 
-            exclude: /(node_modules)/,
-            loader: "babel" },
-          //{ test: require.resolve("jquery"), loader: "expose?jQuery" },
-          //{ test: require.resolve("react"), loader: "expose?React" },
-          //{ test: require.resolve("react-router"), loader: "expose?Router" },
-          //{ test: require.resolve("./js/function.js"), loader: "expose?PBDm" }
-        ]
+        loaders:[{ 
+          test: /\.js$/, 
+          exclude: /(node_modules)/,
+          loader: "babel-loader",
+          query: {
+            optional: ['runtime']
+          } 
+        }]
       }
     }))
     .pipe(gulpif(des == 'dist', uglify()))
@@ -121,6 +117,7 @@ gulp.task('watch', function(){
   gulp.watch(['js/*.js', 'js/*/*.js'], ['build:js']);
   gulp.watch(['css/style.scss'], ['build:css']);
   gulp.watch(['post/*/*.*'], ['build:css']);
+  gulp.watch(['index.html'], ['copy']);
 });
 
 gulp.task('webserver', function() {

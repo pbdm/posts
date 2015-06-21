@@ -1,4 +1,4 @@
-{
+module.exports = {
   "entry": [{
     "id": "39166404",
     "hash": "630014a2c794d879d6041d84808e3ceb",

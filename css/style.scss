@@ -163,7 +163,7 @@ nav {
   ul {
     line-height: 25px;
   }
-  &#index {
+  &#home {
     font-size: 16px;
     ul {
       text-align: center;
@@ -381,6 +381,7 @@ nav {
 /* footer */
 
 footer {
+  clear: both;
   text-align: center;
   color: #999;
   padding-top: 6px;

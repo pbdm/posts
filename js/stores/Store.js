@@ -7,10 +7,16 @@ var CHANGE_EVENT = 'change';
 
 var _isShowLoader = false;
 
-var Store = _.assign({}, EventEmitter.prototype, {
+var _template = '';
+
+var Store = Object.assign({}, EventEmitter.prototype, {
 
   getLoaderState: function() {
     return _isShowLoader;
+  },
+
+  getTemplate: function() {
+    return _template;
   },
 
   emitChange: function() {
@@ -34,6 +40,9 @@ AppDispatcher.register(function(action) {
       break;
     case 'hideLoader':
       _isShowLoader = false;
+      break;
+    case 'updateTemplate':
+      _template = action.content;
       break;
   }
   

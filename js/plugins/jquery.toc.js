@@ -51,5 +51,5 @@
       $.error("Method " + method + " does not exist on jQuery.headanimation");
     }
   };
-})(jQuery);
+})($);
 

@@ -7,7 +7,6 @@ module.exports = {
    * @return {[type]} [description]
    */
   affix: function() {
-    console.log('here');
     var postList = document.getElementsByClassName("list")[0],
       postContainer = document.getElementsByClassName("list-container")[0],
       container = document.getElementsByClassName("container")[0],
@@ -237,6 +236,23 @@ module.exports = {
           navList.style.height = "1px";
         }
       });
+  },
+
+  btt: function() {
+    var $btt = $("#back-to-top");
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 50) {
+        $btt.css("opacity", 1);
+      } else {
+        $btt.css("opacity", 0);
+      }
+    });
+    $btt.click(function() {
+      $("html, body").animate({
+          scrollTop: 0
+        },
+        500);
+    });
   }
 
 };

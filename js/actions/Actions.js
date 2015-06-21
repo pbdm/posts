@@ -8,6 +8,13 @@ var Actions = {
     AppDispatcher.dispatch({
       actionType: type
     });
+  },
+
+  updateTemplate: function(tmpl) {
+    AppDispatcher.dispatch({
+      actionType: 'updateTemplate',
+      content: tmpl,
+    });
   }
 
 };

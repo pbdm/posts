@@ -1,101 +1,92 @@
-'use strict';
+import Store from './stores/Store';
+import Actions from './actions/Actions';
 
+import Bottom from'./components/Bottom';
+import Top from './components/Top';
+
+import './plugins/jquery.toc';
 // require('./plugins/jquery.slideshow');
 // require('./plugins/jquery.headanimation');
 
-require('./plugins/jquery.toc');
+import gravatar from '../json/gravatar.json';
 
-var Index    = require('./components/Index.react');
-var NotFound = require('./components/NotFound.react');
-var About    = require('./components/About.react');
-var Football = require('./components/Football.react');
-var Post = require('./components/Post.react');
+let Path = Pathjs.pathjs;
+let page;
 
-var Top = require('./components/Top.react');
-var Bottom = require('./components/Bottom.react');
-var Loader = require('./UIs/Loader.react');
-
-var App =  React.createClass({
-
-  getInitialState: function() {
-    return {
-      nowShowing: 'index',
-      name: ''
-    };
-  },
-
-  componentDidMount: function() {
-    var scope = this;
-    var router = Director.Router({
-      '/': () => { scope.setState({'nowShowing': 'index'});},
-      '/about': () => { scope.setState({'nowShowing': 'about'});},
-      '/football': () => { scope.setState({'nowShowing': 'football'});},
-      '/blog/:name': (name) => {
-        scope.setState({
-          nowShowing: 'blog',
-          name: name
-        });
-      },
-      '/wiki/:name': (name) => {
-        scope.setState({
-          nowShowing: 'wiki',
-          name: name
-        });
-      },
-      '/local/:name': (name) => {
-        scope.setState({
-          nowShowing: 'local',
-          name: name
-        });
-      }
-    });
-    router.init('/');
-    NProgress.done();
-  },
-
-  render: function () {
-    var handler;
-    switch (this.state.nowShowing) {
-      case 'index': 
-        handler =  <Index />;
-        break;
-      case 'about': 
-        handler =  <About />;
-        break;
-      case 'football': 
-        handler =  <Football />;
-        break;
-      case 'blog':
-        handler = <Post type={this.state.nowShowing} name={this.state.name} /> 
-        break;
-      case 'wiki': 
-        handler = <Post type={this.state.nowShowing} name={this.state.name} />
-        break;
-      case 'local': 
-        handler = <Post type={this.state.nowShowing} name={this.state.name} />
-        break;
-      default:
-        handler =  <NoteFound />;
-    }
-    return (
-      <div>
-        <Top/>
-        <div id="header">
-          <div className="container">
-            <a className="logo" href="/">琥珀草</a>
-          </div>
-        </div>           
-        <div className="content" id={this.state.nowShowing}>
-          {handler}
-        </div>
-        <Bottom/>
-        <div id="back-to-top">top</div>
-        <Loader />
-      </div>
-    );
-  }
+Store.addChangeListener(function(){
+  render ({ tmpl : Store.getTemplate() });
 });
 
-React.render(<App />, document.getElementById('app'));
- 
-require('./custom');
+let components = {
+  home: require('./components/Home'),
+  about: require('./components/About'),
+  football: require('./components/Football'),
+  post: require('./components/Post'),
+  notfound: require('./components/NotFound')
+}
+
+let render = (params, name) => {
+  params.setQuery ? params.setQuery({
+    page: page,
+    name: name
+  }) : '';
+  var template = `
+    ${Top}
+    <div id="header">
+      <div class="container">
+        <a class="logo" href="/">琥珀草</a>
+      </div>
+    </div>           
+    <div class="content" id=${page}>
+      ${params.tmpl}
+    </div>
+    ${Bottom}
+    <div id="back-to-top">top</div>
+  `;
+  document.getElementById('app').innerHTML = template;
+  params.onLoad ? params.onLoad() : '';
+  PBDm.responsiveMenu();
+  PBDm.btt();
+  PBDm.gravatar(gravatar); 
+  NProgress.done();
+}
+
+Path.map("#/about").to(function() {
+  page = 'about';
+  render(components.about);
+});
+
+Path.map("#/").to(function() {
+  page = 'home';
+  render(components.home);
+});
+
+Path.map("#/football").to(function() {
+  page = 'football';
+  render(components.football);
+});
+
+Path.map("#/wiki/:name").to(function() {
+  page = 'wiki';
+  render(components.post, this.params.name);
+});
+
+Path.map("#/blog/:name").to(function() {
+  page = 'blog';
+  render(components.post, this.params.name);
+});
+
+Path.map("#/local/:name").to(function() {
+  page = 'local';
+  render(components.post, this.params.name);
+});
+
+Path.rescue(() => {
+  page = 'notfound'
+  render(components.notfound);
+
+});
+
+Path.root("#/");
+
+Path.listen();
