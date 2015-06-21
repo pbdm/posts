@@ -49,8 +49,7 @@ gulp.task('build:js', function(){
           $: 'jquery',
           Pathjs: 'pathjs',
           marked: 'marked',
-          PBDm: path.join(__dirname,'./js/function'),
-          hljs: 'highlight.js'
+          PBDm: path.join(__dirname,'./js/function')
         })
       ],
       module: {
