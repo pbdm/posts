@@ -1,6 +1,7 @@
 * [JavaScript获取DOM元素位置和尺寸大小](http://www.cnblogs.com/dolphinX/archive/2012/11/19/2777756.html)
 * `splice()` 方法与 `slice()` 方法的作用是不同的，splice() 方法会直接对数组进行修改
 `splice()` 返回被删除元素
+* `for in` 会把原型里的东西都遍历出来,只有用`hasOwnProperty`多判断一遍, `for`就不会了,还是多用for吧...
 
 ## ES6
 for循环头部的let声明会有一个特殊的行为，这个行为指出变量在循环过程中不止被声明一次，每次迭代都会声明。 随后的每个迭代都会使用上一个迭代结束时的值在初始化这个变量
@@ -17,15 +18,15 @@ for循环头部的let声明会有一个特殊的行为，这个行为指出变�
       </div>
     <![endif]-->
 
-##强制转换boolean
+## 强制转换boolean
 在变量前面加`!!`
 
-##iPad Touch事件
+## iPad Touch事件
 * [集合贴](http://m.oschina.net/blog/88086)
 * [苹果官方文档](https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html)
 
-##事件绑定
-###事件捕获顺序
+## 事件绑定
+### 事件捕获顺序
 当一个页面元素包含子元素节点的时候，他在处理在其身上的绑定事件的时候，采用先执行捕获阶段的事件，再执行冒泡阶段的事件
 > http://blog.segmentfault.com/fishenal/1190000000470398
 
