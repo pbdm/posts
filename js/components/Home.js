@@ -7,7 +7,7 @@ let tmpl = {
 
 let getListData = (type) => {
 
-  $.get(`dist/${type}.json`, (data) => {
+  PBDm.get(`dist/${type}.json`, (data) => {
     tmpl[type] = getListTmpl(type, data);
     if (tmpl.wiki && tmpl.blog) {
       Actions.updateTemplate(render(tmpl.blog, tmpl.wiki));
@@ -43,7 +43,6 @@ module.exports = {
   tmpl: '',
 
   onLoad: () => {
-    NProgress.start();
     getListData('blog');
     getListData('wiki');
   }

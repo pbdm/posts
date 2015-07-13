@@ -4,7 +4,7 @@ import Actions from './actions/Actions';
 import Bottom from'./components/Bottom';
 import Top from './components/Top';
 
-import './plugins/jquery.toc';
+// import './plugins/jquery.toc';
 
 import gravatar from '../json/gravatar.json';
 
@@ -36,9 +36,10 @@ let render = (params, name) => {
     <div id="back-to-top">top</div>
   `;
   document.getElementById('app').innerHTML = template;
+  NProgress.start();
   params.onLoad ? params.onLoad() : '';
   PBDm.responsiveMenu();
-  PBDm.btt();
+  // PBDm.btt();
   PBDm.gravatar(gravatar);
 }
 

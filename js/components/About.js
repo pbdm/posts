@@ -26,7 +26,6 @@ module.exports = {
   `,
 
   onLoad: () => {
-    NProgress.start();
     NProgress.done();
   }
 };

@@ -3,17 +3,17 @@ import Actions from '../actions/Actions';
 let query = {};
 
 let getPostData = () => {
-  $.get(query.url, (list) => {
+  PBDm.get(query.url, (list) => {
     let tmp = list.filter( (n) => {
       return n.path == query.name;
      });
-    $.get(tmp[0].fullpath, (content) => {
+    PBDm.get(tmp[0].fullpath, (content) => {
       Actions.updateTemplate(render(query, content, list));
       PBDm.affix();
-      $(".post").toc();
-      $('pre code').each( (i, block) => {
+      // $(".post").toc();
+      for (let block of document.querySelectorAll('pre code')) {
         hljs.highlightBlock(block);
-      });
+      }
       NProgress.done();
     });
 
@@ -50,7 +50,6 @@ module.exports = {
   tmpl: '',
 
   onLoad: () => {
-    NProgress.start();
     getPostData();
   },
 

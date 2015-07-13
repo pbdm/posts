@@ -169,7 +169,7 @@ module.exports = {
     ctx.fill();
     ctx.closePath();
 
-    // add player  
+    // add player
     ctx.scale(1 / m, 1 / m);
     ctx.font = "17px Verdana";
     ctx.textAlign = "center";
@@ -253,7 +253,37 @@ module.exports = {
         },
         500);
     });
+  },
+
+  get: function(url,callback) {
+    var request = new XMLHttpRequest();
+    var response;
+    request.open('GET', url, true);
+    var jsonValidate =  function(str) {
+      try {
+        JSON.parse(str);
+        return true;
+      } catch (err){
+        return false;
+      }
+    };
+    request.onload = function() {
+      if (this.status >= 200 && this.status < 400) {
+        // Success!
+        response = jsonValidate(this.response) ? JSON.parse(this.response) : this.response;
+        callback(response);
+        //var resp = this.response;
+      } else {
+        // We reached our target server, but it returned an error
+
+      }
+    };
+
+    request.onerror = function() {
+      // There was a connection error of some sort
+    };
+
+    request.send();
   }
 
 };
-
