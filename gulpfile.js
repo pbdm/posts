@@ -46,20 +46,19 @@ gulp.task('build:js', function(){
       },
       plugins: [
         new webpack.ProvidePlugin({
-          $: 'jquery',
           Pathjs: 'pathjs',
           marked: 'marked',
           PBDm: path.join(__dirname,'./js/function')
         })
       ],
       module: {
-        loaders:[{ 
-          test: /\.js$/, 
+        loaders:[{
+          test: /\.js$/,
           exclude: /(node_modules)/,
           loader: "babel-loader",
           query: {
             optional: ['runtime']
-          } 
+          }
         }]
       }
     }))
@@ -137,4 +136,3 @@ gulp.task('build', function(cb){
   des = 'dist'
   runSequence(['manifest:wiki', 'manifest:blog', 'manifest:local'], ['build:js', 'build:css'], cb);
 });
-
