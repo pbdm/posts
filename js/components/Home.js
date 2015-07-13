@@ -6,7 +6,7 @@ let tmpl = {
 }
 
 let getListData = (type) => {
-  
+
   $.get(`dist/${type}.json`, (data) => {
     tmpl[type] = getListTmpl(type, data);
     if (tmpl.wiki && tmpl.blog) {
@@ -18,7 +18,7 @@ let getListData = (type) => {
 
 let render = (blog = '', wiki = '') => {
   return `
-    <div className='container'>
+    <div class='container'>
       <ul>
         <h2>Blogs</h2>
         ${blog}
@@ -41,7 +41,7 @@ let getListTmpl = (type, data) => {
 
 module.exports = {
   tmpl: '',
-  
+
   onLoad: () => {
     NProgress.start();
     getListData('blog');

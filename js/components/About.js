@@ -1,6 +1,6 @@
-module.exports = { 
+module.exports = {
   tmpl: `
-    <div class="container">
+    <div class="container typo">
       <div id="who">
         <div class="intro-image">
           <h2>我是谁</h2>

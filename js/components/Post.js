@@ -4,19 +4,19 @@ let query = {};
 
 let getPostData = () => {
   $.get(query.url, (list) => {
-    let tmp = list.filter( (n) => { 
+    let tmp = list.filter( (n) => {
       return n.path == query.name;
      });
     $.get(tmp[0].fullpath, (content) => {
-      Actions.updateTemplate(render(query, content, list)); 
+      Actions.updateTemplate(render(query, content, list));
       PBDm.affix();
       $(".post").toc();
-      $('pre code').each( (i, block) => {     
+      $('pre code').each( (i, block) => {
         hljs.highlightBlock(block);
       });
       NProgress.done();
     });
-   
+
   });
 };
 
@@ -31,7 +31,7 @@ let getListTmpl = (type, data) => {
 let render = (query, content, list) => {
   return `
     <div class="container">
-      <div class='post'>
+      <div class='post typo'>
         <h1>${decodeURIComponent(query.name)}</h1>
         <div>${marked(content)}</div>
       </div>
@@ -48,7 +48,7 @@ let render = (query, content, list) => {
 
 module.exports = {
   tmpl: '',
-  
+
   onLoad: () => {
     NProgress.start();
     getPostData();

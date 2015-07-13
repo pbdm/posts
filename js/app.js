@@ -28,7 +28,7 @@ let render = (params, name) => {
       <div class="container">
         <a class="logo" href="/">琥珀草</a>
       </div>
-    </div>           
+    </div>
     <div class="content" id=${page}>
       ${params.tmpl}
     </div>
@@ -39,7 +39,7 @@ let render = (params, name) => {
   params.onLoad ? params.onLoad() : '';
   PBDm.responsiveMenu();
   PBDm.btt();
-  PBDm.gravatar(gravatar); 
+  PBDm.gravatar(gravatar);
 }
 
 Path.map("#/about").to(function() {
