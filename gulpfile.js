@@ -14,6 +14,8 @@ var rename = require("gulp-rename");
 var revCollector = require('gulp-rev-collector');
 var des;
 var types = ['wiki', 'blog', 'local'];
+var postcss = require('gulp-postcss');
+var autoprefixer = require('autoprefixer-core');
 
 var tree = function(filepath) {
 
@@ -67,7 +69,8 @@ gulp.task('build:js', function(){
 
 gulp.task('build:css', function () {
   return gulp.src('./css/style.scss')
-    .pipe(sass())
+    .pipe(sass({errLogToConsole: true}))
+    .pipe(postcss([ autoprefixer({ browsers: ['> 5%', 'last 2 versions'] }) ]))
     .pipe(gulpif(des == 'dist', minifycss()))
     .pipe(gulp.dest(des));
 });
