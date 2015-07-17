@@ -7,11 +7,11 @@ let getPostList = () => {
     let tmp = list.filter( (n) => {
       return n.path == query.name;
      });
-    tmp.length > 0 ? getPostDetail() : postNotFound();
+    tmp.length > 0 ? getPostDetail(tmp, list) : postNotFound();
   });
 };
 
-let getPostDetail = () => {
+let getPostDetail = (tmp, list) => {
   PBDm.get(tmp[0].fullpath, (content) => {
     Actions.updateTemplate(render(query, content, list));
     PBDm.affix();
