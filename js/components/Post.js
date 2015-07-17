@@ -2,26 +2,35 @@ import Actions from '../actions/Actions';
 
 let query = {};
 
-let getPostData = () => {
+let getPostList = () => {
   PBDm.get(query.url, (list) => {
     let tmp = list.filter( (n) => {
       return n.path == query.name;
      });
-    tmp.length > 0 ? () => {
-      console.log('here');
-      PBDm.get(tmp[0].fullpath, (content) => {
-        Actions.updateTemplate(render(query, content, list));
-        PBDm.affix();
-        // $(".post").toc();
-        for (let block of document.querySelectorAll('pre code')) {
-          hljs.highlightBlock(block);
-        }
-        NProgress.done();
-      });
-    }() : window.location.hash = '#/notfound';
-
+    tmp.length > 0 ? getPostDetail() : postNotFound();
   });
 };
+
+let getPostDetail = () => {
+  PBDm.get(tmp[0].fullpath, (content) => {
+    Actions.updateTemplate(render(query, content, list));
+    PBDm.affix();
+    // $(".post").toc();
+    for (let block of document.querySelectorAll('pre code')) {
+      hljs.highlightBlock(block);
+    }
+    NProgress.done();
+  });
+};
+
+let postNotFound = () => {
+  Actions.updateTemplate(`
+    <div class="container">
+      文章不存在
+    </div>
+  `);
+  NProgress.done();
+}
 
 let getListTmpl = (type, data) => {
   let template = '';
@@ -53,7 +62,7 @@ module.exports = {
   tmpl: '',
 
   onLoad: () => {
-    getPostData();
+    getPostList();
   },
 
   setQuery: (params) => {

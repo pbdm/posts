@@ -14,7 +14,6 @@ import Football from './components/Football';
 import Post from './components/Post';
 import NotFound from './components/NotFound';
 
-let Path = Pathjs.pathjs;
 let page;
 
 let render = (params, name) => {
@@ -56,7 +55,7 @@ let switcher = (hash) => {
       break;
     case 'football':
       page = 'football';
-      render(About);
+      render(Football);
       break;
     case 'wiki':
       page = 'wiki';
