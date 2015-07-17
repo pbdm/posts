@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = {
+let Util = {
 
   /**
    * [affix description]
@@ -240,10 +240,8 @@ module.exports = {
 
   btt: function() {
     let btt = document.getElementById('back-to-top');
-    let root = /firefox|trident/i.test(navigator.userAgent) ? document.documentElement : document.body
-
+    let root = Util.getScrollingElement();
     window.addEventListener('scroll', () => {
-      console.log('here');
       root.scrollTop > 50 ? btt.style.opacity = 1 : btt.style.opacity = 0;
     });
   },
@@ -279,11 +277,20 @@ module.exports = {
     request.send();
   },
 
+  // thanks to https://gist.github.com/dperini/ac3d921d6a08f10fd10e
+  getScrollingElement: () => {
+    let d = document;
+    return  d.documentElement.scrollHeight > d.body.scrollHeight &&
+            d.compatMode.indexOf('CSS1') == 0 ?
+            d.documentElement :
+            d.body;
+  },
   // thanks to https://github.com/bendc/anchor-scroll/blob/master/scroll.js
   anchorScroll: () => {
+
     var links = document.querySelectorAll("a.scroll")
     var i = links.length
-    var root = /firefox|trident/i.test(navigator.userAgent) ? document.documentElement : document.body
+    var root = Util.getScrollingElement();
     var easeInOutCubic = function(t, b, c, d) {
       if ((t/=d/2) < 1) return c/2*t*t*t + b
       return c/2*((t-=2)*t*t + 2) + b
@@ -309,3 +316,5 @@ module.exports = {
   }
 
 };
+
+module.exports = Util;
