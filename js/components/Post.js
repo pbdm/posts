@@ -7,15 +7,18 @@ let getPostData = () => {
     let tmp = list.filter( (n) => {
       return n.path == query.name;
      });
-    PBDm.get(tmp[0].fullpath, (content) => {
-      Actions.updateTemplate(render(query, content, list));
-      PBDm.affix();
-      // $(".post").toc();
-      for (let block of document.querySelectorAll('pre code')) {
-        hljs.highlightBlock(block);
-      }
-      NProgress.done();
-    });
+    tmp.length > 0 ? () => {
+      console.log('here');
+      PBDm.get(tmp[0].fullpath, (content) => {
+        Actions.updateTemplate(render(query, content, list));
+        PBDm.affix();
+        // $(".post").toc();
+        for (let block of document.querySelectorAll('pre code')) {
+          hljs.highlightBlock(block);
+        }
+        NProgress.done();
+      });
+    }() : window.location.hash = '#/notfound';
 
   });
 };

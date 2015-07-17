@@ -43,45 +43,44 @@ let render = (params, name) => {
   PBDm.gravatar(gravatar);
 }
 
-Path.map("#/about").to(function() {
-  page = 'about';
-  render(About);
+let switcher = (hash) => {
+  let hashArray = hash.split('/');
+  switch (hashArray[1]) {
+    case (''):
+      page = 'home';
+      render(Home);
+      break;
+    case 'about':
+      page = 'about';
+      render(About);
+      break;
+    case 'football':
+      page = 'football';
+      render(About);
+      break;
+    case 'wiki':
+      page = 'wiki';
+      render(Post, hashArray[2]);
+      break;
+    case 'blog':
+      page = 'blog';
+      render(Post, hashArray[2]);
+      break;
+    case 'local':
+      page = 'local';
+      render(Post, hashArray[2]);
+      break;
+    default:
+      page = 'notfound'
+      render(NotFound);
+  }
+}
+
+window.addEventListener('hashchange', () => {
+  switcher(window.location.hash);
 });
 
-Path.map("#/").to(function() {
-  page = 'home';
-  render(Home);
-});
-
-Path.map("#/football").to(function() {
-  page = 'football';
-  render(Football);
-});
-
-Path.map("#/wiki/:name").to(function() {
-  page = 'wiki';
-  render(Post, this.params.name);
-});
-
-Path.map("#/blog/:name").to(function() {
-  page = 'blog';
-  render(Post, this.params.name);
-});
-
-Path.map("#/local/:name").to(function() {
-  page = 'local';
-  render(Post, this.params.name);
-});
-
-Path.rescue(() => {
-  page = 'notfound'
-  render(NotFound);
-
-});
-
-Path.root("#/");
-
-Path.listen();
+window.location.hash ? switcher(window.location.hash) : window.location.hash = '#/';
 
 Store.addChangeListener(function(){
   render ({ tmpl : Store.getTemplate() });

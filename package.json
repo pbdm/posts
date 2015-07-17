@@ -7,8 +7,7 @@
   },
   "dependencies": {
     "flux": "^2.0.3",
-    "marked": "^0.3.3",
-    "pathjs": "^0.8.1"
+    "marked": "^0.3.3"
   },
   "devDependencies": {
     "babel-core": "^5.4.7",

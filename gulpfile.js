@@ -46,7 +46,6 @@ gulp.task('build:js', function(){
       },
       plugins: [
         new webpack.ProvidePlugin({
-          Pathjs: 'pathjs',
           marked: 'marked',
           PBDm: path.join(__dirname,'./js/function')
         })
