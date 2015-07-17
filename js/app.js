@@ -32,13 +32,14 @@ let render = (params, name) => {
       ${params.tmpl}
     </div>
     ${Bottom}
-    <div id="back-to-top">top</div>
+    <a class='scroll' href="#top" id="back-to-top">top</div>
   `;
   document.getElementById('app').innerHTML = template;
   NProgress.start();
   params.onLoad ? params.onLoad() : '';
   PBDm.responsiveMenu();
-  // PBDm.btt();
+  PBDm.btt();
+  PBDm.anchorScroll();
   PBDm.gravatar(gravatar);
 }
 

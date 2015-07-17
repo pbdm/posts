@@ -232,10 +232,14 @@ footer {
   opacity: 0;
   text-transform: uppercase;
   @include transition(1s);
+  color: #000;
+  &:hover {
+    text-decoration: none;
+  }
   &:before {
     content: '';
     display: block;
-    border: 15px transparent solid;
+    border: 18px transparent solid;
     border-bottom-color: #333;
   }
 }

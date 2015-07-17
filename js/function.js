@@ -239,19 +239,12 @@ module.exports = {
   },
 
   btt: function() {
-    var $btt = $("#back-to-top");
-    $(window).scroll(function() {
-      if ($(this).scrollTop() > 50) {
-        $btt.css("opacity", 1);
-      } else {
-        $btt.css("opacity", 0);
-      }
-    });
-    $btt.click(function() {
-      $("html, body").animate({
-          scrollTop: 0
-        },
-        500);
+    let btt = document.getElementById('back-to-top');
+    let root = /firefox|trident/i.test(navigator.userAgent) ? document.documentElement : document.body
+
+    window.addEventListener('scroll', () => {
+      console.log('here');
+      root.scrollTop > 50 ? btt.style.opacity = 1 : btt.style.opacity = 0;
     });
   },
 
@@ -284,6 +277,35 @@ module.exports = {
     };
 
     request.send();
+  },
+
+  // thanks to https://github.com/bendc/anchor-scroll/blob/master/scroll.js
+  anchorScroll: () => {
+    var links = document.querySelectorAll("a.scroll")
+    var i = links.length
+    var root = /firefox|trident/i.test(navigator.userAgent) ? document.documentElement : document.body
+    var easeInOutCubic = function(t, b, c, d) {
+      if ((t/=d/2) < 1) return c/2*t*t*t + b
+      return c/2*((t-=2)*t*t + 2) + b
+    }
+    while (i--)
+      links.item(i).addEventListener("click", function(e) {
+        var startTime
+        var startPos = root.scrollTop
+        var endPos = document.getElementById(/[^#]+$/.exec(this.href)[0]) ? document.getElementById(/[^#]+$/.exec(this.href)[0]).getBoundingClientRect().top : startPos;
+        var maxScroll = root.scrollHeight - window.innerHeight
+        var scrollEndValue = startPos + endPos < maxScroll ? endPos : maxScroll - startPos
+        var duration = 900
+        var scroll = function(timestamp) {
+          startTime = startTime || timestamp
+          var elapsed = timestamp - startTime
+          var progress = easeInOutCubic(elapsed, startPos, scrollEndValue, duration)
+          root.scrollTop = progress
+          elapsed < duration && requestAnimationFrame(scroll)
+        }
+        requestAnimationFrame(scroll)
+        e.preventDefault()
+      })
   }
 
 };
