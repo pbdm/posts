@@ -17,10 +17,10 @@ import NotFound from './components/NotFound';
 let page;
 
 let render = (params, name) => {
-  params.setQuery ? params.setQuery({
+  params.setQuery && params.setQuery({
     page: page,
     name: name
-  }) : '';
+  });
   var template = `
     ${Top}
     <div id="header">
@@ -36,7 +36,7 @@ let render = (params, name) => {
   `;
   document.getElementById('app').innerHTML = template;
   NProgress.start();
-  params.onLoad ? params.onLoad() : '';
+  params.onLoad && params.onLoad();
   PBDm.responsiveMenu();
   PBDm.btt();
   PBDm.anchorScroll();
