@@ -1,6 +1,6 @@
 module.exports = `
-<nav>
-  <div id="top" class="wrapper">
+<nav id="top">
+  <div class="wrapper">
     <div class="responsive-nav">
       <i class="fa fa-list-ul fa-2x"></i>
     </div>
