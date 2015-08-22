@@ -4,10 +4,6 @@ import Actions from './actions/Actions';
 import Bottom from'./components/Bottom';
 import Top from './components/Top';
 
-// import './plugins/jquery.toc';
-
-import gravatar from '../json/gravatar.json';
-
 import Home from './components/Home';
 import About from './components/About';
 import Football from './components/Football';
@@ -40,7 +36,6 @@ let render = (params, name) => {
   PBDm.responsiveMenu();
   PBDm.btt();
   PBDm.anchorScroll();
-  PBDm.gravatar(gravatar);
 }
 
 let switcher = (hash) => {
