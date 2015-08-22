@@ -131,10 +131,10 @@ gulp.task('webserver', function() {
 
 gulp.task('default', function(cb){
   des = 'static'
-  runSequence(['manifest:wiki', 'manifest:blog', 'manifest:local'], 'copy', 'revCollector', ['build:js', 'build:css'], 'webserver', 'watch', cb);
+  runSequence(['manifest:wiki', 'manifest:blog'], 'copy', 'revCollector', ['build:js', 'build:css'], 'webserver', 'watch', cb);
 });
 
 gulp.task('build', function(cb){
   des = 'dist'
-  runSequence(['manifest:wiki', 'manifest:blog', 'manifest:local'], ['build:js', 'build:css'], cb);
+  runSequence(['manifest:wiki', 'manifest:blog'], ['build:js', 'build:css'], cb);
 });
