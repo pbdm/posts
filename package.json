@@ -6,7 +6,6 @@
     "url": "https://github.com/pbdm/pbdm.github.com.git"
   },
   "dependencies": {
-    "flux": "^2.1.1",
     "marked": "^0.3.5"
   },
   "devDependencies": {

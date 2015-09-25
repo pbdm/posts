@@ -1,6 +1,3 @@
-import Store from './stores/Store';
-import Actions from './actions/Actions';
-
 import Bottom from'./components/Bottom';
 import Top from './components/Top';
 
@@ -32,7 +29,7 @@ let render = (params, name) => {
   `;
   document.getElementById('app').innerHTML = template;
   NProgress.start();
-  params.onLoad && params.onLoad();
+  params.onLoad && params.onLoad(render);
   PBDm.responsiveMenu();
   PBDm.btt();
   PBDm.anchorScroll();
@@ -76,7 +73,3 @@ window.addEventListener('hashchange', () => {
 });
 
 window.location.hash ? switcher(window.location.hash) : window.location.hash = '#/';
-
-Store.addChangeListener(function(){
-  render ({ tmpl : Store.getTemplate() });
-});

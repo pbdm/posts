@@ -1,19 +1,18 @@
-import Actions from '../actions/Actions';
-
 let query = {};
 
-let getPostList = () => {
+let getPostList = (render) => {
   PBDm.get(query.url, (list) => {
     let tmp = list.filter( (n) => {
       return n.path == query.name;
      });
-    tmp.length > 0 ? getPostDetail(tmp, list) : postNotFound();
+    tmp.length > 0 ? getPostDetail(tmp, list, render) : postNotFound(render);
   });
 };
 
-let getPostDetail = (tmp, list) => {
+const getPostDetail = (tmp, list, render) => {
   PBDm.get(tmp[0].fullpath, (content) => {
-    Actions.updateTemplate(render(query, content, list));
+    let tmpl = renderContent(query, content, list);
+    render ({ tmpl : tmpl });
     PBDm.affix();
     // $(".post").toc();
     for (let block of document.querySelectorAll('pre code')) {
@@ -23,16 +22,17 @@ let getPostDetail = (tmp, list) => {
   });
 };
 
-let postNotFound = () => {
-  Actions.updateTemplate(`
+const postNotFound = (render) => {
+  let tmpl = `
     <div class="container">
       文章不存在
     </div>
-  `);
+  `;
+  render ({ tmpl : tmpl });
   NProgress.done();
 }
 
-let getListTmpl = (type, data) => {
+const getListTmpl = (type, data) => {
   let template = '';
   data.map ((result)=> {
     template += `<li><a href='#/${type}/${result.path}'>${result.title}</a></li>`
@@ -40,7 +40,7 @@ let getListTmpl = (type, data) => {
   return template;
 };
 
-let render = (query, content, list) => {
+const renderContent = (query, content, list) => {
   return `
     <div class="container">
       <div class='post typo'>
@@ -61,8 +61,8 @@ let render = (query, content, list) => {
 module.exports = {
   tmpl: '',
 
-  onLoad: () => {
-    getPostList();
+  onLoad: (render) => {
+    getPostList(render);
   },
 
   setQuery: (params) => {

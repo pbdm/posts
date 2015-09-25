@@ -1,22 +1,21 @@
-import Actions from '../actions/Actions';
-
 let tmpl = {
   wiki: '',
   blog: ''
 }
 
-let getListData = (type) => {
+let getListData = (type, render) => {
 
   PBDm.get(`dist/${type}.json`, (data) => {
     tmpl[type] = getListTmpl(type, data);
     if (tmpl.wiki && tmpl.blog) {
-      Actions.updateTemplate(render(tmpl.blog, tmpl.wiki));
+      let content = renderContent(tmpl.blog, tmpl.wiki);
+      render ({ tmpl : content });
       NProgress.done();
     }
   });
 };
 
-let render = (blog = '', wiki = '') => {
+let renderContent = (blog = '', wiki = '') => {
   return `
     <div class='container'>
       <ul>
@@ -42,8 +41,8 @@ let getListTmpl = (type, data) => {
 module.exports = {
   tmpl: '',
 
-  onLoad: () => {
-    getListData('blog');
-    getListData('wiki');
+  onLoad: (render) => {
+    getListData('blog', render);
+    getListData('wiki', render);
   }
 };
