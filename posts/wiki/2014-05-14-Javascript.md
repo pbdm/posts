@@ -31,6 +31,7 @@ for循环头部的let声明会有一个特殊的行为，这个行为指出变�
 ### 事件捕获顺序
 当一个页面元素包含子元素节点的时候，他在处理在其身上的绑定事件的时候，采用先执行捕获阶段的事件，再执行冒泡阶段的事件
 > http://blog.segmentfault.com/fishenal/1190000000470398
+> http://yujiangshui.com/javascript-event/
 
 ### [阻止超链接跳转](http://www.suchso.com/projecteactual/javascript-event-up-stopPropagation-cancelBubble.html)
 #### [jQuery](http://blog.csdn.net/woshixuye/article/details/7422985)
