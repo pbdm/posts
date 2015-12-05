@@ -205,7 +205,7 @@ let Util = {
       navMenu = document.getElementsByClassName("fa-list-ul")[0];
     navMenu.addEventListener("click",
       function() {
-        if (getComputedStyle(navList).height == "1px") {
+        if (getComputedStyle(navList).height === "1px") {
           navList.style.height = (function() {
             var height = 1; //1px for border
             Array.prototype.slice.call(navList.children).forEach(function(child) {
@@ -231,11 +231,11 @@ let Util = {
     var request = new XMLHttpRequest();
     var response;
     request.open('GET', url, true);
-    var jsonValidate =  function(str) {
+    var jsonValidate = function(str) {
       try {
         JSON.parse(str);
         return true;
-      } catch (err){
+      } catch (err) {
         return false;
       }
     };
@@ -262,7 +262,7 @@ let Util = {
   getScrollingElement: () => {
     let d = document;
     return  d.documentElement.scrollHeight > d.body.scrollHeight &&
-            d.compatMode.indexOf('CSS1') == 0 ?
+            d.compatMode.indexOf('CSS1') === 0 ?
             d.documentElement :
             d.body;
   },

@@ -1,4 +1,4 @@
-module.exports =  `
+module.exports = `
 <footer>
   <div class="container">
     <div class="vcard">

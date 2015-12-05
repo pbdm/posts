@@ -3,7 +3,7 @@ let query = {};
 let getPostList = (render) => {
   PBDm.get(query.url, (list) => {
     let tmp = list.filter( (n) => {
-      return n.path == query.name;
+      return n.path === query.name;
      });
     tmp.length > 0 ? getPostDetail(tmp, list, render) : postNotFound(render);
   });
