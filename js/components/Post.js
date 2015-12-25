@@ -44,7 +44,7 @@ const renderContent = (query, content, list) => {
   return `
     <div class="container">
       <div class='post typo'>
-        <h1>${decodeURIComponent(query.name)}</h1>
+        <h1 class='title'>${decodeURIComponent(query.name)}</h1>
         <div>${marked(content)}</div>
       </div>
       <div class="list">

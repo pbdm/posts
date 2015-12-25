@@ -19,11 +19,11 @@ let renderContent = (blog = '', wiki = '') => {
   return `
     <div class='container'>
       <ul>
-        <h2>Blogs</h2>
+        <h2>Blog</h2>
         ${blog}
       </ul>
       <ul>
-        <h2>Wikis</h2>
+        <h2>Wiki</h2>
         ${wiki}
       </ul>
     </div>

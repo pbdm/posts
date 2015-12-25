@@ -1,5 +1,5 @@
 import Bottom from'./components/Bottom';
-import Top from './components/Top';
+// import Top from './components/Top';
 
 import Home from './components/Home';
 import About from './components/About';
@@ -15,10 +15,9 @@ let render = (params, name) => {
     name: name
   });
   var template = `
-    ${Top}
     <div id="header">
       <div class="container">
-        <a class="logo" href="/">琥珀草</a>
+        <a class="logo" href="#/">琥珀草</a>
       </div>
     </div>
     <div class="content" id=${page}>
@@ -30,7 +29,7 @@ let render = (params, name) => {
   document.getElementById('app').innerHTML = template;
   NProgress.start();
   params.onLoad && params.onLoad(render);
-  PBDm.responsiveMenu();
+  // PBDm.responsiveMenu();
   PBDm.btt();
   PBDm.anchorScroll();
 }

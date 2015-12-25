@@ -66,7 +66,7 @@ nav {
 }
 
 #header {
-  margin-top: 29px;
+  // margin-top: 29px;
   background-color: #edf4ed;
   .logo {
     background-color: #edf4ed;
@@ -85,7 +85,6 @@ nav {
 .content {
   &#home {
     ul {
-      text-align: center;
       width: 50%;
       float: left;
     }
@@ -94,6 +93,10 @@ nav {
     float: left;
     width: 75%;
     padding-right: 2%;
+    .title {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
   }
   .list {
     float: right;
