@@ -10,10 +10,7 @@ var jeditor = require('gulp-json-editor');
 var fs = require('fs');
 var gulpif = require('gulp-if');
 var path = require('path');
-var rename = require("gulp-rename");
-var revCollector = require('gulp-rev-collector');
-var des;
-var types = ['wiki', 'blog', 'local'];
+var env;
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer-core');
 
@@ -27,7 +24,7 @@ var tree = function(filepath) {
 
   for (key in files) {
     file = files[key];
-    if (files[key].substr(-2,2) == 'md') {
+    if (files[key].substr(-2,2) === 'md') {
       result.push ({
         date:  files[key].substr(0,10),
         fullpath:  encodeURIComponent(filepath + '/' + files[key]),
@@ -40,7 +37,7 @@ var tree = function(filepath) {
   return result;
 }
 
-gulp.task('build:js', function(){
+gulp.task('build:js', function() {
   return gulp.src('js/app.js')
     .pipe(gulpWebpack({
       output: {
@@ -63,16 +60,16 @@ gulp.task('build:js', function(){
         }]
       }
     }))
-    .pipe(gulpif(des == 'dist', uglify()))
-    .pipe(gulp.dest(des));
+    .pipe(gulpif(env === 'prod', uglify()))
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('build:css', function () {
   return gulp.src('./css/style.scss')
     .pipe(sass({errLogToConsole: true}))
     .pipe(postcss([ autoprefixer({ browsers: ['> 5%', 'last 2 versions'] }) ]))
-    .pipe(gulpif(des == 'dist', minifycss()))
-    .pipe(gulp.dest(des));
+    .pipe(gulpif(env === 'prod', minifycss()))
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('manifest:wiki', function () {
@@ -99,21 +96,7 @@ gulp.task('manifest:local', function () {
   .pipe(gulp.dest("dist"));
 });
 
-gulp.task('copy', function(){
-  return gulp.src('index.html')
-  .pipe(rename('local.html'))
-  .pipe(gulp.dest('./'));
-});
-
-gulp.task('revCollector', function () {
-  return gulp.src(['rev.json', 'local.html'])
-    .pipe(revCollector({
-      replaceReved: true,
-    }))
-    .pipe(gulp.dest('./'));
-});
-
-gulp.task('watch', function(){
+gulp.task('watch', function() {
   gulp.watch(['js/*.js', 'js/*/*.js'], ['build:js']);
   gulp.watch(['css/style.scss'], ['build:css']);
   gulp.watch(['post/*/*.*'], ['build:css']);
@@ -124,17 +107,17 @@ gulp.task('webserver', function() {
   return gulp.src('./')
     .pipe(webserver({
       //livereload: true,
-      port: '7000',
+      port: '7000'
       //open: 'http://127.0.0.1:7000/'
     }));
 });
 
-gulp.task('default', function(cb){
-  des = 'static'
-  runSequence(['manifest:wiki', 'manifest:blog'], 'copy', 'revCollector', ['build:js', 'build:css'], 'webserver', 'watch', cb);
+gulp.task('default', function(cb) {
+  env = 'dev'
+  runSequence(['manifest:wiki', 'manifest:blog'], ['build:js', 'build:css'], 'webserver', 'watch', cb);
 });
 
-gulp.task('build', function(cb){
-  des = 'dist'
+gulp.task('build', function(cb) {
+  env = 'prod'
   runSequence(['manifest:wiki', 'manifest:blog'], ['build:js', 'build:css'], cb);
 });
