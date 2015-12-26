@@ -35,7 +35,7 @@ const postNotFound = (render) => {
 const getListTmpl = (type, data) => {
   let template = '';
   data.map ((result)=> {
-    template += `<li><a href='#/${type}/${result.path}'>${result.title}</a></li>`
+    template += `<li><a href='#${type}/${result.path}'>${result.title}</a></li>`
   });
   return template;
 };

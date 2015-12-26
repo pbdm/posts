@@ -17,7 +17,7 @@ let render = (params, name) => {
   var template = `
     <div id="header">
       <div class="container">
-        <a class="logo" href="#/">琥珀草</a>
+        <a class="logo" href="">琥珀草</a>
       </div>
     </div>
     <div class="content" id=${page}>
@@ -35,9 +35,11 @@ let render = (params, name) => {
 }
 
 let switcher = (hash) => {
+  hash = hash.replace("#", "");
   let hashArray = hash.split('/');
-  switch (hashArray[1]) {
-    case (''):
+  hashArray[0] = hashArray[0] || 'home';
+  switch (hashArray[0]) {
+    case ('home'):
       page = 'home';
       render(Home);
       break;
@@ -51,15 +53,15 @@ let switcher = (hash) => {
       break;
     case 'wiki':
       page = 'wiki';
-      render(Post, hashArray[2]);
+      render(Post, hashArray[1]);
       break;
     case 'blog':
       page = 'blog';
-      render(Post, hashArray[2]);
+      render(Post, hashArray[1]);
       break;
     case 'local':
       page = 'local';
-      render(Post, hashArray[2]);
+      render(Post, hashArray[1]);
       break;
     default:
       page = 'notfound'
@@ -67,8 +69,13 @@ let switcher = (hash) => {
   }
 }
 
-window.addEventListener('hashchange', () => {
-  switcher(window.location.hash);
-});
+switcher(window.location.hash);
 
-window.location.hash ? switcher(window.location.hash) : window.location.hash = '#/';
+document.addEventListener('click', (e) => {
+  let url = e.target.href;
+  if (url && url.indexOf(location.origin) !== -1) {
+    history.pushState('' , '', e.target.href);
+    switcher(window.location.hash);
+    e.preventDefault();
+  }
+})
