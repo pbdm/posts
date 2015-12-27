@@ -100,7 +100,6 @@ gulp.task('watch', function() {
   gulp.watch(['js/*.js', 'js/*/*.js'], ['build:js']);
   gulp.watch(['css/style.scss'], ['build:css']);
   gulp.watch(['post/*/*.*'], ['build:css']);
-  gulp.watch(['index.html'], ['copy']);
 });
 
 gulp.task('webserver', function() {
