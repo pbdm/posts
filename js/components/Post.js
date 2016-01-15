@@ -1,3 +1,6 @@
+import marked from 'marked';
+import PBDm from '../function';
+
 let query = {};
 
 let getPostList = (render) => {

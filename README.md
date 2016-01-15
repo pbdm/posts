@@ -5,7 +5,7 @@
 [![devDependency Status](https://img.shields.io/david/dev/pbdm/pbdm.github.com.svg?style=flat-square)](https://david-dm.org/pbdm/pbdm.github.com#info=devDependencies)
 
 
-This is the source code of the personal site of [PBDm](http://pbdm.cc)
+Personal site of [PBDm](http://pbdm.cc)
 
 # Start
 `npm install`

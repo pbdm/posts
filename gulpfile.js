@@ -2,9 +2,7 @@ var gulp = require('gulp');
 var gulpWebpack = require('gulp-webpack');
 var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
-var webpack = require('webpack');
 var runSequence = require('run-sequence');
-var webserver = require('gulp-webserver');
 var sass = require('gulp-sass');
 var jeditor = require('gulp-json-editor');
 var fs = require('fs');
@@ -39,27 +37,7 @@ var tree = function(filepath) {
 
 gulp.task('build:js', function() {
   return gulp.src('js/app.js')
-    .pipe(gulpWebpack({
-      output: {
-        filename: "bundle.js"
-      },
-      plugins: [
-        new webpack.ProvidePlugin({
-          marked: 'marked',
-          PBDm: path.join(__dirname,'./js/function')
-        })
-      ],
-      module: {
-        loaders:[{
-          test: /\.js$/,
-          exclude: /(node_modules)/,
-          loader: "babel-loader",
-          query: {
-            optional: ['runtime']
-          }
-        }]
-      }
-    }))
+    .pipe(gulpWebpack(require('./webpack.config.js')))
     .pipe(gulpif(env === 'prod', uglify()))
     .pipe(gulp.dest('dist'));
 });
@@ -88,32 +66,9 @@ gulp.task('manifest:blog', function () {
   .pipe(gulp.dest("dist"));
 });
 
-gulp.task('manifest:local', function () {
-  return gulp.src("dist/local.json")
-  .pipe(jeditor(function(json) {
-    return tree('posts/local');
-  }))
-  .pipe(gulp.dest("dist"));
-});
-
-gulp.task('watch', function() {
-  gulp.watch(['js/*.js', 'js/*/*.js'], ['build:js']);
-  gulp.watch(['css/style.scss'], ['build:css']);
-  gulp.watch(['post/*/*.*'], ['build:css']);
-});
-
-gulp.task('webserver', function() {
-  return gulp.src('./')
-    .pipe(webserver({
-      //livereload: true,
-      port: '7000'
-      //open: 'http://127.0.0.1:7000/'
-    }));
-});
-
 gulp.task('default', function(cb) {
   env = 'dev'
-  runSequence(['manifest:wiki', 'manifest:blog'], ['build:js', 'build:css'], 'webserver', 'watch', cb);
+  runSequence(['manifest:wiki', 'manifest:blog'], ['build:js', 'build:css'], cb);
 });
 
 gulp.task('build', function(cb) {

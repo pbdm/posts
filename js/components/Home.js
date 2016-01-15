@@ -1,3 +1,5 @@
+import PBDm from '../function';
+
 let tmpl = {
   wiki: '',
   blog: ''

@@ -1,3 +1,5 @@
+import PBDm from '../function';
+
 module.exports = {
   tmpl: `
     <div class="container">

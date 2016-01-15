@@ -1,3 +1,5 @@
+import PBDm from './function';
+
 import Bottom from'./components/Bottom';
 // import Top from './components/Top';
 
