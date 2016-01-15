@@ -88,4 +88,9 @@
   "fullpath": "posts%2Fblog%2F2015-12-21-Load.md",
   "path": "load",
   "title": "Load"
+}, {
+  "date": "2015-12-28",
+  "fullpath": "posts%2Fblog%2F2015-12-28-vps%E9%83%A8%E7%BD%B2.md",
+  "path": "vps%E9%83%A8%E7%BD%B2",
+  "title": "vps部署"
 }]
