@@ -88,4 +88,9 @@
   "fullpath": "posts%2Fblog%2F2015-12-28-vps%E9%83%A8%E7%BD%B2.md",
   "path": "vps%E9%83%A8%E7%BD%B2",
   "title": "vps部署"
+}, {
+  "date": "2016-02-24",
+  "fullpath": "posts%2Fblog%2F2016-02-24-%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5.md",
+  "path": "%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5",
+  "title": "前端缓存策略"
 }]
