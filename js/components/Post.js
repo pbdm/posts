@@ -4,12 +4,13 @@ import PBDm from '../function';
 let query = {};
 
 let getPostList = (render) => {
-  PBDm.get(query.url, (list) => {
+  // PBDm.get(query.url, (list) => {
+    let list = posts[query.page];
     let tmp = list.filter( (n) => {
       return n.path === query.name;
      });
     tmp.length > 0 ? getPostDetail(tmp, list, render) : postNotFound(render);
-  });
+    // });
 };
 
 const getPostDetail = (tmp, list, render) => {

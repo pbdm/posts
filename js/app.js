@@ -1,3 +1,4 @@
+import '../css/style.scss';
 import PBDm from './function';
 
 import Bottom from'./components/Bottom';

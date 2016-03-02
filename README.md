@@ -9,5 +9,5 @@ Personal site of [PBDm](http://pbdm.cc)
 
 # Start
 `npm install`
-`gulp` to run and test
-`gulp build` to build
+`npm run start` to run and test
+`npm run build` to build

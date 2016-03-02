@@ -7,14 +7,14 @@ let tmpl = {
 
 let getListData = (type, render) => {
 
-  PBDm.get(`dist/${type}.json`, (data) => {
-    tmpl[type] = getListTmpl(type, data);
+  // PBDm.get(`dist/${type}.json`, (data) => {
+    tmpl[type] = getListTmpl(type, posts[type]);
     if (tmpl.wiki && tmpl.blog) {
       let content = renderContent(tmpl.blog, tmpl.wiki);
       render ({ tmpl : content });
       NProgress.done();
     }
-  });
+  // });
 };
 
 let renderContent = (blog = '', wiki = '') => {
