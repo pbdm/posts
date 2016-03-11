@@ -5,8 +5,24 @@
 * `for in` 会把原型里的东西都遍历出来,只有用`hasOwnProperty`多判断一遍, `for`就不会了,还是多用for吧...
 * 复制数组:对于webkit, 使用`concat`; 其他浏览器, 使用`slice`
 
-## ES6
+## ES2015
 for循环头部的let声明会有一个特殊的行为，这个行为指出变量在循环过程中不止被声明一次，每次迭代都会声明。 随后的每个迭代都会使用上一个迭代结束时的值在初始化这个变量
+
+### Promise
+
+#### 状态
+* Pending (进行中)
+* Resolved (已完成,Fulfilled)
+* Rejected (已失败)
+
+#### 状态改变
+* Pending -> Resolved
+* Pending -> Rejected
+
+`then(res,rej)`为状态改变时的回调函数, 并返回一个新的Promise实例
+`Promise.prototype.catch`方法是`then(null, rejection)`的别名
+
+> [ruanyifeng](http://es6.ruanyifeng.com/#docs/promise)
 
 ## 删除元素
 如需删除 HTML 元素，必须首先获得该元素的父元素
