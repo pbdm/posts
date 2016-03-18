@@ -3,7 +3,7 @@
 * `git log --name-status` 查看文件修改列表
 * `git log -1` 查看最后一个提交
 * `git branch -r` Display a list of remote branches
-
+* `git cherry-pick [commit id]` 将某个commit合并了当前分支
 ###打补丁
 `git diff` 创建补丁
 
@@ -27,6 +27,8 @@
 `git config --global http.proxy http://127.0.0.1:1080`
 `git config --global --unset-all https.proxy`
 `git config --local --add http.proxy ""`
+
+
 
 ## SVN
 * 批量删除文件

@@ -6,8 +6,8 @@
     "url": "https://github.com/pbdm/pbdm.github.com.git"
   },
   "scripts": {
-    "start": "webpack -w",
-    "build": "webpack -p"
+    "start": "./node_modules/webpack/bin/webpack.js -w --progress",
+    "build": "./node_modules/webpack/bin/webpack.js -p --progress"
   },
   "dependencies": {
     "marked": "^0.3.5"
