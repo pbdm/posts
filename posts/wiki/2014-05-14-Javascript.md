@@ -70,6 +70,92 @@ for循环头部的let声明会有一个特殊的行为，这个行为指出变�
 ##[闭包(Closure)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Closures)
 内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。
 
+## Ajax in jQuery
+调用的文件：
+
+    <div>
+        <?php echo isset($_POST['limit'])?$_POST['limit']:""; ?>
+    </div>
+    <div id="time">
+    <?php 
+        echo isset($_POST['time'])?$_POST['time']:""; 
+        print date("Y-m-d H:i:s"); 
+    ?>
+    </div>
+
+### 普通的Ajax调用脚本`jQuery.ajax()`
+
+    $(document).ready(function() {
+        $("#change").click(function(){
+            htmlobj = $.ajax({
+                url:"/code/Ajax-jQuery/time.php",
+                async:false
+            });
+            $("#content").html(htmlobj.responseText);
+        });
+    });
+
+### `Ajax.load()`
+通过对`jQuery.ajax()`进行封装以方便使用的一个方法，通过AJAX请求从服务器加载数据，并把返回的数据放置到指定的元素中，另外例子中的`#time`可以选定要返回的元素不要和事件方法`load()`弄混了
+
+    $(document).ready(function(){
+        $("#change_load").click(function(){
+            $("#content_load").load(
+                "/code/Ajax-jQuery/time.php #time",
+                {limit: 25,time: "time:"},
+                function(responseText,status,xhr) {
+                  console.log(xhr.statusText);
+                  console.log(status);
+                  console.log(responseText);
+                });
+        });
+    });
+
+### `jQuery.get`和`jQuery.post`
+使用GET或POST方式来进行异步请求
+### jQuery trigger
+根据绑定到匹配元素的给定的事件类型执行所有的处理程序和行为
+
+    $(document).ready(function() {
+        $("#change").click(function(){
+            $("#content").html(new Date().getSeconds());
+        });
+        $("#change_bis").click(function(){
+            $("#change").trigger("click");
+        });
+    });
+
+###[jquery Ajax IE下出错](http://www.cnblogs.com/bingzisky/archive/2012/01/11/2319066.html)
+
+    function BuyDish(did, dnum) {
+        var data = { "did": did, "dnum": dnum };
+        $.ajax({
+            url: '<%=Url.Action("BuyDish", "member")%>',
+            data: data,
+            type: "GET",
+            cache:false,//因为jQuery在IE下有缓存，所以要把这个属性设置成false，要不不能重复使用这个功能，FF下一切正常
+            async:true,
+            success: function (msg) {
+                var da = msg.split("|");
+                $("#totalCount").text(da[0].toString());
+                $("#totalPrice").text(da[1].toString());
+            }
+        });
+    }
+
+* 当jQuery调用Ajax的返回值为JSON时，要求很严格，没有像`Prototype`(evalJSON)那样修正JSON
+
+> [qleelulu's blog](http://www.cnblogs.com/qleelulu/archive/2008/04/21/1163021.html)
+
+> [jQuery中文文档](http://www.css88.com/jqapi-1.9)
+
+> [jQuery官方文档](http://api.jquery.com)
+
+##Find event handlers
+`$(node).data("events")`或`$._data(node, "events" )`
+> http://segmentfault.com/q/1010000000446492
+> http://stackoverflow.com/questions/12214654/jquery-1-8-find-event-handlers
+> http://www.it165.net/pro/html/201404/12749.html
 ## [Simple JavaScript Inheritance](http://ejohn.org/blog/simple-javascript-inheritance/)
 [注释 by purplebamboo](http://purplebamboo.github.io/2014/07/13/javascript-oo-class/)
 

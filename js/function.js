@@ -304,6 +304,7 @@ let Util = {
     
     // 监听滚动
     let tocList = tocContent.getElementsByTagName('li');
+    // TODO 节流器
     window.addEventListener('scroll', () => {
       let top = Util.getScrollingElement().scrollTop + 200;
       let index;
