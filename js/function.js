@@ -77,22 +77,6 @@ let Util = {
       });
   },
 
-  /**
-   * [whichBrowser description]
-   * @return {[type]} [browser type]
-   */
-  whichBrowser: function() {
-    var sys = {},
-      ua = navigator.userAgent.toLowerCase(),
-      s;
-    (s = ua.match(/msie ([\d.]+)/)) ? sys.ie = s[1]:
-      (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? sys.ie = s[1] : //ie11
-      (s = ua.match(/firefox\/([\d.]+)/)) ? sys.firefox = s[1] :
-      (s = ua.match(/chrome\/([\d.]+)/)) ? sys.chrome = s[1] :
-      (s = ua.match(/opera.([\d.]+)/)) ? sys.opera = s[1] :
-      (s = ua.match(/version\/([\d.]+).*safari/)) ? sys.safari = s[1] : 0;
-    return sys;
-  },
 
   /**
    * [drawPlayGround description]
@@ -294,8 +278,46 @@ let Util = {
         requestAnimationFrame(scroll)
         e.preventDefault()
       })
-  }
+  },
 
+  delHtmlTag: (str) => {
+    return str.replace(/<[^>]+>/g,"");
+  },
+
+  // 根据内容生成toc
+  // dom: 源dom
+  // toc: 要生成toc的目标dom
+  toc: (dom, toc) => {
+
+    // 遍历后生成需要的dom
+    let childDoms = dom.getElementsByTagName('h2');
+    let tocContent = document.createElement('ul');
+    let scrollArray = [];
+    for (let childDom of childDoms) {
+      // 记录源dom的位置
+      scrollArray.push(childDom.offsetTop)
+      let tempDom = document.createElement('li');
+      tempDom.innerHTML = Util.delHtmlTag(childDom.innerHTML);
+      tocContent.appendChild(tempDom);
+    }
+    toc.appendChild(tocContent);
+    
+    // 监听滚动
+    let tocList = tocContent.getElementsByTagName('li');
+    window.addEventListener('scroll', () => {
+      let top = Util.getScrollingElement().scrollTop + 200;
+      let index;
+      for (let i = 0; i < tocList.length; i++) {
+        if ((top > scrollArray[i] && top <= scrollArray[i+1]) ||
+            (i === tocList.length - 1 && top > scrollArray[i]) // for the last one
+           ) {
+          tocList[i].classList.add('on');
+        } else {
+          tocList[i].classList.remove('on');
+        }
+      }
+    })
+  }
 };
 
 module.exports = Util;

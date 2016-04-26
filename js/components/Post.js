@@ -4,13 +4,11 @@ import PBDm from '../function';
 let query = {};
 
 let getPostList = (render) => {
-  // PBDm.get(query.url, (list) => {
-    let list = posts[query.page];
-    let tmp = list.filter( (n) => {
-      return n.path === query.name;
-     });
-    tmp.length > 0 ? getPostDetail(tmp, list, render) : postNotFound(render);
-    // });
+  let list = posts[query.page];
+  let tmp = list.filter( (n) => {
+    return n.path === query.name;
+    });
+  tmp.length > 0 ? getPostDetail(tmp, list, render) : postNotFound(render);
 };
 
 const getPostDetail = (tmp, list, render) => {
@@ -18,7 +16,9 @@ const getPostDetail = (tmp, list, render) => {
     let tmpl = renderContent(query, content, list);
     render ({ tmpl : tmpl });
     PBDm.affix();
-    // $(".post").toc();
+    PBDm.toc(document.getElementById('post-content'), document.getElementById('toc'));
+
+    // highlight
     for (let block of document.querySelectorAll('pre code')) {
       hljs.highlightBlock(block);
     }
@@ -36,26 +36,16 @@ const postNotFound = (render) => {
   NProgress.done();
 }
 
-const getListTmpl = (type, data) => {
-  let template = '';
-  data.map ((result)=> {
-    template += `<li><a href='#${type}/${result.path}'>${result.title}</a></li>`
-  });
-  return template;
-};
-
 const renderContent = (query, content, list) => {
   return `
     <div class="container">
       <div class='post typo'>
         <h1 class='title'>${decodeURIComponent(query.name)}</h1>
-        <div>${marked(content)}</div>
+        <div id='post-content'>${marked(content)}</div>
       </div>
-      <div class="list">
-        <ul>
-          ${getListTmpl(query.page, list)}
-        </ul>
-        <div class="list-container">
+      <div class='list'>
+        <div class='list-container'>
+          <div id='toc'></div>
         </div>
       </div>
     </div>
