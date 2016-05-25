@@ -70,6 +70,12 @@ for循环头部的let声明会有一个特殊的行为，这个行为指出变�
 ##[闭包(Closure)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Closures)
 内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。
 
+##
+
+* `throttle` 保证 X 毫秒内至少执行一次
+* `Debounce` 把多个顺序地调用合并成一次
+> http://jinlong.github.io/2016/04/24/Debouncing-and-Throttling-Explained-Through-Examples/
+
 ## Ajax in jQuery
 调用的文件：
 
@@ -77,9 +83,9 @@ for循环头部的let声明会有一个特殊的行为，这个行为指出变�
         <?php echo isset($_POST['limit'])?$_POST['limit']:""; ?>
     </div>
     <div id="time">
-    <?php 
-        echo isset($_POST['time'])?$_POST['time']:""; 
-        print date("Y-m-d H:i:s"); 
+    <?php
+        echo isset($_POST['time'])?$_POST['time']:"";
+        print date("Y-m-d H:i:s");
     ?>
     </div>
 
