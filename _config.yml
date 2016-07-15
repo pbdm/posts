@@ -1,1 +1,2 @@
-exclude: ['posts/others']
+exclude:
+  - "posts/others"
