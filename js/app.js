@@ -33,7 +33,7 @@ let render = (params, name) => {
   NProgress.start();
   params.onLoad && params.onLoad(render);
   // PBDm.responsiveMenu();
-  PBDm.btt();
+  // PBDm.btt();
   PBDm.anchorScroll();
 }
 

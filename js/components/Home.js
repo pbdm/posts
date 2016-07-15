@@ -6,27 +6,24 @@ let tmpl = {
 }
 
 let getListData = (type, render) => {
-
-  // PBDm.get(`dist/${type}.json`, (data) => {
-    tmpl[type] = getListTmpl(type, posts[type]);
-    if (tmpl.wiki && tmpl.blog) {
-      let content = renderContent(tmpl.blog, tmpl.wiki);
-      render ({ tmpl : content });
-      NProgress.done();
-    }
-  // });
+  tmpl[type] = getListTmpl(type, posts[type]);
+  if (tmpl.wiki && tmpl.blog) {
+    let content = renderContent(tmpl.blog, tmpl.wiki);
+    render ({ tmpl : content });
+    NProgress.done();
+  }
 };
 
 let renderContent = (blog = '', wiki = '') => {
   return `
     <div class='container'>
       <ul>
-        <h2>Blog</h2>
-        ${blog}
-      </ul>
-      <ul>
         <h2>Wiki</h2>
         ${wiki}
+      </ul>
+      <ul>
+        <h2>Blog</h2>
+        ${blog}
       </ul>
     </div>
   `;

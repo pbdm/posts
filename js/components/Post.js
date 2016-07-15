@@ -12,8 +12,9 @@ let getPostList = (render) => {
 };
 
 const getPostDetail = (tmp, list, render) => {
+  console.log(tmp);
   PBDm.get(tmp[0].fullpath, (content) => {
-    let tmpl = renderContent(query, content, list);
+    let tmpl = renderContent(query, content, list, tmp[0].date);
     render ({ tmpl : tmpl });
     PBDm.affix();
     PBDm.toc(document.getElementById('post-content'), document.getElementById('toc'));
@@ -36,11 +37,12 @@ const postNotFound = (render) => {
   NProgress.done();
 }
 
-const renderContent = (query, content, list) => {
+const renderContent = (query, content, list, date) => {
   return `
     <div class="container">
       <div class='post typo'>
         <h1 class='title'>${decodeURIComponent(query.name)}</h1>
+        <small>${date}</small>
         <div id='post-content'>${marked(content)}</div>
       </div>
       <div class='list'>
