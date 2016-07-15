@@ -1,21 +1,29 @@
+## Tips
+
 * Firefox获取body元素和Chrome有所不同 `root = /firefox|trident/i.test(navigator.userAgent) ? document.documentElement : document.body
 `
+
 * [JavaScript获取DOM元素位置和尺寸大小](http://www.cnblogs.com/dolphinX/archive/2012/11/19/2777756.html)
+
 * `splice()` 方法与 `slice()` 方法的作用是不同的，`splice()` 方法会直接对数组进行修改,并返回被删除元素, `slice()`不改变原数组
-* `for in` 会把原型里的东西都遍历出来,只有用`hasOwnProperty`多判断一遍, `for`就不会了,还是多用for吧...
+
+* `for in` 会把原型里的东西都遍历出来,只有用`hasOwnProperty`多判断一遍, `for`就不会了,还是多用for吧
+
 * 复制数组:对于webkit, 使用`concat`; 其他浏览器, 使用`slice`
 
-## ES2015
+* 在变量前面加`!!` 可以强制转换boolean
+
+## let
 for循环头部的let声明会有一个特殊的行为，这个行为指出变量在循环过程中不止被声明一次，每次迭代都会声明。 随后的每个迭代都会使用上一个迭代结束时的值在初始化这个变量
 
-### Promise
+## Promise
 
-#### 状态
+### 状态
 * Pending (进行中)
 * Resolved (已完成,Fulfilled)
 * Rejected (已失败)
 
-#### 状态改变
+### 状态改变
 * Pending -> Resolved
 * Pending -> Rejected
 
@@ -36,9 +44,6 @@ for循环头部的let声明会有一个特殊的行为，这个行为指出变�
       </div>
     <![endif]-->
 
-## 强制转换boolean
-在变量前面加`!!`
-
 ## iPad Touch事件
 * [集合贴](http://m.oschina.net/blog/88086)
 * [苹果官方文档](https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html)
@@ -50,7 +55,8 @@ for循环头部的let声明会有一个特殊的行为，这个行为指出变�
 > http://yujiangshui.com/javascript-event/
 
 ### [阻止超链接跳转](http://www.suchso.com/projecteactual/javascript-event-up-stopPropagation-cancelBubble.html)
-#### [jQuery](http://blog.csdn.net/woshixuye/article/details/7422985)
+[jQuery:](http://blog.csdn.net/woshixuye/article/details/7422985)
+
 `return false`： 同时调用以下两种
 
 `e.stopPropagation()`： 阻止事件冒泡 (对`live`绑定的事件没有作用)
@@ -64,14 +70,16 @@ for循环头部的let声明会有一个特殊的行为，这个行为指出变�
       e.stopPropagation();
     });
 
-#### [protorype](http://stackoverflow.com/questions/1399613/disable-link-with-the-prototype-observe-method)
+[protorype:](http://stackoverflow.com/questions/1399613/disable-link-with-the-prototype-observe-method)
+
     $('link').observe('click', function(e) { e.stop(); });
 
-##[闭包(Closure)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Closures)
+## 闭包(Closure)
 内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。
+> https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Closures
 
-##
 
+## 防抖动和节流阀
 * `throttle` 保证 X 毫秒内至少执行一次
 * `Debounce` 把多个顺序地调用合并成一次
 > http://jinlong.github.io/2016/04/24/Debouncing-and-Throttling-Explained-Through-Examples/
@@ -90,96 +98,10 @@ function htmlDecode(str) {
 }
 ```
 
-## [new操作符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new)
+## new操作符
 当代码 new foo(...) 执行时：
-
 * 一个新对象被创建。它继承自foo.prototype.
 * 构造函数 foo 被执行。执行的时候，相应的传参会被传入，同时上下文(this)会被指定为这个新实例。new foo 等同于 new foo(), 只能用在不传递任何参数的情况。
 * 如果构造函数返回了一个“对象”，那么这个对象会取代整个new出来的结果。如果构造函数没有返回对象，那么new出来的结果为步骤1创建的对象，ps：一般情况下构造函数不返回任何值，不过用户如果想覆盖这个返回值，可以自己选择返回一个普通对象来覆盖。当然，返回数组也会覆盖，因为数组也是对象。
 
-## Ajax in jQuery
-调用的文件：
-
-    <div>
-        <?php echo isset($_POST['limit'])?$_POST['limit']:""; ?>
-    </div>
-    <div id="time">
-    <?php
-        echo isset($_POST['time'])?$_POST['time']:"";
-        print date("Y-m-d H:i:s");
-    ?>
-    </div>
-
-### 普通的Ajax调用脚本`jQuery.ajax()`
-
-    $(document).ready(function() {
-        $("#change").click(function(){
-            htmlobj = $.ajax({
-                url:"/code/Ajax-jQuery/time.php",
-                async:false
-            });
-            $("#content").html(htmlobj.responseText);
-        });
-    });
-
-### `Ajax.load()`
-通过对`jQuery.ajax()`进行封装以方便使用的一个方法，通过AJAX请求从服务器加载数据，并把返回的数据放置到指定的元素中，另外例子中的`#time`可以选定要返回的元素不要和事件方法`load()`弄混了
-
-    $(document).ready(function(){
-        $("#change_load").click(function(){
-            $("#content_load").load(
-                "/code/Ajax-jQuery/time.php #time",
-                {limit: 25,time: "time:"},
-                function(responseText,status,xhr) {
-                  console.log(xhr.statusText);
-                  console.log(status);
-                  console.log(responseText);
-                });
-        });
-    });
-
-### `jQuery.get`和`jQuery.post`
-使用GET或POST方式来进行异步请求
-### jQuery trigger
-根据绑定到匹配元素的给定的事件类型执行所有的处理程序和行为
-
-    $(document).ready(function() {
-        $("#change").click(function(){
-            $("#content").html(new Date().getSeconds());
-        });
-        $("#change_bis").click(function(){
-            $("#change").trigger("click");
-        });
-    });
-
-###[jquery Ajax IE下出错](http://www.cnblogs.com/bingzisky/archive/2012/01/11/2319066.html)
-
-    function BuyDish(did, dnum) {
-        var data = { "did": did, "dnum": dnum };
-        $.ajax({
-            url: '<%=Url.Action("BuyDish", "member")%>',
-            data: data,
-            type: "GET",
-            cache:false,//因为jQuery在IE下有缓存，所以要把这个属性设置成false，要不不能重复使用这个功能，FF下一切正常
-            async:true,
-            success: function (msg) {
-                var da = msg.split("|");
-                $("#totalCount").text(da[0].toString());
-                $("#totalPrice").text(da[1].toString());
-            }
-        });
-    }
-
-* 当jQuery调用Ajax的返回值为JSON时，要求很严格，没有像`Prototype`(evalJSON)那样修正JSON
-
-> [qleelulu's blog](http://www.cnblogs.com/qleelulu/archive/2008/04/21/1163021.html)
-
-> [jQuery中文文档](http://www.css88.com/jqapi-1.9)
-
-> [jQuery官方文档](http://api.jquery.com)
-
-##Find event handlers
-`$(node).data("events")`或`$._data(node, "events" )`
-> http://segmentfault.com/q/1010000000446492
-> http://stackoverflow.com/questions/12214654/jquery-1-8-find-event-handlers
-> http://www.it165.net/pro/html/201404/12749.html
+> https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new
