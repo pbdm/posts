@@ -1,32 +1,25 @@
 <!DOCTYPE html>
-<html lang="zh-cn" class='borderbox'>
-
+<html lang="zh-cn">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Site perso of PENG Bo">
+  <meta name="description" content="PENG Bo's personal homepage">
   <meta name="author" content="PENG Bo">
-  <link rel="shortcut icon" href="/images/favicon.png">
-  <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  <link rel="shortcut icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" href="/img/touch-icon.png">
   <title>琥珀草</title>
-  <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css'/>
-  <script src='//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js'></script>
+  <link href="//cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" rel="stylesheet">
 </head>
-
-<body>
-  <!--[if lt IE 9]>
-      <div id="old-browser">
-        您的浏览器版本很旧很旧，为了更好的访问网站，请升级至新版浏览器。
-        <a target="_blank" href="http://browsehappy.com">立即升级</a>
-      </div>
-    <![endif]-->
-  <div id="app"></div>
-  <script>
-    NProgress.configure({ showSpinner: false });
-    NProgress.start();
-  </script>
-
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
-<script src="dist/bundle.js?0a60186feddc9d321b15"></script></body>
+<body> 
+  <div id='app' class='container'></div>
+  <aside>
+    <a href="/"><img class='avatar' src='/img/touch-icon.png' alt="pb" /></a>
+    <a class='name' href="http://gravatar.com/pbdm915">琥珀草</a>
+  </aside>
+  <script src="//cdn.bootcss.com/raphael/2.2.1/raphael.min.js"></script>
+  <script src="//cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="//cdn.bootcss.com/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+  <script src="./dist/bundle.js"></script>
+</body>
 
 </html>

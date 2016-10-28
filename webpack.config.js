@@ -1,8 +1,4 @@
 var autoprefixer = require('autoprefixer');
-var CleanWebpackPlugin = require('clean-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var webpack = require('webpack');
-var fileListPlugin = require('filelist-json-webpack-plugin');
 
 module.exports = {
   entry: { 
@@ -17,32 +13,10 @@ module.exports = {
       exclude: /(node_modules)/,
       loader: "babel"
     }, {
-      test: /\.scss$/,
+      test: /\.less$/,
       exclude: /(node_modules)/,
-      loader: "style!css!postcss!sass"
+      loader: "style!css!postcss!less"
     }]
   },
-  postcss: [ autoprefixer({ browsers: ['> 5%', 'last 2 versions'] }) ],
-  plugins: [
-    //new CleanWebpackPlugin(distPath, {
-      //root: __dirname,
-      //verbose: true, 
-      //dry: false
-    //}),
-    new fileListPlugin({
-      key: 'posts',
-      paths: {
-        wiki: './posts/wiki',
-        blog: './posts/blog'
-      }
-    }),
-    new HtmlWebpackPlugin({
-      template: 'tmpl/index.html',
-      filename: 'index.html',
-      hash: true
-    }),
-    //new webpack.DefinePlugin({
-      //posts: JSON.stringify(posts)
-    //})
-  ]
+  postcss: [ autoprefixer({ browsers: ['> 5%', 'last 2 versions'] }) ]
 };

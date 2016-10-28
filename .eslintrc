@@ -4,9 +4,6 @@
   "env": {
     "browser": true
   },
-  "plugins": [
-    "react"
-  ],
   "rules": {
     "no-undef": 0,
     "no-console": 1,
@@ -25,8 +22,7 @@
     "no-restricted-syntax": [2, "WithStatement"],
     "no-shadow": 2,
     "no-unused-expressions": [2, { "allowShortCircuit": true, "allowTernary": true }],
-    "space-after-keywords": 1,
+    "keyword-spacing": 1,
     "space-before-blocks": 1,
   }
-
 }
