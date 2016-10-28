@@ -38,7 +38,6 @@
 * `2014-08-10`添加`gravatar`
 * `2014-08-11`添加`font awesome`
 
-
 ## 3.0 React
 * `2015-02-13`所有模板都用前端框架([React](http://facebook.github.io/react/))调用, 使用gulp打包
 * `2015-02-17`使用`showdown.js`转译`markdown`, `react-router`为router, `jsx-loader`为jsx解释器
@@ -59,3 +58,9 @@
 * `2015-08-23`将服务器从linode迁回[GitHub Pages](https://pages.github.com/),移除`font awesome`
 * `2015-09-25`移除`flux`
 * `2016-03-03`移除`gulp`,改为纯`webpack`打包
+
+## 5.0 采用 node.js 服务端渲染
+* `2016-08-14`将服务迁移到 [HYPER_](https://hyper.sh)
+* `2016-08-22`添加[flowchart.js](http://flowchart.js.org/)和[js-sequence-diagrams](https://bramp.github.io/js-sequence-diagrams/)作为 `markdown` 的图形解析器
+* `2016-08-23`添加[browser-sync](https://www.browsersync.io/), 引入 `bootcdn`作为 CDN
+* `2016-09-03`简化样式

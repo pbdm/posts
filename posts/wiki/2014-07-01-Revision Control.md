@@ -23,6 +23,9 @@
 `git revert`与`git reset`最大的不同是，`git revert` 仅仅是撤销某次提交。
 
 * 如果已经推到远程了还是不要在用`reset`了, 否则需要 `git push -f`,如果同一时间有其他人的提交,则有风险
+
+* [Reverting a Git Merge](https://mijingo.com/blog/reverting-a-git-merge)
+
 ### Proxy
 `git config --global http.proxy http://127.0.0.1:1080`
 `git config --global --unset-all https.proxy`
