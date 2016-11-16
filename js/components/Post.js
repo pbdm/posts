@@ -1,68 +1,30 @@
 import marked from 'marked';
-import PBDm from '../function';
+import BasePage from './BasePage';
 
-let query = {};
+export default class Post extends BasePage {
 
-let getPostList = (render) => {
-  let list = posts[query.page];
-  let tmp = list.filter( (n) => {
-    return n.path === query.name;
-    });
-  tmp.length > 0 ? getPostDetail(tmp, list, render) : postNotFound(render);
-};
+  constructor(type, file) {
+    super();
+    this.type = type;
+    this.file = file;
+  }
 
-const getPostDetail = (tmp, list, render) => {
-  console.log(tmp);
-  PBDm.get(tmp[0].fullpath, (content) => {
-    let tmpl = renderContent(query, content, list, tmp[0].date);
-    render ({ tmpl : tmpl });
-    PBDm.affix();
-    PBDm.toc(document.getElementById('post-content'), document.getElementById('toc'));
+  b64_to_utf8(str) {
+    return decodeURIComponent(escape(window.atob(str)));
+  }
 
-    // highlight
-    for (let block of document.querySelectorAll('pre code')) {
-      hljs.highlightBlock(block);
-    }
-    NProgress.done();
-  });
-};
+  fetchPostDetail() {
+    return fetch(`https://api.github.com/repos/pbdm/pbdm.github.com/contents/posts/${this.type}/${this.file}?ref=master`)
+      .then(response => response.json()).then((data) => {
+        return `
+          <h1 class='title'>${data.name}</h1>
+          ${marked(this.b64_to_utf8(data.content))}
+        `
+      });
+  }
 
-const postNotFound = (render) => {
-  let tmpl = `
-    <div class="container">
-      文章不存在
-    </div>
-  `;
-  render ({ tmpl : tmpl });
-  NProgress.done();
+  created() {
+    return this.fetchPostDetail();
+  }
 }
 
-const renderContent = (query, content, list, date) => {
-  return `
-    <div class="container">
-      <div class='post typo'>
-        <h1 class='title'>${decodeURIComponent(query.name)}</h1>
-        <small>${date}</small>
-        <div id='post-content'>${marked(content)}</div>
-      </div>
-      <div class='list'>
-        <div class='list-container'>
-          <div id='toc'></div>
-        </div>
-      </div>
-    </div>
-  `;
-};
-
-module.exports = {
-  tmpl: '',
-
-  onLoad: (render) => {
-    getPostList(render);
-  },
-
-  setQuery: (params) => {
-    query = params;
-    query.url = `dist/${params.page}.json`;
-  }
-};

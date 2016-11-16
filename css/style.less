@@ -1,0 +1,76 @@
+html {
+  font-family:
+    'XinGothic',
+    'Hiragino Sans GB',
+    'WenQuanYi Micro Hei',
+    'Droid Sans',
+    'Hei SC',
+    'Microsoft Yahei',
+    sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color:#1abc9c;
+  text-decoration: none;
+  &:hover {
+    transition: all 0.2s;
+    letter-spacing: 0.02rem;
+  }
+}
+
+img {
+  max-width: 100%
+}
+
+body {
+  margin: 0;
+  > aside { 
+    transform: translateY(-150px);
+    width: 20vw;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-item: center;
+    justify-content: center;
+    text-align: center;
+    .avatar {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+    }
+    .name {
+      font-size: 2.2rem;
+      font-weight: bolder;
+      color: #072;
+      &:hover {
+        letter-spacing: 0.2rem;
+      }
+    }
+  }
+  >.container {
+    margin-left: 20vw;
+    border-left: 1px solid #d1d1d1;
+    padding: 1.5rem;
+    min-height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    > aside {
+      position: static;
+      transform: none;
+      height: auto;
+      width: auto;
+    }
+    >.container {
+      margin-left: 0; 
+      border-left: none;
+      border-bottom: 1px solid #d1d1d1;
+    }
+  }
+}
+
