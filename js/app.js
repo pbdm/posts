@@ -6,6 +6,7 @@ import NotFound from './components/NotFound';
 class App {
   constructor() {
 
+    this.rootElement = document.getElementById('app');
     this.switcher(window.location.hash);
 
     // 直接在浏览器改变hash
@@ -25,13 +26,20 @@ class App {
   }
 
   render(page) {
+    this.clean();
     page.created && page.created().then((data) => {
       this.append(data);
     });
   }
 
+  clean() {
+    this.rootElement.innerHTML = '';
+    this.rootElement.classList.add('loading');
+  }
+
   append(content) {
-    document.getElementById('app').innerHTML = content;
+    this.rootElement.innerHTML = content;
+    this.rootElement.classList.remove('loading');
   }
 
   switcher(hash) {
