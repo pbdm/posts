@@ -1,12 +1,15 @@
+# CHANGELOG
 
 ## 0.1 QQ空间, sina, livespace
+
 * 在网络上留下的足迹要从写Blog之类的东西算起了，一开始是在QQ空间，Sina，livespace之类的地方，记点小日记，发发小牢骚。
 
-
 ## 0.5 Wordpress
+
 * 去法国之后，又转到了Wordpress，不过好像也没有记录什么。。。
 
 ## 1.0 ThinkPHP
+
 * 开始使用ThinkPHP作为CMS系统, 自己搭建Blog
 * `2013-02-26`使用`jquery-ui-bootstrap`
 * `2013-03-05`将代码放到`sourceforge`
@@ -16,6 +19,7 @@
 * `2013-06-27`将代码放回`PHPcloud`
 
 ## 1.5 自己的PHP框架
+
 * `2013-07-11`开始用[自己的框架](https://github.com/pbdm/Amber)搭了一个小站，彻底摒弃了数据库.直接读取html文件
 * `2013-07-16`添加`disqus`
 * `2013-07-20`添加google缓存favicon
@@ -27,6 +31,7 @@
 * `2014-02-10`添加`duoshuo`
 
 ## 2.0 Jekyll
+
 * `2013-04-27`开始用`Jekyll`做后台，放在[GitHub Pages](https://pages.github.com/)上, 文章采用`Markdown`格式
 * `2014-05-05`将`bootstrap`换成自己的css, 使用`reset.css`
 * `2014-06-15`添加自己写的`jquery.headanimation.js`插件
@@ -39,6 +44,7 @@
 * `2014-08-11`添加`font awesome`
 
 ## 3.0 React
+
 * `2015-02-13`所有模板都用前端框架([React](http://facebook.github.io/react/))调用, 使用gulp打包
 * `2015-02-17`使用`showdown.js`转译`markdown`, `react-router`为router, `jsx-loader`为jsx解释器
 * `2015-03-31` `favicon` retina化
@@ -51,6 +57,7 @@
 * `2015-05-28`minifiy js and css
 
 ## 4.0 自己的前端框架
+
 * `2015-06-21`去除React, 将router换为更轻量的`pathjs`,开始逐步使用`ES2015`特性
 * `2015-07-13`将`normalize.css`替换为`typo.css`, 去除`jQuery`, 使用原生`ajax`请求
 * `2015-07-14`使用`webhook`将服务器迁移到linode
@@ -60,7 +67,12 @@
 * `2016-03-03`移除`gulp`,改为纯`webpack`打包
 
 ## 5.0 采用 node.js 服务端渲染
+
 * `2016-08-14`将服务迁移到 [HYPER_](https://hyper.sh)
 * `2016-08-22`添加[flowchart.js](http://flowchart.js.org/)和[js-sequence-diagrams](https://bramp.github.io/js-sequence-diagrams/)作为 `markdown` 的图形解析器
 * `2016-08-23`添加[browser-sync](https://www.browsersync.io/), 引入 `bootcdn`作为 CDN
 * `2016-09-03`简化样式
+
+## 6.0 采用 githubapi
+
+* `2016-11-16`将服务迁移回`githubpage`, 采用`githubapi`调用文章数据
