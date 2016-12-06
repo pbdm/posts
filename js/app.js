@@ -9,26 +9,16 @@ class App {
     this.rootElement = document.getElementById('app');
     this.switcher(window.location.hash);
 
-    // 直接在浏览器改变hash
     window.addEventListener('hashchange', () => {
       this.switcher(window.location.hash);
     });
 
-    // 点击链接改变hash
-    document.addEventListener('click', (e) => {
-      let url = e.target.href;
-      if (url && url.indexOf(location.origin) !== -1) {
-        history.pushState('' , '', e.target.href);
-        this.switcher(window.location.hash);
-        e.preventDefault();
-      }
-    })
   }
 
   render(page) {
     this.clean();
-    page.created && page.created().then((data) => {
-      this.append(data);
+    return page.created && page.created().then((data) => {
+      return this.append(data);
     });
   }
 

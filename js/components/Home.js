@@ -1,4 +1,6 @@
 import BasePage from './BasePage';
+import Config from '../../config';
+import 'whatwg-fetch'
 
 export default class Home extends BasePage {
 
@@ -15,7 +17,7 @@ export default class Home extends BasePage {
   }
 
   fetchFromGithub(type) {
-    return fetch(`https://api.github.com/repos/pbdm/pbdm.github.com/contents/posts/${type}?ref=master`).then(response => response.json()).then((data) => {
+    return fetch(`${Config.API}/${type}`).then(response => response.json()).then((data) => {
       return data;
     });
   }

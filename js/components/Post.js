@@ -1,5 +1,7 @@
 import marked from 'marked';
 import BasePage from './BasePage';
+import Config from '../../config';
+import 'whatwg-fetch'
 
 export default class Post extends BasePage {
 
@@ -14,7 +16,7 @@ export default class Post extends BasePage {
   }
 
   fetchPostDetail() {
-    return fetch(`https://api.github.com/repos/pbdm/pbdm.github.com/contents/posts/${this.type}/${this.file}?ref=master`)
+    return fetch(`${Config.API}/${this.type}/${this.file}`)
       .then(response => response.json()).then((data) => {
         return `
           ${marked(this.b64_to_utf8(data.content))}
