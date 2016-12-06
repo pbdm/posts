@@ -76,3 +76,7 @@
 ## 6.0 采用 githubapi
 
 * `2016-11-16`将服务迁移回`githubpage`, 采用`githubapi`调用文章数据
+
+## 4.5 another js framework1
+
+* `2016-12-06`remove githubapi

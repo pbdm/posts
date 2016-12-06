@@ -25,7 +25,7 @@ export default class Home extends BasePage {
   }
     
   created() {
-    return this.fetchPostList();
+    return Promise.resolve(this.fetchPostList());
   }
 
 }

@@ -18,13 +18,9 @@ class App {
 
   render(page) {
     this.clean();
-    if (isPromise(page.created())) {
-      return page.created && page.created().then((data) => {
-        return this.append(data);
-      });
-    } else {
-      return this.append(page.created());
-    }
+    return page.created && page.created().then((data) => {
+      return this.append(data);
+    });
   }
 
   clean() {
