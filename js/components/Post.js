@@ -17,7 +17,6 @@ export default class Post extends BasePage {
     return fetch(`https://api.github.com/repos/pbdm/pbdm.github.com/contents/posts/${this.type}/${this.file}?ref=master`)
       .then(response => response.json()).then((data) => {
         return `
-          <h1 class='title'>${data.name}</h1>
           ${marked(this.b64_to_utf8(data.content))}
         `
       });
