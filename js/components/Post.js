@@ -16,7 +16,7 @@ export default class Post extends BasePage {
   }
 
   fetchPostDetail() {
-    return get(`${Config.API}/${this.type}/${this.file}`)
+    return get(`/posts/${this.type}/${this.file}`)
       .then((data) => {
         return `
           ${marked(data)}
