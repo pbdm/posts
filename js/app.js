@@ -2,6 +2,7 @@ import '../css/style.less';
 import Home from './components/Home';
 import Post from './components/Post';
 import NotFound from './components/NotFound';
+import { isPromise } from './lib/util'
 
 class App {
   constructor() {
@@ -17,9 +18,13 @@ class App {
 
   render(page) {
     this.clean();
-    return page.created && page.created().then((data) => {
-      return this.append(data);
-    });
+    if (isPromise(page.created())) {
+      return page.created && page.created().then((data) => {
+        return this.append(data);
+      });
+    } else {
+      return this.append(page.created());
+    }
   }
 
   clean() {

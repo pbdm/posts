@@ -18,8 +18,7 @@
     ]
   },
   "dependencies": {
-    "marked": "^0.3.5",
-    "whatwg-fetch": "^2.0.1"
+    "marked": "^0.3.5"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",

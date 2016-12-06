@@ -1,7 +1,7 @@
-import marked from 'marked';
+import marked from '../lib/marked';
 import BasePage from './BasePage';
 import Config from '../../config';
-import 'whatwg-fetch'
+import { get } from '../lib/util';
 
 export default class Post extends BasePage {
 
@@ -16,10 +16,10 @@ export default class Post extends BasePage {
   }
 
   fetchPostDetail() {
-    return fetch(`${Config.API}/${this.type}/${this.file}`)
-      .then(response => response.json()).then((data) => {
+    return get(`${Config.API}/${this.type}/${this.file}`)
+      .then((data) => {
         return `
-          ${marked(this.b64_to_utf8(data.content))}
+          ${marked(data)}
         `
       });
   }
