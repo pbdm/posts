@@ -73,10 +73,7 @@
 * `2016-08-23`添加[browser-sync](https://www.browsersync.io/), 引入 `bootcdn`作为 CDN
 * `2016-09-03`简化样式
 
-## 6.0 采用 githubapi
+## 6.0 js2.0 framework
 
 * `2016-11-16`将服务迁移回`githubpage`, 采用`githubapi`调用文章数据
-
-## 4.5 another js framework1
-
 * `2016-12-06`remove githubapi
