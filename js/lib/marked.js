@@ -4,7 +4,13 @@ const renderer = new marked.Renderer();
 
 renderer.code = (code, lang) => {
   const highlighted = hljs.highlightAuto(code).value;
-  return `<pre><code class="hljs">${highlighted}</code></pre>`;
+  if (lang === 'seq') {
+    return '<div class="seq">'+code+'</div>';
+  } else if (lang === 'flow') {
+    return '<div class="flow">'+code+'</div>';
+  } else {
+    return `<pre><code class="hljs">${highlighted}</code></pre>`;
+  }
 };
 
 marked.setOptions({ renderer });

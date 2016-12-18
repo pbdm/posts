@@ -3,6 +3,7 @@ import Home from './components/Home';
 import Post from './components/Post';
 import NotFound from './components/NotFound';
 import { isPromise } from './lib/util'
+import { setGraph } from './lib/graph'
 
 class App {
   constructor() {
@@ -19,7 +20,8 @@ class App {
   render(page) {
     this.clean();
     return page.created && page.created().then((data) => {
-      return this.append(data);
+      this.append(data);
+      setGraph();
     });
   }
 

@@ -5,6 +5,12 @@ export function isPromise(value) {
   return false;
 }
 
+export function htmlDecode(input) {
+  var e = document.createElement('div');
+  e.innerHTML = input;
+  return e.childNodes[0].nodeValue;
+}
+
 export function get(url) {
   return new Promise((resolve, reject) => {
     const request = new XMLHttpRequest();
