@@ -5,7 +5,7 @@ import { delHtmlTag, getScrollingElement } from './util';
 export default class Toc { 
   constructor(rootElement, headers, parentClass) {
     this.rootElement = rootElement;
-    this.headers = headers || 'h2, h3, h4';
+    this.headers = headers || 'h1, h2, h3, h4';
     this.parentClass = parentClass || 'toc';
     this.rootClassName = 'has-toc';
     this.listen = this.listen.bind(this);
