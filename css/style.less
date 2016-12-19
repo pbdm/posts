@@ -60,9 +60,55 @@ body {
   }
   >.container {
     margin-left: 20vw;
+    overflow-x: scroll;
     padding: 1.5rem;
     min-height: 100vh;
     box-sizing: border-box;
+    &.has-toc {
+      margin-right: 25vw;
+    }
+  }
+}
+
+.toc {
+  font-size: 12px;
+  position: fixed;
+  width: 20vw;
+  padding: 0.5rem;
+  margin: 1rem;
+  box-sizing: border-box;
+  top: 50px;
+  right: 5vw;
+  color: #bababa;
+  list-style: none;
+  border: 1px solid #efefef;
+  .title {
+    font-size: 14px;
+    color: #999;
+    border-left: 5px solid #999;
+    padding-left: 10px;
+    line-height: 2;
+  }
+  li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0;
+  }
+  .toc-h1 {
+    padding-left: 10px;
+  }
+  .toc-h2 {
+    padding-left: 25px;
+  }
+  .toc-h3 {
+    padding-left: 40px;
+  }
+  .toc-h4 {
+    padding-left: 55px;
+  }
+  .on {
+    color:#1abc9c;
   }
 }
 

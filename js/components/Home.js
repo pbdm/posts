@@ -1,5 +1,5 @@
 import BasePage from './BasePage';
-import Config from '../../config';
+// import Config from '../../config';
 
 export default class Home extends BasePage {
 

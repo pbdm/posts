@@ -37,3 +37,20 @@ export function get(url) {
     request.send();
   })
 }
+
+export function b64_to_utf8(str) {
+  return decodeURIComponent(escape(window.atob(str)));
+}
+
+// thanks to https://gist.github.com/dperini/ac3d921d6a08f10fd10e
+export function getScrollingElement() {
+  let d = document;
+  return  d.documentElement.scrollHeight > d.body.scrollHeight &&
+    d.compatMode.indexOf('CSS1') === 0 ?
+    d.documentElement :
+    d.body;
+}
+
+export function delHtmlTag(str) {
+  return str.replace(/<[^>]+>/g,"");
+}

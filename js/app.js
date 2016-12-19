@@ -2,26 +2,45 @@ import '../css/style.less';
 import Home from './components/Home';
 import Post from './components/Post';
 import NotFound from './components/NotFound';
-import { isPromise } from './lib/util'
-import { setGraph } from './lib/graph'
 
 class App {
   constructor() {
-
+    this.BEFORE_DESTOY = 'beforeDestroy';
+    this.listenList = [];
     this.rootElement = document.getElementById('app');
     this.switcher(window.location.hash);
-
     window.addEventListener('hashchange', () => {
       this.switcher(window.location.hash);
     });
 
   }
 
+  listen(key, fn) {
+    if (!this.listenList[key]) {
+      this.listenList[key] = [];
+    }
+    this.listenList[key].push(fn);
+  }
+
+  trigger() {
+    const key = Array.prototype.shift.call(arguments);
+    const fns = this.listenList[key];
+    if (fns && fns.length !==0) {
+      for (let i = 0; i < fns.length; i++) {
+        fns[i].apply(this.page, arguments);
+      }
+      fns.length = 0; // remove all fns once we call it
+    }
+  }
+
   render(page) {
+    this.page = page;
     this.clean();
-    return page.created && page.created().then((data) => {
+    return page.created && page.created(this).then((data) => {
       this.append(data);
-      setGraph();
+      this.listen(this.BEFORE_DESTOY, page[this.BEFORE_DESTOY])
+      page.mounted && page.mounted(this);
+      return true;
     });
   }
 
@@ -36,6 +55,7 @@ class App {
   }
 
   switcher(hash) {
+    this.trigger(this.BEFORE_DESTOY);
     hash = hash.replace("#", "");
     let hashArray = hash.split('/');
     hashArray[0] = hashArray[0] || 'home';

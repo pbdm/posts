@@ -1,7 +1,9 @@
 import marked from '../lib/marked';
 import BasePage from './BasePage';
-import Config from '../../config';
+// import Config from '../../config';
 import { get } from '../lib/util';
+import { setGraph } from '../lib/graph';
+import Toc from '../lib/toc';
 
 export default class Post extends BasePage {
 
@@ -9,10 +11,6 @@ export default class Post extends BasePage {
     super();
     this.type = type;
     this.file = file;
-  }
-
-  b64_to_utf8(str) {
-    return decodeURIComponent(escape(window.atob(str)));
   }
 
   fetchPostDetail() {
@@ -26,6 +24,16 @@ export default class Post extends BasePage {
 
   created() {
     return this.fetchPostDetail();
+  }
+
+  mounted(root) {
+    setGraph();
+    // TODO init toc in constructor?
+    this.toc = new Toc(root.rootElement);
+  }
+
+  beforeDestroy() {
+    this.toc.removeToc();
   }
 }
 

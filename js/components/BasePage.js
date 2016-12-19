@@ -7,4 +7,12 @@ export default class BasePage {
     console.log('basepageCreated');
   }
 
+  mounted() {
+    console.log('basepageMounted');
+  }
+
+  beforeDestroy() {
+    console.log('basepageBeforeDestory');
+  }
+
 }
