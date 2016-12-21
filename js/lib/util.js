@@ -45,7 +45,7 @@ export function b64_to_utf8(str) {
 // thanks to https://gist.github.com/dperini/ac3d921d6a08f10fd10e
 export function getScrollingElement() {
   let d = document;
-  return  d.documentElement.scrollHeight > d.body.scrollHeight &&
+  return d.documentElement.scrollHeight > d.body.scrollHeight &&
     d.compatMode.indexOf('CSS1') === 0 ?
     d.documentElement :
     d.body;
