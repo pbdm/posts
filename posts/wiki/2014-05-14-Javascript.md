@@ -6,22 +6,20 @@
 
 * [JavaScript获取DOM元素位置和尺寸大小](http://www.cnblogs.com/dolphinX/archive/2012/11/19/2777756.html)
 
-* `splice()` 方法与 `slice()` 方法的作用是不同的，`splice()` 方法会直接对数组进行修改,并返回被删除元素, `slice()`不改变原数组
-
 * `for in` 会把原型里的东西都遍历出来,只有用`hasOwnProperty`多判断一遍, `for`就不会了,还是多用for吧
 
 * 复制数组:对于webkit, 使用`concat`; 其他浏览器, 使用`slice`
 
-* 在变量前面加`!!` 可以强制转换boolean
+* ~~在变量前面加`!!` 可以强制转换boolean~~(感觉这个在语义理解上并不可取)
 
-## let
-
-for循环头部的let声明会有一个特殊的行为，这个行为指出变量在循环过程中不止被声明一次，每次迭代都会声明。 随后的每个迭代都会使用上一个迭代结束时的值在初始化这个变量
+* for循环头部的let声明会有一个特殊的行为，这个行为指出变量在循环过程中不止被声明一次，每次迭代都会声明。 随后的每个迭代都会使用上一个迭代结束时的值在初始化这个变量
 
 ## 复制数组
 
 * var.slice(0)
 * var.concat();
+
+* `splice()` 方法与 `slice()` 方法的作用是不同的，`splice()` 方法会直接对数组进行修改,并返回被删除元素, `slice()`不改变原数组
 
 ## Promise
 
@@ -56,47 +54,57 @@ for循环头部的let声明会有一个特殊的行为，这个行为指出变�
 <![endif]-->
 ```
 
-## iPad Touch事件
+## 事件
+
+* `EventTarget.addEventListener`: 绑定事件
+* `EventTarget.removeEventListener`: 解绑事件
+* `EventTarget.dispatchEvent`: 派发事件, 返回值取决于派发的事件里是否执行了`preventDefault`;
+
+### 事件执行顺序
+
+![](https://www.w3.org/TR/DOM-Level-3-Events/images/eventflow.svg)
+> [W3C](https://www.w3.org/TR/DOM-Level-3-Events/#event-flow)
+
+当一个页面元素包含子元素节点的时候，他在处理在其身上的绑定事件的时候，采用先执行捕获阶段的事件，再执行冒泡阶段的事件
+> [yujiangshui](http://yujiangshui.com/javascript-event/)
+
+### 常用的event的参数
+
+* `type`: 事件名称
+* `target`: 事件触发的目标节点
+* `currentTarget`: 事件绑定的节点
+* `bubbles`: 是否在冒泡阶段触发
+* `stopPropagation()`: 阻止事件冒泡
+* `stopImmediatePropagation()`: 阻止事件冒泡的同时, 阻止针对同一目标节点的相同事件
+* `preventDefault()`:  阻止事件默认行为, 比如`<a>`上`click`的跳转, `touchstart`, `touchmove`的滚动
+* `cancelable`: 是否可以通过`preventDefault`来禁用
+* `pageX`和 `pageY`: 事件触发时点击点相对于页面的坐标
+* `isTrusted`: 事件是否由用户真实操作触发
+
+### 事件对象
+
+* `Event`
+
+> [MDN - Event的继承关系](https://developer.mozilla.org/en-US/docs/Web/API/Event)
+
+可用`dispatchEvent`派发, 常用的继承自`Event`的对象:
+
+* `MouseEvent`
+* `TouchEvent`
+* `CustomEvent`: 比父类`Event`有更高的自定义性
+
+### 有关性能
+
+* `addEventListener`函数在新的标准里第三个参数有所变化: `target.addEventListener(type, listener[, options])`
+
+> [Passive event listeners](https://zhuanlan.zhihu.com/p/24555031)
+
+~~### 点穿~~
+
+### iPhone(iPad) Touch事件
 
 * [集合贴](http://m.oschina.net/blog/88086)
 * [苹果官方文档](https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html)
-
-## 事件绑定
-
-### 事件捕获顺序
-
-当一个页面元素包含子元素节点的时候，他在处理在其身上的绑定事件的时候，采用先执行捕获阶段的事件，再执行冒泡阶段的事件
-> [segmentfault](http://blog.segmentfault.com/fishenal/1190000000470398)
-
-> [yujiangshui](http://yujiangshui.com/javascript-event/)
-
-### [阻止超链接跳转](http://www.suchso.com/projecteactual/javascript-event-up-stopPropagation-cancelBubble.html)
-
-[jQuery:](http://blog.csdn.net/woshixuye/article/details/7422985)
-
-`return false`： 同时调用以下两种
-
-`e.stopPropagation()`： 阻止事件冒泡 (对`live`绑定的事件没有作用)
-
-`e.preventDefault()`： 阻止事件默认行为
-
-```
-$('#a0').click(function(){
-  return false;
-});
-$("span").click(function (e){
-  e.stopPropagation();
-});
-```
-
-[protorype:](http://stackoverflow.com/questions/1399613/disable-link-with-the-prototype-observe-method)
-
-    $('link').observe('click', function(e) { e.stop(); });
-
-## 闭包(Closure)
-
-内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。
-> [mozilla.org](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Closures)
 
 ## 防抖动和节流阀
 
@@ -104,6 +112,11 @@ $("span").click(function (e){
 * `Debounce` 把多个顺序地调用合并成一次
 
 > [Alon's Blog](http://jinlong.github.io/2016/04/24/Debouncing-and-Throttling-Explained-Through-Examples/)
+
+## 闭包(Closure)
+
+内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。
+> [mozilla.org](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Closures)
 
 ## html转译字符
 
@@ -124,7 +137,7 @@ function htmlDecode(str) {
 
 当代码 new foo(...) 执行时：
 
-* 一个新对象被创建。它继承自foo.prototype.
+* 一个新对象被创建。它继承自foo.prototype。
 * 构造函数 foo 被执行。执行的时候，相应的传参会被传入，同时上下文(this)会被指定为这个新实例。new foo 等同于 new foo(), 只能用在不传递任何参数的情况。
 * 如果构造函数返回了一个“对象”，那么这个对象会取代整个new出来的结果。如果构造函数没有返回对象，那么new出来的结果为步骤1创建的对象，ps：一般情况下构造函数不返回任何值，不过用户如果想覆盖这个返回值，可以自己选择返回一个普通对象来覆盖。当然，返回数组也会覆盖，因为数组也是对象。
 
@@ -150,3 +163,29 @@ var report = (function() {
   }
 })();
 ```
+
+## Decorator
+
+2016-12-17: Still in draft...
+
+A decorator is
+
+* an expression
+* that evaluates to a function
+* that takes the target, name, and decorator descriptor as arguments
+* and optionally returns a decorator descriptor to install on the target object
+
+Types:
+
+* simple class decorator
+* class decorator
+* class function decorator, 和hoc有类似的参数
+
+> [decorator proposal](https://github.com/wycats/javascript-decorators)
+>
+> [babel](https://babeljs.io/docs/plugins/transform-decorators/#example-simple-class-decorator)
+>
+> [taobaofed](http://taobaofed.org/blog/2015/11/16/es7-decorator/)
+>
+> [Decorators in ES7 by 小丁](http://www.liuhaihua.cn/archives/115548.html)
+
