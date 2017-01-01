@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "flowchart.js": "^1.6.4",
+    "markdown-it": "^8.2.2",
     "marked": "^0.3.5"
   },
   "devDependencies": {

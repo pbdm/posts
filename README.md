@@ -11,5 +11,7 @@ Personal site of [PBDm](http://pbdm.cc)
 ## Start
 
 `npm install`
+
 `npm run start` to run and test
+
 `npm run build` to build

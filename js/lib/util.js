@@ -43,6 +43,8 @@ export function b64_to_utf8(str) {
 }
 
 // thanks to https://gist.github.com/dperini/ac3d921d6a08f10fd10e
+// TODO use document.scrollingElement?
+// https://github.com/mathiasbynens/document.scrollingElement
 export function getScrollingElement() {
   let d = document;
   return d.documentElement.scrollHeight > d.body.scrollHeight &&
