@@ -8,14 +8,11 @@ const SQUENCE_PATH = [
 ]
 
 const loadFiles = function(files) {
-  let sequence = Promise.resolve();
-  files.forEach((file) => {
-    sequence = sequence.then(function() {
+  return files.reduce((sequence, file) => {
+    return sequence.then(function() {
       return loadFile(file, 'js', true);
     })
-  })
-
-  return sequence;
+  }, Promise.resolve())
 }
 
 function parseGraph(element, index, type) {
