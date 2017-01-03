@@ -56,3 +56,44 @@ export function getScrollingElement() {
 export function delHtmlTag(str) {
   return str.replace(/<[^>]+>/g,"");
 }
+
+function getSingle(fn) {
+  const result = {};
+  return function() {
+    const key = Array.prototype.join.call(arguments);
+    if (!result[key]) {
+      result[key] = fn.apply(this, arguments);
+    }
+    return result[key];
+  }
+}
+
+function loadjscssfile(filename, filetype = 'js') {
+	return new Promise((resolve, reject) => {
+    let fileref;
+    if (filetype === "js") {
+      fileref = document.createElement('script')
+      fileref.setAttribute("type","text/javascript");
+      fileref.setAttribute("src", filename);
+    } else if (filetype === "css") {
+      fileref = document.createElement("link")
+      fileref.setAttribute("rel", "stylesheet");
+      fileref.setAttribute("type", "text/css");
+      fileref.setAttribute("href", filename);
+    }
+    fileref.onload = resolve;
+    fileref.onerror = reject;
+    document.getElementsByTagName("head")[0].appendChild(fileref)
+  })
+}
+
+const loadFileOnce = getSingle(loadjscssfile);
+
+export function loadFile(filename, filetype = 'js', once) {
+  arguments.length = arguments.length - 1;
+  if (once) {
+    return loadFileOnce.apply(this, arguments);
+  } else {
+    return loadjscssfile.apply(this, arguments);
+  }
+}
