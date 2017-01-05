@@ -2,6 +2,8 @@
 
 ## Tips
 
+* [Babel 6: loose mode](http://www.2ality.com/2015/12/babel6-loose-mode.html) 
+
 * Firefox获取body元素和Chrome有所不同 `root = /firefox|trident/i.test(navigator.userAgent) ? document.documentElement : document.body`
 
 * [JavaScript获取DOM元素位置和尺寸大小](http://www.cnblogs.com/dolphinX/archive/2012/11/19/2777756.html)
@@ -112,7 +114,7 @@
 
 ## 防抖动和节流阀
 
-* `throttle` 保证 X 毫秒内至少执行一次
+* `throttle` 保证 X 毫秒内有且执行执行一次
 * `Debounce` 把多个顺序地调用合并成一次
 
 > [Alon's Blog](http://jinlong.github.io/2016/04/24/Debouncing-and-Throttling-Explained-Through-Examples/)
