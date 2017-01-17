@@ -68,6 +68,7 @@ function getSingle(fn) {
   }
 }
 
+// TODO add more attribute support
 function loadjscssfile(filename, filetype = 'js') {
 	return new Promise((resolve, reject) => {
     let fileref;
