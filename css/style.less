@@ -42,24 +42,16 @@ blockquote {
 
 body {
   margin: 0;
-  > aside { 
-    width: 20vw;
-    height: 100%;
-    position: fixed;
-    border-right: 1px solid #d1d1d1;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-item: center;
-    justify-content: center;
-    text-align: center;
+  > header { 
+    padding: 1.5rem 1.5rem 0 1.5rem;
     .avatar {
-      width: 120px;
-      height: 120px;
+      width: 30px;
+      height: 30px;
       margin: 0 auto;
     }
     .name {
-      font-size: 2.2rem;
+      font-size: 1rem;
+      vertical-align: super;
       font-weight: bolder;
       color: #072;
       &:hover {
@@ -68,7 +60,6 @@ body {
     }
   }
   >.container {
-    margin-left: 20vw;
     overflow-x: scroll;
     padding: 1.5rem;
     min-height: 100vh;
@@ -127,19 +118,19 @@ body {
   background-position: 50%;
 }
 
-@media (max-width: 768px) {
-  body {
-    > aside {
-      position: static;
-      transform: none;
-      height: auto;
-      width: auto;
-    }
-    >.container {
-      margin-left: 0; 
-      border-left: none;
-      border-bottom: 1px solid #d1d1d1;
-    }
-  }
-}
+// @media (max-width: 768px) {
+//   body {
+//     > aside {
+//       position: static;
+//       transform: none;
+//       height: auto;
+//       width: auto;
+//     }
+//     >.container {
+//       margin-left: 0; 
+//       border-left: none;
+//       border-bottom: 1px solid #d1d1d1;
+//     }
+//   }
+// }
 
