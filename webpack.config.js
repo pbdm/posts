@@ -1,5 +1,14 @@
 var autoprefixer = require('autoprefixer');
 var fileListPlugin = require('./js/lib/filelist-json-webpack-plugin');
+var env = process.env.NODE_ENV;
+
+var fileListConfig = {
+  key: 'posts',
+  path: './posts'
+}
+if (env === 'production') {
+  fileListConfig.exclude = 'others';
+}
 
 module.exports = {
   entry: { 
@@ -21,12 +30,6 @@ module.exports = {
   },
   postcss: [ autoprefixer({ browsers: ['> 5%', 'last 2 versions'] }) ],
   plugins: [
-    new fileListPlugin({
-      key: 'posts',
-      paths: {
-        wiki: './posts/wiki',
-        blog: './posts/blog'
-      }
-    })
+    new fileListPlugin(fileListConfig)
   ]
 };

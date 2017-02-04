@@ -16,12 +16,16 @@ export default class Home extends BasePage {
   }
 
   fetchPostList() {
-    return `
-      <h2>wiki</h2>
-      ${this.renderList(posts.wiki)}
-      <h2>blog</h2>
-      ${this.renderList(posts.blog)}
-    `
+    let template = '';
+    const num = Object.keys(posts).length;
+    const percentNum = Math.trunc(100/num);
+    Object.keys(posts).map((key)=> {
+      template += `<div class='post-list' style='width: ${percentNum}%'>
+        <h2>${key}</h2>
+        ${this.renderList(posts[key])}
+      </div>`
+    });
+    return template;
   }
     
   created() {

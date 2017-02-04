@@ -60,10 +60,16 @@ body {
     }
   }
   >.container {
-    overflow-x: scroll;
     padding: 1.5rem;
-    min-height: 100vh;
     box-sizing: border-box;
+    .seq {
+      overflow-x: scroll;
+    }
+    .post-list {
+      display: inline-block;
+      vertical-align: top;
+      min-width: 300px;
+    }
     &.has-toc {
       margin-right: 20vw;
     }

@@ -2,36 +2,43 @@ var webpack = require('webpack');
 var path = require('path');
 var fs = require('fs');
 
-var tree = function(filepath) {
-  filepath = path.normalize(filepath);
-  var result = [];
-  var files = fs.readdirSync(filepath);
-
-  for (key in files) {
-    file = files[key];
-    if (files[key].substr(-2,2) === 'md') {
-      result.push ({
-        date:  files[key].substr(0,10),
-        fullpath:  encodeURIComponent(filepath + '/' + files[key]),
-        path: encodeURIComponent(files[key].slice(11,-3).toLowerCase()),
-        title: files[key].slice(11,-3)
-      });
+function getDirTree(dir, list, exclude) {
+  dir = path.normalize(dir);
+  var obj;
+  fs.readdirSync(dir).forEach(function(value) {
+    if (value[0] !== '.' && value !== exclude) {
+      var filePath = path.join(dir, value);
+      if (fs.statSync(filePath).isDirectory()) {
+        list[value] = [];
+        getDirTree(filePath, list[value], exclude);
+      } else {
+        if (value.substr(-2, 2) === 'md') {
+          obj = parseTree(filePath);
+          list.push(obj);
+        }
+      }
     }
+  });
+}
+
+function parseTree(filepath) {
+  var temp = filepath.split('/');
+  var file = temp[temp.length - 1];
+  var res = {
+    date: file.substr(0, 10),
+    fullpath: encodeURIComponent(filepath),
+    path: encodeURIComponent(file.slice(11, -3).toLowerCase()),
+    title: file.slice(11, -3)
   }
-  return result;
+  return res;
 }
 
 var Plugin = function(options) {
-  //this.options = options;
-  var output = {}
-  var outputJSON = {};
-  var paths = options.paths || {};
-  var keys = Object.keys(paths);
-  for (var i = 0; i < keys.length; i++ ) {
-    outputJSON[keys[i]] = tree(paths[keys[i]]);
-  }
+  var dirTree = {};
+  var output = {};
+  getDirTree(options.path, dirTree, options.exclude);
   var key = options.key || 'pbdm';
-  output[key] = JSON.stringify(outputJSON);
+  output[key] = JSON.stringify(dirTree);
   return new webpack.DefinePlugin(output);
 }
 
