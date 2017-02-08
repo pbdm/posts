@@ -5,5 +5,5 @@
   "command": "npm",
   "isShellCommand": true,
   "suppressTaskName": true,
-  "args": ["run", "server"]
+  "args": ["run", "build"]
 }
