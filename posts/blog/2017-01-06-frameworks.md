@@ -12,3 +12,8 @@
 2016-01-24
 又一个号称比 React 更快的升级版...阿里开发, Reack-like API, 仅有 8kb...
 
+## [omi](https://github.com/AlloyTeam/omi)
+
+2017-02-08
+AlloyTeam 开发的轻量级的组件化框架
+
