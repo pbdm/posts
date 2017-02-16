@@ -18,8 +18,9 @@
 
 ## TODO
 
-- [ ] 接入评论系统 (野狗, duoshuo, disqus)
 - [ ] change marked to markdown-it
+- [ ] add [remark](https://github.com/gnab/remark) toggle function
+- [ ] 接入评论系统 (野狗, duoshuo, disqus)
 - [ ] 单页面应用搜索引擎
 - [ ] ~~输出RSS~~
 - [ ] Fix back to top
