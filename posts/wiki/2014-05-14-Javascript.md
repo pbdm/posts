@@ -2,7 +2,7 @@
 
 ## Tips
 
-* [Babel 6: loose mode](http://www.2ality.com/2015/12/babel6-loose-mode.html) 
+* [Babel 6: loose mode](http://www.2ality.com/2015/12/babel6-loose-mode.html)
 
 * Firefox获取body元素和Chrome有所不同 `root = /firefox|trident/i.test(navigator.userAgent) ? document.documentElement : document.body`
 
@@ -17,6 +17,8 @@
 * for循环头部的let声明会有一个特殊的行为，这个行为指出变量在循环过程中不止被声明一次，每次迭代都会声明。 随后的每个迭代都会使用上一个迭代结束时的值在初始化这个变量
 
 * [`new Array()` 和 `Array()`是一样的](http://www.ecma-international.org/ecma-262/5.1/#sec-15.4.1)
+
+* [querystring function from nodejs](https://nodejs.org/dist/latest-v6.x/docs/api/querystring.html)
 
 ## 复制数组
 
@@ -49,7 +51,7 @@
 
 一个判断过旧版本提示的示例：
 
-```
+```html
 <!--[if lt IE 7]>
   <div id="warning_ie6" style="text-align: center; color:red">
     您使用的是本网站不再支持的IE6浏览器，为了更好的访问，请升级至新版浏览器。
@@ -128,7 +130,7 @@
 
 ## html转译字符
 
-```
+```javascript
 function htmlEncode(str) {
     var div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
@@ -161,7 +163,7 @@ function htmlDecode(str) {
 
 把 img 变量用闭包封闭起来，便能解决请求丢失的问题
 
-```
+```javascript
 var report = (function() {
   var imgs = [];
   return function( src ){
@@ -196,4 +198,3 @@ Types:
 > [taobaofed](http://taobaofed.org/blog/2015/11/16/es7-decorator/)
 >
 > [Decorators in ES7 by 小丁](http://www.liuhaihua.cn/archives/115548.html)
-
