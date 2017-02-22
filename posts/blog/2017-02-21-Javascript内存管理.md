@@ -1,0 +1,83 @@
+# Javascript 内存管理
+
+> [Fix Memory Problems | Web | Google Developers](https://developers.google.com/web/tools/chrome-devtools/memory-problems/)
+>
+> [jobbole.com](http://web.jobbole.com/81915/)
+>
+> [Alon's blog](http://jinlong.github.io/2016/05/01/4-Types-of-Memory-Leaks-in-JavaScript-and-How-to-Get-Rid-Of-Them/)
+
+内存问题是很重要的, 因为他是可以被用户感知到的. 主要分为以下三种
+
+* 内存泄露(memory leak)导致页面性能持续下降
+
+* 内存占用过多(memory bloat: 内存膨胀)导致页面性能一直很差
+
+* 频繁的内存回收时的脚本暂停执行导致页面持续的卡顿
+
+## 使用 chrome-devtools 查看内存情况的一些方法
+
+### Task manager
+
+打开 More tools > Task manager 可以看到一些基本的内存使用信息
+
+![](http://pbdm.qiniudn.com/20170221143208_Vs5TPC_Screenshot.jpeg)
+
+### Timeline
+
+使用 Timeline 调试的时候, 最好在开始和结束 recording 之前点击 collect garbage 按钮来强制执行内存回收, 以便更好的观察内存泄露情况
+
+![](http://pbdm.qiniudn.com/20170221152537_WdxCMR_Screenshot.jpeg)
+
+### Heap Snapshots
+
+使用 Heap Snapshots 查看 detached DOM tree 内存泄露
+
+detached 的定义:
+
+* 不存在页面的 DOM tree 中
+* 仍然有 javascript 逻辑引用(比如一些事件的绑定)
+
+DOM node 想要被内存回收, 必须同时满足以下的条件:
+
+* 不存在页面的 DOM tree 中
+* 没有 javascript 逻辑引用
+
+所以如果 DOM node 是 detached 的, 就会造成内存泄露
+
+查看方式:
+![](http://pbdm.qiniudn.com/20170221171504_D1ICtM_Screenshot.jpeg)
+
+* yellow objects: objects have JavaScript references on them
+* red objects: detached nodes which are referenced from one yellow object
+
+* Shallow Size: 该对象直接占用内存
+* Retained Size: 该对象直接占用内存(Shallow Size) + 该对象引用的对象所占用的内存, 当该对象被删除后, GC roots 就无法遍历到这部分内存了
+* 不能被 GC roots 遍历到的对象都将被内存回收。
+
+### Allocation Timelines
+
+可以从时间线的角度查看内存的使用情况
+![](http://pbdm.qiniudn.com/20170222092032_lNAh7a_Screenshot.jpeg)
+
+### Allocation Profile
+
+可以从单个函数的占用内存排序角度来查看内存使用情况
+![](http://pbdm.qiniudn.com/20170222092633_m0jsDG_Screenshot.jpeg)
+
+## hybrid app容易crash原因
+
+* 内存溢出
+* dom数过多导致内存消耗过大
+* 并发数过多
+
+### Garbage collection measurement
+
+start Chrome via commend line
+`open -a "Google Chrome" --args --enable-precise-memory-info`
+
+> [barretlee](http://www.barretlee.com/blog/2016/05/30/h5-crash-research/)
+
+### 减少dom数
+
+* [react-virtualized](https://github.com/bvaughn/react-virtualized)
+* [twitter](https://mobile.twitter.com/home)
