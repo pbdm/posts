@@ -10,8 +10,6 @@
 
 * `for in` 会把原型里的东西都遍历出来,只有用`hasOwnProperty`多判断一遍, `for`就不会了,还是多用for吧
 
-* 复制数组:对于webkit, 使用`concat`; 其他浏览器, 使用`slice`
-
 * ~~在变量前面加`!!` 可以强制转换boolean~~(感觉这个在语义理解上并不可取)
 
 * for循环头部的let声明会有一个特殊的行为，这个行为指出变量在循环过程中不止被声明一次，每次迭代都会声明。 随后的每个迭代都会使用上一个迭代结束时的值在初始化这个变量
@@ -20,12 +18,17 @@
 
 * [querystring function from nodejs](https://nodejs.org/dist/latest-v6.x/docs/api/querystring.html)
 
+* [JavaScirpt 常见报错信息](http://jinlong.github.io/2015/02/01/javascript-errors-and-how-to-fix-them/)
+
 ## 复制数组
 
+* 从性能角度来说, 对于webkit, 使用`concat`; 其他浏览器, 使用`slice`
 * var.slice(0)
 * var.concat();
 
-* `splice()` 方法与 `slice()` 方法的作用是不同的，`splice()` 方法会直接对数组进行修改,并返回被删除元素, `slice()`不改变原数组
+* `splice` 与 `slice` 的作用是不同的，`splice` 会直接对数组进行修改, 并返回被删除元素, `slice`不改变原数组
+
+> [Alon's blog, 通过对比的方式梳理](http://jinlong.github.io/2017/02/04/javascript-array-methods-mutating-vs-non-mutating/#more)
 
 ## Promise
 
@@ -173,6 +176,11 @@ var report = (function() {
   }
 })();
 ```
+
+## 古典oo
+
+> [javascript oo 实现 by purplebamboo](http://purplebamboo.github.io/2014/07/13/javascript-oo-class/)
+
 
 ## Decorator
 

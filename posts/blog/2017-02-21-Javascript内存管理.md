@@ -6,7 +6,7 @@
 >
 > [Alon's blog](http://jinlong.github.io/2016/05/01/4-Types-of-Memory-Leaks-in-JavaScript-and-How-to-Get-Rid-Of-Them/)
 
-内存问题是很重要的, 因为他是可以被用户感知到的. 主要分为以下三种
+由于很容易被用户感知, 所以内存问题十分重要, 他主要分为以下三种
 
 * 内存泄露(memory leak)导致页面性能持续下降
 
