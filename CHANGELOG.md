@@ -77,3 +77,4 @@
 
 * `2016-11-16`将服务迁移回`githubpage`, 采用`githubapi`调用文章数据
 * `2016-12-06`remove githubapi
+* `2017-03-02`change marked to markdown-it
