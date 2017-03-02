@@ -2,17 +2,23 @@ import '../css/style.less';
 import Home from './components/Home';
 import Post from './components/Post';
 import NotFound from './components/NotFound';
+import Header from './components/header';
 
 class App {
   constructor() {
     this.BEFORE_DESTOY = 'beforeDestroy';
     this.listenList = [];
     this.rootElement = document.getElementById('app');
+    this.headerElement = document.getElementsByTagName('header')[0];
     this.switcher(window.location.hash);
     window.addEventListener('hashchange', () => {
       this.switcher(window.location.hash);
     });
+    this.renderHeader();
+  }
 
+  renderHeader() {
+    this.headerElement.innerHTML = Header;
   }
 
   listen(key, fn) {
@@ -36,6 +42,7 @@ class App {
   render(page) {
     this.page = page;
     this.clean();
+    // TODO verify promise
     return page.created && page.created(this).then((data) => {
       this.append(data);
       this.listen(this.BEFORE_DESTOY, page[this.BEFORE_DESTOY])
