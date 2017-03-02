@@ -26,6 +26,9 @@ module.exports = {
       test: /\.less$/,
       exclude: /(node_modules)/,
       loader: "style!css!postcss!less"
+    }, {
+      test: /\.json$/, // for https://github.com/fb55/ent which is required for markdown-it
+      loader: "json"
     }]
   },
   postcss: [ autoprefixer({ browsers: ['> 5%', 'last 2 versions'] }) ],

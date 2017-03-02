@@ -1,4 +1,4 @@
-import marked from '../lib/marked';
+import markdown from '../lib/markdown';
 import BasePage from './BasePage';
 // import Config from '../../config';
 import { get } from '../lib/util';
@@ -17,7 +17,7 @@ export default class Post extends BasePage {
     return get(`/posts/${this.type}/${this.file}`)
       .then((data) => {
         return `
-          ${marked(data)}
+          ${markdown.render(data)}
         `
       });
   }
