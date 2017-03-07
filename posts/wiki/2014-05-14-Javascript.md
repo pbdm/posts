@@ -8,7 +8,7 @@
 
 * [JavaScript获取DOM元素位置和尺寸大小](http://www.cnblogs.com/dolphinX/archive/2012/11/19/2777756.html)
 
-* `for in` 会把原型里的东西都遍历出来,只有用`hasOwnProperty`多判断一遍, `for`就不会了,还是多用for吧
+* `for in` 会把原型里的东西都遍历出来, 只有用`hasOwnProperty`多判断一遍才不会, `for`就不会了,还是多用for吧
 
 * ~~在变量前面加`!!` 可以强制转换boolean~~(感觉这个在语义理解上并不可取)
 
@@ -130,21 +130,6 @@
 
 内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。
 > [mozilla.org](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Closures)
-
-## html转译字符
-
-```javascript
-function htmlEncode(str) {
-    var div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-}
-function htmlDecode(str) {
-    var div = document.createElement("div");
-    div.innerHTML = str;
-    return div.innerHTML;
-}
-```
 
 ## new操作符
 
