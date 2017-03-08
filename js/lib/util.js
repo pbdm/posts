@@ -13,8 +13,8 @@ export function htmlDecode(input) {
 
 export function get(url) {
   return new Promise((resolve, reject) => {
-    const request = new XMLHttpRequest();
-    request.open('GET', url, true);
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
     var jsonValidate = function(str) {
       try {
         JSON.parse(str);
@@ -23,18 +23,18 @@ export function get(url) {
         return false;
       }
     };
-    request.onload = function() {
-      if (this.status >= 200 && this.status < 400) {
-        const response = jsonValidate(this.response) ? JSON.parse(this.response) : this.response;
+    xhr.onload = function() {
+      if (xhr.status >= 200 && xhr.status < 400) {
+        const response = jsonValidate(xhr.response) ? JSON.parse(xhr.response) : xhr.response;
         return resolve(response);
       } else {
         return reject('error');
       }
     };
-    request.onerror = function() {
+    xhr.onerror = function() {
       return reject('error');
     };
-    request.send();
+    xhr.send();
   })
 }
 
