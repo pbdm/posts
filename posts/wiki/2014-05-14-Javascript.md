@@ -85,7 +85,7 @@
 * `bubbles`: 是否在冒泡阶段触发
 * `stopPropagation()`: 阻止事件冒泡
 * `stopImmediatePropagation()`: 阻止事件冒泡的同时, 阻止针对同一目标节点的相同事件
-* `preventDefault()`:  阻止事件默认行为, 比如`<a>`上`click`的跳转, `touchstart`, `touchmove`的滚动
+* `preventDefault()`:  阻止事件默认行为, 比如`<a>`上`click`的跳转, `touchstart`, `touchmove`的滚动, 触摸事件的传递(可解决点穿问题)
 * `cancelable`: 是否可以通过`preventDefault`来禁用
 * `pageX`和 `pageY`: 事件触发时点击点相对于页面的坐标
 * `isTrusted`: 事件是否由用户真实操作触发
