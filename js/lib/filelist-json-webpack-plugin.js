@@ -9,12 +9,15 @@ function getDirTree(dir, list, exclude) {
     if (value[0] !== '.' && value !== exclude) {
       var filePath = path.join(dir, value);
       if (fs.statSync(filePath).isDirectory()) {
-        list[value] = [];
+        list[value] = {};
         getDirTree(filePath, list[value], exclude);
       } else {
         if (value.substr(-2, 2) === 'md') {
           obj = parseTree(filePath);
-          list.push(obj);
+          if (!list.files) {
+            list.files = [];
+          }
+          list.files.push(obj);
         }
       }
     }
@@ -41,5 +44,9 @@ var Plugin = function(options) {
   output[key] = JSON.stringify(dirTree);
   return new webpack.DefinePlugin(output);
 }
+
+// Plugin({
+//   path: '../../posts'
+// })
 
 module.exports = Plugin;

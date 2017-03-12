@@ -11,6 +11,10 @@ html {
   min-height: 100%;
 }
 
+body {
+  margin: 0;
+}
+
 a {
   color:#1abc9c;
   text-decoration: none;
@@ -40,36 +44,55 @@ blockquote {
   margin: 0;
 }
 
-body {
-  margin: 0;
-  > header { 
-    padding: 1.5rem 1.5rem 0 1.5rem;
-    .avatar {
-      width: 30px;
-      height: 30px;
-      margin: 0 auto;
+#app {
+  > nav { 
+    background-color: #fafafa;
+    padding-left: 1rem;
+    position: fixed;
+    width: 15vw;
+    height: 100vh;
+    overflow-y: scroll;
+    list-style: none;
+    .header{
+      padding: 10px;
+      .avatar {
+        width: 30px;
+        height: 30px;
+        margin: 0 auto;
+      }
+      .name {
+        font-size: 1rem;
+        vertical-align: super;
+        font-weight: bolder;
+        color: #072;
+        &:hover {
+          letter-spacing: 0.2rem;
+        }
+      }
+
     }
-    .name {
-      font-size: 1rem;
-      vertical-align: super;
-      font-weight: bolder;
-      color: #072;
-      &:hover {
-        letter-spacing: 0.2rem;
+    .post-list {
+      font-size: 14px;
+      display: block;
+      .title {
+        font-size: 16px;
+        line-height: 40px;
+        text-transform: uppercase;
+      }
+      li {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }
   >.container {
-    padding: 1.5rem;
+    margin-left: 15vw;
+    padding: 2rem;
     box-sizing: border-box;
     min-height: 90vh;
     .seq {
       overflow-x: auto;
-    }
-    .post-list {
-      display: inline-block;
-      vertical-align: top;
-      min-width: 300px;
     }
     &.has-toc {
       margin-right: 20vw;
@@ -78,6 +101,7 @@ body {
 }
 
 .toc {
+  background-color: #fafafa;
   font-size: 12px;
   position: fixed;
   width: 20vw;
@@ -125,19 +149,14 @@ body {
   background-position: 50%;
 }
 
-// @media (max-width: 768px) {
-//   body {
-//     > aside {
-//       position: static;
-//       transform: none;
-//       height: auto;
-//       width: auto;
-//     }
-//     >.container {
-//       margin-left: 0; 
-//       border-left: none;
-//       border-bottom: 1px solid #d1d1d1;
-//     }
-//   }
-// }
+@media (max-width: 768px) {
+  #app {
+    > nav {
+      display: none; 
+    }
+    >.container {
+      margin-left: 0; 
+    }
+  }
+}
 

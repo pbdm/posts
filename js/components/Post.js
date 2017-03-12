@@ -1,6 +1,5 @@
 import markdown from '../lib/markdown';
-import BasePage from './BasePage';
-// import Config from '../../config';
+import BasePage from './base';
 import { get } from '../lib/util';
 import { setGraph } from '../lib/graph';
 import Toc from '../lib/toc';
@@ -26,10 +25,10 @@ export default class Post extends BasePage {
     return this.fetchPostDetail();
   }
 
-  mounted(root) {
+  mounted(element) {
     setGraph();
     // TODO init toc in constructor?
-    this.toc = new Toc(root.rootElement);
+    this.toc = new Toc(element);
   }
 
   beforeDestroy() {

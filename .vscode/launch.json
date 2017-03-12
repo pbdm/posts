@@ -4,20 +4,13 @@
   // For further information visit https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
-    
     {
       "name": "filelist-json-webpack-plugin",
       "type": "node",
+      "protocol": "inspector",
       "request": "launch",
       "program": "${workspaceRoot}/js/lib/filelist-json-webpack-plugin.js",
       "cwd": "${workspaceRoot}"
-    },
-    {
-      "name": "npm",
-      "type": "node",
-      "request": "launch",
-      "cwd": "${workspaceRoot}",
-      "preLaunchTask": "npm"
     }
   ]
 }

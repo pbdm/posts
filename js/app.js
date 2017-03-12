@@ -1,24 +1,34 @@
 import '../css/style.less';
-import Home from './components/Home';
 import Post from './components/Post';
-import NotFound from './components/NotFound';
-import Header from './components/header';
+import NotFound from './components/404';
+import Nav from './components/nav';
+import { isPromise } from './lib/util';
 
 class App {
   constructor() {
     this.BEFORE_DESTOY = 'beforeDestroy';
     this.listenList = [];
-    this.rootElement = document.getElementById('app');
-    this.headerElement = document.getElementsByTagName('header')[0];
+    const rootElement = document.getElementById('app');
+    this.navElement = document.createElement('nav')
+    this.containerElement = document.createElement('div');
+    this.containerElement.classList.add('container');
+    rootElement.appendChild(this.navElement);
+    rootElement.appendChild(this.containerElement);
     this.switcher(window.location.hash);
     window.addEventListener('hashchange', () => {
       this.switcher(window.location.hash);
     });
-    this.renderHeader();
+    this.renderNav();
   }
 
-  renderHeader() {
-    this.headerElement.innerHTML = Header;
+  renderNav() {
+    this.render(new Nav(), this.navElement);
+  }
+
+  renderContainer(page) {
+    this.page = page;
+    this.clean();
+    this.render(page, this.containerElement);
   }
 
   listen(key, fn) {
@@ -39,26 +49,29 @@ class App {
     }
   }
 
-  render(page) {
-    this.page = page;
-    this.clean();
-    // TODO verify promise
-    return page.created && page.created(this).then((data) => {
-      this.append(data);
-      this.listen(this.BEFORE_DESTOY, page[this.BEFORE_DESTOY])
-      page.mounted && page.mounted(this);
+  render(page, element) {
+    const pageValue = page.created();
+    if (isPromise(pageValue)) {
+      return pageValue.then((data) => {
+        this.append(element, data);
+        this.listen(this.BEFORE_DESTOY, page[this.BEFORE_DESTOY])
+        page.mounted && page.mounted(element);
+        return true;
+      });
+    } else {
+      this.append(element, pageValue);
       return true;
-    });
+    }
   }
 
   clean() {
-    this.rootElement.innerHTML = '';
-    this.rootElement.classList.add('loading');
+    this.containerElement.innerHTML = '';
+    this.containerElement.classList.add('loading');
   }
 
-  append(content) {
-    this.rootElement.innerHTML = content;
-    this.rootElement.classList.remove('loading');
+  append(element, content) {
+    element.innerHTML = content;
+    element.classList.remove('loading');
   }
 
   switcher(hash) {
@@ -68,13 +81,17 @@ class App {
     hashArray[0] = hashArray[0] || 'home';
     switch (hashArray[0]) {
       case 'home':
-        this.render(new Home());
+        this.renderContainer(new Post('', '2017-03-08-intro.md'));
         break;
       case 'posts':
-        this.render(new Post(hashArray[1], hashArray[2]));
+        if (hashArray[2]) {
+          this.renderContainer(new Post(hashArray[1], hashArray[2]));
+        } else {
+          this.renderContainer(new Post('', hashArray[1]));
+        }
         break;
       default:
-        this.render(NotFound);
+        this.renderContainer(new NotFound());
     }
   }
 }
