@@ -1,6 +1,7 @@
 import markdown from 'markdown-it';
 
 const md = markdown({
+  html: true,
   highlight: function (code, lang) {
     const highlighted = hljs.highlightAuto(code).value;
     if (lang === 'seq') {

@@ -19,6 +19,7 @@
 ## TODO
 
 - [X] change marked to markdown-it
+- [ ] queryString for hide nav bar
 - [ ] add [remark](https://github.com/gnab/remark) toggle function
 - [ ] 接入评论系统 (野狗, duoshuo, disqus)
 - [ ] 单页面应用搜索引擎
