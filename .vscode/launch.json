@@ -10,7 +10,8 @@
       "protocol": "inspector",
       "request": "launch",
       "program": "${workspaceRoot}/js/lib/filelist-json-webpack-plugin.js",
-      "cwd": "${workspaceRoot}"
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable" : "/usr/local/bin/node"
     }
   ]
 }
