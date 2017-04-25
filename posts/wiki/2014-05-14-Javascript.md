@@ -18,8 +18,6 @@
 
 * [querystring function from nodejs](https://nodejs.org/dist/latest-v6.x/docs/api/querystring.html)
 
-* [JavaScirpt 常见报错信息](http://jinlong.github.io/2015/02/01/javascript-errors-and-how-to-fix-them/)
-
 ## 复制数组
 
 * 从性能角度来说, 对于webkit, 使用`concat`; 其他浏览器, 使用`slice`

@@ -1,6 +1,6 @@
 # 框架吐槽
 
-在这里记录下前端圈的繁荣景象吧...
+在这里记录下前端圈的繁(hun)荣(luan)景象吧...
 
 ## [infernojs](https://github.com/infernojs/inferno)
 
