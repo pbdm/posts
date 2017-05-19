@@ -19,6 +19,7 @@
 ## TODO
 
 - [X] change marked to markdown-it
+- [ ] [hakimel/reveal.js](https://github.com/hakimel/reveal.js/)
 - [ ] event listener for toc
 - [ ] queryString(select button) for hide nav bar
 - [ ] add [remark](https://github.com/gnab/remark) toggle function
