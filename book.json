@@ -6,16 +6,17 @@
   "language": "en",
   "plugins": [
     "sequence-diagram-lastest",
-    "editlink",
-    "splitter",
+    "page-toc-button",
     "-sharing",
-    "anchor-navigation-ex",
+    "-fontsettings",
+    "expandable-chapters",
 
-    "expandable-chapters-small",
-
-    "favicon",
-
-    "page-footer-ex",
+    "editlink",
+    "-splitter",
+    "-anchor-navigation",
+    "-expandable-chapters-small",
+    "-favicon",
+    "-page-footer-ex",
 
     "-lunr",
     "-search",
@@ -26,7 +27,7 @@
   "pluginsConfig": {
     "editlink": {
       "base": "https://github.com/pbdm/pbdm.github.com/edit/gitbook/posts",
-      "label": "Edit",
+      "label": "",
       "multilingual": false
     },
     "anchor-navigation-ex": {
