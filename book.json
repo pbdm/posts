@@ -12,6 +12,8 @@
     "-lunr",
     "-search",
     "search-pro"
+
+
   ],
   "pluginsConfig": {
     "editlink": {
