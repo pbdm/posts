@@ -1,3 +1,6 @@
 {
-  "root": "./posts"
+  "root": "./posts",
+  "plugins": [
+    "sequence-diagram-lastest"
+  ]
 }
