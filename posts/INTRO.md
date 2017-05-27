@@ -1,13 +1,3 @@
 # 琥珀草
 
-好记性不如烂笔头
-
-## installation
-
-* add README.md file
-
-* `npm install -g gitbook-summary` [gitbook-summary](https://github.com/imfly/gitbook-summary)
-
-* `book sm` to  Generate `SUMMARY.md`
-
-* clean `SUMMARY.md`
+好记性不如更好的键盘
