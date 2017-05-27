@@ -6,7 +6,6 @@ _book/
 node_modules/
 npm-debug.log
 local.json
-posts/.weiyun
 posts/local
 local.html
 static/
