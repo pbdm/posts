@@ -1,6 +1,34 @@
 {
   "root": "./posts",
   "plugins": [
-    "sequence-diagram-lastest"
-  ]
+    "sequence-diagram-lastest",
+    "editlink",
+    "splitter",
+    "-sharing",
+    "anchor-navigation-ex",
+
+    "page-footer-ex",
+
+    "-lunr",
+    "-search",
+    "search-pro"
+  ],
+  "pluginsConfig": {
+    "editlink": {
+      "base": "https://github.com/pbdm/pbdm.github.com/edit/gitbook/posts",
+      "label": "Edit",
+      "multilingual": false
+    },
+    "anchor-navigation-ex": {
+      "showLevel": false
+    },
+    "page-footer-ex": {
+      "copyright": "pbdm",
+      "update_label": "Last Modified：",
+      "update_format": "YYYY-MM-DD HH:mm:ss"
+    }
+  },
+  "structure": {
+    "readme": "INTRO.md"
+  }
 }
