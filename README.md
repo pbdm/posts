@@ -1,6 +1,6 @@
 # PBDm
 
-## Introduce
+## Introduction
 
 [![npm version](https://badge.fury.io/js/pbdm.cc.svg)](https://www.npmjs.com/package/pbdm.cc)
 [![Dependency Status](https://img.shields.io/david/pbdm/pbdm.github.com.svg?style=flat-square)](https://david-dm.org/pbdm/pbdm.github.com)
@@ -19,6 +19,7 @@
 ## TODO
 
 - [X] change marked to markdown-it
+- [ ] .travis.yml(like hexo)
 - [ ] [hakimel/reveal.js](https://github.com/hakimel/reveal.js/)
 - [ ] event listener for toc
 - [ ] queryString(select button) for hide nav bar
@@ -28,7 +29,6 @@
 - [ ] ~~输出RSS~~
 - [ ] Fix back to top
 - [ ] hot reload for dev
-- [ ] .travis.yml
 - [ ] 支持甘特图 [gant-diagrams](https://knsv.github.io/mermaid/#gant-diagrams)
 - [ ] 使用 [core-decorators](https://github.com/jayphelps/core-decorators.js)(暂缓, decorator还在draft里)
 - [ ] 使用 [spa-github-pages](https://github.com/rafrex/spa-github-pages) 待定, 这东西过于hack, 重定向到404.html会导致http返回码不正确
