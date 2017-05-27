@@ -1,5 +1,6 @@
 _drafts/
 _site/
+_book/
 .DS_Store
 *.swp
 node_modules/
