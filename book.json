@@ -6,10 +6,13 @@
   "language": "en",
   "plugins": [
     "sequence-diagram-lastest",
-    "page-toc-button",
+    "-page-toc-button",
     "-sharing",
-    "-fontsettings",
-    "expandable-chapters",
+    "fontsettings",
+
+    "neo-navigator",
+
+    "-expandable-chapters",
 
     "editlink",
     "-splitter",
@@ -18,10 +21,12 @@
     "-favicon",
     "-page-footer-ex",
 
+    "-prism",
+    "highlight",
+
     "-lunr",
     "-search",
     "search-pro"
-
 
   ],
   "pluginsConfig": {
