@@ -27,7 +27,9 @@
 ## 三端统一
 
 * [react-native-web](https://github.com/necolas/react-native-web)
-* [taobaofed/react-web](https://github.com/taobaofed/react-web/tree/master/Libraries)
+
+* [taobaofed/react-web](https://github.com/taobaofed/react-web)
+  * [HasteResolverPlugin](https://github.com/yuanyan/haste-resolver-webpack-plugin)在 webpack2 暂时跑不起来
 
 ## Performance
 
