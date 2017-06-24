@@ -16,6 +16,14 @@
 
 * [querystring function from nodejs](https://nodejs.org/dist/latest-v6.x/docs/api/querystring.html)
 
+## 坑
+
+`Object.keys` 在 转换的时候会优先把 array like 的 key 按顺序往前排
+
+```javascript
+Object.keys({b: 'd', '1.0.0': 'd', 2: '2', 1: 'b', 3: '3'}) === ["1", "2", "3", "b", "1.0.0"]
+```
+
 ## 复制数组
 
 * 从性能角度来说, 对于webkit, 使用`concat`; 其他浏览器, 使用`slice`

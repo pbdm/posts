@@ -2,12 +2,12 @@
 
 ## 坑
 
-2017.4.13: 今天重新尝试RN, 于是下午兴高采烈的从 [Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) 玩起，可是发现在照着每一步做了之后， 起来的 app 一直 crash, 参见 [so](http://stackoverflow.com/questions/42610070/what-means-of-no-bundle-url-present-in-react-native),
+2017.4.13: 今天重新尝试 RN, 于是下午兴高采烈的从 [Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) 玩起，可是发现在照着每一步做了之后， 起来的 app 一直 crash, 参见 [so](http://stackoverflow.com/questions/42610070/what-means-of-no-bundle-url-present-in-react-native),
 查了3个小时， 发现是因为默认 terminal 启动的时候启动了tmux, 导致 packager server 没有启动。。。
 
 ## debug方法
 
-### facebook/react-devtools for inspect elements
+* facebook/react-devtools for inspect elements
 
 > [[React Native] Devtools can't find React within the Web Worker (help wanted) #229](https://github.com/facebook/react-devtools/issues/229#issuecomment-280081973)
 
@@ -20,14 +20,11 @@
 * React Native bridge is asynchronous
 * Linking Libraries
 
-### Podfile
-
-`gem install cocoapods`
+* Podfile: `gem install cocoapods`
 
 ## 三端统一
 
 * [react-native-web](https://github.com/necolas/react-native-web)
-
 * [taobaofed/react-web](https://github.com/taobaofed/react-web)
   * [HasteResolverPlugin](https://github.com/yuanyan/haste-resolver-webpack-plugin)在 webpack2 暂时跑不起来
 
@@ -36,12 +33,14 @@
 * List performance
 * LayoutAnimation?
 * setNativeProps: directly modify dom(只有rn默认提供的组件有这个方法) , 尽量少用
-* InteractionManager(将比较耗时的异步操作放在这里面)
-* animation不需要setState,直接使用内置api就好
+* [InteractionManager](http://facebook.github.io/react-native/releases/0.43/docs/interactionmanager.html)
+  * allows long-running work to be scheduled after any interactions/animations have completed
+  * 将比较耗时的异步操作放在这里面
+* animation 不需要 setState, 直接使用内置 [api](http://facebook.github.io/react-native/releases/0.43/docs/animations.html) 就好
 
-## Components
+## Components and APIs
 
-### base
+### base components
 
 * Text(span)
 * View(div)
@@ -51,22 +50,16 @@
 
 * 可配合 RefreshControl 使用
 * VirtualizedList
-* FlatLIst: 简单的无限加载list
+* FlatList: 简单的无限加载list
 * SectionList: (FlatList with section(分组))
-
-#### ListView(li, ul)
-
-* 基于ScrollView
-* 所有数据并不一次立即渲染， 但是滚动过程中也不会删除
-
-#### ScrollView
-
-* 最烂的，适合简单的少量的元素
-
-#### react-native-sglistview(3rd)
-
-* 上下滚动的时候清空不在区域内的cell, 但是保留了cell的根元素
-* 实现嵌套关系：SGListView -> ListView -> ScrollView -> View
+* ListView(li, ul)
+  * 基于ScrollView
+  * 所有数据并不一次立即渲染， 但是滚动过程中也不会删除
+* ScrollView
+  * 最烂的，适合简单的少量的元素
+* react-native-sglistview(3rd part)
+  * 上下滚动的时候清空不在区域内的cell, 但是保留了cell的根元素
+  * 实现嵌套关系：SGListView -> ListView -> ScrollView -> View
 
 ### Navigation
 
@@ -89,26 +82,42 @@
 * TabBarIOS
 * ToolbarAndroid
 
-### wrapper
+### Gesture Responder System
 
-* TouchableNativeFeedback
-* TouchableHighlight
-* TouchableOpacity
-* TouchableWithoutFeedback
+* wrappers
+  * TouchableNativeFeedback (android only)
+  * TouchableHighlight
 
-## APIs
+  * TouchableOpacity
+  * TouchableWithoutFeedback
+* Responder Lifecycle
+  * ask the view if it wants to become responder
+    * onStartShouldSetResponder
+    * onMoveShouldSetResponder
+  * handlers can be called if the View returns true and attempts to become the responder
+    * onResponderGrant
+    * onResponderReject
+  * handlers can be called if the view is responding
+    * onResponderMove
+    * onResponderRelease
+    * onResponderTerminate
+    * onResponderTerminationRequest
+  * prevent the child from becoming responder
+    * onStartShouldSetResponderCapture
+    * onMoveShouldSetResponderCapture
+* [PanResopnder](http://facebook.github.io/react-native/releases/0.43/docs/panresponder.html): 更抽象的一个封装, 基于 `InteractionManager`
+  * Simply replace the word Responder with PanResponder in each of the typical onResponder* callbacks
 
-### bases
+> [docs](http://facebook.github.io/react-native/releases/0.43/docs/gesture-responder-system.html)
+>
+> [“指尖上的魔法” -- 谈谈React-Native中的手势 by jabez128](https://github.com/jabez128/jabez128.github.io/issues/1)
+
+### bases APIS
 
 * AppRegistry
 * Linking
 * StyleSheet
 * Systrace: for debug
-
-### gesture responder system
-
-* PanResopnder: 更抽象的一个封装
-* [Platform module](http://facebook.github.io/react-native/releases/0.43/docs/platform-specific-code.html#platform-module)
 
 ### 弹框与交互
 
@@ -136,6 +145,7 @@
 * PermissionsAndroid
 * Settings
 * AsyncStorage
+* [Platform module](http://facebook.github.io/react-native/releases/0.43/docs/platform-specific-code.html#platform-module)
 
 ### image
 
@@ -157,8 +167,24 @@
 
 ## other third part components
 
-* react-native-elements
+* [react-native-elements](https://github.com/react-native-training/react-native-elements)
 * react-native-vector-icons
 * react-native-smart-pull-to-refresh-listview
 * react-native-tableview
-* [lottie-react-native](https://github.com/airbnb/lottie-react-native)
+* [lottie-react-native](https://github.com/airbnb/lottie-react-native): 动画库
+
+## Source Code Structure
+
+* Libraries: 基本 js 层的实现
+  * Components 组件实现
+  * Utilities some apis
+* ReactAndroid: Android 部分
+* ReactCommon: C++ 层的实现
+* local-cli: clis
+
+* RNTester: showcases
+
+### metro-bundler
+
+The JavaScript bundler for React Native.
+> [github](https://github.com/facebook/metro-bundler)
