@@ -2,13 +2,11 @@
 
 * [Links](wiki/2014-05-14-Links.md)
 * [坑](wiki/2015-03-08-坑.md)
+* [小技巧](2017-06-29-tips.md)
 
 * [Frontend](wiki/2014-05-14-Front End.md)
   * [Javascript](wiki/2014-05-14-Javascript.md)
     * [内存管理](blog/2017-02-21-Javascript内存管理.md)
-  * [React](wiki/2017-05-27-React.md)
-    * [Redux](blog/2016-03-23-redux.md)
-    * react-router
   * angular
     * ionic
 
@@ -36,7 +34,10 @@
   * [babel](2017-05-30-babel.md)
   * gulp
 
-* [React Native](2017-04-13-React Native.md)
+* [React](wiki/2017-05-27-React.md)
+  * [React Native](2017-04-13-React Native.md)
+  * [Redux](blog/2016-03-23-redux.md)
+  * react-router
 
 * [Native](2017-05-11-native.md)
 

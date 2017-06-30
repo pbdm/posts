@@ -70,7 +70,7 @@ DOM node 想要被内存回收, 必须同时满足以下的条件:
 * dom数过多导致内存消耗过大
 * 并发数过多
 
-<iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:100%; height:320px;" src="https://www.processon.com/embed/mind/582ea284e4b0645c0ebc0cb8"></iframe
+> [processon.com](https://www.processon.com/embed/mind/582ea284e4b0645c0ebc0cb8)
 
 ### Garbage collection measurement
 

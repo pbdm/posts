@@ -11,6 +11,23 @@
 
 > [[React Native] Devtools can't find React within the Web Worker (help wanted) #229](https://github.com/facebook/react-devtools/issues/229#issuecomment-280081973)
 
+## haste module system
+
+> aka: @providesModule, a facebookism
+>
+> [Instruction in React contributing document](https://facebook.github.io/react/contributing/codebase-overview.html#custom-module-system)
+
+react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-haste/blob/master/src/index.js)(Archived) 改成了，[haste-resolver](https://github.com/yuanyan/haste-resolver/tree/master/src)
+并包在了[haste-resolver-webpack-plugin](https://github.com/yuanyan/haste-resolver-webpack-plugin)中
+
+貌似已经去中心化， 在各个使用它的项目中单独实现了, 但是 React [will Get rid of providesModule](https://github.com/facebook/react/issues/6336)
+
+> [node-haste in metro-bundler](https://github.com/facebook/metro-bundler/tree/master/packages/metro-bundler/src/node-haste)
+>
+> [jest-haste-map](https://github.com/facebook/jest/tree/master/packages/jest-haste-map)
+>
+> [flegall/haste-map-webpack-resolver](https://github.com/flegall/haste-map-webpack-resolver)
+
 ## Native
 
 * `JavaScriptCore`是webkit的一个重要组成部分，主要是对JS进行解析和提供执行环境
@@ -160,7 +177,7 @@
 * Vibration
 * Clipboard
 * Keyboard
-* requireNativeComponent: 引入native组件的方法
+* [requireNativeComponent](https://github.com/facebook/react-native/blob/v0.41.0/Libraries/ReactNative/requireNativeComponent.js): 引入native组件的方法
 * NativeMethodsMixin
 * PushNotificationIOS
 * BackAndroid: 监听安卓回退按钮
