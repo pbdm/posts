@@ -23,8 +23,10 @@
     * CSRF
   * [http](2017-05-26-http.md)
   * event loop
-  * canvas
-    * 模糊处理
+  * [canvas](2017-03-21-canvas.md)
+  * [unit test](2017-06-02-unit test.md)
+  * [Rxjs](2017-06-28-rxjs.md)
+  * [PWA](2017-07-06-pwa.md)
   * [繁(hun)荣(luan)的前端(框架吐槽)](blog/2017-01-06-frameworks.md)
 
 * building tools
@@ -56,10 +58,11 @@
   * [2015-04-07-自定义Mac全局快捷键](blog/2015-04-07-自定义Mac全局快捷键.md)
   * [Editor](wiki/2015-12-14-Editor.md)
 
-* ElasticSearch
-  * elasticsearch.js
+* [ElasticSearch](2017-04-20-elasticsearch.md)
+
 * [地址定位](wiki/2016-02-26-地址定位.md)
 
 * Shares
   * [2015-05-07-近期关于React的一些东西](blog/2015-05-07-近期关于React的一些东西.md)
   * [2017-02-10-前端踩坑总结](blog/2017-02-10-前端踩坑总结.md)
+  * [2017-06-30-Web标准梳理与Components](2017-06-30-Web标准梳理与Components.md)
