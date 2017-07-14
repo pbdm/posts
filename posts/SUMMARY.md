@@ -41,6 +41,8 @@
   * [Redux](blog/2016-03-23-redux.md)
   * react-router
 
+* [Electron](2017-07-13-electron.md)
+
 * [Native](2017-05-11-native.md)
 
 * Backend

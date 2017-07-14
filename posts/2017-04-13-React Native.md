@@ -182,6 +182,12 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 * PushNotificationIOS
 * BackAndroid: 监听安卓回退按钮
 
+### Other libs not mention in doc
+
+* [ART](https://github.com/facebook/react-native/tree/master/Libraries/ART)：绘制矢量图形, 但和 svg 的用法不一样, 所以需要用[react-native-svg](https://github.com/react-native-community/react-native-svg)在外面包一下
+* DeviceEventEmitter
+* UIManager
+
 ## other third part components
 
 * [react-native-elements](https://github.com/react-native-training/react-native-elements)
@@ -192,16 +198,69 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 
 ## Source Code Structure
 
-* Libraries: 基本 js 层的实现
-  * Components 组件实现
+* Libaries: 基本 和 ios 的实现
+  * Components js 层组件实现
   * Utilities some apis
+  * Experimental
+    * SwipeableListView
 * ReactAndroid: Android 部分
 * ReactCommon: C++ 层的实现
 * local-cli: clis
+* scripts
+  * react-native-xcode.sh RNTester/js/RNTesterApp.ios.js, and config xip.io if needed
+* RNTester
+  * use `http://xip.io/` for device debug
 
 * RNTester: showcases
 
-### metro-bundler
+## Yoga
+
+Facebook 的跨平台 CSS 布局系统， c/c++ 实现
+
+## cli
+
+* `bundle`: 默认打包
+* `unbundle`: android unbundle means create separated files. ios unbundle means create a big file contains mapping table and codes. It is slow for iOS to load multiple small files
+
+> [UNBUNDLING REACT NATIVE UNBUNDLE by Eric Rozell](https://ericroz.wordpress.com/2017/02/24/unbundling-react-native-unbundle/)
+
+## metro-bundler
 
 The JavaScript bundler for React Native.
 > [github](https://github.com/facebook/metro-bundler)
+
+从 `node local-cli/cli.js bundle --entry-file RNTester/js/RNTesterApp.ios.js --bundle-output test.js` 开始打包
+
+- local-cli/cli.js (确认 node 版本， 设置 babel,)
+  - local-cli/cliEntry.js
+    - local-cli/bundle/bundle.js
+      - local-cli/bundle/buildBindle.js
+
+从下面开始进入 metro-bundler 了
+
+- packagerInstance = new Server(options) , Server 有 buildBundle 函数， 将在下面的 buildBundle 函数那运行
+- outputBundle.build = require('metro-bundler/build/shared/output/bundle').buildBundle; // 这里面应该就是打包的逻辑了
+
+命令行里的 config 放在了 `local-cli/core` 和 `local-cli/util/Config.js`
+bundle 的参数放在了 `local-cli/bundle/bundleCommandLineArgs.js`
+
+`local-cli/bundle/output` 在 v0.45后被[移到](https://github.com/facebook/react-native/commit/bea7659762a14b3f30562e98fd6931d6eaa7d6bf)了 `metro-bundler/src/shared/output`
+
+打包完成后的 jsbundle 结构:
+
+* 头部
+* `metro-bundler/Resolver/polyfills`
+* __d 开头的 模块们
+* require(188) InitializeCore
+* require(0) 入口模块
+
+![打包完成后的结构](http://techshow.ctrip.com/wp-content/uploads/2016/11/42.png)
+
+### 分包：
+
+* 以Common.js文件为入口打出一个common.android.bundle基础包，并在生成基础包时将打包过程中的ModuleId的关联关系记录到common.json文件中
+* 以业务的index.js文件为入口, 用步骤一生成的common.json为基础过滤common.js中存在的module后生成business.js文件。 并为每个不同的业务分配一个业务模块起始的startId 以此进行业务隔离
+
+> [携程 RN 分包方案](http://techshow.ctrip.com/archives/1459.html)
+>
+> [广发手机证劵App rn 分包](https://zhuanlan.zhihu.com/p/27422107)

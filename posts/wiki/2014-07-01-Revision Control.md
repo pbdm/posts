@@ -5,6 +5,7 @@
 * `git add -i`: 一个好使的add代码到`缓存区(Index)`的工具
 * `git log --name-status` 查看文件修改列表
 * `git log -1` 查看最后一个提交
+* `git log --all --full-history -- <path-to-file>` [查找某个删除的文件 log](https://stackoverflow.com/questions/7203515/git-how-to-search-for-a-deleted-file-in-the-project-commit-history)
 * `git branch -r` Display a list of remote branches
 * `git cherry-pick [commit id]` 将某个commit合并了当前分支
 
