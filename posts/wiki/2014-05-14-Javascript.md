@@ -36,24 +36,6 @@ Object.keys({b: 'd', '1.0.0': 'd', 2: '2', 1: 'b', 3: '3'}) === ["1", "2", "3", 
 
 > [Alon's blog, 通过对比的方式梳理](http://jinlong.github.io/2017/02/04/javascript-array-methods-mutating-vs-non-mutating/#more)
 
-## Promise
-
-### 状态
-
-* Pending (进行中)
-* Resolved (已完成,Fulfilled)
-* Rejected (已失败)
-
-### 状态改变
-
-* Pending -> Resolved
-* Pending -> Rejected
-
-`then(res,rej)`为状态改变时的回调函数, 并返回一个新的Promise实例
-`Promise.prototype.catch`方法是`then(null, rejection)`的别名
-
-> [ruanyifeng](http://es6.ruanyifeng.com/#docs/promise)
-
 ## 删除元素
 
 如需删除 HTML 元素，必须首先获得该元素的父元素
@@ -140,3 +122,37 @@ Types:
 > [taobaofed](http://taobaofed.org/blog/2015/11/16/es7-decorator/)
 >
 > [Decorators in ES7 by 小丁](http://www.liuhaihua.cn/archives/115548.html)
+
+## 数据属性 vs 访问器属性
+
+```javascript
+// 数据属性
+Object.defineProperty(person, 'name', {
+  writable: true, // 是否能更改属性的值
+  configurable: true, //能否通过delete删除属性或者修改属性,能否将属性修改为访问器属性
+  enumerable: true, // 能否通过for in,  Object.keys 循环返回属性
+  value: 'Nicholas' // 默认为undefined
+})
+
+// 访问器属性
+Object.defineProperty(book, 'year', {
+  configurable: true, //能否通过delete删除属性或者修改属性,能否将属性修改为访问器属性
+  enumerable: true, // 能否通过for in, Object.keys 循环返回属性
+  // 在读取属性时调用的函数
+  get: function() {
+    return this._year;
+  },
+  // 在写入属性时调用的函数
+  set: function(newValue) {
+    if (newValue > 2004) {
+      this._year = newValue;
+      this.edition += newValue - 2004;
+    }
+  }
+})
+
+```
+
+## angular
+
+* ionic

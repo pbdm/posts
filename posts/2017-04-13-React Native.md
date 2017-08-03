@@ -188,13 +188,15 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 * DeviceEventEmitter
 * UIManager
 
-## other third part components
+## 第三方组件
 
 * [react-native-elements](https://github.com/react-native-training/react-native-elements)
 * react-native-vector-icons
 * react-native-smart-pull-to-refresh-listview
 * react-native-tableview
 * [lottie-react-native](https://github.com/airbnb/lottie-react-native): 动画库
+
+> [native.directory](https://native.directory/)
 
 ## Source Code Structure
 
@@ -226,8 +228,9 @@ Facebook 的跨平台 CSS 布局系统， c/c++ 实现
 
 ## metro-bundler
 
-The JavaScript bundler for React Native.
-> [github](https://github.com/facebook/metro-bundler)
+[The JavaScript bundler for React Native](https://github.com/facebook/metro-bundler), 这里以 v0.7.4 为标准
+
+* 使用 [lerna](https://github.com/lerna/lerna) 管理发布, 使用 npm run build 的时候只是做了一些 flow 的转换，然后复制到build 目录中, npm publish 的时候没有发布 src 目录是因为 `.npmignore` 里配置了
 
 从 `node local-cli/cli.js bundle --entry-file RNTester/js/RNTesterApp.ios.js --bundle-output test.js` 开始打包
 
@@ -238,7 +241,7 @@ The JavaScript bundler for React Native.
 
 从下面开始进入 metro-bundler 了
 
-- packagerInstance = new Server(options) , Server 有 buildBundle 函数， 将在下面的 buildBundle 函数那运行
+- packagerInstance = new Server(options), Server 有 buildBundle 函数， 将在下面的 buildBundle 函数那运行
 - outputBundle.build = require('metro-bundler/build/shared/output/bundle').buildBundle; // 这里面应该就是打包的逻辑了
 
 命令行里的 config 放在了 `local-cli/core` 和 `local-cli/util/Config.js`

@@ -35,3 +35,7 @@
 * date_histogram
 
 * extended_bounds(防止数据中断)
+
+## 缓存
+
+* [Request Cache](https://www.elastic.co/guide/en/elasticsearch/reference/2.3/shard-request-cache.html)
