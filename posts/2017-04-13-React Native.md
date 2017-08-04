@@ -198,26 +198,33 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 
 > [native.directory](https://native.directory/)
 
-## Source Code Structure
+## Source Code Structure(0.46.4)
 
-* Libaries: 基本 和 ios 的实现
-  * Components js 层组件实现
-  * Utilities some apis
-  * Experimental
-    * SwipeableListView
-* ReactAndroid: Android 部分
-* ReactCommon: C++ 层的实现
-* local-cli: clis
-* scripts
-  * react-native-xcode.sh RNTester/js/RNTesterApp.ios.js, and config xip.io if needed
-* RNTester
-  * use `http://xip.io/` for device debug
+- 进入 npm 发布后的目录
+  * Libaries: 基本 和 ios 的实现
+    * Components js 层组件实现
+    * Utilities some apis
+    * Experimental
+      * SwipeableListView
+  * React: iOS 部分
+  * ReactAndroid: Android 部分
+  * ReactCommon: C/C++ 层的实现
+    * yoga: Facebook 的跨平台 CSS 布局系统， c/c++ 实现
+  * local-cli: cli
+  * scripts
+    * react-native-xcode.sh RNTester/js/RNTesterApp.ios.js, and config xip.io if needed
+  * package.json 里面的8个 test script 是用于 [Dockerfile Tests](https://github.com/facebook/react-native/blob/v0.46.4/DockerTests.md)的
+- 不进入 npm 发布后的目录
+  * RNTester: showcases
+    * use `http://xip.io/` for device debug
+  * circle.yml: 使用 circle 做持续集成
+  * scripts
+    * publish-npm.js: publish RN to npm，运行在 circleCI 下
 
-* RNTester: showcases
+## publish
 
-## Yoga
-
-Facebook 的跨平台 CSS 布局系统， c/c++ 实现
+* ~brew cask install android-sdk~
+* ~brew cask install android-ndk~
 
 ## cli
 

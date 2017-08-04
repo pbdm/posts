@@ -12,15 +12,9 @@
   * [Webp](blog/2016-04-28-webp.md)
   * [CSS](2017-05-30-css.md)
     * [bfc](blog/2016-04-05-bfc.md)
-    * 动画
   * [前端日志收集](blog/2016-08-01-前端日志收集.md)
-  * cookie
   * [事件](2017-05-30-js events.md)
-  * 安全
-    * XSS
-    * CSRF
   * [http](2017-05-26-http.md)
-  * event loop
   * [canvas](2017-03-21-canvas.md)
   * [unit test](2017-06-02-unit test.md)
   * [Rxjs](2017-06-28-rxjs.md)
