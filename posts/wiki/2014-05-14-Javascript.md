@@ -155,6 +155,12 @@ Object.defineProperty(book, 'year', {
 
 ## event loop
 
+## IntersectionObserver
+
+监视某个元素是否滚动进了浏览器窗口的可视区域
+
+[polyfill](https://github.com/WICG/IntersectionObserver/tree/gh-pages/polyfill  )
+
 ## angular
 
 * ionic

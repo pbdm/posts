@@ -149,10 +149,7 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 
 ### animation
 
-* Easing
-* Animated: useNativeDriver
-* LayoutAnimation
-* Shadow Props(for box-shadow)
+详见[动画](2017-08-11-animation.md)
 
 ### infos
 
@@ -198,23 +195,37 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 
 > [native.directory](https://native.directory/)
 
+## 崩溃收集
+
+* packager(metro-bundler)里的的 error-guard.js 定义了 ErrorUtils
+* ErrorUtils.setGlobalHandler(ExceptionsManager.handleException) => Libraries/Core/InitializeCore.js
+* 当错误发生时，会调用 ErrorUtils.reportFatalError(同时红屏)
+  * ExceptionsManager.handleException
+
 ## Source Code Structure(0.46.4)
 
-- 进入 npm 发布后的目录
+- 在 npm 发布后的目录内
   * Libaries: 基本 和 ios 的实现
     * Components js 层组件实现
     * Utilities some apis
     * Experimental
       * SwipeableListView
+    * Core
+      * InitializeCore.js 初始化
+    * ReactNative
+      * YellowBox.js 警告框, overwrited console.warn
   * React: iOS 部分
   * ReactAndroid: Android 部分
   * ReactCommon: C/C++ 层的实现
     * yoga: Facebook 的跨平台 CSS 布局系统， c/c++ 实现
   * local-cli: cli
+    * server
+      * util
+        * debuggerWorker.js 调试工具使用的 service worker, 使用 postMessage 发布 json 通知 native 如何渲染
   * scripts
     * react-native-xcode.sh RNTester/js/RNTesterApp.ios.js, and config xip.io if needed
   * package.json 里面的8个 test script 是用于 [Dockerfile Tests](https://github.com/facebook/react-native/blob/v0.46.4/DockerTests.md)的
-- 不进入 npm 发布后的目录
+- 不在 npm 发布后的目录内
   * RNTester: showcases
     * use `http://xip.io/` for device debug
   * circle.yml: 使用 circle 做持续集成
@@ -261,7 +272,7 @@ bundle 的参数放在了 `local-cli/bundle/bundleCommandLineArgs.js`
 * 头部
 * `metro-bundler/Resolver/polyfills`
 * __d 开头的 模块们
-* require(188) InitializeCore
+* require(188) InitializeCore (Libraries/Core/InitializeCore.js)
 * require(0) 入口模块
 
 ![打包完成后的结构](http://techshow.ctrip.com/wp-content/uploads/2016/11/42.png)

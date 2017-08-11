@@ -5,7 +5,8 @@
   "description": "Personal site of PBDm",
   "language": "en",
   "plugins": [
-    "sequence-diagram-lastest",
+    "-sequence-diagram-lastest",
+    "mermaid-gb3",
     "-page-toc-button",
     "-sharing",
     "fontsettings",
@@ -27,7 +28,6 @@
     "-lunr",
     "-search",
     "search-pro"
-
   ],
   "pluginsConfig": {
     "editlink": {
