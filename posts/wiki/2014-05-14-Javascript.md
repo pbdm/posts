@@ -18,15 +18,9 @@
 
 * [querystring function from nodejs](https://nodejs.org/dist/latest-v6.x/docs/api/querystring.html)
 
-## 坑
+## 数组操作
 
-`Object.keys` 在 转换的时候会优先把 array like 的 key 按顺序往前排
-
-```javascript
-Object.keys({b: 'd', '1.0.0': 'd', 2: '2', 1: 'b', 3: '3'}) === ["1", "2", "3", "b", "1.0.0"]
-```
-
-## 复制数组
+### 复制数组
 
 * 从性能角度来说, 对于webkit, 使用`concat`; 其他浏览器, 使用`slice`
 * var.slice(0)
@@ -63,7 +57,7 @@ Object.keys({b: 'd', '1.0.0': 'd', 2: '2', 1: 'b', 3: '3'}) === ["1", "2", "3", 
 内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。
 > [mozilla.org](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Closures)
 
-## new操作符
+## new 操作符
 
 当代码 new foo(...) 执行时：
 
@@ -164,3 +158,20 @@ Object.defineProperty(book, 'year', {
 ## angular
 
 * ionic
+
+## 文件和二进制的操作
+
+* Blob: (Binary Large Object)
+* `new Blob(实际数据的数组, 数据类型)`
+* File 继承自 Blob, 扩展了更多的对象的属性
+
+> [MDN-Blob](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob)
+> [MDN-FIle](https://developer.mozilla.org/zh-CN/docs/Web/API/File)
+> [文件和二进制的操作 by ruanyifeng](http://javascript.ruanyifeng.com/htmlapi/file.html)
+
+## 表单提交
+
+* FormData: 组装发送请求的键值对
+  * 增加一个字段： `formData.append('file', blob, 'text.txt')`
+
+> [MDN-FormData](https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/Using_FormData_Objects)
