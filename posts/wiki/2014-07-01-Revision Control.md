@@ -8,6 +8,8 @@
 * `git log --all --full-history -- <path-to-file>` [查找某个删除的文件 log](https://stackoverflow.com/questions/7203515/git-how-to-search-for-a-deleted-file-in-the-project-commit-history)
 * `git branch -r` Display a list of remote branches
 * `git cherry-pick [commit id]` 将某个commit合并了当前分支
+* `git commit --amend --author="Author Name <email@address.com>"` 修改提交人
+* `git push origin --delete <branchName>` 删除远程分支
 
 ### 打补丁
 
