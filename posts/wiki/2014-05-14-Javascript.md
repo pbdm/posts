@@ -67,12 +67,6 @@
 
 > [mozilla.org](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new)
 
-## markdown to graph parsers by javascript
-
-* [flowchart.js](flowchart.js.org)
-* [Authentication Sequence](https://www.websequencediagrams.com)
-* [js-sequence-diagrams by bramp](https://bramp.github.io/js-sequence-diagrams/)
-
 ## 利用图片上报打点数据
 
 把 img 变量用闭包封闭起来，便能解决请求丢失的问题
@@ -149,11 +143,33 @@ Object.defineProperty(book, 'year', {
 
 ## event loop
 
+* Tasks(setTimeout) execute in order, and the browser may render between them
+  * 一轮 event loop 里只会运行一个 task
+* Microtasks(Promise, MutationObserver)(见缝插针，尽可能早) execute in order
+  * executed
+    * after every callback, as long as no other JavaScript is mid-execution
+    * at the end of each task
+  * 一轮 eventloop 中有可能执行多次 microtask
+  * 使用 Microtasks 可以保证方法在当轮的 event loop 里执行,
+
+* 如果当前有 script 在运行，也就是说当前 task 里有东西了，如果有新的 `setTimeout`那就只能排到下一个 task 里去了，所以同一段代码他会在 `Promise` 后执行
+
+![event loop](https://camo.githubusercontent.com/f2c584a16145e49bd4783cc925a786b63f8520d6/68747470733a2f2f7777772e343034666f726573742e636f6d2f696d67732f626c6f672f6576656e746c6f6f702d312e706e67)
+> [从event loop规范探究javaScript异步及浏览器更新渲染时机 by aooy](https://github.com/aooy/blog/issues/5)
+>
+> [Tasks, microtasks, queues and schedules by Jake](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
+>
+> [html.spec.whatwg.org](https://html.spec.whatwg.org/multipage/webappapis.html#task-queue)
+
 ## IntersectionObserver
 
 监视某个元素是否滚动进了浏览器窗口的可视区域
 
-[polyfill](https://github.com/WICG/IntersectionObserver/tree/gh-pages/polyfill  )
+[polyfill](https://github.com/WICG/IntersectionObserver/tree/gh-pages/polyfill)
+
+## MutationObserver
+
+监视 DOM 树的变化
 
 ## angular
 

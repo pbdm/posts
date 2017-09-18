@@ -44,6 +44,7 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 * [react-native-web](https://github.com/necolas/react-native-web)
 * [taobaofed/react-web](https://github.com/taobaofed/react-web)
   * [HasteResolverPlugin](https://github.com/yuanyan/haste-resolver-webpack-plugin)在 webpack2 暂时跑不起来
+* [lelandrichardson/react-primitives](https://github.com/lelandrichardson/react-primitives)
 
 ## Performance
 
@@ -80,10 +81,15 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 
 ### Navigation
 
-* Navigator
+* [react-navigation](https://github.com/react-community/react-navigation)
+  * StackNavigator
+  * TabNavigator
+  * DrawerNavigator
+* [aksonov/react-native-router-flux](https://github.com/aksonov/react-native-router-flux)(大家 api 变得都好快，所以这哥们自己写了一个统一的？！)
+* [react-native-navigation](https://github.com/wix/react-native-navigation)(use native)
+* [airbnb/native-navigation](https://github.com/airbnb/native-navigation)(use native)
 * NavigatorIOS(use native)
-* react-native-navigation(use native)
-* react-navigation(use native)
+* ~~Navigator~~(deprecated in 0.44)
 
 ### 小控件
 
@@ -182,6 +188,7 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 ### Other libs not mention in doc
 
 * [ART](https://github.com/facebook/react-native/tree/master/Libraries/ART)：绘制矢量图形, 但和 svg 的用法不一样, 所以需要用[react-native-svg](https://github.com/react-native-community/react-native-svg)在外面包一下
+  * react js 实现：[react-art](https://github.com/facebook/react/tree/master/packages/react-art)
 * DeviceEventEmitter
 * UIManager
 

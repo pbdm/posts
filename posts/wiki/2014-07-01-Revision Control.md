@@ -10,6 +10,8 @@
 * `git cherry-pick [commit id]` 将某个commit合并了当前分支
 * `git commit --amend --author="Author Name <email@address.com>"` 修改提交人
 * `git push origin --delete <branchName>` 删除远程分支
+* `git clone http://www.exemple.w --depth=1` 只获取最后提交的 clone
+  * `git pull --unshallow` 拿回所有的提交
 
 ### 打补丁
 
