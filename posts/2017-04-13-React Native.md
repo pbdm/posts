@@ -2,8 +2,11 @@
 
 ## 坑
 
-2017.4.13: 今天重新尝试 RN, 于是下午兴高采烈的从 [Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) 玩起，可是发现在照着每一步做了之后， 起来的 app 一直 crash, 参见 [so](http://stackoverflow.com/questions/42610070/what-means-of-no-bundle-url-present-in-react-native),
-查了3个小时， 发现是因为默认 terminal 启动的时候启动了tmux, 导致 packager server 没有启动。。。
+* 2017.4.13: 今天重新尝试 RN, 于是下午兴高采烈的从 [Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) 玩起，可是发现在照着每一步做了之后， 起来的 app 一直 crash, 参见 [so](http://stackoverflow.com/questions/42610070/what-means-of-no-bundle-url-present-in-react-native), 查了3个小时， 发现是因为默认 terminal 启动的时候启动了tmux, 导致 packager server 没有启动。。。
+
+* 为什么 react native 仍然有很多组件使用的 createClass 的写法， 造成子组件中无法继承方法(只有使用 array function 来继承才可以) [so](https://stackoverflow.com/questions/35909476/how-to-extend-react-component-class-created-via-react-createclass)
+  > [autobinding](https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding)
+  > [babel](https://babeljs.io/docs/plugins/transform-class-properties/)1
 
 ## debug方法
 
@@ -42,6 +45,8 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 ## 三端统一
 
 * [react-native-web](https://github.com/necolas/react-native-web)
+  * use dom.sheet for `id="react-native-stylesheet"`
+  * responser based on `modules/injectResponderEventPlugin` -> `react-dom/lib/ResponderEventPlugin`
 * [taobaofed/react-web](https://github.com/taobaofed/react-web)
   * [HasteResolverPlugin](https://github.com/yuanyan/haste-resolver-webpack-plugin)在 webpack2 暂时跑不起来
 * [lelandrichardson/react-primitives](https://github.com/lelandrichardson/react-primitives)
@@ -85,7 +90,7 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
   * StackNavigator
   * TabNavigator
   * DrawerNavigator
-* [aksonov/react-native-router-flux](https://github.com/aksonov/react-native-router-flux)(大家 api 变得都好快，所以这哥们自己写了一个统一的？！)
+* [aksonov/react-native-router-flux](https://github.com/aksonov/react-native-router-flux)(默认的增强版，大家 api 变得都好快，所以这哥们自己写了一个统一的？！)
 * [react-native-navigation](https://github.com/wix/react-native-navigation)(use native)
 * [airbnb/native-navigation](https://github.com/airbnb/native-navigation)(use native)
 * NavigatorIOS(use native)
@@ -107,32 +112,37 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 
 ### Gesture Responder System
 
-* wrappers
-  * TouchableNativeFeedback (android only)
-  * TouchableHighlight
+* **一个 React Native 应用中只能存在一个responder**
 
-  * TouchableOpacity
+* wrappers(可以理解为 绑定了反馈事件的 view)
+  * TouchableNativeFeedback (android only)
+
   * TouchableWithoutFeedback
-* Responder Lifecycle
-  * ask the view if it wants to become responder
+    * TouchableHighlight (触摸点击高亮效果)
+    * TouchableOpacity (透明度变化)
+
+* [Responder Lifecycle](http://facebook.github.io/react-native/releases/0.43/docs/gesture-responder-system.html#responder-lifecycle)
+  * ask the view if it wants to become responder, 如果返回 true, 则表示这个 view 可以被手势激活
     * onStartShouldSetResponder
     * onMoveShouldSetResponder
   * handlers can be called if the View returns true and attempts to become the responder
-    * onResponderGrant
-    * onResponderReject
+    * onResponderGrant: 组件被激活后调用
+    * onResponderReject: 其他的组件是当前的 responsner 且不能被 release, 从而导致当前组件不能被激活
   * handlers can be called if the view is responding
     * onResponderMove
     * onResponderRelease
-    * onResponderTerminate
-    * onResponderTerminationRequest
-  * prevent the child from becoming responder
+    * onResponderTerminationRequest: Something else wants to become responder(返回值代表了当前的 view 是不是 “好说话” 的)
+    * onResponderTerminate: The responder has been taken from the View
+  * prevent the child from becoming responder (与冒泡过程类似)
     * onStartShouldSetResponderCapture
     * onMoveShouldSetResponderCapture
+
+一个正常的手势操作流程:
+  onResponderGrant -> onResponderMove -> onResponderRelease
+
 * [PanResopnder](http://facebook.github.io/react-native/releases/0.43/docs/panresponder.html): 更抽象的一个封装, 基于 `InteractionManager`
   * Simply replace the word Responder with PanResponder in each of the typical onResponder* callbacks
 
-> [docs](http://facebook.github.io/react-native/releases/0.43/docs/gesture-responder-system.html)
->
 > [“指尖上的魔法” -- 谈谈React-Native中的手势 by jabez128](https://github.com/jabez128/jabez128.github.io/issues/1)
 
 ### bases APIS
@@ -180,6 +190,7 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 * Vibration
 * Clipboard
 * Keyboard
+  * `dismiss()` Dismisses the active keyboard and removes focus.
 * [requireNativeComponent](https://github.com/facebook/react-native/blob/v0.41.0/Libraries/ReactNative/requireNativeComponent.js): 引入native组件的方法
 * NativeMethodsMixin
 * PushNotificationIOS
@@ -224,7 +235,7 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
   * React: iOS 部分
   * ReactAndroid: Android 部分
   * ReactCommon: C/C++ 层的实现
-    * yoga: Facebook 的跨平台 CSS 布局系统， c/c++ 实现
+    * yoga: Facebook 的跨平台 CSS 布局系统， c/c++ 实现, 已从 RN 独立出来
   * local-cli: cli
     * server
       * util
@@ -283,6 +294,11 @@ bundle 的参数放在了 `local-cli/bundle/bundleCommandLineArgs.js`
 * require(0) 入口模块
 
 ![打包完成后的结构](http://techshow.ctrip.com/wp-content/uploads/2016/11/42.png)
+
+### haul
+
+* 一个替代 metro-bundle 的解决方案，基于 webpack
+> [haul](https://github.com/callstack-io/haul)
 
 ### 分包：
 
