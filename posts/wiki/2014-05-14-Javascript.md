@@ -18,6 +18,19 @@
 
 * [querystring function from nodejs](https://nodejs.org/dist/latest-v6.x/docs/api/querystring.html)
 
+## Javascript engine
+
+* V8 — open source, developed by Google, written in C++, used in Chrome and nodejs
+  * JIT
+> [How JavaScript works in v8 by Alexander Zlatkov](https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e)
+* JavaScriptCore — open source, marketed as Nitro and developed by Apple for Safari
+* Chakra - `JScript9` for Internet Explorer and `JavaScript` for Microsoft Edge
+* SpiderMonkey — the first JavaScript engine, which back in the days powered Netscape Navigator, and today powers Firefox
+* Rhino — managed by the Mozilla Foundation, open source, developed entirely in Java
+* KJS — KDE’s engine originally developed by Harri Porten for the KDE project’s Konqueror web browser
+* Nashorn - open source as part of OpenJDK, written by Oracle Java Languages and Tool Group
+* JerryScript — is a lightweight engine for the Internet of Things
+
 ## 数组操作
 
 ### 复制数组
@@ -177,17 +190,32 @@ Object.defineProperty(book, 'year', {
 
 ## 文件和二进制的操作
 
-* Blob: (Binary Large Object)
-* `new Blob(实际数据的数组, 数据类型)`
-* File 继承自 Blob, 扩展了更多的对象的属性
-
-> [MDN-Blob](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob)
-> [MDN-FIle](https://developer.mozilla.org/zh-CN/docs/Web/API/File)
-> [文件和二进制的操作 by ruanyifeng](http://javascript.ruanyifeng.com/htmlapi/file.html)
-
-## 表单提交
-
-* FormData: 组装发送请求的键值对
+* [Blob](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob): (Binary Large Object): `new Blob(实际数据的数组, 数据类型)`
+* [File](https://developer.mozilla.org/zh-CN/docs/Web/API/File) 继承自 Blob, 扩展了更多的对象的属性
+  * [Creating a Blob from a base64 string in JavaScript](https://www.npmjs.com/package/b64-to-blob)
+    > [so](https://stackoverflow.com/questions/16245767/creating-a-blob-from-a-base64-string-in-javascript)
+  * [image (blob, dataURL, canvas)转换](https://chiayilai.com/image-%E5%90%84%E7%A8%AE%E5%9E%8B%E6%85%8B%E8%BD%89%E6%8F%9Bblob-dataurl-canvas-in-javascript/)
+* URL 用于生成指向File对象或Blob对象的URL
+  * 利用URL对象，在网页插入图片: `img.src = window.URL.createObjectURL(files[i])`
+* FileReader 用来读取 Blob 和 File 内的内容, 为异步操作
+  * `readAsDataURL()` 返回一个基于Base64编码的data-uri对象
+  * `readAsText` 返回文本字符串
+* FileList
+  * 因为安全原因, input 框里的 FileList 不能用 js 改变
+* [FormData](https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/Using_FormData_Objects): 组装发送`XMLHttpRequest`请求的键值对
   * 增加一个字段： `formData.append('file', blob, 'text.txt')`
 
-> [MDN-FormData](https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/Using_FormData_Objects)
+> [文件和二进制的操作 by ruanyifeng](http://javascript.ruanyifeng.com/htmlapi/file.html)
+>
+> [Using files from web applications](https://developer.mozilla.org/en-US/docs/Using_files_from_web_applications)
+
+## Fetch
+
+* [Response](https://developer.mozilla.org/zh-CN/docs/Web/API/Response)
+* [Abortable fetch](https://developers.google.com/web/updates/2017/09/abortable-fetch?utm_source=feed&utm_medium=feed&utm_campaign=updates_feed)
+
+## Jsbridge
+
+* schema
+  * 使用 iframe 避免重复点击后前面的 location.href 不生效
+* 直接注入全局变量

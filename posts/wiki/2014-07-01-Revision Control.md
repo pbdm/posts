@@ -12,6 +12,7 @@
 * `git push origin --delete <branchName>` 删除远程分支
 * `git clone http://www.exemple.w --depth=1` 只获取最后提交的 clone
   * `git pull --unshallow` 拿回所有的提交
+* [修改提交作者和邮箱](http://i.dotidea.cn/2015/04/git-amend-author/)
 
 ### 打补丁
 

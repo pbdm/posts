@@ -47,6 +47,7 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 * [react-native-web](https://github.com/necolas/react-native-web)
   * use dom.sheet for `id="react-native-stylesheet"`
   * responser based on `modules/injectResponderEventPlugin` -> `react-dom/lib/ResponderEventPlugin`
+  * [re-start](https://github.com/react-everywhere/re-start)
 * [taobaofed/react-web](https://github.com/taobaofed/react-web)
   * [HasteResolverPlugin](https://github.com/yuanyan/haste-resolver-webpack-plugin)在 webpack2 暂时跑不起来
 * [lelandrichardson/react-primitives](https://github.com/lelandrichardson/react-primitives)
@@ -235,7 +236,7 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
   * React: iOS 部分
   * ReactAndroid: Android 部分
   * ReactCommon: C/C++ 层的实现
-    * yoga: Facebook 的跨平台 CSS 布局系统， c/c++ 实现, 已从 RN 独立出来
+    * yoga: Facebook 的横跨多平台的 Flex 布局引擎， c/c++ 实现, 已从 RN 独立出来
   * local-cli: cli
     * server
       * util
