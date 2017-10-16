@@ -204,6 +204,7 @@ Object.defineProperty(book, 'year', {
   * 因为安全原因, input 框里的 FileList 不能用 js 改变
 * [FormData](https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/Using_FormData_Objects): 组装发送`XMLHttpRequest`请求的键值对
   * 增加一个字段： `formData.append('file', blob, 'text.txt')`
+* [Javascript: Uploading a file… without a file](https://stackoverflow.com/a/22858914/2307918)
 
 > [文件和二进制的操作 by ruanyifeng](http://javascript.ruanyifeng.com/htmlapi/file.html)
 >
@@ -219,3 +220,13 @@ Object.defineProperty(book, 'year', {
 * schema
   * 使用 iframe 避免重复点击后前面的 location.href 不生效
 * 直接注入全局变量
+
+## JSPacker
+
+> [by dean.edwars](http://dean.edwards.name/packer/)
+>
+> [js 不可读化处理](https://www.zhihu.com/question/28468459)
+
+## IIFE
+
+[immediately-invoked-function-expression](http://benalman.com/news/2010/11/immediately-invoked-function-expression/#iife)

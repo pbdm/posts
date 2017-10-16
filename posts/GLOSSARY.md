@@ -15,3 +15,8 @@ Just-In-Time complier
 ## Hydrating
 
 Hydrating a view means that it attaches any event handlers to the rendered DOM elements but keeps the rendered DOM elements intact
+
+## scheme vs schema
+
+* scheme: URL scheme
+* schema: 模式, 概要, 图解, 与 scheme 比更接近图表
