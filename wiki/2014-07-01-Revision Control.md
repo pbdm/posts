@@ -6,6 +6,7 @@
 * `git log --name-status` 查看文件修改列表
 * `git log -1` 查看最后一个提交
 * `git log --all --full-history -- <path-to-file>` [查找某个删除的文件 log](https://stackoverflow.com/questions/7203515/git-how-to-search-for-a-deleted-file-in-the-project-commit-history)
+* `git log --follow` 追踪移动过的文件的 log
 * `git branch -r` Display a list of remote branches
 * `git cherry-pick [commit id]` 将某个commit合并了当前分支
 * `git commit --amend --author="Author Name <email@address.com>"` 修改提交人
@@ -13,6 +14,7 @@
 * `git clone http://www.exemple.w --depth=1` 只获取最后提交的 clone
   * `git pull --unshallow` 拿回所有的提交
 * [修改提交作者和邮箱](http://i.dotidea.cn/2015/04/git-amend-author/)
+* ``
 
 ### 打补丁
 
