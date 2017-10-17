@@ -1,6 +1,6 @@
 # 琥珀草
 
-* [Links](/wiki/2014-05-14-Links.md)
+* [Links](wiki/2014-05-14-Links.md)
 * [坑](wiki/2015-03-08-坑.md)
 * [小技巧](2017-06-29-tips.md)
 

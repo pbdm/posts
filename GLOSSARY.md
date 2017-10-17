@@ -20,3 +20,7 @@ Hydrating a view means that it attaches any event handlers to the rendered DOM e
 
 * scheme: URL scheme
 * schema: 模式, 概要, 图解, 与 scheme 比更接近图表
+
+## TLDS
+
+[Top-Level Domains](https://www.icann.org/resources/pages/tlds-2012-02-25-en)
