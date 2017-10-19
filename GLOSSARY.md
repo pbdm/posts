@@ -24,3 +24,7 @@ Hydrating a view means that it attaches any event handlers to the rendered DOM e
 ## TLDS
 
 [Top-Level Domains](https://www.icann.org/resources/pages/tlds-2012-02-25-en)
+
+## TLTR;, TL;DR
+
+Too Long To Read, Too long; didn't read or Too long; Don't read

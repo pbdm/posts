@@ -2,7 +2,7 @@
 
 * `<script>` tag
 * [ES2015 modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) (`import`, `export`)
-* [CommonJs](http://www.commonjs.org/specs/modules/1.0/): synchronous (`require`, `module.exports`)
+* [CommonJS](http://www.commonjs.org/specs/modules/1.0/): synchronous (`require`, `module.exports`)
 * [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md): asynchronous require(`define`, `require`)
   * [require.js](http://requirejs.org/)
   * [curl.js](https://github.com/cujojs/curl)
@@ -57,6 +57,11 @@
   ```
 * [@import](https://developer.mozilla.org/en-US/docs/Web/CSS/@import) inside of a css/sass/less file
 * image url in a stylesheet (url(...)) or html (<img src=...>) file.
+
+## ES2015 modules vs CommonJS
+
+* ES2015 modules 有可能是异步的
+* 从 v8.5.0 开始, [node --experimental-modules](https://github.com/nodejs/node/blob/master/doc/api/esm.md) 可以支持 ES2015 modules
 
 > [webpack1 module system](http://webpack.github.io/docs/motivation.html#module-system-styles)
 >

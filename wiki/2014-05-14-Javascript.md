@@ -31,9 +31,7 @@
 * Nashorn - open source as part of OpenJDK, written by Oracle Java Languages and Tool Group
 * JerryScript — is a lightweight engine for the Internet of Things
 
-## 数组操作
-
-### 复制数组
+## 复制数组
 
 * 从性能角度来说, 对于webkit, 使用`concat`; 其他浏览器, 使用`slice`
 * var.slice(0)
@@ -80,7 +78,11 @@
 
 > [mozilla.org](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new)
 
-## 利用图片上报打点数据
+## pingback(打点)
+
+* [Navigator.sedBeacon](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon)
+
+### 利用图片
 
 把 img 变量用闭包封闭起来，便能解决请求丢失的问题
 
@@ -230,3 +232,7 @@ Object.defineProperty(book, 'year', {
 ## IIFE
 
 [immediately-invoked-function-expression](http://benalman.com/news/2010/11/immediately-invoked-function-expression/#iife)
+
+## history
+
+> [ruanyifeng](http://javascript.ruanyifeng.com/bom/history.html)

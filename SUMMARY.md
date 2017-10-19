@@ -1,4 +1,4 @@
-# 琥珀草
+# [琥珀草](INTRO.md)
 
 * [Links](wiki/2014-05-14-Links.md)
 * [坑](wiki/2015-03-08-坑.md)
