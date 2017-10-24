@@ -6,9 +6,9 @@
 
 * [Frontend](wiki/2014-05-14-Front%20End.md)
   * [Javascript](wiki/2014-05-14-Javascript.md)
-    * [JS 异步](2017-07-24-async.md)
-    * [JS 内存管理](blog/2017-02-21-Javascript内存管理.md)
-    * [JS 模块系统](2017-10-10-js%20module%20system.md)
+    * [异步](2017-07-24-async.md)
+    * [内存管理](blog/2017-02-21-Javascript内存管理.md)
+    * [模块系统](2017-10-10-js%20module%20system.md)
   * [前端缓存策略](blog/2016-02-24-前端缓存策略.md)
   * [Webp](blog/2016-04-28-webp.md)
   * [CSS](2017-05-30-css.md)
