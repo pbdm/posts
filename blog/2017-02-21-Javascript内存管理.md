@@ -83,3 +83,12 @@ start Chrome via commend line
 
 * [react-virtualized](https://github.com/bvaughn/react-virtualized)
 * [twitter](https://mobile.twitter.com/home)
+
+## 常见内存泄露原因
+
+* 全局变量
+* 未销毁的定时器和回调函数
+* 闭包(因为其有权访问外部函数的变量)
+* DOM 引用
+
+> [精读《JS 中的内存管理》](https://zhuanlan.zhihu.com/p/30552148?group_id=908267248675049472)
