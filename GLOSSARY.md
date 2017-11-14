@@ -28,3 +28,7 @@ Hydrating a view means that it attaches any event handlers to the rendered DOM e
 ## TLTR;, TL;DR
 
 Too Long To Read, Too long; didn't read or Too long; Don't read
+
+## RTT
+
+Round Trip Time, TCP 协议里一个数据包从发出去到回来的时间

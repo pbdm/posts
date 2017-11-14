@@ -18,19 +18,6 @@
 
 * [querystring function from nodejs](https://nodejs.org/dist/latest-v6.x/docs/api/querystring.html)
 
-## Javascript engine
-
-* V8 — open source, developed by Google, written in C++, used in Chrome and nodejs
-  * JIT
-> [How JavaScript works in v8 by Alexander Zlatkov](https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e)
-* JavaScriptCore — open source, marketed as Nitro and developed by Apple for Safari
-* Chakra - `JScript9` for Internet Explorer and `JavaScript` for Microsoft Edge
-* SpiderMonkey — the first JavaScript engine, which back in the days powered Netscape Navigator, and today powers Firefox
-* Rhino — managed by the Mozilla Foundation, open source, developed entirely in Java
-* KJS — KDE’s engine originally developed by Harri Porten for the KDE project’s Konqueror web browser
-* Nashorn - open source as part of OpenJDK, written by Oracle Java Languages and Tool Group
-* JerryScript — is a lightweight engine for the Internet of Things
-
 ## 复制数组
 
 * 从性能角度来说, 对于webkit, 使用`concat`; 其他浏览器, 使用`slice`
@@ -199,7 +186,7 @@ Object.defineProperty(book, 'year', {
 
 ## Jsbridge
 
-* schema
+* scheme
   * 使用 iframe 避免重复点击后前面的 location.href 不生效
 * 直接注入全局变量
 
@@ -216,3 +203,20 @@ Object.defineProperty(book, 'year', {
 ## history
 
 > [ruanyifeng](http://javascript.ruanyifeng.com/bom/history.html)
+
+## Proxy
+
+Proxy 对象可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截.
+
+`Proxy(target, handler)` 是一个构造函数，target 是被代理的对象，handler 是声明了各类代理操作的对象，最终返回一个代理对象.
+
+* Reflect: Reflect对象的方法与 Proxy 的 handlers 对象的方法一一对应。这就让 handlers 对象可以方便地调用对应的 Reflect 方法，完成默认行为，作为修改行为的基础。也就是说，不管 Proxy 怎么修改默认行为，我们总可以在Reflect上获取默认行为
+* 貌似比通过修改访问器属性(`Object.defineProperty`)来修改 get 和 set 更高端?!
+
+### 用处
+
+* 剥离验证逻辑
+* 添加私有属性
+* 记录对象访问
+* 给出提示信息或是阻止特定操作
+> [6种ES6 proxies的使用案例 by loveky](http://www.zcfy.cc/article/6-compelling-use-cases-for-es6-proxies-888.html)
