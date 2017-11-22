@@ -42,3 +42,5 @@
 ## 缓存
 
 * [Request Cache](https://www.elastic.co/guide/en/elasticsearch/reference/2.3/shard-request-cache.html)
+
+> [Elasticsearch: 权威指南](https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html)

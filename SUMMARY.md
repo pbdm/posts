@@ -1,12 +1,12 @@
 # [琥珀草](INTRO.md)
 
-* [Links](wiki/2014-05-14-Links.md)
-* [坑](wiki/2015-03-08-坑.md)
+* [Links](2014-05-14-Links.md)
+* [坑](2015-03-08-坑.md)
 * [小技巧](2017-06-29-tips.md)
 
-* [Frontend](wiki/2014-05-14-Front%20End.md)
+* [Frontend](2014-05-14-Front%20End.md)
   * [前端标准](2017-10-31-FE%20Standard.md)
-  * [Javascript](wiki/2014-05-14-Javascript.md)
+  * [Javascript](2014-05-14-Javascript.md)
     * [异步](2017-07-24-async.md)
     * [内存管理](blog/2017-02-21-Javascript内存管理.md)
     * [模块系统](2017-10-10-js%20module%20system.md)
@@ -32,7 +32,7 @@
   * [babel](2017-05-30-babel.md)
   * gulp
 
-* [React](wiki/2017-05-27-React.md)
+* [React](2017-05-27-React.md)
   * [React Native](2017-04-13-React%20Native.md)
   * [Redux](blog/2016-03-23-redux.md)
   * react-router
@@ -48,17 +48,19 @@
   * mysql
     * phpmyadmin
   * [server配置](blog/2015-07-14-server配置.md)
-  * [Drupal](wiki/2014-05-14-Drupal.md)
-  * [Docker](wiki/2016-03-22-docker.md)
+  * [Drupal](2014-05-14-Drupal.md)
+  * [Docker](2016-03-22-docker.md)
+  * [Redis](2017-11-17-redis.md)
 
-* [System && Tools](wiki/2014-09-13-System.md)
-  * [Revision Control](wiki/2014-07-01-Revision%20Control.md)
+* [System && Tools](2014-09-13-System.md)
+  * [Chrome](2017-11-22-chrome.md)
+  * [Revision Control](2014-07-01-Revision%20Control.md)
   * [2015-04-07-自定义Mac全局快捷键](blog/2015-04-07-自定义Mac全局快捷键.md)
-  * [Editor](wiki/2015-12-14-Editor.md)
+  * [Editor](2015-12-14-Editor.md)
 
 * [ElasticSearch](2017-04-20-elasticsearch.md)
 
-* [地址定位](wiki/2016-02-26-地址定位.md)
+* [地址定位](2016-02-26-地址定位.md)
 
 * [sso](2017-07-18-sso.md)
 
