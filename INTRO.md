@@ -6,6 +6,8 @@
 
 侧边栏有很多空链接，先把坑占了，慢慢填吧, DRY!!!
 
-待续。。。
+```mermaid
+graph TD
+    Start --> Stop
+```
 
-![](http://pbdm.qiniudn.com/1852315.jpg)

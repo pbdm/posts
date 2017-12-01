@@ -32,3 +32,7 @@ Too Long To Read, Too long; didn't read or Too long; Don't read
 ## RTT
 
 Round Trip Time, TCP 协议里一个数据包从发出去到回来的时间
+
+## TTFB
+
+Time To First Byte
