@@ -220,3 +220,7 @@ Proxy 对象可以理解成，在目标对象之前架设一层“拦截”，�
 * 记录对象访问
 * 给出提示信息或是阻止特定操作
 > [6种ES6 proxies的使用案例 by loveky](http://www.zcfy.cc/article/6-compelling-use-cases-for-es6-proxies-888.html)
+
+## others
+
+[date-fns vs moment.js](https://github.com/date-fns/date-fns/issues/275#issuecomment-26493418)

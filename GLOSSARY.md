@@ -4,6 +4,19 @@
 
 abstract syntax tree 抽象语法树
 
+### parser
+
+* [UglifyJS](http://lisperator.net/uglifyjs/)
+* [babylon](https://github.com/babel/babel/tree/master/packages/babylon)
+
+## BOM
+
+Browser Object Model，即浏览器对象模型, 如 `window`
+
+## DOM
+
+Document Object Model，即文档对象模型, 如 `window.document`
+
 ## JWT
 
 [JSON Web Token](https://jwt.io/)
@@ -36,3 +49,12 @@ Round Trip Time, TCP 协议里一个数据包从发出去到回来的时间
 ## TTFB
 
 Time To First Byte
+
+## PRPL
+
+* Push critical resources for the initial route.
+* Render initial route.
+* Pre-cache remaining routes.
+* Lazy-load and create remaining routes on demand.
+
+> [PRPL Pattern](https://developers.google.com/web/fundamentals/performance/prpl-pattern/?hl=zh-cn)
