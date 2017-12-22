@@ -58,3 +58,7 @@ Time To First Byte
 * Lazy-load and create remaining routes on demand.
 
 > [PRPL Pattern](https://developers.google.com/web/fundamentals/performance/prpl-pattern/?hl=zh-cn)
+
+## IPC
+
+Inter-Process Communication, 进程间通信

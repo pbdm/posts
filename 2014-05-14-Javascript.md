@@ -3,19 +3,15 @@
 ## Tips
 
 * [Debugging Node.js with Chrome DevTools](https://medium.com/@paul_irish/debugging-node-js-nightlies-with-chrome-devtools-7c4a1b95ae27)
-
 * Firefox获取body元素和Chrome有所不同 `root = /firefox|trident/i.test(navigator.userAgent) ? document.documentElement : document.body`
 
 * [JavaScript获取DOM元素位置和尺寸大小](http://www.cnblogs.com/dolphinX/archive/2012/11/19/2777756.html)
+* [Browser useful functions](https://github.com/Chalarangelo/30-seconds-of-code#browser-1)
 
 * `for in` 会把原型里的东西都遍历出来, 只有用`hasOwnProperty`多判断一遍才不会, `for`就不会了,还是多用for吧
-
 * ~~在变量前面加`!!` 可以强制转换boolean~~(感觉这个在语义理解上并不可取)
-
 * for循环头部的let声明会有一个特殊的行为，这个行为指出变量在循环过程中不止被声明一次，每次迭代都会声明。 随后的每个迭代都会使用上一个迭代结束时的值在初始化这个变量
-
 * [`new Array()` 和 `Array()`是一样的](http://www.ecma-international.org/ecma-262/5.1/#sec-15.4.1)
-
 * [querystring function from nodejs](https://nodejs.org/dist/latest-v6.x/docs/api/querystring.html)
 
 ## 复制数组
@@ -143,6 +139,10 @@ Object.defineProperty(book, 'year', {
 
 ```
 
+## navigator.hardwareConcurrency
+
+[polyfill](https://github.com/oftn-oswg/core-estimator)
+
 ## IntersectionObserver
 
 监视某个元素是否滚动进了浏览器窗口的可视区域
@@ -220,6 +220,12 @@ Proxy 对象可以理解成，在目标对象之前架设一层“拦截”，�
 * 记录对象访问
 * 给出提示信息或是阻止特定操作
 > [6种ES6 proxies的使用案例 by loveky](http://www.zcfy.cc/article/6-compelling-use-cases-for-es6-proxies-888.html)
+
+## editor
+
+* [CodeMirror](https://github.com/codemirror/CodeMirror) vscode 是基于这个的
+* [monaco-editor](https://github.com/Microsoft/monaco-editor)
+* [ace](https://github.com/ajaxorg/ace)
 
 ## others
 
