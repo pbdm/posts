@@ -28,3 +28,7 @@
 ## [anu](https://github.com/RubyLouvre/anu)
 
 2017-06-12, a mine rapid React-like framework by 司徒正美
+
+## [etch](https://github.com/atom/etch)
+
+2018-01-11, atom 团队为了[改进性能](http://blog.atom.io/2018/01/10/the-state-of-atoms-performance.html)单写的一个 React-like 框架

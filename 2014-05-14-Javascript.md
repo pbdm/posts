@@ -14,6 +14,8 @@
 * [`new Array()` 和 `Array()`是一样的](http://www.ecma-international.org/ecma-262/5.1/#sec-15.4.1)
 * [querystring function from nodejs](https://nodejs.org/dist/latest-v6.x/docs/api/querystring.html)
 
+* [date-fns vs moment.js](https://github.com/date-fns/date-fns/issues/275#issuecomment-26493418)
+
 ## 复制数组
 
 * 从性能角度来说, 对于webkit, 使用`concat`; 其他浏览器, 使用`slice`
@@ -139,15 +141,10 @@ Object.defineProperty(book, 'year', {
 
 ```
 
-## navigator.hardwareConcurrency
+## Polyfill
 
-[polyfill](https://github.com/oftn-oswg/core-estimator)
-
-## IntersectionObserver
-
-监视某个元素是否滚动进了浏览器窗口的可视区域
-
-[polyfill](https://github.com/WICG/IntersectionObserver/tree/gh-pages/polyfill)
+* [navigator.hardwareConcurrency](https://github.com/oftn-oswg/core-estimator)
+* [IntersectionObserver](https://github.com/WICG/IntersectionObserver/tree/gh-pages/polyfill)(监视某个元素是否滚动进了浏览器窗口的可视区域)
 
 ## MutationObserver
 
@@ -192,9 +189,8 @@ Object.defineProperty(book, 'year', {
 
 ## JSPacker
 
-> [by dean.edwars](http://dean.edwards.name/packer/)
->
-> [js 不可读化处理](https://www.zhihu.com/question/28468459)
+* [by dean.edwars](http://dean.edwards.name/packer/)
+* [js 不可读化处理](https://www.zhihu.com/question/28468459)
 
 ## IIFE
 
@@ -220,13 +216,3 @@ Proxy 对象可以理解成，在目标对象之前架设一层“拦截”，�
 * 记录对象访问
 * 给出提示信息或是阻止特定操作
 > [6种ES6 proxies的使用案例 by loveky](http://www.zcfy.cc/article/6-compelling-use-cases-for-es6-proxies-888.html)
-
-## editor
-
-* [CodeMirror](https://github.com/codemirror/CodeMirror) vscode 是基于这个的
-* [monaco-editor](https://github.com/Microsoft/monaco-editor)
-* [ace](https://github.com/ajaxorg/ace)
-
-## others
-
-[date-fns vs moment.js](https://github.com/date-fns/date-fns/issues/275#issuecomment-26493418)

@@ -84,6 +84,8 @@
   * `y` (ES6新增的粘连修饰符) 不同之处在于, g修饰符只要剩余位置中存在匹配即可, 而y修饰符确保匹配必须从剩余的第一个位置开始
   * `u` (ES6新增) 提供了对正则表达式添加4字节码点的支持
 
-* RegExp
+* [String.prorotype.match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match)
+  * 当不处于全文查找(g)时, 返回 whole match, 每个 group 的 match 和 index, input
+  * 当处于全文查找时, 返回匹配数组
 
 > [Regexper - 将正则表达式转化为图形工具](http://www.regexper.com)

@@ -53,7 +53,7 @@
   * [Redis](2017-11-17-redis.md)
 
 * [System && Tools](2014-09-13-System.md)
-  * [Chrome](2017-11-22-chrome.md)
+  * [Navigator](2017-11-22-navigator.md)
   * [Revision Control](2014-07-01-Revision%20Control.md)
   * [2015-04-07-自定义Mac全局快捷键](blog/2015-04-07-自定义Mac全局快捷键.md)
   * [Editor](2015-12-14-Editor.md)

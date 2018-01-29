@@ -1,9 +1,11 @@
-# Chrome
+# Navigator
+
+## Chrome
 
 * [Chrome插件开发文档360版](http://open.chrome.360.cn/extension_dev/overview.html)
 * [Chrome插件开发非官方中文文档](https://crxdoc-zh.appspot.com/apps/about_apps.html)
 
-## 进程模型
+### 进程模型
 
 一般来说, chrome 里每个 tab 或者扩展为独立进程, 可以在 Activity Monitor 里看到一个 Google Chrome Helper
 
@@ -15,13 +17,13 @@ GUI渲染线程负责渲染浏览器界面(repaint, reflow), 与JavaScript引擎
 >
 > [关于JavaScript单线程的一些事](https://github.com/JChehe/blog/blob/master/posts/%E5%85%B3%E4%BA%8EJavaScript%E5%8D%95%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B.md#%E6%B5%8F%E8%A7%88%E5%99%A8)
 
-## 内部链接
+### 内部链接
 
 * [HTTP/2 查看工具](chrome://net-internals/#http2)
 * [查看 chrome HSTS Preload 域名](chrome://net-internals/#hsts)
 * [查看缓存文件](chrome://cache/)
 
-## versions
+### versions
 
 * [Chrome Release Channels](https://www.chromium.org/getting-involved/dev-channel)
 * [stable download](https://www.google.com/chrome/browser/desktop/index.html?platform=mac)
@@ -31,15 +33,12 @@ GUI渲染线程负责渲染浏览器界面(repaint, reflow), 与JavaScript引擎
 * [Canary](https://www.google.com/chrome/browser/canary.html?platform=mac) 每天更新, 可与上面三个共存安装
 * [chromium](https://download-chromium.appspot.com/) 小时更新
 
-## dev tools
+### dev tools
 
 * [Chrome devtools 官方文档](https://developers.google.com/web/tools/chrome-devtools/)
+* 查看事件绑定: `chrome-dev-tools -> Elements -> Event Listeners -> 勾上Ancestors`
 
-### 如何查看事件绑定
-
-chrome-dev-tools -> Elements -> Event Listeners -> 勾上Ancestors
-
-## 快捷键
+### 快捷键
 
 * [Chrome快捷键](https://support.google.com/chrome/answer/165450?hl=zh-Hans)
 * `Command-L` 突出显示网址。
@@ -47,7 +46,7 @@ chrome-dev-tools -> Elements -> Event Listeners -> 勾上Ancestors
 * `Command-Option+箭头键` 切换标签页。
 * [List of Chrome URLS](chrome://about/)
 
-## Chrome headless
+### Chrome headless
 
 * [puppeteer](https://github.com/GoogleChrome/puppeteer)
 * [chrome-launcher(by lighthouse team)](https://github.com/GoogleChrome/chrome-launcher) just a launcher
