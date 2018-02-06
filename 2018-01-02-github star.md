@@ -1,4 +1,4 @@
-# GTithub Star
+# Github Star
 
 在这里记录一些自己 star 过的 repo
 
@@ -21,3 +21,7 @@ Rust 和 Web APIs 之间的通信
 * https://github.com/ds300/patch-package
 
 自动创建 patch 来修复 node_modules 里的小 bug, 貌似在 RN 项目会很有用
+
+* https://github.com/os-js/OS.js
+
+JS 写的桌面操作系统......

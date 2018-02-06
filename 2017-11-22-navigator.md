@@ -7,15 +7,22 @@
 
 ### 进程模型
 
-一般来说, chrome 里每个 tab 或者扩展为独立进程, 可以在 Activity Monitor 里看到一个 Google Chrome Helper
-
-GUI渲染线程负责渲染浏览器界面(repaint, reflow), 与JavaScript引擎互斥，当JavaScript引擎执行时GUI线程会被挂起，GUI更新会被保存在一个队列中等到JavaScript引擎空闲时立即被执行
+* 一般来说, chrome 里进程分两类
+  * 主进程(browser process)
+  * 每个 tab 或者扩展为独立进程(renderer processes), 可以在 Activity Monitor 里看到一个 Google Chrome Helper
+* GUI渲染线程负责渲染浏览器界面(repaint, reflow), 与JavaScript引擎互斥，当JavaScript引擎执行时GUI线程会被挂起，GUI更新会被保存在一个队列中等到JavaScript引擎空闲时立即被执行
+* 事件触发线程
+  * 负责将 setTimeout 里面的语句塞到 queue 里去的任务也是在单独的线程里执行的(里面的语句还是要在 js 引擎所在的线程执行的)
+  * 另外点击事件, 网络请求等也是放在单独的线程里的
+* 网络请求(貌似是主进程里的线程?!), 定时器计数也有单独的线程
 
 [chrome://tracing/](chrome://tracing/)
 
 > [Threads overview](https://chromium.googlesource.com/chromium/src/+/lkcr/docs/threading_and_tasks.md#threads)
 >
 > [关于JavaScript单线程的一些事](https://github.com/JChehe/blog/blob/master/posts/%E5%85%B3%E4%BA%8EJavaScript%E5%8D%95%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B.md#%E6%B5%8F%E8%A7%88%E5%99%A8)
+>
+> [从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理 by dailc](https://juejin.im/post/5a6547d0f265da3e283a1df7)
 
 ### 内部链接
 
