@@ -66,3 +66,7 @@ Inter-Process Communication, 进程间通信
 ## DCE
 
 dead code elimination, 取自 tree-shaking
+
+## RFC
+
+Request For Comments

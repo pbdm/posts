@@ -13,6 +13,7 @@
 * `git push origin --delete <branchName>` 删除远程分支
 * `git clone http://www.exemple.w --depth=1` 只获取最后提交的 clone
   * `git pull --unshallow` 拿回所有的提交
+* `git stash show -p stash@{2}` 查看 stash 详情
 * [修改提交作者和邮箱](http://i.dotidea.cn/2015/04/git-amend-author/)
 * [tell Git to ignore everything except a subdirectory](https://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder)
 * [Git飞行规则(Flight Rules)](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-cn.md)
