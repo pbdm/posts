@@ -17,6 +17,7 @@
 * [修改提交作者和邮箱](http://i.dotidea.cn/2015/04/git-amend-author/)
 * [tell Git to ignore everything except a subdirectory](https://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder)
 * [Git飞行规则(Flight Rules)](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-cn.md)
+* [安全地回滚远程分支 by Harttle Land](http://harttle.land/2018/03/12/reset-origin-without-force-push.html)
 
 ### config
 
@@ -43,6 +44,8 @@
 `git revert`与`git reset`最大的不同是，`git revert` 仅仅是撤销某次提交。
 
 * 如果已经推到远程了还是不要在用`reset`了, 否则需要 `git push -f`,如果同一时间有其他人的提交,则有风险
+
+* 要撤销一串提交可以用 <commit1>..<commit3>(撤销的是 commit 2 和 3) 语法 ex:`git revert --no-commit f7742cd..551c408`,
 
 * [Reverting a Git Merge](https://mijingo.com/blog/reverting-a-git-merge)
 

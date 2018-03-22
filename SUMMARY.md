@@ -4,7 +4,7 @@
 * [坑](2015-03-08-坑.md)
 * [小技巧](2017-06-29-tips.md)
 
-* [Frontend](2014-05-14-Front%20End.md)
+* [Web](2014-05-14-Front%20End.md)
   * [前端标准](2017-10-31-FE%20Standard.md)
   * [Javascript](2014-05-14-Javascript.md)
     * [异步](2017-07-24-async.md)

@@ -216,3 +216,31 @@ Proxy 对象可以理解成，在目标对象之前架设一层“拦截”，�
 * 记录对象访问
 * 给出提示信息或是阻止特定操作
 > [6种ES6 proxies的使用案例 by loveky](http://www.zcfy.cc/article/6-compelling-use-cases-for-es6-proxies-888.html)
+
+## 动态编译
+
+* `eval`: evaluates a string as a JavaScript expression within the current execution scope and can access local variables.
+* `new Function()`: parses the JavaScript code stored in a string into a function object, which can then be called. It cannot access local variables because the code runs in a separate scope.
+
+> [Are eval() and new Function() the same thing?
+](https://stackoverflow.com/questions/4599857/are-eval-and-new-function-the-same-thing)
+
+## Complier
+
+### Lexical Analysis
+
+词法分析器, 或者叫分词器
+
+### Syntax Analysis(parser)
+
+语法分析器, 负责生成抽象语法树(AST)
+
+> [Implementing a Simple Compiler on 25 Lines of JavaScript by Minko Gechev](http://blog.mgechev.com/2017/09/16/developing-simple-interpreter-transpiler-compiler-tutorial/)
+>
+> [AST Explorer](http://astexplorer.net/)
+>
+> [Display Abstract Syntax Tree of a JavaScript program](http://resources.jointjs.com/demos/rappid/apps/Ast/index.html)
+>
+> [ASTs for Beginners at Clevertech (February 2017) by Kent C. Dodds](https://www.youtube.com/watch?v=CFQBHy8RCpg)
+
+### code generatio

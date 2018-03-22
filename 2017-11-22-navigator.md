@@ -4,6 +4,7 @@
 
 * [Chrome插件开发文档360版](http://open.chrome.360.cn/extension_dev/overview.html)
 * [Chrome插件开发非官方中文文档](https://crxdoc-zh.appspot.com/apps/about_apps.html)
+* [List of Chromium Command Line Switches](https://peter.sh/experiments/chromium-command-line-switches/)
 
 ### 进程模型
 

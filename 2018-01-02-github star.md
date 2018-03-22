@@ -25,3 +25,11 @@ Rust 和 Web APIs 之间的通信
 * https://github.com/os-js/OS.js
 
 JS 写的桌面操作系统......
+
+* https://github.com/photonstorm/phaser
+
+HTML5 Game Framework
+
+* https://github.com/ritiek/piano-rs
+
+Play piano in the terminal using PC (computer) keyboard

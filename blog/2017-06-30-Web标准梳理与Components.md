@@ -85,6 +85,7 @@ WHATWG: Web Hypertext Application Technology Working Group(网页超文本应用
 
 ```javascript
   // Custom Element's name must contain a dash(something like namespace)
+  // 2018-03-21: deprecated in favor of customElements.define()
   var XFoo = document.registerElement(
     'x-foo',
     // Custom elements 默认继承了HTMLElement, 所以以下的可以省略
