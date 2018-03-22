@@ -36,6 +36,35 @@
 * [WebKit Feature Status](https://webkit.org/status/)
 * [Chrome Platform Status](https://www.chromestatus.com/features)
 
+## Web browser engine
+
+### Blink
+
+Blink and Chromium are not really separable anymore, 所以他们的 source code 是在一起的
+
+* [Git repositories on chromium](https://chromium.googlesource.com/)
+
+* [chromium homepage](https://www.chromium.org/Home)
+* [chromium For Developers(guide)](http://www.chromium.org/developers)
+* [chromium source code](https://chromium.googlesource.com/chromium/src/)(注意, 直接进入的那个貌似已经废弃了...)
+  * 注意: 库很大, 需要机器性能很好再 clone.....
+* [Getting Around the Chromium Source Code Directory Structure](http://www.chromium.org/developers/how-tos/getting-around-the-chrome-source-code)
+* [chromium Bug tracker](https://bugs.chromium.org/p/chromium/issues/list)
+* [Checking out and building Chromium for Mac](https://chromium.googlesource.com/chromium/src/+/master/docs/mac_build_instructions.md)
+* [Chromium Code Search](https://cs.chromium.org/)
+
+* [Blink homepage](https://www.chromium.org/blink)
+* [Blink source code](https://chromium.googlesource.com/chromium/src/+/master/third_party/WebKit/)
+
+[blink 源码目录现在还叫webkit](https://groups.google.com/a/chromium.org/forum/#!topic/platform-architecture-dev/DKQn-SILZzo/discussion)
+
+* [v8 source code mirror in github](https://github.com/v8/v8)
+
+### Webkit
+
+* [getting the code](https://webkit.org/getting-the-code/)
+* [source code mirror in github](https://github.com/WebKit/webkit)
+
 ## Javascript engine
 
 * V8 — open source, developed by Google, written in C++, used in Chrome(blink) and nodejs

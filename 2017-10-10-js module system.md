@@ -12,6 +12,7 @@
     * AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。
     * 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.
     * CMD 推崇依赖就近，AMD 推崇依赖前置
+
   ```javascript
   // CMD
   define(function(require, exports, module) {
@@ -30,8 +31,10 @@
     ...
   })
   ```
+
   > [AMD 和 CMD 的区别 in zhihu](https://www.zhihu.com/question/20351507)
 * [UMD](https://github.com/umdjs/umd)(Universal Module Definition, 同时支持 AMD 和 CommonJs 的规范)
+
   ```javascript
     (function (root, factory) {
       if (typeof define === 'function' && define.amd) {
@@ -55,6 +58,7 @@
       return {};
     }));
   ```
+
 * [@import](https://developer.mozilla.org/en-US/docs/Web/CSS/@import) inside of a css/sass/less file
 * image url in a stylesheet (url(...)) or html (<img src=...>) file.
 
