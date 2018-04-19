@@ -12,6 +12,7 @@
     * [PWA](2017-07-06-pwa.md)
     * [JS 异步](2017-07-24-async.md)
     * [JS 模块系统](2017-10-10-js%20module%20system.md)
+    * [Proxy](2018-03-23-JS%20Proxy.md)
     * [Canvas](2017-03-21-canvas.md)
     * [Video](2017-03-13-video.md)
     * [CSS](2017-05-30-css.md)
@@ -84,4 +85,4 @@
   * [2017-06-30-Web标准梳理与Components](blog/2017-06-30-Web标准梳理与Components.md)
 
 * [Glossary](GLOSSARY.md)
-* [References](2018-03-20-References.md)
+* [References](References.md)

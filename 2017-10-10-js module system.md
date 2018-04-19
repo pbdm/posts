@@ -66,6 +66,9 @@
 
 * ES2015 modules 有可能是异步的
 * 从 v8.5.0 开始, [node --experimental-modules](https://github.com/nodejs/node/blob/master/doc/api/esm.md) 可以支持 ES2015 modules
+  * 注意: 文件一定要是 `.mjs` 的
+  * 如果要使用原来的 `.js` 文件, 需要使用 [Loader hooks](https://nodejs.org/api/esm.html#esm_loader_hooks)
+  > [Node 9下import/export的丝般顺滑使用](https://github.com/ChenShenhai/blog/isses/24)
 
 > [webpack1 module system](http://webpack.github.io/docs/motivation.html#module-system-styles)
 >

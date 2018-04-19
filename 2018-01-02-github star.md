@@ -33,3 +33,11 @@ HTML5 Game Framework
 * https://github.com/ritiek/piano-rs
 
 Play piano in the terminal using PC (computer) keyboard
+
+* https://github.com/sindresorhus/fkill-cli
+
+又是 sindresorhus 大神的, 用来杀进程爽歪歪
+
+* https://github.com/text-mask/text-mask
+
+在做输入框的时候应该很有用

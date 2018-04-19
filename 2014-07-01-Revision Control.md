@@ -19,6 +19,8 @@
 * [Git飞行规则(Flight Rules)](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-cn.md)
 * [安全地回滚远程分支 by Harttle Land](http://harttle.land/2018/03/12/reset-origin-without-force-push.html)
 
+### tig
+
 ### config
 
 `core.ignorecase` 是否忽略大小写
