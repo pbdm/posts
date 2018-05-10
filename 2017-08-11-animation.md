@@ -34,3 +34,7 @@
 > [详解 React Native 动画 by dwqs](https://github.com/dwqs/blog/issues/41)
 >
 > [ReactNative动画研究与实践 by Tw93](https://zhuanlan.zhihu.com/p/21301314)
+
+## lottie
+
+> [lottie json 的定义](https://github.com/airbnb/lottie-web/tree/master/docs/json)

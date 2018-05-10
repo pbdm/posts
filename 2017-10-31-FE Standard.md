@@ -63,6 +63,7 @@ Blink and Chromium are not really separable anymore, 所以他们的 source code
 ### Webkit
 
 * [getting the code](https://webkit.org/getting-the-code/)
+* [source code](https://trac.webkit.org/browser/webkit/trunk)
 * [source code mirror in github](https://github.com/WebKit/webkit)
 
 ## Javascript engine

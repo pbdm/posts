@@ -18,7 +18,7 @@
     * [CSS](2017-05-30-css.md)
       * [BFC](2016-04-05-bfc.md)
   * 实现
-    * [Chrome](2017-11-22-Chrome.md)
+    * [Chrome](2017-11-22-chrome.md)
     * [Electron](2017-07-13-electron.md)
   * [Web 性能](2015-12-21-Performance.md)
     * [Web 内存管理](2017-02-21-Javascript内存管理.md)
@@ -63,7 +63,7 @@
   * [Java](2014-05-14-Java.md)
   * [Perl](2014-05-14-Perl.md)
   * [c++](2017-11-28-cpp.md)
-  * [mysql](2014-05-29-mysql.md)
+  * [Database](2014-05-29-database.md)
   * [Docker](2016-03-22-docker.md)
   * [Redis](2017-11-17-redis.md)
   * [ElasticSearch](2017-04-20-elasticsearch.md)

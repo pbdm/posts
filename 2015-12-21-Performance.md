@@ -92,11 +92,13 @@
 
 #### Navigation Timing API
 
-* domInteractive 表示 DOM 准备就绪的时间点。(DOM tree ready)
-* domContentLoaded 一般表示 DOM 和 CSSOM 均准备就绪的时间点。
-  * 如果没有阻塞解析器的 JavaScript，则 DOMContentLoaded 将在 domInteractive 后立即触发。
-* domComplete 表示网页及其所有子资源都准备就绪(包括图片资源)的时间点。从这里开始浏览器右上角的菊花将会停止
-* loadEvent：domComplete 后会立即触发, 作为每个网页加载的最后一步，浏览器会触发 onload 事件，以便触发额外的应用逻辑。
+* `performance.timing`
+  * domInteractive 表示 DOM 准备就绪的时间点。(DOM tree ready)
+  * domContentLoaded 一般表示 DOM 和 CSSOM 均准备就绪的时间点。
+    * 如果没有阻塞解析器的 JavaScript，则 DOMContentLoaded 将在 domInteractive 后立即触发。
+  * domComplete 表示网页及其所有子资源都准备就绪(包括图片资源)的时间点。从这里开始浏览器右上角的菊花将会停止
+  * loadEvent：domComplete 后会立即触发, 作为每个网页加载的最后一步，浏览器会触发 onload 事件，以便触发额外的应用逻辑。
+* `performance.getEntriesByType("resource")`: 获取所有加载资源的 performance
 
 ![timing-overview](https://www.w3.org/TR/navigation-timing/timing-overview.png)
 
@@ -164,7 +166,15 @@ L --> M
   * script下载很慢的时候(不在本地)
 * parse html 的时候即使没有 parse 到外部 js 的部分也会开始下载?!
 
+### FCP(first contentful paint)
+
+is it happening?
+
+point when the browser renders the first bit of content from the DOM
+
 ### 首次有效绘制(FMP(First Meaningful Paint))
+
+is it useful?
 
 Paint that follows biggest layout change(视口内)
 
@@ -214,6 +224,8 @@ Paint that follows biggest layout change(视口内)
 * [FastDOM(自动为您批处理读取和写入)](https://github.com/wilsonpage/fastdom)
 
 > [Alon's Blog](http://jinlong.github.io/2015/09/30/what-forces-layout-reflow/)
+>
+> [What forces layout / reflow by paulirish](https://gist.github.com/paulirish/5d52fb081b3570c81e3a)
 
 ### Paint
 

@@ -70,3 +70,7 @@ dead code elimination, 取自 tree-shaking
 ## RFC
 
 Request For Comments
+
+## KVC
+
+Key-value coding, 键值编码, 指iOS的开发中，可以允许开发者通过Key名直接访问对象的属性，或者给对象的属性赋值

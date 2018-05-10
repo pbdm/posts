@@ -3,6 +3,8 @@
 ## Git
 
 * `git add -i`: 一个好使的add代码到`缓存区(Index)`的工具
+* `git add -p` 分块提交到缓存区
+* `git checkout -p` 多用于在提交前移除所有新的调试代码
 * `git log --name-status` 查看文件修改列表
 * `git log -1` 查看最后一个提交
 * `git log --all --full-history -- <path-to-file>` [查找某个删除的文件 log](https://stackoverflow.com/questions/7203515/git-how-to-search-for-a-deleted-file-in-the-project-commit-history)
@@ -18,6 +20,7 @@
 * [tell Git to ignore everything except a subdirectory](https://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder)
 * [Git飞行规则(Flight Rules)](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-cn.md)
 * [安全地回滚远程分支 by Harttle Land](http://harttle.land/2018/03/12/reset-origin-without-force-push.html)
+* `git diff HEAD@{yesterday}` `git diff HEAD@{'2010-01-01 12:00:00'}` `git diff HEAD@{'2 months ago'}` 查看固定时间提交之后的修改
 
 ### tig
 

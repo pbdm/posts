@@ -87,5 +87,7 @@
 * [String.prorotype.match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match)
   * 当不处于全文查找(g)时, 返回 whole match, 每个 group 的 match 和 index, input
   * 当处于全文查找时, 返回匹配数组
+* RegExp.prototype.test
+  * 当处于全文查找时, lastIndex 会增加
 
 > [Regexper - 将正则表达式转化为图形工具](http://www.regexper.com)
