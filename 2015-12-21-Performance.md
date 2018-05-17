@@ -3,6 +3,9 @@
 [RAIL](https://developers.google.com/web/fundamentals/performance/rail?hl=zh-cn) 是一种以用户为中心的性能模型
 > [High PerformanceBrowser Networking by ILYA GRIGORIK](https://hpbn.co/)
 
+* [Using Lighthouse To Improve Page Load Performance(介绍了一些3.0的新功能)](https://developers.google.com/web/updates/2018/05/lighthouse)
+
+
 延迟与用户反应
 
 * 0 - 16ms: 人们特别擅长跟踪运动，如果动画不流畅，他们就会对运动心生反感。 用户可以感知每秒渲染 60 帧的平滑动画转场。也就是每帧 16 毫秒（包括浏览器将新帧绘制到屏幕上所需的时间），留给应用大约 10 毫秒的时间来生成一帧。
@@ -285,9 +288,16 @@ It’s an improved “Pagespeed Insights
 * [根据 json 生成 html](https://github.com/GoogleChrome/lighthouse/blob/master/docs/hacking-tips.md#iterating-on-the-v2-report)
 
 > [使用 Lighthouse 审查网络应用](https://developers.google.com/web/tools/lighthouse/?hl=zh-cn)
+>
+> [Web performance made easy (Google I/O '18)](https://www.youtube.com/watch?v=Mv-l3-tJgGk)
 
 ### Pagespeed Insights
 
 ### WebPageTest
 
 > [Page speed optimization](https://varvy.com/pagespeed/)
+
+## Others
+
+* `navigator.connection.effectiveType` 可以更准确的检测当前网络环境, chrome 62 开始支持
+* [lazysizes, 谷歌 I/O 上推荐的图片懒加载库](https://github.com/aFarkas/lazysizes)

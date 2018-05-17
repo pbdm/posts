@@ -32,3 +32,7 @@
 ## [etch](https://github.com/atom/etch)
 
 2018-01-11, atom 团队为了[改进性能](http://blog.atom.io/2018/01/10/the-state-of-atoms-performance.html)单写的一个 React-like 框架
+
+## [san](https://github.com/baidu/san)
+
+2018-05-16, 百度出的组件化框架, 兼容 IE8(和 vue 蛮像的?)

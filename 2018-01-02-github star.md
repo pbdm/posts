@@ -41,3 +41,7 @@ Play piano in the terminal using PC (computer) keyboard
 * https://github.com/text-mask/text-mask
 
 在做输入框的时候应该很有用
+
+* https://github.com/guess-js/guess
+
+still in alpha, 一个可以猜测用户行为从而进行预加载的库, 从 Goolge I/O 2018 看到的.

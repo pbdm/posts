@@ -15,6 +15,7 @@
     * [Proxy](2018-03-23-JS%20Proxy.md)
     * [Canvas](2017-03-21-canvas.md)
     * [Video](2017-03-13-video.md)
+    * [文件和二进制的操作](2018-05-15-file.md)
     * [CSS](2017-05-30-css.md)
       * [BFC](2016-04-05-bfc.md)
   * 实现
@@ -73,7 +74,6 @@
 * Blog && Others
   * [2015-04-07-自定义Mac全局快捷键](blog/2015-04-07-自定义Mac全局快捷键.md)
   * [2016-06-24-npm版本号](blog/2016-06-24-npm版本号.md)
-  * [server配置](blog/2015-07-14-server配置.md)
   * [地址定位](2016-02-26-地址定位.md)
   * [github star](2018-01-02-github%20star.md)
   * [繁(hun)荣(luan)的前端(框架吐槽)](blog/2017-01-06-frameworks.md)

@@ -22,6 +22,8 @@
 * [安全地回滚远程分支 by Harttle Land](http://harttle.land/2018/03/12/reset-origin-without-force-push.html)
 * `git diff HEAD@{yesterday}` `git diff HEAD@{'2010-01-01 12:00:00'}` `git diff HEAD@{'2 months ago'}` 查看固定时间提交之后的修改
 
+> [更方便的用命令行将 git 和 github 结合](https://github.com/github/hub)
+
 ### tig
 
 ### config
