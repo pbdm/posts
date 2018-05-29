@@ -6,6 +6,8 @@
 
 ## CSS 动画
 
+animation-fill-mode: forwards 当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）。
+
 ## React Native 动画
 
 * [Easing](https://github.com/facebook/react-native/blob/master/Libraries/Animated/src/Easing.js): 不同的过度曲线, 可在 `Animate.timing()` 中设置, js 实现可扩展。

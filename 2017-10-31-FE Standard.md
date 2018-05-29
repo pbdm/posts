@@ -30,6 +30,7 @@
 ## 标准实现状态
 
 * [Can I use... Support tables for HTML5, CSS3, etc](http://caniuse.com/)
+  * [X5 Caniuse Tests](http://res.imtt.qq.com/tbs/incoming20160419/home.html)
 * [ECMAScript 6 compatibility table](http://kangax.github.io/compat-table/es6/)
 * [Node.js ES2015/ES6, ES2016 and ES2017 support](node.green)
 

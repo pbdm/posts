@@ -45,3 +45,7 @@ Play piano in the terminal using PC (computer) keyboard
 * https://github.com/guess-js/guess
 
 still in alpha, 一个可以猜测用户行为从而进行预加载的库, 从 Goolge I/O 2018 看到的.
+
+* https://github.com/cyanharlow/purecss-francine
+
+用 CSS 画油画?! 给跪了...
