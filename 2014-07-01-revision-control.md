@@ -28,7 +28,7 @@
 
 ### config
 
-`core.ignorecase` 是否忽略大小写
+`core.ignorecase` 是否忽略大小写(如果先前已经存在大小写不同, 本地需要 git mv 才能改变远程的大小写状态...)
 
 ### 打补丁
 
