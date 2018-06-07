@@ -2,6 +2,12 @@
 
 ## Git
 
+* [Git官网的中文文档](http://git-scm.com/book/zh)
+* [Git教程 by 廖雪峰](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+* [git 使用简易指南](http://www.bootcss.com/p/git-guide/)
+* [git 参考手册](http://gitref.org/zh/)
+* [Git Cheatsheet • NDP Software](http://ndpsoftware.com/git-cheatsheet.html)
+
 * `git add -i`: 一个好使的add代码到`缓存区(Index)`的工具
 * `git add -p` 分块提交到缓存区
 * `git checkout -p` 多用于在提交前移除所有新的调试代码

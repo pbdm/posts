@@ -54,6 +54,7 @@
   * [编码](2018-03-01-encode.md)
   * [操作系统](2017-12-21-os.md)
   * [Tools](2014-09-13-tools.md)
+    * [Mac](2018-06-07-mac.md)
     * [Editor](2015-12-14-Editor.md)
   * [SSO](2017-07-18-sso.md)
   * [版本管理](2014-07-01-revision-control.md)
@@ -65,13 +66,17 @@
   * [Rust](2018-03-16-rust.md)
   * [Java](2014-05-14-java.md)
   * [Perl](2014-05-14-perl.md)
-  * [c++](2017-11-28-cpp.md)
+  * [C++](2017-11-28-cpp.md)
   * [Database](2014-05-29-database.md)
   * [Docker](2016-03-22-docker.md)
   * [Redis](2017-11-17-redis.md)
+  * [Nginx](2018-06-07-nginx.md)
   * [ElasticSearch](2017-04-20-elasticsearch.md)
 
 * [Native](2017-05-11-native.md)
+
+* [开源](2018-06-07-open-source)
+* [算法](2018-06-07-algorithm)
 
 * Blog && Others
   * [2015-04-07-自定义Mac全局快捷键](blog/2015-04-07-自定义Mac全局快捷键.md)
