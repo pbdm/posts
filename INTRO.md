@@ -1,6 +1,6 @@
 # 琥珀草
 
-好记性不如更好的键盘。这个人比较懒, 不喜欢在同一件事上做两遍, 所以在这里找了个地方随便记下来, 也算是 [D.R.Y](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) 了吧...
+好记性不如更好的键盘。懒人不喜欢在同一件事上重复, 所以在这里找了个地方随便记下来, 也算是 [D.R.Y](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) 了吧...
 
 ```mermaid
 graph LR
