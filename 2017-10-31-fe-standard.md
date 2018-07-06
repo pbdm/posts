@@ -29,6 +29,7 @@
 
 ## 标准实现状态
 
+* [HTML5 test: how well does your browser support html5?](http://html5test.com/)
 * [Can I use... Support tables for HTML5, CSS3, etc](http://caniuse.com/)
   * [X5 Caniuse Tests](http://res.imtt.qq.com/tbs/incoming20160419/home.html)
 * [ECMAScript 6 compatibility table](http://kangax.github.io/compat-table/es6/)
@@ -40,6 +41,8 @@
 ## Web browser engine
 
 ### Blink
+
+2013年从 Webkit fork
 
 Blink and Chromium are not really separable anymore, 所以他们的 source code 是在一起的
 

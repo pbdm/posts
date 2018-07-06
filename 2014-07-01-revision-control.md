@@ -1,5 +1,7 @@
 # Revision Control
 
+* [AngularJS commit conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153)
+
 ## Git
 
 * [Git官网的中文文档](http://git-scm.com/book/zh)
@@ -31,6 +33,8 @@
 > [更方便的用命令行将 git 和 github 结合](https://github.com/github/hub)
 
 ### tig
+
+`r` The refs view, Displays the branches, remotes and tags in the repository.
 
 ### config
 

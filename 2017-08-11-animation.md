@@ -6,7 +6,30 @@
 
 ## CSS 动画
 
-animation-fill-mode: forwards 当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）。
+* transition: 定义过渡
+  * transition-property: 应用 transition 属性的名称: all, transfrom, margin-right, width, none......
+  * transition-duration: transition 所需的时间: 0s, 3s, 3ms......
+  * transition-timing-function: transition的状态变化节奏: ease, ease-in, ease-out, ease-in-out, linear......
+  * transition-delay: transition 效果开始作用之前需要等待的时间: 0s, 3s, 3ms......
+  * 可以利用 `transitionend` 事件监听 transition 完成
+> [使用 CSS transitions by MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions)
+
+* animation(需要与 keyframes 配合), 比 transition 更灵活
+  * animation-name: 指定应用的一系列动画，每个名称代表一个由 `@keyframes`定义的动画序列
+  * animation-duration: 动画周期的时长: 0s, 3s, 3ms......
+  * animation-timing-function: 每一动画周期中执行的节奏: ease, ease-in, ease-out, ease-in-out, linear......
+  * animation-delay: 动画开始之前需要等待的时间: 0s, 3s, 3ms......
+  * animation-iteration-count: 动画在结束前运行的次数: 1, 2, 2.3, infinite......
+  * animation-direction: 指示动画是否反向播放: normal | reverse | alternate | alternate-reverse
+  * animation-fill-mode: none | forwards | backwards | both
+    * forwards: 当动画完成后，保持最后一个属性值（在最后一个关键帧中定义)
+  * [@keyframes](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@keyframes)
+
+* transform(不属于动画范畴, 但是经常和动画一起用, 所以写到这里了): 修改CSS视觉格式模型的坐标空间
+  * [transform-origin](https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-origin): 更改一个元素变形的原点, 
+    * 可以有 x, y, z 轴三个参数
+    * 像 left 这种的属于简写, 等于 0%, center 等于 50%
+    * 默认应该是在元素中心
 
 ## React Native 动画
 
