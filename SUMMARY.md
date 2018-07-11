@@ -75,8 +75,8 @@
 
 * [Native](2017-05-11-native.md)
 
-* [开源](2018-06-07-open-source)
-* [算法](2018-06-07-algorithm)
+* [开源](2018-06-07-open-source.md)
+* [算法](2018-06-07-algorithm.md)
 
 * Blog && Others
   * [2015-04-07-自定义Mac全局快捷键](blog/2015-04-07-自定义Mac全局快捷键.md)

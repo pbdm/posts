@@ -25,7 +25,6 @@
 * [Request for Comments (RFC,记录互联网规范、协议、过程等的标准文件)](https://www.ietf.org/rfc.html)
 * [RFC Search Page](https://www.rfc-editor.org/search/rfc_search.php)
 * [中文 RFC](http://man.chinaunix.net/develop/rfc/default.htm)
-* [CommonMark Spec(Markdown)](http://spec.commonmark.org/0.28/)
 
 ## 标准实现状态
 
