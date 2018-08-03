@@ -41,8 +41,9 @@
     * [e2e test](2018-02-11-e2e-test.md)
   * 工具
     * [Webpack](2016-02-26-webpack.md)
-    * [npm](2017-05-30-npm.md)
+    * [Package manager](2017-05-30-package-manager.md)
     * [babel](2017-05-30-babel.md)
+    * [PostCSS](2018-06-26-postcss.md)
     * gulp
   * [动画](2017-08-11-animation.md)
 
@@ -55,7 +56,7 @@
   * [操作系统](2017-12-21-os.md)
   * [Tools](2014-09-13-tools.md)
     * [Mac](2018-06-07-mac.md)
-    * [Editor](2015-12-14-Editor.md)
+    * [Editor](2015-12-14-editor.md)
   * [SSO](2017-07-18-sso.md)
   * [版本管理](2014-07-01-revision-control.md)
 
