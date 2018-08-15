@@ -39,6 +39,8 @@
 
 ## Web browser engine
 
+* [Acid2 测试, 如果渲染正确，浏览器打开Acid2的测试页面则会看到一个笑脸(看起来已过时了, 最新版 Chrome 都没通过这个测试...)](https://zh.wikipedia.org/wiki/Acid2)
+
 ### Blink
 
 2013年从 Webkit fork
@@ -69,6 +71,10 @@ Blink and Chromium are not really separable anymore, 所以他们的 source code
 * [source code](https://trac.webkit.org/browser/webkit/trunk)
 * [source code mirror in github](https://github.com/WebKit/webkit)
 
+### Servo
+
+基于 Rust, mozilla 的实验性项目, 支持并行渲染!! 等着他并入 firefox 的那一天吧... `https://github.com/servo/servo`
+
 ## Javascript engine
 
 * V8 — open source, developed by Google, written in C++, used in Chrome(blink) and nodejs
@@ -81,3 +87,5 @@ Blink and Chromium are not really separable anymore, 所以他们的 source code
 * KJS — KDE’s engine originally developed by Harri Porten for the KDE project’s Konqueror web browser
 * Nashorn - open source as part of OpenJDK, written by Oracle Java Languages and Tool Group
 * JerryScript — is a lightweight engine for the Internet of Things
+
+> [web-bugs](https://github.com/webcompat/web-bugs/issues)

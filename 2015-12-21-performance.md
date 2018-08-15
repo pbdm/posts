@@ -5,7 +5,6 @@
 
 * [Using Lighthouse To Improve Page Load Performance(介绍了一些3.0的新功能)](https://developers.google.com/web/updates/2018/05/lighthouse)
 
-
 延迟与用户反应
 
 * 0 - 16ms: 人们特别擅长跟踪运动，如果动画不流畅，他们就会对运动心生反感。 用户可以感知每秒渲染 60 帧的平滑动画转场。也就是每帧 16 毫秒（包括浏览器将新帧绘制到屏幕上所需的时间），留给应用大约 10 毫秒的时间来生成一帧。
@@ -56,6 +55,8 @@
 > [alloyteam](http://www.alloyteam.com/2012/03/web-cache-2-browser-cache/)
 >
 > 图解HTTP
+>
+> [HTTP caching in MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
 
 #### chrome 里 Cache-Control 的测试
 

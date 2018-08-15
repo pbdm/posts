@@ -6,6 +6,7 @@
 
 * [Front End](2014-05-14-frontend.md)
   * [Web 标准](2017-10-31-fe-standard.md)
+    * [JS 数据类型和结构](2018-08-15-js-data.md)
     * [事件](2017-05-30-js-events.md)
     * [DOM](2018-03-22-dom.md)
     * [Web Components](2018-03-21-web-components.md)
