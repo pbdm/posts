@@ -31,44 +31,7 @@
 * 网页字体优化
 * TCP 的 first roundtrip 只能发 14KB, 所以尽量将文件限制在这个大小
 
-### HTTP 缓存
-
-2016-02-24
-
-* 本地缓存阶段, 当满足条件时, 浏览器直接使用本地副本,不会发送任何请求, `Cache-Control`优先级高于`Expires`
-  * Cache-Control (http1.1)
-    * `max-age`
-    * `no-cache` 不缓存过期资源
-    * `no-store` 永远不缓存
-    * `public` or `private` (如果为 private 则中间缓存(CDN)不可以缓存)
-    ![cache-control-dec](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png)
-  * Expires (缓存到期的绝对GMT时间)
-* 协商缓存阶段, `ETag` 优先级 高于 `last-modified`, 如果成功命中则会返回 304 Not Modified
-  * `ETag` (http1.1)
-  * `last-modified` (http1.0)
-* 服务器(中间)缓存
-  * CDN
-  * Combo服务
-
-> [imweb.io](http://imweb.io/topic/55c6f9bac222e3af6ce235b9)
->
-> [alloyteam](http://www.alloyteam.com/2012/03/web-cache-2-browser-cache/)
->
-> 图解HTTP
->
-> [HTTP caching in MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
-
-#### chrome 里 Cache-Control 的测试
-
-* 浏览器前进和后退的过程当中 html 是缓存的(忽视以上策略), 可以在前进后退的请求头里看到以下信息, 说明没有真正的发出请求
-
-![cache-control](http://pbdm.qiniudn.com/20171124165919_Ppd5Q9_Screenshot.jpeg)
-
-进入 `chrome://net-internals/#events`, 可以在 URL_REQUEST 看到以下信息
-
-![cache-control](http://pbdm.qiniudn.com/20171124172734_Dybrm1_Screenshot.jpeg)
-
-* 在浏览器地址栏输入新 url 如果和当前 url 一样, 且该 url 已经被请求过且设置过max-age(有缓存), 则浏览器会主动发出 `Cache-Control: max-age=0`
+### [HTTP 缓存](2016-02-24-http-cache.md)
 
 ### 离线化
 

@@ -21,7 +21,6 @@
 * [ECMAScript Language Specification - ECMA-262 Edition 5.1](http://www.ecma-international.org/ecma-262/5.1/)
 * [ECMAScript 2015 Language Specification &ndash; ECMA-262 6th Edition](http://www.ecma-international.org/ecma-262/6.0/)
 * [ECMAScript® 2016 Language Specification](http://www.ecma-international.org/ecma-262/7.0/index.html)
-* [RFC 6265 - HTTP State Management Mechanism (obsoletes RFC 2965)](https://tools.ietf.org/html/rfc6265)
 * [Request for Comments (RFC,记录互联网规范、协议、过程等的标准文件)](https://www.ietf.org/rfc.html)
 * [RFC Search Page](https://www.rfc-editor.org/search/rfc_search.php)
 * [中文 RFC](http://man.chinaunix.net/develop/rfc/default.htm)

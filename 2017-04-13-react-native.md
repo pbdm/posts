@@ -34,6 +34,7 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 ## Native
 
 * `JavaScriptCore`是webkit的一个重要组成部分，主要是对JS进行解析和提供执行环境
+> [深入理解JSCore](https://tech.meituan.com/deep_understanding_of_jscore.html)
 * [通信机制](http://blog.cnbang.net/tech/2698/)
 
 * A native module is just an Objective-C class that implements the `RCTBridgeModule` protocol

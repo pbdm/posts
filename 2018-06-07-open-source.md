@@ -2,6 +2,7 @@
 
 * [Open Source Guides](https://opensource.guide/)
   * [Choose an open source license](https://choosealicense.com/)
+* [Do No Harm License](https://github.com/raisely/NoHarm)
 
 ## 开源许可证选择
 

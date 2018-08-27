@@ -1,12 +1,16 @@
 # elasticsearch
 
-* elasticsearch version: 2.3.2
+* 刚接触时使用的版本: 2.3.2
 
 ## elasticsearch.js
 
 * 启动的时候需要设置匹配的 apiVersion
 * js 版本和服务端版本不相关， 只需用最新的并且设置好正确的 apiVersion 就可向下兼容
 * v2.3 里，searchType 为 `count` 可以不返回除 aggs 以外的数据， 从而减少数据量
+* [Starting from Elasticsearch 6.0, all REST requests that include a body must also provide the correct content-type for that body](https://www.elastic.co/blog/strict-content-type-checking-for-elasticsearch-rest-requests)
+* [这里](https://github.com/elastic/elasticsearch-js/blob/f493527dc4c540c2835292badcdc1d5bdf25a187/src/lib/apis/browser_index.js)可以直接看到当前版本在浏览器环境支持哪些 api
+  * [这个版本](https://github.com/elastic/elasticsearch-js/commit/d31490d5b6d53aba4b9c586a070b214ed271d97b#diff-b4028db06837b925e3a60a1a2888133c)删除了 2.4 的支持
+* [serach api](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/api-reference.html#api-search)
 
 ## 基本概念
 
