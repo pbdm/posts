@@ -1,6 +1,6 @@
 # [琥珀草](INTRO.md)
 
-* [Links](2014-05-14-links.md)
+* [前端资源库](2014-05-14-links.md)
 * [坑](2015-03-08-keng.md)
 * [小技巧](2017-06-29-tips.md)
 
@@ -29,7 +29,6 @@
     * [jQuery](2014-05-14-jquery.md)
     * [React](2017-05-27-react.md)
       * [React Native](2017-04-13-react-native.md)
-      * react-router
     * [Vue](2017-07-26-vue.md)
     * [Angular](2014-06-21-angular.md)
     * [微信小程序](2017-06-30-wx-miniapp.md)
@@ -45,7 +44,6 @@
     * [Package manager](2017-05-30-package-manager.md)
     * [babel](2017-05-30-babel.md)
     * [PostCSS](2018-06-26-postcss.md)
-    * gulp
   * [动画](2017-08-11-animation.md)
 
 * base

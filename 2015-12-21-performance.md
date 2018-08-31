@@ -4,6 +4,7 @@
 > [High PerformanceBrowser Networking by ILYA GRIGORIK](https://hpbn.co/)
 
 * [Using Lighthouse To Improve Page Load Performance(介绍了一些3.0的新功能)](https://developers.google.com/web/updates/2018/05/lighthouse)
+* [毫秒必争，前端网页性能最佳实践 - 微软互联网开发支持 - 博客园](http://www.cnblogs.com/developersupport/p/webpage-performance-best-practices.html)
 
 延迟与用户反应
 
@@ -216,6 +217,10 @@ Paint that follows biggest layout change(视口内)
 > [浏览器前端优化 by Alon](http://jinlong.github.io/2017/05/08/optimising-the-front-end-for-the-browser/)
 >
 > [浏览器的工作原理 by Tali Garsiel and Paul Irish](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
+>
+> [LIFE OF A pixel by Steve Kobes:video](https://drive.google.com/file/d/1Ky59m-F79ULs4ydMbD4Mp1dBXvs_eDes/view)
+>
+> [LIFE OF A pixel by Steve Kobes:slide](https://docs.google.com/presentation/d/1boPxbgNrTU0ddsc144rcXayGA_WF53k96imRH8Mp34Y/edit#slide=id.p)
 
 ## 工具
 
