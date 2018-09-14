@@ -25,12 +25,15 @@
 
 ## dsl
 
+* [scroll](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/search-request-scroll.html): 在数据比较大的时候采用, 不适合支持实时的和用户交互的前端分页
+
 ### query
 
 * bool
   * must(与)
   * should(或)
   * filter
+* [from/size](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/search-request-from-size.html): 默认最大值为 10000 貌似在 scroll 存在的时候会失效
 
 ### aggs
 
@@ -38,7 +41,8 @@
 * terms
 * wildcard
 * range
-* cardinality
+* [cardinality](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/search-aggregations-metrics-cardinality-aggregation.html): 算出一共有多少种 value
+  * precision_threshold 设置越大误差越小, 一般最大误差不会大于 6%
 * date_histogram
 
 * extended_bounds(防止数据中断)

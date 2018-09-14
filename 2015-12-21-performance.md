@@ -3,7 +3,6 @@
 [RAIL](https://developers.google.com/web/fundamentals/performance/rail?hl=zh-cn) 是一种以用户为中心的性能模型
 > [High PerformanceBrowser Networking by ILYA GRIGORIK](https://hpbn.co/)
 
-* [Using Lighthouse To Improve Page Load Performance(介绍了一些3.0的新功能)](https://developers.google.com/web/updates/2018/05/lighthouse)
 * [毫秒必争，前端网页性能最佳实践 - 微软互联网开发支持 - 博客园](http://www.cnblogs.com/developersupport/p/webpage-performance-best-practices.html)
 
 延迟与用户反应
@@ -84,7 +83,16 @@
 >
 > [whatwg's HTML Living Standard](https://html.spec.whatwg.org/multipage/scripting.html#attr-script-defer)
 
-首屏关键路径
+#### Page lifecycle API
+
+* DOMContentLoaded, load 和 Page Lifecycle API 没有必然联系
+* beforeunload 只应被用来提示用户有为存储信息
+* `chrome://discards/`: 当前页面状态
+
+![Page Lifecycle API](https://developers.google.com/web/updates/images/2018/07/page-lifecycle-api-state-event-flow.png)
+> [Page Lifecycle API by Philip Walton](https://developers.google.com/web/updates/2018/07/page-lifecycle-api#developer-recommendations-for-each-state)
+
+首屏关键路径(个人总结)
 
 ```mermaid
 graph TD
@@ -224,6 +232,9 @@ Paint that follows biggest layout change(视口内)
 
 ## 工具
 
+* [A list of community-built, third-party tools that can be used to improve page performance](https://progressivetooling.com/)
+  * [lazysizes, 谷歌 I/O 上推荐的图片懒加载库](https://github.com/aFarkas/lazysizes)
+
 ### Chrome dev tools
 
 * [Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/?hl=zh-cn)
@@ -249,6 +260,8 @@ Chrome 60 后已经默认在 audits 标签里了
 
 It’s an improved “Pagespeed Insights
 
+* [Using Lighthouse To Improve Page Load Performance(介绍了一些3.0的新功能)](https://developers.google.com/web/updates/2018/05/lighthouse)
+
 * First meaningful paint
 * [First Interactive](https://developers.google.com/web/tools/lighthouse/audits/first-interactive)
 * [Consistently Interactive](https://developers.google.com/web/tools/lighthouse/audits/consistently-interactive)
@@ -269,4 +282,5 @@ It’s an improved “Pagespeed Insights
 ## Others
 
 * `navigator.connection.effectiveType` 可以更准确的检测当前网络环境, chrome 62 开始支持
-* [lazysizes, 谷歌 I/O 上推荐的图片懒加载库](https://github.com/aFarkas/lazysizes)
+
+> [大前端时代前端监控的最佳实践 by holden(六猴)](https://zhuanlan.zhihu.com/p/38368337)

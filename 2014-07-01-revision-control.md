@@ -31,6 +31,8 @@
 * `git diff HEAD@{yesterday}` `git diff HEAD@{'2010-01-01 12:00:00'}` `git diff HEAD@{'2 months ago'}` 查看固定时间提交之后的修改
 
 > [更方便的用命令行将 git 和 github 结合](https://github.com/github/hub)
+>
+> [在 git 分支名上使用 slash](https://stackoverflow.com/a/6065944/2307918)
 
 ### tig
 

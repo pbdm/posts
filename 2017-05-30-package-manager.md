@@ -21,6 +21,7 @@
 
 * [chokidar](https://www.npmjs.com/package/chokidar): 相比 fs.watch 可以监听整个目录
 * [rimraf](https://www.npmjs.com/package/rimraf): 全平台支持删除文件
+* [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) xml to js for node
 
 ## Yarn
 

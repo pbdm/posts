@@ -5,22 +5,39 @@
 * [whatwg.org(Web Hypertext Application Technology Working Group)](https://whatwg.org/)
 * [IETF(The Internet Engineering Task Force)](http://ietf.org/)
 * [W3C(World Wide Web Consortium)](https://www.w3.org/)
+  * [Everything You Always Wanted to Know About Web Standards(2013)](http://video.tudou.com/v/XMjIzNjQ4ODE4OA==.html)
 * [Ecma International](https://www.ecma-international.org/)
 
 ## Standard
 
+* W3C 标准制定[步骤(maturity levels)](https://www.w3.org/2018/Process-20180201//#recs-and-notes)
+  * Editor's Drafts(ED)(只代表个人意见)
+  * First Public Working Drafts(FPWD)
+  * Working Drafts(WD)
+  * Last Call Working Draft(LCWD) 持续时间不长, 告诉人们 WD 马上就要成为 CR 了, 要提意见赶紧提...
+  * Candidate Recommendation(CR)
+  * Proposed Recommendation(PR)
+  * W3C Recommendation(REC)
+  * Working Group Note, Interest Group Note (NOTE): 只是一个有用的文档, 并不构成标准
 * [ALL STANDARDS AND DRAFTS in W3C](https://www.w3.org/TR/)
+
 * [WHATWG Standards](https://spec.whatwg.org/)
-* [JavaScript(ECMAScript) 语言标准历史及标准制定过程介绍](https://itbilu.com/javascript/js/V1APADgrG.html)
+
 * [HTML Standard - whatwg](https://html.spec.whatwg.org/multipage/)
+  * [HTML Standard - whatwg 中文](https://whatwg-cn.github.io/html/)
 * [HTML - W3C](https://www.w3.org/TR/html/)
-* [HTML Standard - whatwg 中文](https://whatwg-cn.github.io/html/)
+  * [HTML Editor’s Draft - W3C](https://w3c.github.io/html/)
 * [HTML/W3C-WHATWG-Differences](https://www.w3.org/wiki/HTML/W3C-WHATWG-Differences)
+
 * [CSS SPEC­I­FI­CA­TIONS](https://www.w3.org/Style/CSS/current-work)
-* [ES5整理by 颜海镜](http://yanhaijing.com/es5/#about)
+  * [正在修改的 CSS 标准列表(Up­com­ing)](https://drafts.csswg.org/)
+
 * [ECMAScript Language Specification - ECMA-262 Edition 5.1](http://www.ecma-international.org/ecma-262/5.1/)
 * [ECMAScript 2015 Language Specification &ndash; ECMA-262 6th Edition](http://www.ecma-international.org/ecma-262/6.0/)
 * [ECMAScript® 2016 Language Specification](http://www.ecma-international.org/ecma-262/7.0/index.html)
+* [JavaScript(ECMAScript) 语言标准历史及标准制定过程介绍](https://itbilu.com/javascript/js/V1APADgrG.html)
+* [ES5整理by 颜海镜](http://yanhaijing.com/es5/#about)
+
 * [Request for Comments (RFC,记录互联网规范、协议、过程等的标准文件)](https://www.ietf.org/rfc.html)
 * [RFC Search Page](https://www.rfc-editor.org/search/rfc_search.php)
 * [中文 RFC](http://man.chinaunix.net/develop/rfc/default.htm)
@@ -56,6 +73,7 @@ Blink and Chromium are not really separable anymore, 所以他们的 source code
 * [chromium Bug tracker](https://bugs.chromium.org/p/chromium/issues/list)
 * [Checking out and building Chromium for Mac](https://chromium.googlesource.com/chromium/src/+/master/docs/mac_build_instructions.md)
 * [Chromium Code Search](https://cs.chromium.org/)
+  * [Chromium 如何通过 MIME Type 确定文档类型](https://cs.chromium.org/chromium/src/net/base/mime_sniffer.cc?sq=package:chromium&dr=CS&l=5)
 
 * [Blink homepage](https://www.chromium.org/blink)
 * [Blink source code](https://chromium.googlesource.com/chromium/src/+/master/third_party/WebKit/)
