@@ -47,11 +47,11 @@
 * 如果在调试工具点上 `Disable cache` 或者 `cmd+shift+r`, 浏览器会强制在请求头上加上 `Cache-Control: no-cache` 和 `Pragma: no-cache`, 且不发送 `If-None-Match/If-Modified-Since`
 * 浏览器前进和后退的过程当中所有请求是缓存的(忽视以上策略), 可以在前进后退的请求头里看到 `Provisional headers are shown`, 说明没有真正的发出请求
 
-![cache-control](http://pbdm.qiniudn.com/20171124165919_Ppd5Q9_Screenshot.jpeg)
+![cache-control](https://cdn.rawgit.com/pbdm/img/master/20171124165919_Ppd5Q9_Screenshot.jpeg)
 
 进入 `chrome://net-internals/#events`, 可以在 URL_REQUEST 看到数据是从缓存中读取的
 
-![cache-control](http://pbdm.qiniudn.com/20171124172734_Dybrm1_Screenshot.jpeg)
+![cache-control](https://cdn.rawgit.com/pbdm/img/master/20171124172734_Dybrm1_Screenshot.jpeg)
 
 * 在地址栏对当前url `cmd+r` 或回车, 浏览器会强制(忽视以上策略)对该url(首个页面)发出 `Cache-Control: max-age=0`
 * 页面里的 `<a>` 标签即使 href 与页面 url 相同也是遵循缓存策略的
