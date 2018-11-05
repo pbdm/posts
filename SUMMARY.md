@@ -8,6 +8,7 @@
   * [Web 标准](2017-10-31-fe-standard.md)
     * [JS 数据类型和结构](2018-08-15-js-data.md)
       * [Proxy](2018-03-23-js-proxy.md)
+    * [JSON schema](2018-09-28-json-schema.md)
     * [事件](2017-05-30-js-events.md)
     * [DOM](2018-03-22-dom.md)
     * [Web Components](2018-03-21-web-components.md)
@@ -17,6 +18,7 @@
     * [Canvas](2017-03-21-canvas.md)
     * [Video](2017-03-13-video.md)
     * [文件和二进制的操作](2018-05-15-file.md)
+    * [拖拽](2018-10-31-drag-drop.md)
     * [CSS](2017-05-30-css.md)
       * [BFC](2016-04-05-bfc.md)
   * 实现
@@ -29,6 +31,7 @@
     * [jQuery](2014-05-14-jquery.md)
     * [React](2017-05-27-react.md)
       * [React Native](2017-04-13-react-native.md)
+      * [react-beautiful-dnd](2018-09-25-react-beautiful-dnd.md)
     * [Vue](2017-07-26-vue.md)
     * [Angular](2014-06-21-angular.md)
     * [微信小程序](2017-06-30-wx-miniapp.md)

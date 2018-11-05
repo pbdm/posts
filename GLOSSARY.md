@@ -4,11 +4,6 @@
 
 abstract syntax tree 抽象语法树
 
-### parser
-
-* [UglifyJS](http://lisperator.net/uglifyjs/)
-* [babylon](https://github.com/babel/babel/tree/master/packages/babylon)
-
 ## BOM
 
 Browser Object Model，即浏览器对象模型, 如 `window`
@@ -74,3 +69,7 @@ Request For Comments
 ## KVC
 
 Key-value coding, 键值编码, 指iOS的开发中，可以允许开发者通过Key名直接访问对象的属性，或者给对象的属性赋值
+
+## SHA
+
+Secure Hash Algorithm, 安全散列算法

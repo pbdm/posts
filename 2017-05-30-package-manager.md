@@ -34,3 +34,6 @@
 * [Offline mirror](https://yarnpkg.com/blog/2016/11/24/offline-mirror/)
   * 存储一堆压缩后的包
   * `yarn install –offline` 可以保证全部本地安装
+
+* [yarn.lock 添加了 integrity field](https://github.com/yarnpkg/yarn/pull/5042)
+  * 貌似和 resolved 后的 hash 字段(从 npm 而来)相比, 一个是 sha512(integrity), 一个是 sha1(resolved)?!
