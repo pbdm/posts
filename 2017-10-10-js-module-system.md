@@ -1,9 +1,10 @@
-# Javascript Module system styles
+# Javascript 模块系统
 
 * `<script>` tag
-* [ES2015 modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) (`import`, `export`)
+* [ES2015 modules](ECMAScript Modules)(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) (`import`, `export`)
+  * 与 CommonJS 不同, ES2015 modules 有可能是异步的
 * [CommonJS](http://www.commonjs.org/specs/modules/1.0/): synchronous (`require`, `module.exports`)
-* [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md): asynchronous require(`define`, `require`)
+* [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md): asynchronous require(`define`)
   * [require.js](http://requirejs.org/)
   * [curl.js](https://github.com/cujojs/curl)
   * [CMD](https://github.com/seajs/seajs/issues/242)(Common Module Definition)
@@ -28,7 +29,7 @@
     a.doSomething()
     // 此处略去 100 行
     b.doSomething()
-    ...
+    // ...
   })
   ```
 
@@ -62,14 +63,25 @@
 * [@import](https://developer.mozilla.org/en-US/docs/Web/CSS/@import) inside of a css/sass/less file
 * image url in a stylesheet (url(...)) or html (<img src=...>) file.
 
-## ES2015 modules vs CommonJS
+> [webpack Module](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
 
-* ES2015 modules 有可能是异步的
-* 从 v8.5.0 开始, [node --experimental-modules](https://github.com/nodejs/node/blob/master/doc/api/esm.md) 可以支持 ES2015 modules
+## ES2015 modules
+
+### in node
+
+* 从 node v8.5.0 开始, [node --experimental-modules](https://github.com/nodejs/node/blob/master/doc/api/esm.md) 可以支持 ES2015 modules
   * 注意: 文件一定要是 `.mjs` 的
   * 如果要使用原来的 `.js` 文件, 需要使用 [Loader hooks](https://nodejs.org/api/esm.html#esm_loader_hooks)
-  > [Node 9下import/export的丝般顺滑使用](https://github.com/ChenShenhai/blog/isses/24)
+  > [Node 9下import/export的丝般顺滑使用](https://github.com/ChenShenhai/blog/issues/24)
 
-> [webpack1 module system](http://webpack.github.io/docs/motivation.html#module-system-styles)
+### in browsers
+
+* 使用方法: `<script type="module" src="example.js"/>`, 这样引用的 js 里就可以使用 `import 了`
+* strict mode is turned on by default
+* 默认是 defer 的
+* 多次引用也只会执行一次
+* 跨域引用的模块必须支持 CORS
+* safari module 引用的 js 是拿不到别的 js 里的全局变量的, 除非别的 js 里的全局变量主动挂到 winodw 上
+> [ECMAScript modules in browsers by Jake Archibald](https://jakearchibald.com/2017/es-modules-in-browsers/)
 >
-> [webpack 模块 by toobug](https://webpack.toobug.net/zh-cn/chapter2/)
+> [ES6 Modules in Depth](https://ponyfoo.com/articles/es6-modules-in-depth)
