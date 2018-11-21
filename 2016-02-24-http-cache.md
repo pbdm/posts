@@ -8,8 +8,6 @@
         * 替代了 http 1.0 的 `Pragma: no-cache`
       * `max-age`: 缓存秒数
       * `public` or `private`: 是否可以作为共享缓存(CDN可以缓存)
-      > [What's the difference between Cache-Control: max-age=0 and no-cache?](https://stackoverflow.com/questions/1046966/whats-the-difference-between-cache-control-max-age-0-and-no-cache)
-      >
       > [RFC 7234 for Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
       >
       > [no-cache与must-revalidate深入探究 by 程序猿小卡](http://www.cnblogs.com/chyingp/p/no-cache-vs-must-revalidate.html)
@@ -23,15 +21,17 @@
   * 协商缓存阶段, `ETag` & `If-None-Match` 优先级高于 `Last-Modified` & `If-Modified-Since`, 如果成功命中则会返回 304 Not Modified
     * `ETag`(Response header) & `If-None-Match`(Request header) (http1.1)
     * `Last-Modified`(Response header) & `If-Modified-Since`(Request header) (http1.0)
-  * Vary
+  * [Vary](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ#%E5%B8%A6Vary%E5%A4%B4%E7%9A%84%E5%93%8D%E5%BA%94)
     * 属于 Response header, 值为 header-name 的集合
     * 当缓存服务器收到一个请求，只有当前的请求和原始（缓存）的请求头跟缓存的响应头里的Vary都匹配，才能使用缓存的响应
     * 可以使用 `Vary: User-Agent` 来区分移动端和桌面端的展示内容
+    ![Vary](https://mdn.mozillademos.org/files/13769/HTTPVary.png)
 * Cache-Control in Request
   * 总得来说还是应该先去遵守服务端的规则, 除非有特殊需求
   * 理解的时候可以把浏览器缓存当成是一个中间缓存
   * `no-cache`: (告诉中间缓存)不要使用缓存(这里貌似不会再去检验 `If-None-Match/If-Modified-Since` 了, 所以不会返回304了?!)
   * `max-age:0`: 在重新获取资源之前，先检验 If-None-Match/If-Modified-Since
+  > [What's the difference between Cache-Control: max-age=0 and no-cache?](https://stackoverflow.com/questions/1046966/whats-the-difference-between-cache-control-max-age-0-and-no-cache)
 
 > [循序漸進理解 HTTP Cache 機制 by techbridge](https://blog.techbridge.cc/2017/06/17/cache-introduction/)
 >
