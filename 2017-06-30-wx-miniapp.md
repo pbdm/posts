@@ -127,3 +127,32 @@ dev: [nwjs(node-webkit)](https://github.com/nwjs/nw.js/)
 基于 wept 的又另外一套实现...
 
 > [hera](https://github.com/weidian-inc/hera)
+
+## 微信小游戏
+
+### 开放数据域
+
+* [官方文档](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html)
+* cocos 里又叫子域(BROWSER_TYPE_WECHAT_GAME_SUB)
+* 通信: 类似于 postmessage 方式
+  * 开放数据域不能向主域发送消息
+  * 主域可以向开放数据域发送消息
+* 只能通过 sharedCanvas 渲染然后绘制到主域上
+* 在开放数据域可以使用一些关于社交关系链数据的 API, 从而实现类似于排行榜的功能
+  * 保证了用户可以拿到数据展示，但你无法存储数据到自己的服务器
+  * [wx.getFriendCloudStorage](https://developers.weixin.qq.com/minigame/dev/api/wx.getFriendCloudStorage.html): 拉取当前用户所有同玩好友的托管数据
+  * [wx.getGroupCloudStorage](https://developers.weixin.qq.com/minigame/dev/api/wx.getGroupCloudStorage.html): 获取群同玩成员的游戏数据
+* 说是说开放, 但是其实应该是[限制](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html#%E9%99%90%E5%88%B6)
+* cocos creator 靠判断是否实现了 [wx.getFileSystemManager](https://github.com/cocos-creator/engine/blob/2.1.0/cocos2d/core/platform/CCSys.js#L635)判断是否在开放数据域
+> [接入微信小游戏的开放数据域 for cocos](https://docs.cocos.com/creator/manual/zh/publish/publish-wechatgame-sub-domain.html)
+
+```javascript
+let openDataContext = wx.getOpenDataContext()
+let sharedCanvas = openDataContext.canvas
+
+let canvas = wx.createCanvas()
+let context = canvas.getContext('2d')
+context.drawImage(sharedCanvas, 0, 0)
+```
+
+![主域和开放数据域的关系](https://developers.weixin.qq.com/minigame/dev/tutorial/image/open-data/data-flow.png)

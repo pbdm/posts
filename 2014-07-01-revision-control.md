@@ -42,6 +42,8 @@
 
 `core.ignorecase` 是否忽略大小写(如果先前已经存在大小写不同, 本地需要 git mv 才能改变远程的大小写状态...)
 
+[includeIf](https://git-scm.com/docs/git-config#_conditional_includes)在需要配置不同的 git 身份的时候很有用啊...(2.13后支持)
+
 ### 打补丁
 
 `git diff` 创建补丁
