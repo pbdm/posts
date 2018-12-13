@@ -135,6 +135,7 @@ dev: [nwjs(node-webkit)](https://github.com/nwjs/nw.js/)
 * [官方文档](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html)
 * cocos 里又叫子域(BROWSER_TYPE_WECHAT_GAME_SUB)
 * 通信: 类似于 postmessage 方式
+  * 类似于通过不同的 webview 隔离
   * 开放数据域不能向主域发送消息
   * 主域可以向开放数据域发送消息
 * 只能通过 sharedCanvas 渲染然后绘制到主域上

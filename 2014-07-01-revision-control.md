@@ -9,6 +9,7 @@
 * [git 使用简易指南](http://www.bootcss.com/p/git-guide/)
 * [git 参考手册](http://gitref.org/zh/)
 * [Git Cheatsheet • NDP Software](http://ndpsoftware.com/git-cheatsheet.html)
+* [根据 commit 自动生成 changelog](https://div.io/topic/2221)
 
 * `git add -i`: 一个好使的add代码到`缓存区(Index)`的工具
 * `git add -p` 分块提交到缓存区
