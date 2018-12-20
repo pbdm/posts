@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>event-stream 被植入比特币后门事件</title>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <textarea id="source">
-
-class: center, middle
 
 # event-stream 被植入比特币后门事件
 
@@ -16,7 +6,6 @@ class: center, middle
 # 起因
 
 原作者 dominictarr 由于时间和精力有限，将其维护工作交给了另一位开发者 Right9ctrl，该开发者获得了 event-stream 的控制权
-
 
 ---
 
@@ -41,7 +30,6 @@ Right9ctrl 在2018年9月9日为 event-stream [添加](https://github.com/domini
 * [vscode](https://code.visualstudio.com/blogs/2018/11/26/event-stream)
 
 * npm官网已对其进行[下架处理](https://www.npmjs.com/package/flatmap-stream?activeTab=versions)
-
 
 ---
 
@@ -68,12 +56,3 @@ flatmap-stream@0.1.1
 * [Details about the event-stream incident - npm blog](https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident)
 * [Malicious code found in npm package event-stream downloaded 8 million times in the past 2.5 months](https://snyk.io/blog/malicious-code-found-in-npm-package-event-stream)
 * [GITHUB又出幺蛾子？才让机器人修复漏洞就又给黑客送上模块版权](https://tech.china.com/article/20181127/kejiyuan1108220392.html)
-
-    </textarea>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
-    <script>
-      var slideshow = remark.create();
-    </script>
-  </body>
-</html>
