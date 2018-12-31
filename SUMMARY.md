@@ -60,8 +60,6 @@
   * [编码](2018-03-01-encode.md)
   * [操作系统](2017-12-21-os.md)
   * [Tools](2014-09-13-tools.md)
-    * [Mac](2018-06-07-mac.md)
-    * [Editor](2015-12-14-editor.md)
   * [权限相关](2017-07-18-auth.md)
   * [版本管理](2014-07-01-revision-control.md)
 

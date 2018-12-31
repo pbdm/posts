@@ -1,4 +1,4 @@
-# 包管理工具
+# JS 包管理工具
 
 ## npm
 
@@ -10,6 +10,10 @@
 * [npm version(Bump a package version)](https://docs.npmjs.com/cli/version)
   > [npm version source code](https://github.com/npm/npm/blob/latest/lib/version.js)
 * `npm link module-name`: 使全局的模块可以在当前目录执行
+  * 同时在当前开发的模块内 [npm link](https://docs.npmjs.com/cli/link.html) 也可以方便开发依赖包
+* `npm unlink`: aliases of `npm uninstall`
+> [用Node.js开发一个Command Line Interface (CLI)](https://zhuanlan.zhihu.com/p/38730825)
+* `npm publish`
 
 ### update packages
 
@@ -22,6 +26,10 @@
 * [chokidar](https://www.npmjs.com/package/chokidar): 相比 fs.watch 可以监听整个目录
 * [rimraf](https://www.npmjs.com/package/rimraf): 全平台支持删除文件
 * [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) xml to js for node
+* [commander](https://github.com/tj/commander.js): 用于写 cli
+  * 注意有两种模式
+    * 一般模式不的 command 后面不能加第二个解释参数, 需要在 description 后加
+    * [Git-style sub-commands](https://github.com/tj/commander.js#git-style-sub-commands): 需要在同级目录下生成 command-xxx
 
 ## Yarn
 
