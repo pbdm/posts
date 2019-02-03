@@ -49,6 +49,7 @@
     * [Package manager](2017-05-30-package-manager.md)
     * [babel](2017-05-30-babel.md)
     * [PostCSS](2018-06-26-postcss.md)
+    * [Continuous integration](2018-12-25-ci.md)
   * [动画](2017-08-11-animation.md)
 
 * base
@@ -62,6 +63,9 @@
   * [Tools](2014-09-13-tools.md)
   * [权限相关](2017-07-18-auth.md)
   * [版本管理](2014-07-01-revision-control.md)
+  * [编译](2019-01-04-compile.md)
+  * [算法](2018-06-07-algorithm.md)
+  * [开源](2018-06-07-open-source.md)
 
 * Backend
   * [node.js](2017-07-19-nodejs.md)
@@ -80,9 +84,6 @@
 
 * [iOS](2017-05-11-ios.md)
 * [Android](2018-11-12-android.md)
-
-* [开源](2018-06-07-open-source.md)
-* [算法](2018-06-07-algorithm.md)
 
 * Blog && Others
   * [2015-04-07-自定义Mac全局快捷键](blog/2015-04-07-自定义Mac全局快捷键.md)

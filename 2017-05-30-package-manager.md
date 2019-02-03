@@ -26,10 +26,14 @@
 * [chokidar](https://www.npmjs.com/package/chokidar): 相比 fs.watch 可以监听整个目录
 * [rimraf](https://www.npmjs.com/package/rimraf): 全平台支持删除文件
 * [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) xml to js for node
+* [XMLDOM](https://github.com/jindw/xmldom): 符合 Web 标准的 DOMParser 对象实现
 * [commander](https://github.com/tj/commander.js): 用于写 cli
   * 注意有两种模式
     * 一般模式不的 command 后面不能加第二个解释参数, 需要在 description 后加
     * [Git-style sub-commands](https://github.com/tj/commander.js#git-style-sub-commands): 需要在同级目录下生成 command-xxx
+* [fkill](https://github.com/sindresorhus/fkill-cli): 杀进程的时候很有用
+* [concurrently: 可以用来同时运行两个 watch](https://github.com/kimmobrunfeldt/concurrently)
+  * [这里](https://github.com/mysticatea/npm-run-all/issues/10)有一些类似的包的列表
 
 ## Yarn
 
