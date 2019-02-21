@@ -12,7 +12,9 @@
 * `npm link module-name`: 使全局的模块可以在当前目录执行
   * 同时在当前开发的模块内 [npm link](https://docs.npmjs.com/cli/link.html) 也可以方便开发依赖包
 * `npm unlink`: aliases of `npm uninstall`
+
 > [用Node.js开发一个Command Line Interface (CLI)](https://zhuanlan.zhihu.com/p/38730825)
+
 * `npm publish`
 
 ### update packages
