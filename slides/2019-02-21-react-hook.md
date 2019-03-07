@@ -1,10 +1,10 @@
 class: center, middle
 
-# React hooks
+# React hook
 
 ---
 
-## 什么是 Hooks
+## 什么是 Hook
 
 * 16.8 版本推出的新特性
 

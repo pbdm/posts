@@ -43,6 +43,10 @@ dev: [nwjs(node-webkit)](https://github.com/nwjs/nw.js/)
   * 改造了 render 方法，禁止视图层渲染
   * 所有的事件都绑在一个 handleProxy 方法上, 用写在 dom 上的 eventid 来区分
 
+## Taro
+
+* 可以多学学这个项目的组织发布结构和社区营造...
+
 ## 分析开发者工具
 
 开发者工具使用了 react.js + nwjs, 名叫 MINA...
@@ -145,6 +149,7 @@ dev: [nwjs(node-webkit)](https://github.com/nwjs/nw.js/)
   * [wx.getGroupCloudStorage](https://developers.weixin.qq.com/minigame/dev/api/wx.getGroupCloudStorage.html): 获取群同玩成员的游戏数据
 * 说是说开放, 但是其实应该是[限制](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html#%E9%99%90%E5%88%B6)
 * cocos creator 靠判断是否实现了 [wx.getFileSystemManager](https://github.com/cocos-creator/engine/blob/2.1.0/cocos2d/core/platform/CCSys.js#L635)判断是否在开放数据域
+
 > [接入微信小游戏的开放数据域 for cocos](https://docs.cocos.com/creator/manual/zh/publish/publish-wechatgame-sub-domain.html)
 
 ```javascript
