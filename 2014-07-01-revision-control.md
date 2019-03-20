@@ -10,6 +10,7 @@
 * [git 参考手册](http://gitref.org/zh/)
 * [Git Cheatsheet • NDP Software](http://ndpsoftware.com/git-cheatsheet.html)
 * [根据 commit 自动生成 changelog](https://div.io/topic/2221)
+* [submodule is link, subtree is copy](https://stackoverflow.com/questions/31769820/differences-between-git-submodule-and-subtree)
 
 * `git add -i`: 一个好使的add代码到`缓存区(Index)`的工具
 * `git add -p` 分块提交到缓存区

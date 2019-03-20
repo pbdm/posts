@@ -8,6 +8,8 @@
 
 [微信小程序的开发经验分享](https://mp.weixin.qq.com/s/9PID6UJsQyB06xdyOkEVOA)
 
+[小程序标准化概要...](https://github.com/w3c/chinese-ig/blob/master/tf/mobile/outline.md)
+
 ## 语法
 
 主要针对与 WEB 标准的不同
