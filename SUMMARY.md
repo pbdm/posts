@@ -1,8 +1,7 @@
 # [琥珀草](INTRO.md)
 
-* [前端资源库](2014-05-14-links.md)
+* [资源库](2014-05-14-links.md)
 * [坑](2015-03-08-keng.md)
-* [小技巧](2017-06-29-tips.md)
 
 * [Front End](2014-05-14-frontend.md)
   * [Web 标准](2017-10-31-fe-standard.md)
@@ -68,12 +67,12 @@
   * [开源](2018-06-07-open-source.md)
 
 * Backend
-  * [node.js](2017-07-19-nodejs.md)
+  * [Node.js](2017-07-19-nodejs.md)
   * [PHP](2014-05-14-php.md)
     * [Drupal](2014-05-14-drupal.md)
   * [Rust](2018-03-16-rust.md)
-  * [Java](2014-05-14-java.md)
-  * [Perl](2014-05-14-perl.md)
+  * Java
+  * Perl
   * [C++](2017-11-28-cpp.md)
   * [Database](2014-05-29-database.md)
     * [ElasticSearch](2017-04-20-elasticsearch.md)
