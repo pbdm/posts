@@ -36,6 +36,14 @@
 * [fkill](https://github.com/sindresorhus/fkill-cli): 杀进程的时候很有用
 * [concurrently: 可以用来同时运行两个 watch](https://github.com/kimmobrunfeldt/concurrently)
   * [这里](https://github.com/mysticatea/npm-run-all/issues/10)有一些类似的包的列表
+* [adm-zip: 用于上传后的文件解压缩](https://www.npmjs.com/package/adm-zip)
+* [pify](https://github.com/sindresorhus/pify), Promisify a callback-style function, 与 node 自带的不同, 可以支持回调函数里多个参数 ]
+
+```javascript
+ var zip = new AdmZip(req.file.path);
+   zip.extractAllTo( "/detination_folder/");
+})
+```
 
 ## Yarn
 
@@ -51,3 +59,8 @@
 
 * [yarn.lock 添加了 integrity field](https://github.com/yarnpkg/yarn/pull/5042)
   * 貌似和 resolved 后的 hash 字段(从 npm 而来)相比, 一个是 sha512(integrity), 一个是 sha1(resolved)?!
+
+## Monorepo
+
+* yarn workspaces(见上文)
+* lerna

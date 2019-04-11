@@ -93,7 +93,7 @@
 ![Page Lifecycle API](https://developers.google.com/web/updates/images/2018/07/page-lifecycle-api-state-event-flow.png)
 > [Page Lifecycle API by Philip Walton](https://developers.google.com/web/updates/2018/07/page-lifecycle-api#developer-recommendations-for-each-state)
 
-首屏关键路径(个人总结)
+首屏关键路径(个人总结)(TODO: 总结一个不一定最全面, 但是要更通俗易懂的版本...)
 
 ```mermaid
 graph TD

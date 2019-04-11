@@ -79,7 +79,6 @@
     * [Druid](2018-11-29-druid.md)
   * [Docker](2016-03-22-docker.md)
   * [Redis](2017-11-17-redis.md)
-  * [Nginx](2018-06-07-nginx.md)
 
 * [iOS](2017-05-11-ios.md)
 * [Android](2018-11-12-android.md)

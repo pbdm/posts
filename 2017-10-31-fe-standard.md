@@ -96,7 +96,9 @@ Blink and Chromium are not really separable anymore, 所以他们的 source code
 
 * V8 — open source, developed by Google, written in C++, used in Chrome(blink) and nodejs
   * JIT
+
 > [How JavaScript works in v8 by Alexander Zlatkov](https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e)
+
 * JavaScriptCore — open source, marketed as Nitro and developed by Apple for Safari(webkit)
 * Chakra - `JScript9` for Internet Explorer and `JavaScript` for Microsoft Edge
 * SpiderMonkey — the first JavaScript engine, which back in the days powered Netscape Navigator, and today powers Firefox

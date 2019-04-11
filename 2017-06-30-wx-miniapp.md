@@ -48,6 +48,7 @@ dev: [nwjs(node-webkit)](https://github.com/nwjs/nw.js/)
 ## Taro
 
 * 可以多学学这个项目的组织发布结构和社区营造...
+* omi 的转小程序是[基于](https://github.com/Tencent/omi/blob/master/packages/omip/package.json#L15) taro 的
 
 ## 分析开发者工具
 

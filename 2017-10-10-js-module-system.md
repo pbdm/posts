@@ -82,6 +82,7 @@
 * 多次引用也只会执行一次
 * 跨域引用的模块必须支持 CORS
 * safari module 引用的 js 是拿不到别的 js 里的全局变量的, 除非别的 js 里的全局变量主动挂到 winodw 上
+
 > [ECMAScript modules in browsers by Jake Archibald](https://jakearchibald.com/2017/es-modules-in-browsers/)
 >
 > [ES6 Modules in Depth](https://ponyfoo.com/articles/es6-modules-in-depth)

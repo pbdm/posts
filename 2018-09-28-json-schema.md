@@ -36,6 +36,7 @@
   * for Arrays
     * items: 定义 array 子元素
 * [$ref](http://json-schema.org/latest/json-schema-validation.html#rfc.section.9): 可以引用其他 schema 来定义当前 schama 的某个字段
+
 > [ref extending](https://json-schema.org/understanding-json-schema/structuring.html#extending)
 >
 > [貌似继承时 additionalProperties 不好用](https://stackoverflow.com/questions/22689900/json-schema-allof-with-additionalproperties/24365393#24365393)
