@@ -24,6 +24,7 @@
   * dependencies
 * getShareURL: 分享
 * customLog: 统计
+* 基于[js-native](https://github.com/ecomfe/js-native)
 
 ## San 框架
 

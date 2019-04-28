@@ -4,7 +4,7 @@
 * [坑](2015-03-08-keng.md)
 
 * [Front End](2014-05-14-frontend.md)
-  * [Web 标准](2017-10-31-fe-standard.md)
+  * [Web 标准](2017-10-31-web-standard.md)
     * [JS 数据类型和结构](2018-08-15-js-data.md)
       * [Proxy](2018-03-23-js-proxy.md)
     * [JSON schema](2018-09-28-json-schema.md)
@@ -14,8 +14,6 @@
     * [PWA](2017-07-06-pwa.md)
     * [JS 异步](2017-07-24-async.md)
     * [JS 模块系统](2017-10-10-js-module-system.md)
-    * [Canvas](2017-03-21-canvas.md)
-      * [WebGL](2018-12-04-webgl.md)
     * [Video](2017-03-13-video.md)
     * [文件和二进制的操作](2018-05-15-file.md)
     * [拖拽](2018-10-31-drag-drop.md)
@@ -50,6 +48,9 @@
     * [PostCSS](2018-06-26-postcss.md)
     * [Continuous integration](2018-12-25-ci.md)
   * [动画](2017-08-11-animation.md)
+  * 图形
+    * [Canvas](2017-03-21-canvas.md)
+    * [WebGL](2018-12-04-webgl.md)
 
 * base
   * [网络协议](2017-05-26-protocol.md)

@@ -38,6 +38,10 @@
   * [这里](https://github.com/mysticatea/npm-run-all/issues/10)有一些类似的包的列表
 * [adm-zip: 用于上传后的文件解压缩](https://www.npmjs.com/package/adm-zip)
 * [pify](https://github.com/sindresorhus/pify), Promisify a callback-style function, 与 node 自带的不同, 可以支持回调函数里多个参数 ]
+* [node-formidable](https://github.com/felixge/node-formidable)
+  * 注意: Promiseify 情况下 `new formidable.IncomingForm()` 要放在每次请求后面, 否则会报 `MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 field listeners added. Use emitter.setMaxListeners() to increase limit`(10次上传后)
+  > [MaxListenersExceededWarning: Possible EventEmitter memory leak detected](https://github.com/felixge/node-formidable/issues/422)
+* [shortid, 适合用来生成短的 redis id](https://www.npmjs.com/package/shortid)
 
 ```javascript
  var zip = new AdmZip(req.file.path);
