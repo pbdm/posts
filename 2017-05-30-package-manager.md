@@ -17,6 +17,10 @@
 
 * `npm publish`
 
+* [Pika: Run npm dependencies directly in the browser. No Browserify, Webpack or import maps required](https://github.com/pikapkg/web)
+  * [A Future Without Webpack](https://www.pikapkg.com/blog/pika-web-a-future-without-webpack/)
+  * 可以将包转换为可以直接在浏览器里 import 的(ESM)
+
 ### update packages
 
 * [npm update](https://docs.npmjs.com/cli/update) 根据 package.json 里的版本号自动升级, 并会修改 package.json

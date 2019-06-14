@@ -28,6 +28,7 @@
 * [HTML - W3C](https://www.w3.org/TR/html/)
   * [HTML Editor’s Draft - W3C](https://w3c.github.io/html/)
 * [HTML/W3C-WHATWG-Differences](https://www.w3.org/wiki/HTML/W3C-WHATWG-Differences)
+* [以后都将以 WHATWG 的 HTML 和 DOM 为标准了](https://www.w3.org/blog/news/archives/7753)
 
 * [CSS SPEC­I­FI­CA­TIONS](https://www.w3.org/Style/CSS/current-work)
   * [正在修改的 CSS 标准列表(Up­com­ing)](https://drafts.csswg.org/)

@@ -36,6 +36,16 @@
 
 > [San 生命周期](https://baidu.github.io/san/tutorial/component/)
 
-## 开发者工具
+## 坑
 
-* TODO
+* Taro
+  * 有时ScrollView 撑开了回不来
+  * props 传给子组件时有时不更新
+  * render 函数捏不能写 if else, 只能写一堆单个的 if
+* s-if内 `selectKeys.indexOf(item.appKey)` 这种表达式没有值
+  * 可以用 [filter](http://smartprogram.baidu.com/docs/develop/framework/view_filter/) 解决..
+* 自定义组件内的事件不能被 Page.after 捕捉到(IDE 内)
+  * swan-core 升级到 3.60.16 解决
+* IDE 升级到2.2.7 后打包不生成 .swan.js
+  * program-compiler 问题
+    * 2.18.04 有问题(pages 内没有生成.swan.js 文件), 2.17.25 没问题
