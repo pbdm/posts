@@ -12,6 +12,7 @@
   * transition-timing-function: transition的状态变化节奏: ease, ease-in, ease-out, ease-in-out, linear......
   * transition-delay: transition 效果开始作用之前需要等待的时间: 0s, 3s, 3ms......
   * 可以利用 `transitionend` 事件监听 transition 完成
+
 > [使用 CSS transitions by MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions)
 
 * animation(需要与 keyframes 配合), 比 transition 更灵活
