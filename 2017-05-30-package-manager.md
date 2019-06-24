@@ -5,6 +5,7 @@
 * cnpm
 * n vs nvm
   * n 改变版本的时候对应的全局模块不会改变
+    * [Permission denied before running with sudo](https://github.com/tj/n/issues/416)
   * nvm 需要修改环境变量
 * [UNPKG](https://unpkg.com)(cdn for npm)
 * [npm version(Bump a package version)](https://docs.npmjs.com/cli/version)
