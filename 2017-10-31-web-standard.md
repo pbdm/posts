@@ -74,8 +74,6 @@ Blink and Chromium are not really separable anymore, 所以他们的 source code
 * [chromium Bug tracker](https://bugs.chromium.org/p/chromium/issues/list)
 * [Checking out and building Chromium for Mac](https://chromium.googlesource.com/chromium/src/+/master/docs/mac_build_instructions.md)
 * [Chromium Code Search](https://cs.chromium.org/)
-  * [Chromium 如何通过 MIME Type 确定文档类型](https://cs.chromium.org/chromium/src/net/base/mime_sniffer.cc?sq=package:chromium&dr=CS&l=5)
-
 * [Blink homepage](https://www.chromium.org/blink)
 * [Blink source code](https://chromium.googlesource.com/chromium/src/+/master/third_party/WebKit/)
 

@@ -78,7 +78,7 @@
   * [iOS](2017-05-11-ios.md)
   * [Android](2018-11-12-android.md)
   * [React Native](2017-04-13-react-native.md)
-  * [Flutter](2019-01-22-flutter)
+  * [Flutter](2019-01-22-flutter.md)
 
 * Blog && Others
   * [2015-04-07-自定义Mac全局快捷键](blog/2015-04-07-自定义Mac全局快捷键.md)

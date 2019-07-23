@@ -1,7 +1,7 @@
 # Javascript 模块系统
 
 * `<script>` tag
-* [ES2015 modules](ECMAScript Modules)(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) (`import`, `export`)
+* [ES2015 modules(ECMAScript Modules)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) (`import`, `export`)
   * 与 CommonJS 不同, ES2015 modules 有可能是异步的
 * [CommonJS](http://www.commonjs.org/specs/modules/1.0/): synchronous (`require`, `module.exports`)
 * [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md): asynchronous require(`define`)

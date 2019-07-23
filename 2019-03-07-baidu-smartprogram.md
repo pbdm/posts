@@ -3,6 +3,7 @@
 * 版本规则也是醉了...
   * swan-native版本(SDK版本), 3位：A.B.C, 如 1.2.3
   * swan.js版本(framework), 3位：(A+2).(B*10 + C).(X), 如3.23.1
+* 开发工具的编译模式更改为“依赖分析“模式就可以使用npm安装依赖包了
 * js native 通信基于 [ecomfe/js-native](https://github.com/ecomfe/js-native)
   * AddJavaScriptInterface (Android WebView)
   * prompt (Android WebView、iOS WebView)

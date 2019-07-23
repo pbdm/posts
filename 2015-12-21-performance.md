@@ -49,7 +49,7 @@
 
 * 当 HTML 解析器遇到一个 script 标记时，它会暂停构建 DOM，将控制权移交给 JavaScript 引擎；等 JavaScript 引擎运行完毕，浏览器会从中断的地方恢复 DOM 构建(js在何处插入，就在何处执行)
 * 同样 js 也会阻塞 CSSOM 的构建, 因为他会查询或者计算任何对象的 style
-* CSS 会阻塞 CSSOM 从而阻塞渲染树构建(非 dom 树, 所以外联css不会阻塞 domContentLoaded)
+* CSS 会阻塞 CSSOM 从而阻塞渲染树构建(非 dom 树, 所以外联 CSS 不会阻塞 domContentLoaded)
 
 * [避免使用 @import css](https://www.qianduan.net/high-performance-web-site-do-not-use-import/)
 
