@@ -2,25 +2,22 @@
 
 ## npm
 
-* cnpm
+* [cnpm](https://github.com/cnpm/cnpm)
 * n vs nvm
   * n 改变版本的时候对应的全局模块不会改变
     * [Permission denied before running with sudo](https://github.com/tj/n/issues/416)
   * nvm 需要修改环境变量
-* [UNPKG](https://unpkg.com)(cdn for npm)
+* [UNPKG](https://unpkg.com)(CDN for npm)
 * [npm version(Bump a package version)](https://docs.npmjs.com/cli/version)
   > [npm version source code](https://github.com/npm/npm/blob/latest/lib/version.js)
 * `npm link module-name`: 使全局的模块可以在当前目录执行
   * 同时在当前开发的模块内 [npm link](https://docs.npmjs.com/cli/link.html) 也可以方便开发依赖包
 * `npm unlink`: aliases of `npm uninstall`
-
-> [用Node.js开发一个Command Line Interface (CLI)](https://zhuanlan.zhihu.com/p/38730825)
-
-* `npm publish`
-
 * [Pika: Run npm dependencies directly in the browser. No Browserify, Webpack or import maps required](https://github.com/pikapkg/web)
   * [A Future Without Webpack](https://www.pikapkg.com/blog/pika-web-a-future-without-webpack/)
   * 可以将包转换为可以直接在浏览器里 import 的(ESM)
+
+> [用Node.js开发一个Command Line Interface (CLI)](https://zhuanlan.zhihu.com/p/38730825)
 
 ### update packages
 
@@ -42,17 +39,18 @@
 * [concurrently: 可以用来同时运行两个 watch](https://github.com/kimmobrunfeldt/concurrently)
   * [这里](https://github.com/mysticatea/npm-run-all/issues/10)有一些类似的包的列表
 * [adm-zip: 用于上传后的文件解压缩](https://www.npmjs.com/package/adm-zip)
-* [pify](https://github.com/sindresorhus/pify), Promisify a callback-style function, 与 node 自带的不同, 可以支持回调函数里多个参数 ]
-* [node-formidable](https://github.com/felixge/node-formidable)
-  * 注意: Promiseify 情况下 `new formidable.IncomingForm()` 要放在每次请求后面, 否则会报 `MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 field listeners added. Use emitter.setMaxListeners() to increase limit`(10次上传后)
-  > [MaxListenersExceededWarning: Possible EventEmitter memory leak detected](https://github.com/felixge/node-formidable/issues/422)
-* [shortid, 适合用来生成短的 redis id](https://www.npmjs.com/package/shortid)
 
 ```javascript
  var zip = new AdmZip(req.file.path);
    zip.extractAllTo( "/detination_folder/");
 })
 ```
+
+* [pify](https://github.com/sindresorhus/pify), Promisify a callback-style function, 与 node 自带的不同, 可以支持回调函数里多个参数
+* [node-formidable](https://github.com/felixge/node-formidable)
+  * 注意: Promiseify 情况下 `new formidable.IncomingForm()` 要放在每次请求后面, 否则会报 `MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 field listeners added. Use emitter.setMaxListeners() to increase limit`(10次上传后)
+  > [MaxListenersExceededWarning: Possible EventEmitter memory leak detected](https://github.com/felixge/node-formidable/issues/422)
+* [shortid, 适合用来生成短的 redis id](https://www.npmjs.com/package/shortid)
 
 ## Yarn
 
