@@ -17,7 +17,6 @@
   * [拖拽](2018-10-31-drag-drop.md)
   * [CSS](2017-05-30-css.md)
     * [BFC](2016-04-05-bfc.md)
-  * [动画](2017-08-11-animation.md)
 * [Web 标准](2017-10-31-web-standard.md)
   * [Chrome](2017-11-22-chrome.md)
   * [Electron](2017-07-13-electron.md)
@@ -37,12 +36,13 @@
   * [Immutable.js](2016-07-15-immutable.md)
 * 测试
   * [unit test](2017-06-02-unit-test.md)
-  * [e2e test](2018-02-11-e2e-test.md)
-* 图形/游戏
+  * [E2E test](2018-02-11-e2e-test.md)
+* 图形/游戏/动画
+  * [动画](2017-08-11-animation.md)
   * [Canvas](2017-03-21-canvas.md)
   * [WebGL](2018-12-04-webgl.md)
   * [游戏引擎](2018-11-07-game.md)
-* base
+* Base
   * [网络协议](2017-05-26-protocol.md)
     * [HTTP](2018-05-18-http.md)
       * [Fetch](2018-05-18-fetch.md)
@@ -57,10 +57,10 @@
 * [工具](2014-09-13-tools.md)
   * [Webpack](2016-02-26-webpack.md)
   * [Package manager](2017-05-30-package-manager.md)
-  * [babel](2017-05-30-babel.md)
+  * [Babel](2017-05-30-babel.md)
   * [PostCSS](2018-06-26-postcss.md)
   * [版本管理](2014-07-01-revision-control.md)
-  * [Continuous integration](2018-12-25-ci.md)
+  * [持续集成](2018-12-25-ci.md)
   * [Docker](2016-03-22-docker.md)
 * [Node.js](2017-07-19-nodejs.md)
   * [文件和二进制的操作](2018-05-15-file.md)
@@ -83,7 +83,7 @@
 * Blog && Others
   * [2015-04-07-自定义Mac全局快捷键](blog/2015-04-07-自定义Mac全局快捷键.md)
   * [2016-06-24-npm版本号](blog/2016-06-24-npm版本号.md)
-  * [github star](blog/2018-01-02-github-star.md)
+  * [Github star](blog/2018-01-02-github-star.md)
   * [繁(hun)荣(luan)的前端(框架吐槽)](blog/2017-01-06-frameworks.md)
 
 * Shares
