@@ -39,6 +39,7 @@
 * [concurrently: 可以用来同时运行两个 watch](https://github.com/kimmobrunfeldt/concurrently)
   * [这里](https://github.com/mysticatea/npm-run-all/issues/10)有一些类似的包的列表
 * [adm-zip: 用于上传后的文件解压缩](https://www.npmjs.com/package/adm-zip)
+8 [chokidar: 用于监听文件/文件夹更新](https://www.npmjs.com/package/chokidar)
 
 ```javascript
  var zip = new AdmZip(req.file.path);
