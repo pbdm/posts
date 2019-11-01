@@ -55,3 +55,9 @@
 
 * 在地址栏对当前url `cmd+r` 或回车, 浏览器会强制(忽视以上策略)对该url(首个页面)发出 `Cache-Control: max-age=0`
 * 页面里的 `<a>` 标签即使 href 与页面 url 相同也是遵循缓存策略的
+
+## 其他
+
+传统上http cache是共享的，比如大家都用jQuery，就可以从同一个CDN上加载。但是这也存在被利用来探测用户的风险，因此需要被隔离。这意味着每个网站都需要单独加载比如说jQuery，即使之前另一个网站是从同一个CDN以完全一致的URL加载过。Safari已经是这样了，FF和Chrome也打算跟进。
+
+> [浏览器中隐私和特性的矛盾 by hax](https://github.com/hax/hax.github.com/issues/48)
