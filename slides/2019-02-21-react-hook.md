@@ -1,6 +1,6 @@
 class: center, middle
 
-# React hook
+# React hooks
 
 ---
 

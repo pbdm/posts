@@ -32,6 +32,7 @@
   * [Angular](2014-06-21-angular.md)
   * [微信小程序](2017-06-30-wx-miniapp.md)
   * [百度小程序](2019-03-07-baidu-smartprogram.md)
+  * [Hybrid](2017-08-21-hybrid.md)
 * 数据流
   * [Redux](2016-03-23-redux.md)
   * [Rxjs](2017-06-28-rxjs.md)
@@ -39,6 +40,7 @@
 * 测试
   * [Unit test](2017-06-02-unit-test.md)
   * [E2E test](2018-02-11-e2e-test.md)
+  * [前端灰度发布与 A/B Test](2016-08-10-gray-ab.md)
 * 图形/动画
   * [动画](2017-08-11-animation.md)
   * [Canvas](2017-03-21-canvas.md)
@@ -52,9 +54,9 @@
   * [正则表达式](2014-05-14-regular-expression.md)
   * [编码](2018-03-01-encode.md)
   * [操作系统](2017-12-21-os.md)
-  * [安全](2017-07-18-security.md)
   * [编译](2019-01-04-compile.md)
   * [算法](2018-06-07-algorithm.md)
+  * [安全](2017-07-18-security.md)
 * [工具](2014-09-13-tools.md)
   * 打包/编译
     * [NPM](2017-05-30-npm.md)
@@ -76,6 +78,8 @@
   * [Drupal](2014-05-14-drupal.md)
 * [Rust](2018-03-16-rust.md)
 * [C++](2017-11-28-cpp.md)
+* [JAVA](2014-05-14-java.md)
+* [Perl](2014-05-14-perl.md)
 * [Database](2014-05-29-database.md)
   * [ElasticSearch](2017-04-20-elasticsearch.md)
   * [Kylin](2019-03-14-kylin.md)
@@ -91,10 +95,21 @@
   * [繁(hun)荣(luan)的前端(框架吐槽)](misc/2017-01-06-frameworks.md)
   * [Glossary](GLOSSARY.md)
 * Blog
+  * [2006-12-02-一元钱(转)](blog/2006-12-02-一元钱(转).md)
+  * [2011-08-11-Milan孔乙己(转)](blog/2011-08-11-Milan孔乙己(转).md)
+  * [2014-05-29-Goagent](blog/2014-05-29-Goagent.md)
   * [2015-04-07-自定义Mac全局快捷键](blog/2015-04-07-自定义Mac全局快捷键.md)
+  * [2015-05-23-2015前端技术峰会(饿了么)](blog/2015-05-23-2015前端技术峰会(饿了么).md)
   * [2016-06-24-npm版本号](blog/2016-06-24-npm版本号.md)
+  * [2017-12-14-GDD2017](blog/2017-12-14-gdd2017.md)
+  * [2018-09-20-GDD2018](blog/2018-09-20-gdd2018.md)
 * Shares
   * [2015-05-07-近期关于React的一些东西](shares/2015-05-07-近期关于React的一些东西.md)
   * [2016-08-01-前端日志收集](shares/2016-08-01-前端日志收集.md)
   * [2017-02-10-前端踩坑总结](shares/2017-02-10-前端踩坑总结.md)
   * [2017-06-30-Web标准梳理与Components](shares/2017-06-30-Web标准梳理与Components.md)
+  * [2019-02-28-numeronym](shares/2019-02-28-numeronym.md)
+* Slides
+  * [2018-11-29-event-stream 被植入比特币后门事件](slides.html?2018-11-29-event-stream-bitcoin.md)
+  * [2018-12-20-Puppeteer](slides.html?2018-12-20-puppeteer.md)
+  * [2019-02-21-React Hooks](slides.html?2019-02-21-react-hook.md)
