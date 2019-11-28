@@ -280,6 +280,13 @@ It’s an improved “Pagespeed Insights
 
 > [Page speed optimization](https://varvy.com/pagespeed/)
 
+## 防抖动和节流阀
+
+* `throttle` 保证 X 毫秒内有且执行执行一次
+* `Debounce` 把多个顺序地调用合并成一次
+
+> [实例解析防抖动（Debouncing）和节流阀（Throttling） by Alon's Blog](http://jinlong.github.io/2016/04/24/Debouncing-and-Throttling-Explained-Through-Examples/)
+
 ## Others
 
 * `navigator.connection.effectiveType` 可以更准确的检测当前网络环境, chrome 62 开始支持

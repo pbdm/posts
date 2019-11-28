@@ -34,7 +34,9 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 ## Native
 
 * `JavaScriptCore`是webkit的一个重要组成部分，主要是对JS进行解析和提供执行环境
+
 > [深入理解JSCore](https://tech.meituan.com/deep_understanding_of_jscore.html)
+
 * [通信机制](http://blog.cnbang.net/tech/2698/)
 
 * A native module is just an Objective-C class that implements the `RCTBridgeModule` protocol
@@ -300,9 +302,10 @@ bundle 的参数放在了 `local-cli/bundle/bundleCommandLineArgs.js`
 ### haul
 
 * 一个替代 metro-bundle 的解决方案，基于 webpack
+
 > [haul](https://github.com/callstack-io/haul)
 
-### 分包：
+### 分包
 
 * 以Common.js文件为入口打出一个common.android.bundle基础包，并在生成基础包时将打包过程中的ModuleId的关联关系记录到common.json文件中
 * 以业务的index.js文件为入口, 用步骤一生成的common.json为基础过滤common.js中存在的module后生成business.js文件。 并为每个不同的业务分配一个业务模块起始的startId 以此进行业务隔离

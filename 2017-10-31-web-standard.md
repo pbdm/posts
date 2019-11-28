@@ -1,4 +1,4 @@
-# 前端标准
+# Web 前端标准
 
 ## Organizations
 
@@ -54,7 +54,7 @@
 * [WebKit Feature Status](https://webkit.org/status/)
 * [Chrome Platform Status](https://www.chromestatus.com/features)
 
-## Web browser engine
+## 标准实现引擎
 
 * [Acid2 测试, 如果渲染正确，浏览器打开Acid2的测试页面则会看到一个笑脸(看起来已过时了, 最新版 Chrome 都没通过这个测试...)](https://zh.wikipedia.org/wiki/Acid2)
 
@@ -91,7 +91,7 @@ Blink and Chromium are not really separable anymore, 所以他们的 source code
 
 基于 Rust, mozilla 的实验性项目, 支持并行渲染!! 等着他并入 firefox 的那一天吧... `https://github.com/servo/servo`
 
-## Javascript engine
+## Javascript Engine
 
 * V8 — open source, developed by Google, written in C++, used in Chrome(blink) and nodejs
   * JIT
