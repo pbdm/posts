@@ -8,7 +8,7 @@
   * [require.js](http://requirejs.org/)
   * [curl.js](https://github.com/cujojs/curl)
   * [CMD](https://github.com/seajs/seajs/issues/242)(Common Module Definition)
-    * [sea.js](https://github.com/seajs/seajs) `define(function(require, exports, module) {`
+    * [sea.js](https://github.com/seajs/seajs)
   * AMD 与 CMD 的区别
     * AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。
     * 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.
@@ -63,7 +63,7 @@
 * [@import](https://developer.mozilla.org/en-US/docs/Web/CSS/@import) inside of a css/sass/less file
 * image url in a stylesheet (url(...)) or html (<img src=...>) file.
 
-> [webpack Module](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
+> [Webpack Module](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
 
 ## ES2015 modules
 

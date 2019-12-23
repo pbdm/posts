@@ -1,9 +1,11 @@
 # Typescript
 
+* [官方文档](https://www.typescriptlang.org/docs/home.html)
 * [中文文档](https://www.tslang.cn/docs/home.html)(有些生涩, 适合作为手册而不是教程)
 * [这个教程](https://ts.xcatliu.com/)要比官方文档更好懂些(墙裂推荐...)
 * [Tips in 深入理解 TypeScript](https://jkchao.github.io/typescript-book-chinese/tips/stringBasedEmuns.html)
 * 从 3.7 开始[支持](Optional Chaining) `Optional Chaining`
+* JS 的新特性进展得那么慢([比如 Decorator](https://github.com/tc39/proposal-decorators#why-is-decorators-taking-so-long)), 感觉TS快要成事实标准了, 文档什么的也都更齐备
 
 ## Why to use
 
@@ -76,6 +78,11 @@
 ~~ts-loader vs awesome-typescript-loader~~
 直接[使用](http://www.typescriptlang.org/docs/handbook/integrating-with-build-tools.html#babel) babel 吧
 
+### node.js
+
+* ts-node
+* ts-node-dev
+  
 ## Misc
 
 * 最好不要写着写着就写成了 "anyscript"
