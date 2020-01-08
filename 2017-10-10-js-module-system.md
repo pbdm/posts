@@ -86,3 +86,7 @@
 > [ECMAScript modules in browsers by Jake Archibald](https://jakearchibald.com/2017/es-modules-in-browsers/)
 >
 > [ES6 Modules in Depth](https://ponyfoo.com/articles/es6-modules-in-depth)
+
+### dynamic import
+
+`import()`, 返回一个 Promise
