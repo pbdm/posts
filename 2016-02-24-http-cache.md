@@ -24,7 +24,7 @@
   * [Vary](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ#%E5%B8%A6Vary%E5%A4%B4%E7%9A%84%E5%93%8D%E5%BA%94)
     * 属于 Response header, 值为 header-name 的集合
     * 当缓存服务器收到一个请求，只有当前的请求和原始（缓存）的请求头跟缓存的响应头里的Vary都匹配，才能使用缓存的响应
-    * 可以使用 `Vary: User-Agent` 来区分移动端和桌面端的展示内容
+    * 比如可以使用 `Vary: User-Agent` 来区分移动端和桌面端的展示内容
     ![Vary](https://mdn.mozillademos.org/files/13769/HTTPVary.png)
 * Cache-Control in Request
   * 总得来说还是应该先去遵守服务端的规则, 除非有特殊需求
