@@ -15,7 +15,6 @@
   * [JS 异步](2017-07-24-async.md)
   * [JS 动态执行](2019-12-11-js-dynamic-execution.md)
   * [JS 模块系统](2017-10-10-js-module-system.md)
-  * [Cookie](2014-05-14-cookie.md)
   * [DOM](2018-03-22-dom.md)
   * [URL 相关](2019-11-28-url.md)
   * [拖拽](2018-10-31-drag-drop.md)
