@@ -199,11 +199,11 @@ document.registerElement('x-search', {prototype: proto});
 
 ### 小结
 
-Web Components 主要是为了以标准的形式解决前端组件复用的问题，但是他的标准仍然处于 Draft, 在前端并未广泛使用，且在未来有可能有小幅的修改。比如 Lifecycle callback 里的 `attachedCallback` 与 `detachedCallback` 被替换为了 `connectedCallback` 与 `disconnectedCallback` , 但是 Chrome 貌似实现的还是前者。他属于**未来**，但是对于**未来**的定义是1年，2年，还是3年以上并不可知。。。
+Web Components 主要是为了以标准的形式解决前端组件复用的问题, 但是他的标准仍然处于 Draft, 在前端并未广泛使用，且在未来有可能有小幅的修改。比如 Lifecycle callback 里的 `attachedCallback` 与 `detachedCallback` 被替换为了 `connectedCallback` 与 `disconnectedCallback` , 但是 Chrome 貌似实现的还是前者。他属于**未来**，但是对于**未来**的定义是1年，2年，还是3年以上并不可知。。。
 
 另外，Webkit 直接将 HTML imports 列为[不考虑](https://webkit.org/status/#feature-html-imports)实现的范畴。。。
 
-> [Web Components 可用性调研](http://harttle.com/2017/02/08/web-components-survey.html)
+> [Web Components 可用性调研](http://harttle.land/2017/02/08/web-components-survey.html)
 >
 > [Official Introduction for Web Components](https://www.webcomponents.org/introduction)
 >

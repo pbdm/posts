@@ -1,17 +1,26 @@
-# Web 前端标准
+# Web 标准
 
 ## Organizations
 
-* [IETF(The Internet Engineering Task Force)](http://ietf.org/)
-* [WHATWG(Web Hypertext Application Technology Working Group)](https://whatwg.org/)
-* [W3C(World Wide Web Consortium)](https://www.w3.org/)
-  * [Everything You Always Wanted to Know About Web Standards(2013)](http://video.tudou.com/v/XMjIzNjQ4ODE4OA==.html)
-* [Ecma International](https://www.ecma-international.org/)
-  * [TC39](https://www.ecma-international.org/memento/tc39.htm)
+### IETF
 
-## Standard
+* The Internet Engineering Task Force
+* [IETF 官网](http://ietf.org/)
+* [Request for Comments](https://www.ietf.org/rfc.html) (RFC,记录互联网规范、协议、过程等的标准文件)
+* [RFC Search Page](https://www.rfc-editor.org/search/rfc_search.php)
 
-* W3C 标准制定[步骤(maturity levels)](https://www.w3.org/2018/Process-20180201//#recs-and-notes)
+### WHATWG
+
+* Web Hypertext Application Technology Working Group
+* [WHATWG 官网](https://whatwg.org/)
+* [WHATWG Standards](https://spec.whatwg.org/)
+
+### W3C
+
+* World Wide Web Consortium
+* [W3C 官网](https://www.w3.org/)
+* [ALL STANDARDS AND DRAFTS in W3C](https://www.w3.org/TR/)
+* W3C 标准[制定步骤](https://www.w3.org/2018/Process-20180201//#recs-and-notes)(maturity levels)
   * Editor's Drafts(ED)(只代表个人意见)
   * First Public Working Drafts(FPWD)
   * Working Drafts(WD)
@@ -20,61 +29,63 @@
   * Proposed Recommendation(PR)
   * W3C Recommendation(REC)
   * Working Group Note, Interest Group Note (NOTE): 只是一个有用的文档, 并不构成标准
-* [ALL STANDARDS AND DRAFTS in W3C](https://www.w3.org/TR/)
-* [WHATWG Standards](https://spec.whatwg.org/)
 
-* HTML
-  * [HTML Standard - WHATWG](https://html.spec.whatwg.org/multipage/)
-    * [HTML Standard - WHATWG 中文](https://whatwg-cn.github.io/html/)
-  * [HTML - W3C](https://www.w3.org/TR/html/)
-    * [HTML Editor’s Draft - W3C](https://w3c.github.io/html/)
-  * [HTML/W3C-WHATWG-Differences](https://www.w3.org/wiki/HTML/W3C-WHATWG-DifferenHTML)
-  * [以后都将以 WHATWG 的 HTML 和 DOM 为标准了](https://www.w3.org/blog/news/archives/7753)
+### ECMA
 
-* [CSS SPEC­I­FI­CA­TIONS](https://www.w3.org/Style/CSS/current-work)
-  * [正在修改的 CSS 标准列表(Up­com­ing)](https://drafts.csswg.org/)
-
-* [ECMAScript Language Specification(ECMA-262)](http://www.ecma-international.org/ecma-262/)
-  * [ECMAScript® 2016 Language Specification](http://www.ecma-international.org/ecma-262/7.0/index.html)
-  * [ECMAScript 2015 Language Specification &ndash; ECMA-262 6th Edition](http://www.ecma-international.org/ecma-262/6.0/)
-  * [ECMAScript Language Specification - ECMA-262 Edition 5.1](http://www.ecma-international.org/ecma-262/5.1/)
+* [Ecma International 官网](https://www.ecma-international.org/)
+* 下面的 [TC39](https://www.ecma-international.org/memento/tc39.htm) 小组负责制定ECMAScript 标准
 * [The TC39 Process](https://tc39.es/process-document/)
   * Stage0: 开放提交阶段(Strawman)
   * Stage1: Proposal
   * Stage2: Draft
   * Stage3: Canidate
   * Stage4: Finished: 需要至少两个实现
+* [被废弃的标准提议列表](https://github.com/tc39/proposals/blob/master/inactive-proposals.md)
 
-> [ES6、ES7、ES8、ES9、ES10新特性一览 by 上沅兮](https://juejin.im/post/5ca2e1935188254416288eb2)
->
-> [JavaScript(ECMAScript) 语言标准历史及标准制定过程介绍](https://itbilu.com/javascript/js/V1APADgrG.html)
->
-> [ES5整理by 颜海镜](http://yanhaijing.com/es5/#about)
->
-> [被废弃的标准提议列表](https://github.com/tc39/proposals/blob/master/inactive-proposals.md)
+## Standard
 
-* [Request for Comments (RFC,记录互联网规范、协议、过程等的标准文件)](https://www.ietf.org/rfc.html)
-* [RFC Search Page](https://www.rfc-editor.org/search/rfc_search.php)
-* [中文 RFC](http://man.chinaunix.net/develop/rfc/default.htm)
+### HTML
+
+* [HTML Standard - WHATWG](https://html.spec.whatwg.org/multipage/)
+  * [HTML Standard - WHATWG 中文](https://whatwg-cn.github.io/html/)
+* [HTML - W3C](https://www.w3.org/TR/html/)
+  * [HTML Editor’s Draft - W3C](https://w3c.github.io/html/)
+* [HTML/W3C-WHATWG-Differences](https://www.w3.org/wiki/HTML/W3C-WHATWG-DifferenHTML)
+* [以后都将以 WHATWG 的 HTML 和 DOM 为标准了](https://www.w3.org/blog/news/archives/7753)
+
+### CSS
+
+* [CSS SPEC­I­FI­CA­TIONS](https://www.w3.org/Style/CSS/current-work)
+* [正在修改的 CSS 标准列表(Up­com­ing)](https://drafts.csswg.org/)
+
+### ECMAScript
+
+* [ECMAScript Language Specification(ECMA-262)](http://www.ecma-international.org/ecma-262/)
+* [ECMAScript® 2016 Language Specification](http://www.ecma-international.org/ecma-262/7.0/index.html)
+* [ECMAScript 2015 Language Specification &ndash; ECMA-262 6th Edition](http://www.ecma-international.org/ecma-262/6.0/)
+* [ECMAScript Language Specification - ECMA-262 Edition 5.1](http://www.ecma-international.org/ecma-262/5.1/)
 
 ## 标准实现状态
 
-* [Test262: ECMAScript Test Suite](https://test262.report/)
-* [HTML5 test: how well does your browser support html5?](http://html5test.com/)
 * [Can I use... Support tables for HTML5, CSS3, etc](http://caniuse.com/)
-  * [X5 Caniuse Tests](http://res.imtt.qq.com/tbs/incoming20160419/home.html)
+* [腾讯 X5 Caniuse Tests](http://res.imtt.qq.com/tbs/incoming20160419/home.html)
 * [ECMAScript 6 compatibility table](http://kangax.github.io/compat-table/es6/)
 * [Node.js ES support](https://node.green/)
-
 * [WebKit Feature Status](https://webkit.org/status/)
 * [Chrome Platform Status](https://www.chromestatus.com/features)
 * [Chromium API 实现进度](https://docs.google.com/spreadsheets/d/1de0ZYDOcafNXXwMcg4EZhT0346QM-QFvZfoD8ZffHeA/edit#gid=557099940)
+* [Web Bugs](https://github.com/webcompat/web-bugs/issues): 一个搜集浏览器适配 BUG 的地方
 
-* [Web Bugs: 一个搜集浏览器适配 BUG 的地方](https://github.com/webcompat/web-bugs/issues)
+## 标准测试工具
 
-## 标准实现引擎
+* [web-platform-tests](https://web-platform-tests.org/) WEB 标准的回归测试
+* [Test262: ECMAScript Test Suite](https://github.com/tc39/test262)
+  * [Test262 Report](https://test262.report/)
+* [HTML5 test: how well does your browser support html5?](http://html5test.com/)
+* [Acid2 测试, 如果渲染正确, 浏览器打开测试页面会看到一个笑脸(已过时)](https://www.webstandards.org/action/acid2/index.html)
+* [Acid3 测试, 满分 100 分](http://acid3.acidtests.org/)
 
-* [Acid2 测试, 如果渲染正确，浏览器打开Acid2的测试页面则会看到一个笑脸(看起来已过时了, 最新版 Chrome 都没通过这个测试...)](https://zh.wikipedia.org/wiki/Acid2)
+## 浏览器引擎
 
 ### Blink
 
@@ -107,13 +118,12 @@ Blink and Chromium are not really separable anymore, 所以他们的 source code
 
 基于 Rust, Mozilla 的实验性项目, 支持**并行**渲染!! 等着他并入 firefox 的那一天吧... [source code](https://github.com/servo/servo)
 
-## Javascript Engine
+## Javascript 引擎
 
 * V8 — open source, developed by Google, written in C++, used in Chrome(blink) and nodejs
   * [V8 source code mirror in github](https://github.com/v8/v8)
   * JIT
 
-> [How JavaScript works: inside the V8 engine by Alexander Zlatkov](https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e)
 
 * JavaScriptCore — open source, marketed as Nitro and developed by Apple for Safari(webkit)
 * Chakra - `JScript9` for Internet Explorer and `JavaScript` for Microsoft Edge
@@ -122,4 +132,14 @@ Blink and Chromium are not really separable anymore, 所以他们的 source code
 * KJS — KDE’s engine originally developed by Harri Porten for the KDE project’s Konqueror web browser
 * Nashorn - open source as part of OpenJDK, written by Oracle Java Languages and Tool Group
 * JerryScript — is a lightweight engine for the Internet of Things
-* [QuickJS](https://github.com/quickjs-zh/QuickJS) - 小型并且可嵌入的Javascript引擎，它支持ES2020规范，包括模块，异步生成器和代理器
+* [QuickJS](https://github.com/quickjs-zh/QuickJS) - 小型并且可嵌入的Javascript引擎，它支持 ES2020 规范, 包括模块, 异步生成器和代理器
+
+> [Everything You Always Wanted to Know About Web Standards by W3C(2013)](http://video.tudou.com/v/XMjIzNjQ4ODE4OA==.html)
+>
+> [ES6、ES7、ES8、ES9、ES10新特性一览 by 上沅兮](https://juejin.im/post/5ca2e1935188254416288eb2)
+>
+> [JavaScript(ECMAScript) 语言标准历史及标准制定过程介绍](https://itbilu.com/javascript/js/V1APADgrG.html)
+>
+> [ES5 整理 by 颜海镜](http://yanhaijing.com/es5/#about)
+>
+> [How JavaScript works: inside the V8 engine by Alexander Zlatkov](https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e)
