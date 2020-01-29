@@ -61,7 +61,7 @@
   ```
 
 * [@import](https://developer.mozilla.org/en-US/docs/Web/CSS/@import) inside of a css/sass/less file
-* image url in a stylesheet (url(...)) or html (<img src=...>) file.
+* image url in a stylesheet (`url(...)`) or html (`<img src=...>`) file.
 
 > [Webpack Module](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
 
