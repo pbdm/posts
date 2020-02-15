@@ -3,7 +3,7 @@
 
 ## 闭包(Closure)
 
-[内部函数总是可以访问其所在的外部函数的作用域，即使在其外部函数被返回（寿命终结）了之后](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Closures)
+[内部函数总是可以访问其所在的外部函数的作用域，即使在其外部函数被返回(寿命终结)了之后](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Closures)
 
 ## IIFE
 
