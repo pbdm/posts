@@ -20,12 +20,13 @@
 ```
 
 ```javascript
-for (var i = 5; i > 0; i--){
+for (var i = 0; i < 5; i++){
   setTimeout(function(){
     console.log(i)
   }, 1000)
 }
-// 0, 0, 0, 0, 0
+// 1秒后同时输出 5, 5, 5, 5, 5
+
 for (var i = 0; i < 5; i++) {
   (function (i) {
     setTimeout(function () {
@@ -33,14 +34,15 @@ for (var i = 0; i < 5; i++) {
     }, i * 1000)
   })(i)
 }
-// 5, 4, 3, 2, 1
-// for 循环头部的 let 声明会有一个特殊的行为，这个行为指出变量在循环过程中不止被声明一次，每次迭代都会声明。 随后的每个迭代都会使用上一个迭代结束时的值在初始化这个变量
-for(let i = 5; i > 0; i--){
+// 每间隔一秒输出 0, 1, 2, 3, 4
+
+// for 循环头部的 let 声明会给每一次循环的变量一个单独的块级作用域
+for(let i = 0; i < 5; i++){
   setTimeout(function(){
     console.log(i)
   }, i * 1000)
 }
-// 5, 4, 3, 2, 1
+// 每间隔一秒输出 0, 1, 2, 3, 4
 ```
 
 ## this

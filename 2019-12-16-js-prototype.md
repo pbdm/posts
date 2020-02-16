@@ -4,7 +4,7 @@
 * `__proto__` vs `prototype` vs `Object.getPrototypeOf()`
   * `prototype` 是构造函数才有的属性
   * `__proto__` 是实例对象有的属性, 指向构造函数的 prototype (`obj.__proto__ === obj.constructor.prototype`)
-    * [`Object.prototype.__proto__`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/proto)已废弃, 但仍然大量使用中...
+  * [`Object.prototype.__proto__`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/proto)已废弃, 但仍然大量使用中...
   * `Object.getPrototypeOf(obj) === obj.__proto__`
 
 ## Object.create
@@ -33,7 +33,7 @@ var obj = Object.create(parent,
 * 如果构造函数返回了一个"对象", 那么这个对象会取代整个 new 出来的结果. 如果构造函数没有返回对象, 那么new出来的结果为步骤1创建的对象
   * ps: 一般情况下构造函数不返回任何值, 不过用户如果想覆盖这个返回值, 可以自己选择返回一个普通对象来覆盖. 当然, 返回数组也会覆盖, 因为数组也是对象.
 
-> [mozilla.org](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new)
+> [new 运算符 in MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new)
 
 ### 函数对象与构造器对象
 
@@ -49,16 +49,22 @@ Object.prototype.toString.call(new Date) // [object Date]
 ## 原型链
 
 ```javascript
-// Object, Function 都是由 Function 创建的, 包括 Function 自己
-Function.constructor === Function
-Function.__proto__ === Function.prototype
-Object.constructor === Function
-Object.__proto__ === Function.prototype
+// Object, Function 都是由 Function 创建(new)的, 包括 Function 自己
+Function === Function.constructor
+Function === Object.constructor
+Function.prototype === Function.__proto__
+Function.prototype === Object.__proto__
+
+// constructor 方法返回创建实例对象的构造函数的引用
+// Function.prototype 由 Function 构造
+// Object.prototype 由 Object 构造
+Function.prototype.constructor === Function
+Object.prototype.constructor === Object
 
 // Function.prototype 继承自  Object.prototype
 Function.prototype.__proto__ === Object.prototype
-// Function.prototype 由 Function 构造
-Function.prototype.constructor === Function
+// 凭空出来的所有的源头, 不重要...
+Object.prototype.__proto__ === null
 
 var F = function(){}
 // 函数的 constructor 自然是 Function
@@ -69,8 +75,6 @@ F.prototype.constructor === F
 
 var o = {}
 o.__proto__ === Object.prototype
-// 凭空出来的所有的源头, 不重要...
-Object.prototype.__proto__ === null
 
 ```
 
