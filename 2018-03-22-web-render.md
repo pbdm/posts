@@ -74,9 +74,40 @@ Paint that follows biggest layout change(视口内)
 * 慎用微优化(忽略js 方法间的性能差距, 因为他们微乎其微...)
 * requestIdleCallback 在浏览器空闲的时候执行(貌似 safari 还不支持)
 * 防抖动和节流阀
-  * `throttle` 保证 X 毫秒内有且执行执行一次
-  * `Debounce` 把多个顺序地调用合并成一次
-  > [实例解析防抖动（Debouncing）和节流阀（Throttling） by Alon's Blog](http://jinlong.github.io/2016/04/24/Debouncing-and-Throttling-Explained-Through-Examples/)
+  * 防抖: `Debounce` 触发事件后 n 秒内函数只会执行一次, 如果 n 秒内事件再次被触发则重新计时
+    * 用于搜索联想词, 用户的频繁点赞操作, resize(只执行最后一次就可以了)
+
+    ```javascript
+    const debounce = function(fn, idle) {
+      let last;
+      return function() {
+        // 每次触发事件时都取消之前的延时调用方法
+        clearTimeout(last);
+        last = setTimeout(() => {
+          fn.apply(this, arguments);
+        }, idle)
+      };
+    }
+    ```
+
+  * 节流: `throttle` 在 n 秒内只会执行一次，若果有多次则忽略后面的
+    * 类似 RAF
+    * 可以用于 loadmore 的实现
+
+    ```javascript
+    const throttle = function(fn, delay) {
+      let timer = null;
+      return function() {
+        // 每次触发事件时都判断当前是否有等待执行的延时函数, 如果有则不执行
+        if(!timer) {
+          timer = setTimeout(() => {
+            fn.apply(this, arguments);
+            timer = null;
+          }, delay);
+        }
+      };
+    }
+    ```
 
 ## 优化 CSS 计算
 
@@ -96,3 +127,4 @@ Paint that follows biggest layout change(视口内)
 >
 > [LIFE OF A pixel by Steve Kobes:slide](https://docs.google.com/presentation/d/1boPxbgNrTU0ddsc144rcXayGA_WF53k96imRH8Mp34Y/edit#slide=id.p)
 >
+> [防抖、节流](http://alloween.top/2018/04/16/%E9%98%B2%E6%8A%96%E3%80%81%E8%8A%82%E6%B5%81/)
