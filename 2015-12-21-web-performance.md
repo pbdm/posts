@@ -1,79 +1,117 @@
-# 页面性能
+# Web 性能优化思路
+
+## 性能指标
 
 [RAIL](https://developers.google.com/web/fundamentals/performance/rail?hl=zh-cn) 是一种以用户为中心的性能模型
 
-延迟与用户反应
+* Response: 在100ms内响应用户的点击, 输入等操作.
+  * 对于需要超过500ms才能完成的操作, 应该提供反馈.
+* Animation: 每个帧的渲染时间小于16ms(每秒60帧).
+  * 因为还要留给浏览器渲染的时间, 留给 JS 运行时间大概只有10ms.
+* Idle: 最大程度利用空闲时间加载非首屏数据, 并且保证每50ms可以将控制权返回给主线程, 从而保证及时响应用户下一步的操作.
+* Load: 加载页面在1000ms内呈现内容.
+* [延迟与用户反应之间的关系](https://developers.google.com/web/fundamentals/performance/rail?hl=zh-cn#%E4%BB%A5%E7%94%A8%E6%88%B7%E4%B8%BA%E4%B8%AD%E5%BF%83)
 
-* 0 - 16ms: 人们特别擅长跟踪运动，如果动画不流畅，他们就会对运动心生反感。 用户可以感知每秒渲染 60 帧的平滑动画转场。也就是每帧 16 毫秒（包括浏览器将新帧绘制到屏幕上所需的时间），留给应用大约 10 毫秒的时间来生成一帧。
-* 0 - 100ms: 在此时间窗口内响应用户操作，他们会觉得可以立即获得结果。时间再长，操作与反应之间的连接就会中断。
-* 100 - 300ms: 用户会遇到轻微可觉察的延迟。
-* 300 - 1000ms: 在此范围内，延迟感觉像是任务自然和持续发展的一部分。对于网络上的大多数用户，加载页面或更改视图代表着一个任务。
-* 1000ms+: 超过 1 秒，用户的注意力将离开他们正在执行的任务。
-* 10000ms+: 用户感到失望，可能会放弃任务；之后他们或许不会再回来。
+## 优化思路
 
-关键指标:
+### 资源
 
-* 输入延迟时间（从点按到绘制）小于 100 毫秒。
-* 每个帧的工作(拖动的持续阶段, 从 JS 到绘制）完成时间小于 16 毫秒。
-* 主线程 JS 工作分成不大于 50 毫秒的块。
-* 加载页面可以在 1000 毫秒内就绪。
+* 压缩
+  * Gzip
+  * br(Brotli)
+* 图像优化
+  * WebP
+* 网页字体优化
+* JS Uglify, minify
 
-[PageSpeed 规则和建议](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/page-speed-rules-and-recommendations?hl=zh-cn)
+### 加载
 
-## [加载](2018-03-22-web-load.md)
+* 优化入口文件大小
+  * TCP 的 first roundtrip 只能发 10 个 TCP packets(大概是14KB)
+* 尽量异步加载非首次渲染需要的资源
+* 活用 async script
+* JS 分包
+  * 大于 30KB 的 async/defer 文件可以触发 [V8 Script Streaming](https://v8.dev/blog/cost-of-javascript-2019)
+  * 有利于 HTTP2 的多路复用
+* 缓存策略
+  * [HTTP 缓存](2016-02-24-http-cache.md)
+  * Service Worker
+  * Local Storage 的[野路子](https://imququ.com/post/summary-of-my-blog-optimization.html)
+* DNS preload
+* 首屏渲染需要外部 JS, CSS, 应该尽可能的放到 HTML 文档上方(Header)以便尽早发出请求
+  * CSS 会阻塞 JS, 所以 CSS 应该放在更前面
+* 根据不同的网络环境分发不同类型的资源
+  * `navigator.connection.effectiveType` 可以更准确的检测当前网络环境, Chrome 62 开始支持
 
-## [渲染](2018-03-22-web-render.md)
+### 渲染
 
-## 工具
+* 避免不必要的重排, 重绘
+  * 慎重使用会[产生重排, 重绘的方法](2018-03-22-web-render.md)
+  * 避免强制同步布局(修改后马上查询), 浏览器本不需要在每次查询的时候就马上就去重排的
+  * [避免布局抖动(循环内反复获取和修改)](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing)
+    * 可以使用[FastDOM](https://github.com/wilsonpage/fastdom) 批处理 DOM 的读取和写入
+  * 可以单独创建新的合成器层(但是不要创建太多了, 耗内存)
+    * `will-change` 可以做到, 并提前警示浏览器即将出现更改
+    * `transform: translateZ(0)` 在旧浏览器里也可以做到
+* Flexbox 要好于浮动布局
+* 避免复杂的 CSS 选择器
+  * `:nth-last-child` 这种要慎用
 
-* [A list of community-built, third-party tools that can be used to improve page performance](https://progressivetooling.com/)
-  * [lazysizes, 谷歌 I/O 上推荐的图片懒加载库](https://github.com/aFarkas/lazysizes)
+### JS 执行
 
-### Chrome dev tools
+* 对于大型任务
+  * 特别大的, 没有 DOM 操作的, 可以考虑 Web Worker
+  * 活用几个异步的回调函数将大型任务分割
+    * requestAnimationFrame 保证 JavaScript 在帧开始时(Safari 为帧结束)运行, 这个对于实现动画效果很有帮助(cocos 的每一帧都是在 RAF 回调内的)
+    * requestIdleCallback 在浏览器空闲的时候执行(貌似 safari 还不支持)
+* 慎用微优化(忽略 JS 方法间的性能差距, 因为大部分时候他们微乎其微...)
+* 活用防抖动和节流阀
+  * 防抖: `Debounce` 触发事件后 n 秒内函数只会执行一次, 如果 n 秒内事件再次被触发则重新计时
+    * 用于搜索联想词, 用户的频繁点赞操作, resize(只执行最后一次就可以了)
 
-* [Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/?hl=zh-cn)
-  * [时间线事件参考](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/performance-reference?hl=zh-cn)
-  * [Disable JavaScript samples(不显示详细的调用栈)](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#disable-js-samples)
-  * [When analyzing a section like Network or Main, sometimes you need a more precise estimate of how long certain events took. Hold Shift, click and hold, and drag left or right to select a portion of the recording. At the bottom of your selection, DevTools shows how long that portion took(详细分析每一段的时间长短)](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#select)
-  * Javascript samples enabled 情况下, 火焰图下不同的浅色代表了执行的函数属于不同的 js 文件
-  * 深黄色的一般都是原生调用方法(scripting activity)?!
-  * 颜色:
-    * 深蓝: parsing(html)
-    * 深黄: scripting(js)
-    * 深紫: rendering(css)
-    * 深绿: painting(大部分image?!)
-* [优化措施](https://developers.google.com/web/tools/chrome-devtools/rendering-tools/)
+    ```javascript
+    const debounce = function(fn, idle) {
+      let last;
+      return function() {
+        // 每次触发事件时都取消之前的延时调用方法
+        clearTimeout(last);
+        last = setTimeout(() => {
+          fn.apply(this, arguments);
+        }, idle)
+      };
+    }
+    ```
+
+  * 节流: `throttle` 在 n 秒内只会执行一次，若果有多次则忽略后面的
+    * 类似 RAF
+    * 可以用于 loadmore 的实现
+
+    ```javascript
+    const throttle = function(fn, delay) {
+      let timer = null;
+      return function() {
+        // 每次触发事件时都判断当前是否有等待执行的延时函数, 如果有则不执行
+        if(!timer) {
+          timer = setTimeout(() => {
+            fn.apply(this, arguments);
+            timer = null;
+          }, delay);
+        }
+      };
+    }
+    ```
+
+### 汇总建议
+
+* [PageSpeed 规则和建议](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/page-speed-rules-and-recommendations?hl=zh-cn)
 * [The Runtime Performance Checklist by Paul Lewis](https://calendar.perfplanet.com/2013/the-runtime-performance-checklist/)
-  * [做出 layout boundaries, 避免全局的 layout](http://wilsonpage.co.uk/introducing-layout-boundaries/), 可以用这个[工具](https://github.com/paullewis/Boundarizr/)来测试
 
-### Lighthouse
-
-一个开源的自动化工具，用于改进网络应用的质量, 更倾向于用户的感知(users perception)
-
-Chrome 60 后已经默认在 audits 标签里了
-
-It’s an improved “Pagespeed Insights
-
-* [Using Lighthouse To Improve Page Load Performance(介绍了一些3.0的新功能)](https://developers.google.com/web/updates/2018/05/lighthouse)
-
-* First meaningful paint
-* [First Interactive](https://developers.google.com/web/tools/lighthouse/audits/first-interactive)
-* [Consistently Interactive](https://developers.google.com/web/tools/lighthouse/audits/consistently-interactive)
-
-* [headless use](https://github.com/GoogleChrome/lighthouse/blob/master/docs/headless-chrome.md)
-* [根据 json 生成 html](https://github.com/GoogleChrome/lighthouse/blob/master/docs/hacking-tips.md#iterating-on-the-v2-report)
-
-> [使用 Lighthouse 审查网络应用](https://developers.google.com/web/tools/lighthouse/?hl=zh-cn)
->
-> [Web performance made easy (Google I/O '18)](https://www.youtube.com/watch?v=Mv-l3-tJgGk)
-
-### Others
-
-* Pagespeed Insights
-* [Page speed optimization](https://varvy.com/pagespeed/)
-
-> [大前端时代前端监控的最佳实践 by holden(六猴)](https://zhuanlan.zhihu.com/p/38368337)
+> [优化内容效率 in Web Fundamentals](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency)
 >
 > [毫秒必争，前端网页性能最佳实践 - 微软互联网开发支持 - 博客园](http://www.cnblogs.com/developersupport/p/webpage-performance-best-practices.html)
 >
-> [High PerformanceBrowser Networking by ILYA GRIGORIK](https://hpbn.co/)
+> [Web performance made easy (Google I/O '18)](https://www.youtube.com/watch?v=Mv-l3-tJgGk)
+>
+> [The cost of JavaScript in 2019 in V8 Blog](https://v8.dev/blog/cost-of-javascript-2019)
+>
+> [防抖、节流](http://alloween.top/2018/04/16/%E9%98%B2%E6%8A%96%E3%80%81%E8%8A%82%E6%B5%81/)
