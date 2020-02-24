@@ -3,7 +3,7 @@
 * [这里](https://progressivetooling.com/)有一个性能优化相关工具的列表
   * [lazysizes, 谷歌 I/O 上推荐的图片懒加载库](https://github.com/aFarkas/lazysizes)
 
-## 本地工具
+## 本地测试工具
 
 ### Chrome DevTools 的 Performance 工具
 
@@ -37,14 +37,14 @@ Lighthouse 同时也可以[跑在 handless(无 UI界面)](https://github.com/Goo
 
 #### 重要指标
 
-* [First meaningful paint](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint): FMP, 首次有效绘制时间, 可确定用户感觉到页面主要内容处于可见状态的时间. 这篇[文章](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view?hl=zh-cn)介绍了这个时间点的计算逻辑. 大致就是紧跟着 "最大布局变化" 之后的渲染时间点, 但是在长页面, 有字体加载的情况下也会有另外的考虑
+* [First Meaningful Paint](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint): FMP, 首次有效绘制时间, 可确定用户感觉到页面主要内容处于可见状态的时间. 这篇[文章](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view?hl=zh-cn)介绍了这个时间点的计算逻辑. 大致就是紧跟着 "最大布局变化" 之后的渲染时间点, 但是在长页面, 有字体加载的情况下也会有另外的考虑
 * [Time to Interative](https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive): TTI, 可交互时间
 
-## 真实统计 API
+## RUM(真实用户监测) API
 
 ### 基本事件
 
-* onDomContentLoaded
+* onDOMContentLoaded
 * onLoad
 
 ### Page lifecycle

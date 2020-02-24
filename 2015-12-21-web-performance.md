@@ -19,29 +19,37 @@
 * 压缩
   * Gzip
   * br(Brotli)
+* JS Uglify, minify
+  * 使用 Tree Shaking 排除没有使用的导入模块
+  * webpack-bundle-analyzer
+  * webpack-libs-optimization
 * 图像优化
   * WebP
-* 网页字体优化
-* JS Uglify, minify
+* 字体, 视频优化
 
 ### 加载
 
-* 优化入口文件大小
-  * TCP 的 first roundtrip 只能发 10 个 TCP packets(大概是14KB)
-* 尽量异步加载非首次渲染需要的资源
-* 活用 async script
+* [PRPL 模式](https://web.dev/apply-instant-loading-with-prpl/)
+  * Push (or preload) the most important resources.(首屏加载前)
+  * Render the initial route as soon as possible.(首屏加载)
+  * Pre-cache remaining assets.(为下一个场景做准备)
+  * Lazy load other routes and non-critical assets.(不是关键的资源延迟加载)
 * JS 分包
   * 大于 30KB 的 async/defer 文件可以触发 [V8 Script Streaming](https://v8.dev/blog/cost-of-javascript-2019)
   * 有利于 HTTP2 的多路复用
+* 活用 async script, 尽量异步加载非首次渲染需要的资源
+* 活用 defer script, 提前 first paint 的时间点
 * 缓存策略
   * [HTTP 缓存](2016-02-24-http-cache.md)
   * Service Worker
   * Local Storage 的[野路子](https://imququ.com/post/summary-of-my-blog-optimization.html)
-* DNS preload
+* 优化入口文件大小
+  * TCP 的 first roundtrip 只能发 10 个 TCP packets(大概是14KB)
+* 使用 `<link rel="preload" />`, `<link rel="dns-prefetch" >`
+  * preload-webpack-plugin
 * 首屏渲染需要外部 JS, CSS, 应该尽可能的放到 HTML 文档上方(Header)以便尽早发出请求
   * CSS 会阻塞 JS, 所以 CSS 应该放在更前面
-* 根据不同的网络环境分发不同类型的资源
-  * `navigator.connection.effectiveType` 可以更准确的检测当前网络环境, Chrome 62 开始支持
+* [首屏不需要的 CSS 可以放到 BODY 里](https://docs.google.com/presentation/d/1D4foHkE0VQdhcA5_hiesl8JhEGeTDRrQR4gipfJ8z7Y/present?slide=id.g1d760124ab_0_6)
 
 ### 渲染
 
@@ -101,17 +109,23 @@
     }
     ```
 
+### 工程角度
+
+* 为不同的环境配置不同的策略
+  * `navigator.connection.effectiveType` 可以更准确的检测当前网络环境, Chrome 62 开始支持
+* 学习 Github 是怎么通过[增量解耦](https://github.blog/2018-09-06-removing-jquery-from-github-frontend/), 慢慢减少相关方法的调用, 移除 jQuery 的
+
 ### 汇总建议
 
 * [PageSpeed 规则和建议](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/page-speed-rules-and-recommendations?hl=zh-cn)
 * [The Runtime Performance Checklist by Paul Lewis](https://calendar.perfplanet.com/2013/the-runtime-performance-checklist/)
 
+> [2019 前端性能优化年度总结 by Vitaly Friedman](https://iangeli.com/2019/02/13/2019-%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93.html)
+>
 > [优化内容效率 in Web Fundamentals](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency)
 >
 > [毫秒必争，前端网页性能最佳实践 - 微软互联网开发支持 - 博客园](http://www.cnblogs.com/developersupport/p/webpage-performance-best-practices.html)
 >
 > [Web performance made easy (Google I/O '18)](https://www.youtube.com/watch?v=Mv-l3-tJgGk)
->
-> [The cost of JavaScript in 2019 in V8 Blog](https://v8.dev/blog/cost-of-javascript-2019)
 >
 > [防抖、节流](http://alloween.top/2018/04/16/%E9%98%B2%E6%8A%96%E3%80%81%E8%8A%82%E6%B5%81/)
