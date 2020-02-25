@@ -49,7 +49,9 @@
   * preload-webpack-plugin
 * 首屏渲染需要外部 JS, CSS, 应该尽可能的放到 HTML 文档上方(Header)以便尽早发出请求
   * CSS 会阻塞 JS, 所以 CSS 应该放在更前面
-* [首屏不需要的 CSS 可以放到 BODY 里](https://docs.google.com/presentation/d/1D4foHkE0VQdhcA5_hiesl8JhEGeTDRrQR4gipfJ8z7Y/present?slide=id.g1d760124ab_0_6)
+* [这里](https://csswizardry.com/2018/11/css-and-network-performance/) 介绍了一些到 2018 年为止 CSS 应该怎么放置的策略
+  * 避免 `@import css`, 因为这些都不能并行下载
+  * [首屏不需要的 CSS 可以放到 BODY 里](https://docs.google.com/presentation/d/1D4foHkE0VQdhcA5_hiesl8JhEGeTDRrQR4gipfJ8z7Y/present?slide=id.g1d760124ab_0_6)
 
 ### 渲染
 
