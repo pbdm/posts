@@ -40,7 +40,7 @@ Lighthouse 同时也可以[跑在 handless(无 UI界面)](https://github.com/Goo
 * [First Meaningful Paint](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint): FMP, 首次有效绘制时间, 可确定用户感觉到页面主要内容处于可见状态的时间. 这篇[文章](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view?hl=zh-cn)介绍了这个时间点的计算逻辑. 大致就是紧跟着 "最大布局变化" 之后的渲染时间点, 但是在长页面, 有字体加载的情况下也会有另外的考虑
 * [Time to Interative](https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive): TTI, 可交互时间
 
-## RUM(真实用户监测) API
+## RUM(Real User Monitoring, 真实用户监控) API
 
 ### 基本事件
 
@@ -55,13 +55,29 @@ Lighthouse 同时也可以[跑在 handless(无 UI界面)](https://github.com/Goo
 * `chrome://discards/`: 当前页面状态
 ![Page Lifecycle API](https://developers.google.com/web/updates/images/2018/07/page-lifecycle-api-state-event-flow.png)
 
-### PerformancePaintTiming API
+### [Performance TimeLine Level )](https://developer.mozilla.org/en-US/docs/Web/API/Performance_Timeline)
 
-[Paint Timing](https://developer.mozilla.org/zh-CN/docs/Web/API/PerformancePaintTiming) API 可以提供 FP 和 FCP 的值, 但提供不了 FMP
+* 可以通过 `performance.getEntries()` 获取所有的信息
+* 可以通过 `performance.getEntriesByType()` 获取相关类型的信息
+  * [所有类型列表](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry/entryType)
+    * frame
+    * navigation: 首屏
+    * resource: 页面资源
+    * mark
+    * measure
+    * paint: FP 和 FCP
+    * longtask: 耗费超过 50ms 的任务, 2020-02-26: 暂时只有 Chrome 支持
+* [PerformanceObserver](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver): 观察者模式, 当有性能数据产生时主动通知
 
-### Navigation Timing API
+#### Paint Timing
 
-* [performance.timing(已废弃)](https://developer.mozilla.org/zh-CN/docs/Web/API/PerformanceTiming)
+* [PerformancePaintTiming](https://developer.mozilla.org/zh-CN/docs/Web/API/PerformancePaintTiming) 可以提供 FP 和 FCP 的值, 但提供不了 FMP, 写法如 `performance.getEntriesByType('paint')`
+
+#### Navigation Timing
+
+~~[performance.timing](https://developer.mozilla.org/zh-CN/docs/Web/API/Performance/timing) 已经废弃~~, 新的 [Performance Timeline Level 2](https://developer.mozilla.org/en-US/docs/Web/API/Performance_Timeline) 里应该这么写: `performance.getEntriesByType('navigation')`, 返回的时间也由绝对时间戳变成了相对时间
+
+* [相关属性](https://developer.mozilla.org/zh-CN/docs/Web/API/PerformanceTiming)
   * domInteractive 表示 DOM 树准备就绪的时间点. (DOM tree ready)
   * domContentLoaded 事件通常表示 DOM 和 CSSOM 均准备就绪的时间点, 之后就可以开始构建渲染树了
     * 如果没有阻塞解析器的 JavaScript(sync 和 defer), 则 DOMContentLoaded 将在 domInteractive 后立即触发(此时 CSSOM 是有可能还没解析完毕的)
@@ -70,4 +86,6 @@ Lighthouse 同时也可以[跑在 handless(无 UI界面)](https://github.com/Goo
 * `performance.getEntriesByType("resource")`: 获取所有加载资源的 performance
 ![timing-overview](https://www.w3.org/TR/navigation-timing/timing-overview.png)
 
+> [蚂蚁金服如何把前端性能监控做到极致 by 杨森](https://www.infoq.cn/article/Dxa8aM44oz*Lukk5Ufhy)
+>
 > [大前端时代前端监控的最佳实践 by holden(六猴)](https://zhuanlan.zhihu.com/p/38368337)

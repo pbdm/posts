@@ -69,12 +69,12 @@ dev: [nwjs(node-webkit)](https://github.com/nwjs/nw.js/)
 
 打开微信 web 开发者工具，然后输入 openVendor() 便会打开 WeappVendor这个目录, 里面结构大概是
 
-- 1.3.0
-  - WAService.js
-  - WAWebview.js
-- WAWigget.js
-- wcc: 将 wxml 转换为 DOM JSON
-- wcsc: 将 wxss 转换为 css
+* 1.3.0
+  * WAService.js
+  * WAWebview.js
+* WAWigget.js
+* wcc: 将 wxml 转换为 DOM JSON
+* wcsc: 将 wxss 转换为 css
 
 ### WAWebview.js
 
@@ -124,13 +124,13 @@ dev: [nwjs(node-webkit)](https://github.com/nwjs/nw.js/)
 
 尼玛 wcc 和 wcsc 一直在改, 2018-01-12, 编译出来的 css 都带了 `%%HERESUFFIX%%` 是什么鬼...
 
-## weweb
+### weweb
 
 基于 wept 的另外一套实现...
 
 > [weweb](https://github.com/wdfe/weweb)
 
-## hera
+### hera
 
 基于 wept 的又另外一套实现...
 
