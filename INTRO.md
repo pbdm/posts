@@ -9,6 +9,7 @@
 * [Single Page Apps for GitHub Pages](https://github.com/rafrex/spa-github-pages)
 * [Web Components](https://www.webcomponents.org/)
 * [PWA](https://web.dev/progressive-web-apps/)
+* [Workbox](https://developers.google.com/web/tools/workbox)
 * [Mermaid](https://github.com/mermaid-js/mermaid)
 * [Markdown-it](https://github.com/markdown-it/markdown-it) with custom plugins
 * [Prism highlighter](https://prismjs.com/)
