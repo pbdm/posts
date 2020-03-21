@@ -6,7 +6,7 @@
 
 * 为什么 react native 仍然有很多组件使用的 createClass 的写法， 造成子组件中无法继承方法(只有使用 array function 来继承才可以) [so](https://stackoverflow.com/questions/35909476/how-to-extend-react-component-class-created-via-react-createclass)
   > [autobinding](https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding)
-  > [babel](https://babeljs.io/docs/plugins/transform-class-properties/)1
+  > [babel](https://babeljs.io/docs/plugins/transform-class-properties/)
 
 ## debug方法
 
@@ -226,7 +226,7 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 
 ## Source Code Structure(0.46.4)
 
-- 在 npm 发布后的目录内
+* 在 npm 发布后的目录内
   * Libaries: 基本 和 ios 的实现
     * Components js 层组件实现
     * Utilities some apis
@@ -247,7 +247,7 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
   * scripts
     * react-native-xcode.sh RNTester/js/RNTesterApp.ios.js, and config xip.io if needed
   * package.json 里面的8个 test script 是用于 [Dockerfile Tests](https://github.com/facebook/react-native/blob/v0.46.4/DockerTests.md)的
-- 不在 npm 发布后的目录内
+* 不在 npm 发布后的目录内
   * RNTester: showcases
     * use `http://xip.io/` for device debug
   * circle.yml: 使用 circle 做持续集成
@@ -274,15 +274,15 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 
 从 `node local-cli/cli.js bundle --entry-file RNTester/js/RNTesterApp.ios.js --bundle-output test.js` 开始打包
 
-- local-cli/cli.js (确认 node 版本， 设置 babel,)
-  - local-cli/cliEntry.js
-    - local-cli/bundle/bundle.js
-      - local-cli/bundle/buildBindle.js
+* local-cli/cli.js (确认 node 版本， 设置 babel,)
+  * local-cli/cliEntry.js
+    * local-cli/bundle/bundle.js
+      * local-cli/bundle/buildBindle.js
 
 从下面开始进入 metro-bundler 了
 
-- packagerInstance = new Server(options), Server 有 buildBundle 函数， 将在下面的 buildBundle 函数那运行
-- outputBundle.build = require('metro-bundler/build/shared/output/bundle').buildBundle; // 这里面应该就是打包的逻辑了
+* packagerInstance = new Server(options), Server 有 buildBundle 函数， 将在下面的 buildBundle 函数那运行
+* outputBundle.build = require('metro-bundler/build/shared/output/bundle').buildBundle; // 这里面应该就是打包的逻辑了
 
 命令行里的 config 放在了 `local-cli/core` 和 `local-cli/util/Config.js`
 bundle 的参数放在了 `local-cli/bundle/bundleCommandLineArgs.js`
