@@ -14,7 +14,7 @@
 * [Markdown-it](https://github.com/markdown-it/markdown-it) with custom plugins
 * [Prism highlighter](https://prismjs.com/)
 * [RemarkJS](https://remarkjs.com/#1)
-* [Git Submodule](https://git-scm.com/docs/git-submodule)
+* [~~Git Submodule~~](https://git-scm.com/docs/git-submodule)
 * CSS FlexBox
 * CSS Media Query
 * [Jsdelivr CDN](https://www.jsdelivr.com/)
