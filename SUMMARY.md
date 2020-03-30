@@ -79,6 +79,7 @@
     * [Webpack](2016-02-26-webpack.md)
     * [Babel](2017-05-30-babel.md)
     * [PostCSS](2018-06-26-postcss.md)
+  * [编辑器](2020-03-29-editor.md)
   * [版本管理](2014-07-01-revision-control.md)
   * [数据分析](2019-08-01-bi.md)
   * [JSON Schema](2018-09-28-json-schema.md)
