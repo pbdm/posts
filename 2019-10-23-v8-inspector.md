@@ -36,7 +36,7 @@ end
 
 * 一些历史
 
-  * 根据这篇[文章]((http://blog.joshgav.com/node/debugging/2016/02/04/Node-Debug-Architecture.html), V8 2014 年5月已经[移除](https://github.com/v8/v8/commit/33fba3b)了 Debug Agent, 并[加在](https://github.com/nodejs/node/commit/7a0cfe9)了 node实现上
+  * 根据这篇[文章](http://blog.joshgav.com/node/debugging/2016/02/04/Node-Debug-Architecture.html), V8 2014 年5月已经[移除](https://github.com/v8/v8/commit/33fba3b)了 Debug Agent, 并[加在](https://github.com/nodejs/node/commit/7a0cfe9)了 node实现上
 
   * [这里](https://idom.me/articles/848.html)介绍的使用`SetMessageHandler` 已经在 2017年2月 [移除](https://github.com/v8/v8/commit/d0d4189dc094b9d6d7750ddb3ad250f3518c2225)了
 
