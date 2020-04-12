@@ -122,6 +122,7 @@ Blink and Chromium are not really separable anymore, 所以他们的 source code
 
 * [V8](2020-03-11-v8.md) — open source, developed by Google, written in C++, used in Chrome(blink) and nodejs
 * JavaScriptCore — open source, marketed as Nitro and developed by Apple for Safari(webkit)
+  * React Native 默认使用的也是 JavaScriptCore
 * Chakra - `JScript9` for Internet Explorer and `JavaScript` for Microsoft Edge
 * SpiderMonkey — the first JavaScript engine, which back in the days powered Netscape Navigator, and today powers Firefox
 * Rhino — managed by the Mozilla Foundation, open source, developed entirely in Java
@@ -139,3 +140,6 @@ Blink and Chromium are not really separable anymore, 所以他们的 source code
 > [ES5 整理 by 颜海镜](http://yanhaijing.com/es5/#about)
 >
 > [How JavaScript works: inside the V8 engine by Alexander Zlatkov](https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e)
+>
+> [深入理解JSCore by 唐笛](https://tech.meituan.com/2018/08/23/deep-understanding-of-jscore.html)
+

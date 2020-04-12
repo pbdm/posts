@@ -8,44 +8,44 @@
 
 [微信小程序的开发经验分享](https://mp.weixin.qq.com/s/9PID6UJsQyB06xdyOkEVOA)
 
-[小程序标准化概要...](https://github.com/w3c/chinese-ig/blob/master/tf/mobile/outline.md)
+[小程序标准化概要...](https://github.com/w3c/chinese-ig/blob/master/tf/mini-app/outline.md)
 
-## 语法
-
-主要针对与 WEB 标准的不同
+## 对比 Web 标准
 
 * form 表单提交, form 数据放在了 `e.target.detail.value` 里
 * target.dataset 为字符串, 微信小程序里为整型
 
 ## Runtime
 
-ios: [JavaScriptCore](https://github.com/phoboslab/JavaScriptCore-iOS): WebKit 的 JavaScript 引擎
+iOS: WebKit,  [JavaScriptCore](https://github.com/phoboslab/JavaScriptCore-iOS)
 
-dev: [nwjs(node-webkit)](https://github.com/nwjs/nw.js/)
+Android: [X5](https://x5.tencent.com/). 新版 X5 应该是基于 Blink, V8
+
+开发工具: [nwjs(node-webkit)](https://github.com/nwjs/nw.js/), 基于 Chromium,  V8
 
 ## WXS
 
-在 page-frame 中运行的 JS, 最大的用途是一个视图层的 filter. 避免了跨线程通信的开销 ?!?!?! 那当初为啥要拆出来?!
+在 page-frame 中运行的 JS(而不是 app-service), 最大的用途是一个视图层的 filter. 避免了跨线程通信的开销......
 
-> [如何评价微信新推出的WXS语言](https://www.zhihu.com/question/64322737)
+[知乎上的讨论](https://www.zhihu.com/question/64322737/answer/292519240):
 
-## WePY
+> 框架是要给人用的，就说微信小程序这种，算是小型app，一般一两个人开发就足够了。一般公司不会把主要的技术力量放在小程序开发这里。因此开发者一般是实习生或者是刚毕业工作的程序员。他们的经验能力有限，而且一般公司也不会那么重视小程序的几毫秒性能。所以，你的框架就应该——简单、清晰、通用、易维护、易移植，不要提供过多选项，不要让刚学了点前端的小朋友写得一头雾水。
 
-还尼玛出现了基于小程序的开发框架，[WePY](https://github.com/wepyjs/wepy)
+## 第三方框架
 
-包括预加载，预查询， 数据绑定， 生命周期优化，事件等。。。(这些尼玛不是应该小程序自己实现的么...)
+### [WePY](https://github.com/wepyjs/wepy)
 
-可编译为 WEB 版
+* 包括预加载，预查询， 数据绑定， 生命周期优化，事件等。。。(这些为啥小程序自己不实现...)
 
-已被官方收纳
+* 可编译为 WEB 版, 已被官方收纳
 
-## mpvue
+### mpvue
 
 * 基于 vue.js, 将用 vue.js 写的代码转换为小程序可以识别的代码
-  * 改造了 render 方法，禁止视图层渲染
-  * 所有的事件都绑在一个 handleProxy 方法上, 用写在 dom 上的 eventid 来区分
+* 改造了 render 方法，禁止视图层渲染
+* 所有的事件都绑在一个 handleProxy 方法上, 用写在 dom 上的 eventid 来区分
 
-## Taro
+### Taro
 
 * 可以多学学这个项目的组织发布结构和社区营造...
 * omi 的转小程序是[基于](https://github.com/Tencent/omi/blob/master/packages/omip/package.json#L15) taro 的
@@ -79,14 +79,14 @@ dev: [nwjs(node-webkit)](https://github.com/nwjs/nw.js/)
 ### WAWebview.js
 
 * 类似于 React, 里面包含
-  * Virtual Dom 逻辑, 参照了[Matt-Esch/virtual-dom](https://github.com/Matt-Esch/virtual-dom))。
+  * Virtual Dom 逻辑, 参照了[Matt-Esch/virtual-dom](https://github.com/Matt-Esch/virtual-dom)
   * 事件绑定
 
 在 WAWebview 源码里，可以看到以下组件的 behaviors 里有 wx-native 的组件定义: wx-contact-button, wx-map, wx-textarea, wx-video, wx-canvas, 也就是说一些特殊的组件还是用 native 来实现的
 
 ### WAService.js
 
-封装了一些 api 和后台逻辑
+封装了一些 API 和后台逻辑
 
 * 每一个页面都放在一个 webview 标签内， (不清楚真实环境内是怎么做的)
 * 点击 -> view接收事件 -> nwjs 发送给 service -> service 查找到对应的指向函数并调用 this.setData
@@ -124,24 +124,16 @@ dev: [nwjs(node-webkit)](https://github.com/nwjs/nw.js/)
 
 尼玛 wcc 和 wcsc 一直在改, 2018-01-12, 编译出来的 css 都带了 `%%HERESUFFIX%%` 是什么鬼...
 
-### weweb
+### 其他基于 WEPT 的实现
 
-基于 wept 的另外一套实现...
-
-> [weweb](https://github.com/wdfe/weweb)
-
-### hera
-
-基于 wept 的又另外一套实现...
-
-> [hera](https://github.com/weidian-inc/hera)
+* [weweb](https://github.com/wdfe/weweb)
+* [hera](https://github.com/weidian-inc/hera)
 
 ## 微信小游戏
 
 ### 开放数据域
 
-* [官方文档](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html)
-* cocos 里又叫子域(BROWSER_TYPE_WECHAT_GAME_SUB)
+* [官方文档](https://developers.weixin.qq.com/minigame/dev/guide/open-ability/open-data.html)
 * 通信: 类似于 postmessage 方式
   * 类似于通过不同的 webview 隔离
   * 开放数据域不能向主域发送消息
@@ -151,10 +143,10 @@ dev: [nwjs(node-webkit)](https://github.com/nwjs/nw.js/)
   * 保证了用户可以拿到数据展示，但你无法存储数据到自己的服务器
   * [wx.getFriendCloudStorage](https://developers.weixin.qq.com/minigame/dev/api/wx.getFriendCloudStorage.html): 拉取当前用户所有同玩好友的托管数据
   * [wx.getGroupCloudStorage](https://developers.weixin.qq.com/minigame/dev/api/wx.getGroupCloudStorage.html): 获取群同玩成员的游戏数据
-* 说是说开放, 但是其实应该是[限制](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html#%E9%99%90%E5%88%B6)
-* cocos creator 靠判断是否实现了 [wx.getFileSystemManager](https://github.com/cocos-creator/engine/blob/2.1.0/cocos2d/core/platform/CCSys.js#L635)判断是否在开放数据域
-
-> [接入微信小游戏的开放数据域 for cocos](https://docs.cocos.com/creator/manual/zh/publish/publish-wechatgame-sub-domain.html)
+* 说是说开放, 但是其实应该是限制
+* [cocos 接入微信小游戏的开放数据域](https://docs.cocos.com/creator/manual/zh/publish/publish-wechatgame-sub-domain.html)
+  * cocos 里又叫子域(BROWSER_TYPE_WECHAT_GAME_SUB)
+  * cocos creator 靠判断是否实现了 [wx.getFileSystemManager](https://github.com/cocos-creator/engine/blob/2.1.0/cocos2d/core/platform/CCSys.js#L635)判断是否在开放数据域
 
 ```javascript
 let openDataContext = wx.getOpenDataContext()
@@ -165,4 +157,5 @@ let context = canvas.getContext('2d')
 context.drawImage(sharedCanvas, 0, 0)
 ```
 
-![主域和开放数据域的关系](https://developers.weixin.qq.com/minigame/dev/tutorial/image/open-data/data-flow.png)
+![主域和开放数据域的关系](https://res.wx.qq.com/wxdoc/dist/assets/img/data-flow.ad68359b.png)
+

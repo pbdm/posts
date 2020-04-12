@@ -43,7 +43,7 @@
   * 有时ScrollView 撑开了回不来
   * props 传给子组件时有时不更新
   * render 函数捏不能写 if else, 只能写一堆单个的 if
-* s-if内 `selectKeys.indexOf(item.appKey)` 这种表达式没有值
+* `s-if 内` selectKeys.indexOf(item.appKey)` 这种表达式没有值
   * 可以用 [filter](http://smartprogram.baidu.com/docs/develop/framework/view_filter/) 解决..
 * 自定义组件内的事件不能被 Page.after 捕捉到(IDE 内)
   * swan-core 升级到 3.60.16 解决

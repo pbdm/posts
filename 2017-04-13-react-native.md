@@ -8,39 +8,18 @@
   > [autobinding](https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding)
   > [babel](https://babeljs.io/docs/plugins/transform-class-properties/)
 
-## debug方法
+## debug 方法
 
 * facebook/react-devtools for inspect elements
-
-> [[React Native] Devtools can't find React within the Web Worker (help wanted) #229](https://github.com/facebook/react-devtools/issues/229#issuecomment-280081973)
-
-## haste module system
-
-> aka: @providesModule, a facebookism
->
-> [Instruction in React contributing document](https://facebook.github.io/react/contributing/codebase-overview.html#custom-module-system)
-
-react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-haste/blob/master/src/index.js)(Archived) 改成了，[haste-resolver](https://github.com/yuanyan/haste-resolver/tree/master/src)
-并包在了[haste-resolver-webpack-plugin](https://github.com/yuanyan/haste-resolver-webpack-plugin)中
-
-貌似已经去中心化， 在各个使用它的项目中单独实现了, 但是 React [will Get rid of providesModule](https://github.com/facebook/react/issues/6336)
-
-> [node-haste in metro-bundler](https://github.com/facebook/metro-bundler/tree/master/packages/metro-bundler/src/node-haste)
->
-> [jest-haste-map](https://github.com/facebook/jest/tree/master/packages/jest-haste-map)
->
-> [flegall/haste-map-webpack-resolver](https://github.com/flegall/haste-map-webpack-resolver)
+* 坑: [[React Native] Devtools can't find React within the Web Worker (help wanted) #229](https://github.com/facebook/react-devtools/issues/229#issuecomment-280081973)
 
 ## Native
 
-* `JavaScriptCore`是webkit的一个重要组成部分，主要是对JS进行解析和提供执行环境
+	* 默认用的是 JavaScriptCore 而不是 V8
 
-> [深入理解JSCore](https://tech.meituan.com/deep_understanding_of_jscore.html)
-
-* [通信机制](http://blog.cnbang.net/tech/2698/)
+* [通信机制](http://blog.cnbang.net/tech/2698/)感觉和 Hybrid 里的差不多, 异步, 并且因为通讯会很频繁加入了 batch 的机制
 
 * A native module is just an Objective-C class that implements the `RCTBridgeModule` protocol
-* React Native bridge is asynchronous
 * Linking Libraries
 
 * Podfile: `gem install cocoapods`
@@ -167,9 +146,7 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
 * Share
 * StatusBarIOS
 
-### animation
-
-详见[动画](2017-08-11-animation.md)
+### [animation](2017-08-11-animation.md)
 
 ### infos
 
@@ -254,12 +231,7 @@ react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-hast
   * scripts
     * publish-npm.js: publish RN to npm，运行在 circleCI 下
 
-## publish
-
-* ~brew cask install android-sdk~
-* ~brew cask install android-ndk~
-
-## cli
+## CLI
 
 * `bundle`: 默认打包
 * `unbundle`: android unbundle means create separated files. ios unbundle means create a big file contains mapping table and codes. It is slow for iOS to load multiple small files
@@ -299,11 +271,9 @@ bundle 的参数放在了 `local-cli/bundle/bundleCommandLineArgs.js`
 
 ![打包完成后的结构](http://techshow.ctrip.com/wp-content/uploads/2016/11/42.png)
 
-### haul
+### [haul](https://github.com/callstack-io/haul)
 
 * 一个替代 metro-bundle 的解决方案，基于 webpack
-
-> [haul](https://github.com/callstack-io/haul)
 
 ### 分包
 
@@ -313,3 +283,15 @@ bundle 的参数放在了 `local-cli/bundle/bundleCommandLineArgs.js`
 > [携程 RN 分包方案](http://techshow.ctrip.com/archives/1459.html)
 >
 > [广发手机证劵App rn 分包](https://zhuanlan.zhihu.com/p/27422107)
+
+## ~~Haste module system~~([已废弃](https://github.com/facebook/react/pull/11303))
+
+aka: @providesModule, a facebookism
+
+react-web 的作者用 [node-haste](https://github.com/facebookarchive/node-haste/blob/master/src/index.js)(Archived) 改成了[haste-resolver](https://github.com/yuanyan/haste-resolver/tree/master/src), 并包在了[haste-resolver-webpack-plugin](https://github.com/yuanyan/haste-resolver-webpack-plugin)中
+
+貌似已经去中心化, 在各个使用它的项目中单独实现了, 但是 React [will Get rid of providesModule](https://github.com/facebook/react/issues/6336)
+
+[Jest 使用了Haste](https://github.com/facebook/jest/tree/master/packages/jest-haste-map)
+
+[flegall/haste-map-webpack-resolver](https://https://github.com/flegall/haste-map-webpack-resolver) 可以在 Webpack 使用 Haste
