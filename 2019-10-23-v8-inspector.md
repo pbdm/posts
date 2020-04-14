@@ -55,7 +55,7 @@ sequenceDiagram
  InspectorChannel-->>Devtool: sendNotification
 ```
 
-* [这里](https://github.com/pbdm/playground/tree/master/cpp/v8/v8-inspector) 有一个借鉴[ahmadov/v8_inspector_example](https://github.com/ahmadov/v8_inspector_example) 的实现
+* [这里](https://github.com/pbdm/playground/tree/master/cpp/v8/v8-inspector)有一个借鉴[ahmadov/v8_inspector_example](https://github.com/ahmadov/v8_inspector_example) 的实现
 * 如果需要在 `chrome://inspect` 里找到链接, 需要[用 http 实现 ` /json` 和  ` /json/version` 的数据](https://zhuanlan.zhihu.com/p/74693078)
 * Chrome 内置的DevTools 地址: `chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=a.b.c.d:xxxx`
 
