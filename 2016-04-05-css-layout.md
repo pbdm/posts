@@ -80,6 +80,8 @@ Inline formatting context(行内格式化上下文)
 
 首先尝试排入行内级格式化上下文, 如果排不下, 那么创建一个行盒, 先将行盒排版(行盒是块级), 行盒会创建一个行内级格式化上下文.
 
+**坑**: [关于inline-block中的white-space(50%问题)](https://css-tricks.com/fighting-the-space-between-inline-block-elements/)
+
 ## 浮动(float)
 
 把盒的顶部跟当前行内级上下文上边缘对齐, 然后根据 float 的方向把盒的对应边缘对到块级格式化上下文的边缘, 之后重排当前行盒.
@@ -89,6 +91,8 @@ Inline formatting context(行内格式化上下文)
 ## fix 定位
 
 postion: fix/absolute/relative
+
+**坑**: [`position: fix`在chrome里,如果父元素有transform属性, `fix`属性失效](https://code.google.com/p/chromium/issues/detail?id=20574): [example](http://jsfiddle.net/rastrano/2PNFy/)
 
 ## Flexbox
 

@@ -1,7 +1,6 @@
 # [琥珀草](INTRO.md)
 
 * [资源库](2014-05-14-links.md)
-* [坑](2015-03-08-keng.md)
 * [Web 标准](2017-10-31-web-standard.md)
   * [JS 数据类型和数据结构](2018-08-15-js-data.md)
   * [JS 原型](2019-12-16-js-prototype.md)

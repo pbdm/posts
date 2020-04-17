@@ -62,6 +62,10 @@ stage3: [globalThis](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Ref
 
 2019-12-18: 目前只有 safari 严格模式下[支持](http://kangax.github.io/compat-table/es6/#test-proper_tail_calls_(tail_call_optimisation)), 其他浏览器的支持还有争论, 于是有另一套[STC proposal](https://github.com/tc39/proposal-ptc-syntax), 大意是在语法上控制优化逻辑
 
+## 坑
+
+[箭头函数并不暴露 arguments 对象](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_binding_of_arguments)
+
 > [尾递归的后续探究](https://imweb.io/topic/5a244260a192c3b460fce275)
 >
 > [Excuse me？这个前端面试在搞事！](https://zhuanlan.zhihu.com/p/25407758)
