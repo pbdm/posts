@@ -3,19 +3,13 @@
 ## 坑
 
 * 2017.4.13: 今天重新尝试 RN, 于是下午兴高采烈的从 [Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) 玩起，可是发现在照着每一步做了之后， 起来的 app 一直 crash, 参见 [so](http://stackoverflow.com/questions/42610070/what-means-of-no-bundle-url-present-in-react-native), 查了3个小时， 发现是因为默认 terminal 启动的时候启动了tmux, 导致 packager server 没有启动。。。
-
-* 为什么 react native 仍然有很多组件使用的 createClass 的写法， 造成子组件中无法继承方法(只有使用 array function 来继承才可以) [so](https://stackoverflow.com/questions/35909476/how-to-extend-react-component-class-created-via-react-createclass)
-  > [autobinding](https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding)
-  > [babel](https://babeljs.io/docs/plugins/transform-class-properties/)
-
-## debug 方法
-
-* facebook/react-devtools for inspect elements
-* 坑: [[React Native] Devtools can't find React within the Web Worker (help wanted) #229](https://github.com/facebook/react-devtools/issues/229#issuecomment-280081973)
+* [2017: React native 仍然有很多组件使用的 createClass 的写法， 造成子组件中无法继承方法(只有使用 array function 来继承才可以)](https://stackoverflow.com/questions/35909476/how-to-extend-react-component-class-created-via-react-createclass)
+  * [autobinding](https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding)
+  * [babel plugin](https://babeljs.io/docs/plugins/transform-class-properties/)
 
 ## Native
 
-	* 默认用的是 JavaScriptCore 而不是 V8
+* 默认用的是 JavaScriptCore 而不是 V8
 
 * [通信机制](http://blog.cnbang.net/tech/2698/)感觉和 Hybrid 里的差不多, 异步, 并且因为通讯会很频繁加入了 batch 的机制
 
@@ -269,8 +263,6 @@ bundle 的参数放在了 `local-cli/bundle/bundleCommandLineArgs.js`
 * require(188) InitializeCore (Libraries/Core/InitializeCore.js)
 * require(0) 入口模块
 
-![打包完成后的结构](http://techshow.ctrip.com/wp-content/uploads/2016/11/42.png)
-
 ### [haul](https://github.com/callstack-io/haul)
 
 * 一个替代 metro-bundle 的解决方案，基于 webpack
@@ -280,8 +272,6 @@ bundle 的参数放在了 `local-cli/bundle/bundleCommandLineArgs.js`
 * 以Common.js文件为入口打出一个common.android.bundle基础包，并在生成基础包时将打包过程中的ModuleId的关联关系记录到common.json文件中
 * 以业务的index.js文件为入口, 用步骤一生成的common.json为基础过滤common.js中存在的module后生成business.js文件。 并为每个不同的业务分配一个业务模块起始的startId 以此进行业务隔离
 
-> [携程 RN 分包方案](http://techshow.ctrip.com/archives/1459.html)
->
 > [广发手机证劵App rn 分包](https://zhuanlan.zhihu.com/p/27422107)
 
 ## ~~Haste module system~~([已废弃](https://github.com/facebook/react/pull/11303))

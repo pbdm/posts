@@ -9,6 +9,7 @@
   * [脚本开发指南](https://docs.cocos.com/creator/manual/zh/scripting/)
 * [API](https://docs.cocos.com/creator/api/zh/)
   * [cc模块](https://docs.cocos.com/creator/api/zh/modules/cc.html)
+* [资源加载逻辑](https://oedx.github.io/2019/03/14/brief-analysis-of-the-cocoscreator-engine-resource-loading-and-release-principle/)
 * [微信小游戏资源管理](https://docs.cocos.com/creator/manual/zh/publish/publish-wechatgame.html#%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%8E%AF%E5%A2%83%E7%9A%84%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86)
   * 设置 `REMOTE_SERVER_ROOT`, 在打成微信包后可以在 `wx-downloader` 内找到处理逻辑
 

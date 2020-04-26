@@ -4,10 +4,8 @@
 
 ### 取整
 
-尽量用下面这三个吧, 严格的来说 `parseInt` 的第一个参数应该是字符串类型的
-
 ```javascript
-// floor向下取整:
+// floor向下取整. 比 parseInt 语义上更好, 严格的来说 parseInt 的第一个参数应该是字符串类型的
 Math.floor(0.20); // 0
 Math.floor(0.90); // 0
 Math.floor(-0.90); // -1

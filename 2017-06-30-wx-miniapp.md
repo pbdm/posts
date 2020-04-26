@@ -36,8 +36,11 @@ Android: [X5](https://x5.tencent.com/). 新版 X5 应该是基于 Blink, V8
 ### [WePY](https://github.com/wepyjs/wepy)
 
 * 包括预加载，预查询， 数据绑定， 生命周期优化，事件等。。。(这些为啥小程序自己不实现...)
-
 * 可编译为 WEB 版, 已被官方收纳
+
+### [kbone](https://github.com/Tencent/kbone)
+
+* 官方项目, 通过在小程序上面添加一层模拟 Web 的 adapter 实现
 
 ### mpvue
 
@@ -47,6 +50,7 @@ Android: [X5](https://x5.tencent.com/). 新版 X5 应该是基于 Blink, V8
 
 ### Taro
 
+* 基于 React, 通过 complier 实现转换
 * 可以多学学这个项目的组织发布结构和社区营造...
 * omi 的转小程序是[基于](https://github.com/Tencent/omi/blob/master/packages/omip/package.json#L15) taro 的
 * 1.3.0 貌似是一个大版本, 包括开始支持 hooks
