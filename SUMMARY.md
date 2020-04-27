@@ -32,7 +32,7 @@
   * [Electron](2017-07-13-electron.md)
   * [Web 性能](2015-12-21-web-performance.md)
   * [Web 性能优化工具](2018-03-22-web-performance-tools.md)
-  * [Web 内存](2017-02-21-js-memory.md)
+  * [Web 内存](2017-02-21-web-memory.md)
   * [Webp](2016-04-28-webp.md)
 * 动态化框架
   * [Hybrid](2017-08-21-hybrid.md)
