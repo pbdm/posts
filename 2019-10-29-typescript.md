@@ -88,7 +88,7 @@
 * 最好不要写着写着就写成了 "anyscript"
 * 严谨的来说, 当使用 this 的时候, 需要强制指定 this 的类型 (noImplicitThis)
 * interface vs type alias(类型别名)
-  * 由于[开闭原则](https://zh.wikipedia.org/wiki/%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99), 能用 interface 尽量用 interface
+  * 根据开闭原则(尽可能的使在添加新功能的时候容易扩展, 并且不修改源码), 能用 interface 尽量用 interface
   * 尽量保持一致
   * ~~type alias 不能被继承或者实现~~
     * 可以使用交叉类型(&)达到相同的目的

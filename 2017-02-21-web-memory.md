@@ -13,7 +13,7 @@
 ### V8 的做法
 
 * 不能被 GC roots 遍历到的对象都将被内存回收. GC roots 可以包括 Window, Global, DOM 树
-* **[这篇文章](https://v8.dev/blog/trash-talk)**详细的介绍了 V8 通过 Orinoco 项目所做的 GC 优化([中文翻译](https://zhuanlan.zhihu.com/p/55917130))
+* [这篇文章](https://v8.dev/blog/trash-talk)详细的介绍了 V8 通过 Orinoco 项目所做的 GC 优化([中文翻译](https://zhuanlan.zhihu.com/p/55917130))
 * 新生代(Young Generation)使用 Scavenge 垃圾回收器
   * 采用 **Cheney** 算法: 将内存的空间分为两个部分, 同一时刻只有一个空间处于使用中. 使用中的叫做 `To-Space`, 不被使用的叫做`From-Space`. 分配对象时先在 `From-Space` 分配, 垃圾回收时检查 `From-Space`的存活对象, 清理非存活对象, 将存活对象复制到 `To-Space`. 复制后空间身份发生对调
 * 新生代中的对象会在满足以下条件后被晋升到老生代
