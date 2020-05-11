@@ -47,6 +47,7 @@
   * [Angular](2014-06-21-angular.md)
 * 数据流
   * [Redux](2016-03-23-redux.md)
+  * [Vuex](2020-05-11-vuex.md)
   * [Rxjs](2017-06-28-rxjs.md)
   * [Immutable.js](2016-07-15-immutable.md)
 * 测试
