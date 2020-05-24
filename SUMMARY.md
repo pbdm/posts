@@ -15,6 +15,7 @@
   * [JS 模块系统](2017-10-10-js-module-system.md)
   * [DOM](2018-03-22-dom.md)
   * [URL 相关](2019-11-28-url.md)
+  * [页面生命周期](2018-03-22-page-lifecycle)
   * [拖拽](2018-10-31-drag-drop.md)
   * [视频](2017-03-13-video.md)
   * [PWA](2017-07-06-pwa.md)
@@ -31,7 +32,7 @@
   * [V8-Inspector](2019-10-23-v8-inspector.md)
   * [Electron](2017-07-13-electron.md)
   * [Web 性能](2015-12-21-web-performance.md)
-  * [Web 性能优化工具](2018-03-22-web-performance-tools.md)
+  * [Web 性能分析](2018-03-22-web-performance-analysis.md)
   * [Web 内存](2017-02-21-web-memory.md)
   * [Webp](2016-04-28-webp.md)
 * 动态化框架

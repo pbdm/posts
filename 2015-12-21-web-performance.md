@@ -1,20 +1,6 @@
-# Web 性能
+# Web 性能优化
 
-## 性能指标
-
-[RAIL](https://developers.google.com/web/fundamentals/performance/rail?hl=zh-cn) 是一种以用户为中心的性能模型
-
-* Response: 在100ms内响应用户的点击, 输入等操作.
-  * 对于需要超过500ms才能完成的操作, 应该提供反馈.
-* Animation: 每个帧的渲染时间小于16ms(每秒60帧).
-  * 因为还要留给浏览器渲染的时间, 留给 JS 运行时间大概只有10ms.
-* Idle: 最大程度利用空闲时间加载非首屏数据, 并且保证每50ms可以将控制权返回给主线程, 从而保证及时响应用户下一步的操作.
-* Load: 加载页面在1000ms内呈现内容.
-* [延迟与用户反应之间的关系](https://developers.google.com/web/fundamentals/performance/rail?hl=zh-cn#%E4%BB%A5%E7%94%A8%E6%88%B7%E4%B8%BA%E4%B8%AD%E5%BF%83)
-
-## 优化思路
-
-### 资源
+## 资源
 
 * 压缩
   * Gzip
@@ -27,7 +13,7 @@
   * WebP
 * 字体, 视频优化
 
-### 加载
+## 加载
 
 * [PRPL 模式](https://web.dev/apply-instant-loading-with-prpl/)
   * Push (or preload) the most important resources.(首屏加载前)
@@ -53,10 +39,10 @@
   * 避免 `@import css`, 因为这些都不能并行下载
   * [首屏不需要的 CSS 可以放到 BODY 里](https://docs.google.com/presentation/d/1D4foHkE0VQdhcA5_hiesl8JhEGeTDRrQR4gipfJ8z7Y/present?slide=id.g1d760124ab_0_6)
 
-### 渲染
+## 渲染
 
 * 避免不必要的重排, 重绘
-  * 慎重使用会[产生重排, 重绘的方法](2018-03-22-web-render.md)
+  * 慎重使用会产生重排, 重绘的方法
   * 避免强制同步布局(修改后马上查询), 浏览器本不需要在每次查询的时候就马上就去重排的
   * [避免布局抖动(循环内反复获取和修改)](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing)
     * 可以使用[FastDOM](https://github.com/wilsonpage/fastdom) 批处理 DOM 的读取和写入
@@ -67,7 +53,7 @@
 * 避免复杂的 CSS 选择器
   * `:nth-last-child` 这种要慎用
 
-### JS 执行
+## JS 执行
 
 * 对于大型任务
   * 特别大的, 没有 DOM 操作的, 可以考虑 Web Worker
@@ -75,7 +61,7 @@
     * requestAnimationFrame 保证 JavaScript 在帧开始时(Safari 为帧结束)运行, 这个对于实现动画效果很有帮助(cocos 的每一帧都是在 RAF 回调内的)
     * requestIdleCallback 在浏览器空闲的时候执行(貌似 safari 还不支持)
 * 慎用微优化(忽略 JS 方法间的性能差距, 因为大部分时候他们微乎其微...)
-* 活用防抖动和节流阀
+* [活用防抖动和节流阀](http://alloween.top/2018/04/16/%E9%98%B2%E6%8A%96%E3%80%81%E8%8A%82%E6%B5%81/))
   * 防抖: `Debounce` 触发事件后 n 秒内函数只会执行一次, 如果 n 秒内事件再次被触发则重新计时
     * 用于搜索联想词, 用户的频繁点赞操作, resize(只执行最后一次就可以了)
 
@@ -111,13 +97,13 @@
     }
     ```
 
-### 工程角度
+## 工程角度
 
 * 为不同的环境配置不同的策略
   * `navigator.connection.effectiveType` 可以更准确的检测当前网络环境, Chrome 62 开始支持
 * 学习 Github 是怎么通过[增量解耦](https://github.blog/2018-09-06-removing-jquery-from-github-frontend/), 慢慢减少相关方法的调用, 移除 jQuery 的
 
-### 汇总建议
+## 汇总建议
 
 * [PageSpeed 规则和建议](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/page-speed-rules-and-recommendations?hl=zh-cn)
 * [The Runtime Performance Checklist by Paul Lewis](https://calendar.perfplanet.com/2013/the-runtime-performance-checklist/)
@@ -129,5 +115,3 @@
 > [毫秒必争，前端网页性能最佳实践 - 微软互联网开发支持 - 博客园](http://www.cnblogs.com/developersupport/p/webpage-performance-best-practices.html)
 >
 > [Web performance made easy (Google I/O '18)](https://www.youtube.com/watch?v=Mv-l3-tJgGk)
->
-> [防抖、节流](http://alloween.top/2018/04/16/%E9%98%B2%E6%8A%96%E3%80%81%E8%8A%82%E6%B5%81/)
