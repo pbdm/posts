@@ -97,11 +97,11 @@ observer.observe({entryTypes: ["measure"]});
 
 从上图我们可以看到, Lighthouse 的分析可以得出很多重要指标, 并根据这些指标给页面打分, 同时给出一定的优化措施
 
-> Tips: 如果在分析的过程中一直显示 `warming up...` 有可能是需要翻墙
+> Tips: 如果在分析的过程中一直显示 `warming up...` 有可能是需要翻墙 
 
 Lighthouse 同时也可以[跑在 handless(无 UI界面)](https://github.com/GoogleChrome/lighthouse/blob/master/docs/headless-chrome.md)环境下, 我们可以方便的根据它跑出的 JSON 结果[生成 HTML 报告文件](https://github.com/GoogleChrome/lighthouse/blob/master/docs/hacking-tips.md#iterating-on-the-report). [Pageseed Insights](https://developers.google.com/speed/pagespeed/insights/) 就是根据这个部署的
 
-## [白屏检测](2020-05-22-white-screen)
+## [白屏检测](2020-05-21-white-screen.md)
 
 > [Progressive Tooling: 一个性能优化相关工具的列表](https://progressivetooling.com/)
 >
