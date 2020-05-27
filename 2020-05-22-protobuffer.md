@@ -13,7 +13,7 @@ Mac 自带了官方的 [protoc](https://github.com/protocolbuffers/protobuf/tree
 
 ## 劣势
 
-* 兼容性: [protobufjs](https://github.com/protobufjs/protobuf.js#compatibility) 的文档里标注的是 IE9+(If typed arrays are not supported by the environment, plain arrays will be used instead.), 如果按照支持 typed arrays(二进制数组) 来算需要[IE10 +](https://caniuse.com/#search=typedarray)
+* 兼容性: [protobuf.js](https://github.com/protobufjs/protobuf.js#compatibility) 的文档里标注的是 IE9+(If typed arrays are not supported by the environment, plain arrays will be used instead.), 如果按照支持 typed arrays(二进制数组) 来算需要[IE10 +](https://caniuse.com/#search=uint8array)
 * 在传输前后还是需要转成 JSON 格式才可以进行数据的操作, 所以会消耗一定的浏览器性能
 * 由于要预加载 .proto 的内容, 会在一定程度上增加工程的复杂度
 * 有一定的学习成本
@@ -21,4 +21,14 @@ Mac 自带了官方的 [protoc](https://github.com/protocolbuffers/protobuf/tree
 * 需要和服务端同步描述文件, 而且只要服务端任何字段修改了就需要改描述文件
   * 按照老的方式需要服务端把描述文件通过人肉的方式传给前端
   * `https://github.com/protobufjs/protobuf.js` 可以在加载页面的时候自动加载描述文件
-  
+
+## 使用 [protobuf.js](https://github.com/protobufjs/protobuf.js)
+
+包装 API 主要有两种方式
+
+* 直接使用 message
+* 使用 service(推荐)
+
+## 坑
+
+使用 protobufjs 的时候所有在 proto 里用下划线定义的字段在 JS 里需要改成驼峰式
