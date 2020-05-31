@@ -15,13 +15,15 @@
 * 不能被 GC roots 遍历到的对象都将被内存回收. GC roots 可以包括 Window, Global, DOM 树
 * [这篇文章](https://v8.dev/blog/trash-talk)详细的介绍了 V8 通过 Orinoco 项目所做的 GC 优化([中文翻译](https://zhuanlan.zhihu.com/p/55917130))
 * 新生代(Young Generation)使用 Scavenge 垃圾回收器
+  
   * 采用 **Cheney** 算法: 将内存的空间分为两个部分, 同一时刻只有一个空间处于使用中. 使用中的叫做 `To-Space`, 不被使用的叫做`From-Space`. 分配对象时先在 `From-Space` 分配, 垃圾回收时检查 `From-Space`的存活对象, 清理非存活对象, 将存活对象复制到 `To-Space`. 复制后空间身份发生对调
 * 新生代中的对象会在满足以下条件后被晋升到老生代
   * 第二次从 `from space` 复制到 `to space`
   * 当要从 `from space`复制一个对象到 `to space`时，`to space` 已经使用了超过25%
 * 老生代(Old Generation)使用 Full Mark-Compact 垃圾回收器
-  * 默认使用普通的 **Mark-Sweep** (标记-清除): 直接清除不使用的内存, 会带来内存不连续的问题. 所以当空间不足的时候会使用**Mark-Compact** (标记-整理):  清除前将活动对象向内存空间一侧移动, 并清除另一侧.
-
+  
+* 默认使用普通的 **Mark-Sweep** (标记-清除): 直接清除不使用的内存, 会带来内存不连续的问题. 所以当空间不足的时候会使用**Mark-Compact** (标记-整理):  清除前将活动对象向内存空间一侧移动, 并清除另一侧.
+  
 * Scavenge 复制活着的对象, Mark-Sweep 清除死的对象. 活对象在新生代中只占较少部分, 死对象在老生代中只占较少部分, 这就是两种回收方式都能高效处理的原因
 
 * 根据代际假说, 大多数对象在内存中存在的时间都很短, 因此可以直接在新生代里就处理了
@@ -52,9 +54,7 @@
 |   空间开销   | 少(无碎片) | 少(有碎片) | 双倍空间(无碎片) |
 | 是否移动对象 |     否     |     是     |        是        |
 
-## 使用 Chrome 分析内存
-
-### Task Manager(任务管理器)
+## Chrome Task Manager(任务管理器)
 
 打开 More tools > Task manager 可以看到一些基本的内存使用信息
 
@@ -63,19 +63,19 @@
 * Memory(Memory Footprint): 原生内存, 如果此值正在增大, 说明正在创建 DOM 节点
 * JavaScript Memory: JS 堆(heap), 如果 live 数字在增大, 要么是正在创建新对象, 要么是现有对象正在增长
 
-### Performance
+## Chrome Performance
 
 ~~旧版 Chrome 叫 Timeline~~. 使用 Performance 调试的时候, 最好在开始和结束 recording 之前点击 Collect garbage 按钮来强制执行内存回收, 以便更好的观察内存泄露情况. 如果 JS 堆大小或节点大小不断增大, 则可能存在内存泄漏, 比如[这个例子](http://pbdm.cc/playground/performance/memory/performance-grow.html). 分析后截图如下
 
 ![memory](https://raw.githubusercontent.com/pbdm/img/master/20170221152537_WdxCMR_Screenshot.jpeg)
 
-### Memory
+## Chrome Memory
 
 * 通过 Summary 视图查看大概情况
 * 通过 Comparison 视图 比较两次之间的不同查抄泄露的对象
 * 通过 Containment 视图查看应用的对象结构的"俯瞰视图"
 
-#### Heap Snapshots
+### Heap Snapshots
 
 detached 的定义:
 
@@ -100,7 +100,7 @@ DOM node 想要被内存回收, 必须同时满足以下的条件:
 * Retained Size(保留大小): 该对象直接占用内存(Shallow Size) + 该对象引用的对象所占用的内存, 当该对象被删除后, GC roots 就无法遍历到这部分内存了
 * `@` 字符后面的数字是对象的唯一 ID
 
-#### Allocation instrumentation on timeline
+### Allocation instrumentation on timeline
 
 ~~旧版 Chrome 叫 Allocation Timelines~~. 定期(50ms)拍摄 Heap Snapshots, 可以从时间线的角度查看内存的使用情况
 
@@ -112,7 +112,7 @@ DOM node 想要被内存回收, 必须同时满足以下的条件:
 
 ![memory](https://raw.githubusercontent.com/pbdm/img/master/20170222092032_lNAh7a_Screenshot.jpeg)
 
-#### Allocation sampling
+### Allocation sampling
 
 ~~旧版 Chrome 叫 Allocation Profile~~, 可以从函数调用栈的角度来查看内存使用情况
 ![memory](https://raw.githubusercontent.com/pbdm/img/master/20170222092633_m0jsDG_Screenshot.jpeg)

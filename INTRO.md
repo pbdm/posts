@@ -3,7 +3,7 @@
 ![info](https://randomblatherdotcom.files.wordpress.com/2014/04/bmust7rcuaa6ueo-jpg-large.jpeg)
 > [Information Isn’t Power](https://random-blather.com/2014/04/28/information-isnt-power/)
 
-## 本站用到的技术
+##  Technology
 
 * [GitHub Pages](https://pages.github.com/)
 * [Single Page Apps for GitHub Pages](https://github.com/rafrex/spa-github-pages)
@@ -20,4 +20,9 @@
 * [Jsdelivr CDN](https://www.jsdelivr.com/)
 * [Gitalk](https://gitalk.github.io/)
 
-[About Me](count-down.html)
+## Misc
+
+* [About Me](count-down.html)
+
+* Tips
+  * 标题不要超过3级
