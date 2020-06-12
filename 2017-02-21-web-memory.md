@@ -187,6 +187,10 @@ theThing 引用了 someMethod, someMethod 这个函数作用域隐式的和 unus
 
 引用链: GCHandler -> replaceThing -> theThing -> someMethod -> originalThing -> someMethod(old) -> originalThing(older)-> someMethod(older)
 
+## 减小内存占用
+
+* [慎用 CSS3 动画属性](https://www.w3cplus.com/animation/gpu-animation-doing-it-right.html)
+
 ## Tips
 
 * 根据 V8 内存回收的机制, 对于 Javascript  开发者来说创建生命周期较短的对象的成本是非常低的, 但是对于生命周期较长的对象来说成本是比较高的
