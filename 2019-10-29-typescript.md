@@ -92,6 +92,7 @@
   * 尽量保持一致
   * ~~type alias 不能被继承或者实现~~
     * 可以使用交叉类型(&)达到相同的目的
+* [Interfaces vs. Type Aliases, (2019-11-19: 注意中文文档还未更新2.7的信息)](https://www.typescriptlang.org/docs/handbook/advanced-types.html#interfaces-vs-type-aliases)
 * 关于 Object.keys 的使用, 也许需要[用到](https://stackoverflow.com/questions/52856496/typescript-object-keys-return-string) `keyof`, `typeof`
 
 ```javascript
@@ -105,7 +106,5 @@ type ss = {
   [key in arrayCardType]: string;
 };
 ```
-
-> [Interfaces vs. Type Aliases, (2019-11-19: 注意中文文档还未更新2.7的信息)](https://www.typescriptlang.org/docs/handbook/advanced-types.html#interfaces-vs-type-aliases)
 
 * [Record](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkt) 可以方便的用来创建一个类似对象的结构
