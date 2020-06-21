@@ -8,7 +8,7 @@
 
 ## [First Meaningful Paint(FMP)](https://web.dev/first-meaningful-paint/)
 
-Google 专门写了一篇[文章](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view#heading=h.ycg9fbz776q3)介绍了他的计方式, 大致意思就是紧跟着 "最大布局变化" 之后的渲染时间点. 我们可以基于`MutationObserver` 监听 DOM 变化. 但是他也有很多不准确的情况: 
+Google 专门写了一篇[文章](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view#heading=h.ycg9fbz776q3)介绍了他的计方式, 大致意思就是紧跟着 "最大布局变化" 之后的渲染时间点. 我们可以基于`MutationObserver` 监听 DOM 变化. 但是他也有很多不准确的情况:
 
 * Web 字体用得比较多时候
 * 长页面的情况
@@ -32,6 +32,6 @@ const observer = new PerformanceObserver((entryList) => {
 observer.observe({entryTypes: ['largest-contentful-paint']});
 ```
 
->  [Largest Contentful Paint by berwin](https://github.com/berwin/Blog/issues/47)
+> [Largest Contentful Paint by berwin](https://github.com/berwin/Blog/issues/47)
 >
 > [捕获FMP的原理 by berwin](https://github.com/berwin/Blog/issues/42)

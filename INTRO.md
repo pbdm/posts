@@ -3,7 +3,7 @@
 ![info](https://randomblatherdotcom.files.wordpress.com/2014/04/bmust7rcuaa6ueo-jpg-large.jpeg)
 > [Information Isn’t Power](https://random-blather.com/2014/04/28/information-isnt-power/)
 
-##  Technology
+## Technology
 
 * [GitHub Pages](https://pages.github.com/)
 * [Single Page Apps for GitHub Pages](https://github.com/rafrex/spa-github-pages)
