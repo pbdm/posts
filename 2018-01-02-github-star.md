@@ -51,5 +51,3 @@ still in alpha, 一个可以猜测用户行为从而进行预加载的库, 从 G
 用 CSS 画油画?! 给跪了...
 
 * https://github.com/afc163/fanyi
-
-命令行翻译

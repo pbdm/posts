@@ -47,6 +47,7 @@
     * [react-beautiful-dnd](2018-09-25-react-beautiful-dnd.md)
   * [Vue](2017-07-26-vue.md)
   * [Angular](2014-06-21-angular.md)
+  * [繁(hun)荣(luan)的前端(框架吐槽)](2017-01-06-fe-frameworks.md)
 * 数据流
   * [Redux](2016-03-23-redux.md)
   * [Vuex](2020-05-11-vuex.md)
@@ -78,7 +79,8 @@
   * [安全](2017-07-18-security.md)
   * [方法学](2019-01-04-method.md)
 * [工具](2014-09-13-tools.md)
-  * 打包/编译
+  * [VSCode](2018-12-31-vscode.md)
+  * 前端打包/编译
     * [NPM](2017-05-30-npm.md)
     * [Yarn](2017-05-30-yarn.md)
     * [Webpack](2016-02-26-webpack.md)
@@ -92,6 +94,7 @@
   * [Docker](2016-03-22-docker.md)
   * [Typescript](2019-10-29-typescript.md)
   * [开源](2018-06-07-open-source.md)
+  * [Github star](2018-01-02-github-star.md)
 * [PHP](2014-05-14-php.md)
   * [Drupal](2014-05-14-drupal.md)
 * [Rust](2018-03-16-rust.md)
@@ -105,17 +108,12 @@
   * [Redis](2017-11-17-redis.md)
 * [iOS](2017-05-11-ios.md)
 * [Android](2018-11-12-android.md)
-* Misc
-  * [Github star](misc/2018-01-02-github-star.md)
-  * [繁(hun)荣(luan)的前端(框架吐槽)](misc/2017-01-06-frameworks.md)
-  * [Glossary](GLOSSARY.md)
+* [Glossary](GLOSSARY.md)
 * Blog
   * [2006-12-02-一元钱(转)](blog/2006-12-02-一元钱(转).md)
   * [2011-08-11-Milan孔乙己(转)](blog/2011-08-11-Milan孔乙己(转).md)
-  * [2014-05-29-Goagent](blog/2014-05-29-Goagent.md)
   * [2015-04-07-自定义Mac全局快捷键](blog/2015-04-07-自定义Mac全局快捷键.md)
-  * [2015-05-23-2015前端技术峰会(饿了么)](blog/2015-05-23-2015前端技术峰会(饿了么).md)
-  * [2016-06-24-NPM版本号](blog/2016-06-24-npm版本号.md)
+  * [2016-06-24-NPM 版本号](blog/2016-06-24-npm版本号.md)
   * [2017-12-14-GDD2017](blog/2017-12-14-gdd2017.md)
   * [2018-09-20-GDD2018](blog/2018-09-20-gdd2018.md)
 * Shares
