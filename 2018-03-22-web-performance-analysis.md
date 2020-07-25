@@ -13,17 +13,15 @@
 * Idle: 保证每50ms可以将控制权返回给主线程,  从而保证及时响应用户下一步的操作.
 * Load: 加载页面在1000ms内呈现内容.
 
+### [以用户为中心的性能指标]((https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics)
+
 ### [重要指标](https://web.dev/metrics/)
 
 * [Largest Contentful Paint](https://web.dev/lcp/):  LCP, 在 Lighthouse 6.0 版本后替代了 FMP. 在有骨架屏的情况下比 FMP 更能体现用户体验
 * [~~First Meaningful Paint~~](https://web.dev/first-meaningful-paint/), 首次有效绘制时间, 可确定用户感觉到页面主要内容处于可见状态的时间. 这篇[Google 的文章](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view?hl=zh-cn)介绍了这个时间点的计算逻辑. 大致就是紧跟着 "最大布局变化" 之后的渲染时间点, 但是在长页面, 有字体加载的情况下也会有另外的考虑
 * [Time to Interative](https://web.dev/interactive/): TTI, 首次可交互时间
 
-## 获取方式
-
-性能指标的获取方式主要分为两种: RUM(Real User Monitoring, 真实用户监控) 和通过本地工具分析, 两种方法往往是相辅相成的
-
-### RUM(Real User Monitoring, 真实用户监控)
+## RUM(Real User Monitoring, 真实用户监控
 
 最原始的方式是考察 `onload` 和 `DOMContentLoaded` 的时间. 但是站在用户的角度这两个指标是无法准确的定义真正的用户感受的. 比如现在市面上常用的 SPA 方案, 一般情况下白屏往往需要在 JS 逻辑执行后才有可能消失, 如果仅关注`DOMContentLoaded`将没有很大的意义.
 
@@ -62,9 +60,13 @@ var observer = new PerformanceObserver(fn);
 observer.observe({entryTypes: ["measure"]});
 ```
 
-### 本地工具
+### [白屏检测](2020-05-21-white-screen.md)
 
-#### Chrome DevTools 的 Performance 工具
+### [卡顿检测](https://zhuanlan.zhihu.com/p/39292837)
+
+## 本地工具
+
+### Chrome DevTools 的 Performance 工具
 
 在 Chrome Devtools 我们可以找到一个 Performance 的面板, 这个[官方文档](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/?hl=zh-cn)介绍如何使用他生成火焰图并分析性能. 分析得出的时间线火焰图上的名词可以参照[这里](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/performance-reference?hl=zh-cn)的解释: 
 
@@ -89,19 +91,17 @@ observer.observe({entryTypes: ["measure"]});
 
 * [借助 Shift 的帮助](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#select)来详细分析每一段的时间长短
 
-#### Lighthouse
+### Lighthouse
 
 [Lighthouse](https://developers.google.com/web/tools/lighthouse/?hl=zh-cn) 是一个开源的自动化工具, 从更倾向于用户的感知(users perception)的角度帮助改进网络应用的质量. Chrome 60 后已经默认加在在 audits 标签里了. 我们可以从[官方文档](https://web.dev/learn/#lighthouse)找到他的介绍
 
-![](https://developers.google.com/web/tools/lighthouse/images/report.png?hl=zh-cn)
+![lh](https://developers.google.com/web/tools/lighthouse/images/report.png?hl=zh-cn)
 
 从上图我们可以看到, Lighthouse 的分析可以得出很多重要指标, 并根据这些指标给页面打分, 同时给出一定的优化措施
 
 > Tips: 如果在分析的过程中一直显示 `warming up...` 有可能是需要翻墙 
 
 Lighthouse 同时也可以[跑在 handless(无 UI界面)](https://github.com/GoogleChrome/lighthouse/blob/master/docs/headless-chrome.md)环境下, 我们可以方便的根据它跑出的 JSON 结果[生成 HTML 报告文件](https://github.com/GoogleChrome/lighthouse/blob/master/docs/hacking-tips.md#iterating-on-the-report). [Pageseed Insights](https://developers.google.com/speed/pagespeed/insights/) 就是根据这个部署的
-
-## [白屏检测](2020-05-21-white-screen.md)
 
 > [Progressive Tooling: 一个性能优化相关工具的列表](https://progressivetooling.com/)
 >

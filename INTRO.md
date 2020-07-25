@@ -14,15 +14,11 @@
 * [Markdown-it](https://github.com/markdown-it/markdown-it) with custom plugins
 * [Prism highlighter](https://prismjs.com/)
 * [RemarkJS](https://remarkjs.com/#1)
+* [dundalek/markmap](https://github.com/dundalek/markmap)
 * [~~Git Submodule~~](https://git-scm.com/docs/git-submodule)
-* CSS FlexBox
-* CSS Media Query
 * [Jsdelivr CDN](https://www.jsdelivr.com/)
 * [Gitalk](https://gitalk.github.io/)
 
 ## Misc
 
 * [About Me](count-down.html)
-
-* Tips
-  * 标题不要超过3级

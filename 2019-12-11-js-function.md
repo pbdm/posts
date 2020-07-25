@@ -63,16 +63,15 @@ stage3: [globalThis](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Ref
 * 尾调用优化(proper tail calls, PTC)
   * 运行过程中当不再用到外层函数的内部变量时, 删除外层函数的调用栈, 只保留内层函数的调用帧
   * 2019-12-18: 目前只有 safari 严格模式下[支持](http://kangax.github.io/compat-table/es6/#test-proper_tail_calls_(tail_call_optimisation)), 其他浏览器的支持还有争论
-
-*  [STC](https://github.com/tc39/proposal-ptc-syntax): Syntactic Tail Call, 大意是在语法上标识出优化逻辑
-
+* [STC](https://github.com/tc39/proposal-ptc-syntax): Syntactic Tail Call, 大意是在语法上标识出优化逻辑
 * 尾递归优化: **递归之所以能写出比循环可读性更高的代码是因为递归隐含了一个栈, 而用循环实现的时候需要手动维护一个栈导致代码丑且长, 但是尾递归优化恰好就是那个不需要这个栈的特殊情况**
+* [注意, 刚才说的都是基于同步函数, EventLoop 里的异步函数和这些没关系](https://stackoverflow.com/questions/23979309/endless-animations-requestanimationframe-and-call-stack-limits)
 
 ```javascript
 // 符合人类思维的阶乘
 function factorial(n) {
   if (n === 1) return 1;
-	// 这里每次都要保留外部函数的 n 变量
+  // 这里每次都要保留外部函数的 n 变量
   return n * factorial(n - 1);
 }
 
