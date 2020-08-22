@@ -33,7 +33,7 @@
   * [Electron](2017-07-13-electron.md)
   * [Web 性能](2015-12-21-web-performance.md)
   * [Web 性能分析](2018-03-22-web-performance-analysis.md)
-    * [白屏检测](2020-05-21-white-screen.md)
+    * [首屏检测](2020-05-21-first-screen.md)
   * [Web 内存](2017-02-21-web-memory.md)
   * [Webp](2016-04-28-webp.md)
 * 动态化框架
@@ -123,6 +123,6 @@
   * [2017-06-30-Web标准梳理与Components](shares/2017-06-30-Web标准梳理与Components.md)
   * [2019-02-28-numeronym](shares/2019-02-28-numeronym.md)
 * Slides
-  * [2018-11-29-event-stream 被植入比特币后门事件](slides.html?2018-11-29-event-stream-bitcoin.md)
-  * [2018-12-20-Puppeteer](slides.html?2018-12-20-puppeteer.md)
-  * [2019-02-21-React Hooks](slides.html?2019-02-21-react-hook.md)
+  * [2018-11-29-event-stream 被植入比特币后门事件](slide/index.html?2018-11-29-event-stream-bitcoin.md)
+  * [2018-12-20-Puppeteer](slide/index.html?2018-12-20-puppeteer.md)
+  * [2019-02-21-React Hooks](slide/index.html?2019-02-21-react-hook.md)
