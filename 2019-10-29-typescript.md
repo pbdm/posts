@@ -5,6 +5,10 @@
 * [这个教程](https://ts.xcatliu.com/)要比官方文档更好懂些(墙裂推荐...)
 * [Tips in 深入理解 TypeScript](https://jkchao.github.io/typescript-book-chinese/tips/stringBasedEmuns.html)
 * 从 3.7 开始[支持](Optional Chaining) `Optional Chaining`
+![VS code optional chaining refactoring](https://code.visualstudio.com/assets/updates/1_49/ts-convert-chain.gif)
+
+> VS code optional chaining 重构功能
+
 * JS 的新特性进展得那么慢([比如 Decorator](https://github.com/tc39/proposal-decorators#why-is-decorators-taking-so-long)), 感觉TS快要成事实标准了, 文档什么的也都更齐备
 
 ## Why to use

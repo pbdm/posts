@@ -15,7 +15,6 @@
 * [Prism highlighter](https://prismjs.com/)
 * [RemarkJS](https://remarkjs.com/#1)
 * [dundalek/markmap](https://github.com/dundalek/markmap)
-* [~~Git Submodule~~](https://git-scm.com/docs/git-submodule)
 * [Jsdelivr CDN](https://www.jsdelivr.com/)
 * [Gitalk](https://gitalk.github.io/)
 
