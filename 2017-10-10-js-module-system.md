@@ -90,3 +90,18 @@
 ### dynamic import
 
 `import()`, 返回一个 Promise
+
+## Import maps
+
+```javascript
+<script type="importmap">
+{
+  "imports": {
+    "moment": "/node_modules/moment/src/moment.js",
+    "lodash": "/node_modules/lodash-es/lodash.js"
+  }
+}
+</script>
+```
+
+[提案](https://github.com/WICG/import-maps)
