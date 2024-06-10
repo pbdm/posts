@@ -1,8 +1,8 @@
 # CHANGELOG
 
-## 10.0 Viteress
+## 10.0 VitePress
 
-* `2024-06-10`改为 VitePress
+* `2024-06-10`引入 VitePress
 
 ## 9.0 js4.0 fremework with WebComponents
 
