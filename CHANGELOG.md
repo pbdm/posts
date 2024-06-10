@@ -2,7 +2,7 @@
 
 * `2024-06-10`引入 VitePress
 
-## 9.0 js4.0 fremework with WebComponents
+## [9.0 js4.0 fremework with WebComponents](https://github.com/pbdm/pbdm.github.com/tree/wc)
 
 * `2020-01-21`引入 Web Components
 * `2020-02-24`添加显示文章最后更新时间
@@ -19,17 +19,17 @@
 * `2017-10-19`引入[Single Page Apps for GitHub Pages](https://github.com/rafrex/spa-github-pages)
 * `2017-10-19`引入[mermaid](https://mermaidjs.github.io/)
 
-## 7.0 gitbook
+## [7.0 gitbook](https://github.com/pbdm/pbdm.github.com/tree/gitbook)
 
 * `2017-05-17`use gitbook
 
-## 6.0 js2.0 framework
+## [6.0 js2.0 framework](https://github.com/pbdm/pbdm.github.com/tree/v6.0-js2.0framework)
 
 * `2016-11-16`将服务迁移回`Github Pages`, 采用`Github API`调用文章数据
 * `2016-12-06`remove Github API([使用次数限制问题](https://developer.github.com/v3/#rate-limiting))
 * `2017-03-02`change marked to markdown-it
 
-## 5.0 采用 node.js 服务端渲染
+## [5.0 采用 node.js 服务端渲染](https://github.com/pbdm/pbdm.github.com/tree/develop)
 
 * `2016-08-14`将服务迁移到 [HYPER_](https://hyper.sh)
 * `2016-08-22`添加[flowchart.js](http://flowchart.js.org/)和[js-sequence-diagrams](https://bramp.github.io/js-sequence-diagrams/)作为 `markdown` 的图形解析器
@@ -46,7 +46,7 @@
 * `2015-09-25`移除`flux`
 * `2016-03-03`移除`gulp`,改为纯`webpack`打包
 
-## 3.0 React
+## [3.0 React](https://github.com/pbdm/pbdm.github.com/tree/v3.0-React)
 
 * `2015-02-13`所有模板都用前端框架([React](http://facebook.github.io/react/))调用, 使用gulp打包
 * `2015-02-17`使用`showdown.js`转译`markdown`, `react-router`为router, `jsx-loader`为jsx解释器
@@ -59,7 +59,7 @@
 * `2015-05-27`将router 换为 `director`, jsx解释器换为`babel`
 * `2015-05-28`minifiy js and css
 
-## 2.0 Jekyll
+## [2.0 Jekyll](https://github.com/pbdm/pbdm.github.com/tree/v2.0-Jekyll)
 
 * `2013-04-27`开始用`Jekyll`做后台，放在[GitHub Pages](https://pages.github.com/)上, 文章采用`Markdown`格式
 * `2014-05-05`将`bootstrap`换成自己的css, 使用`reset.css`
