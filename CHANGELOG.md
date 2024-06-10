@@ -1,5 +1,3 @@
-# CHANGELOG
-
 ## 10.0 VitePress
 
 * `2024-06-10`引入 VitePress
