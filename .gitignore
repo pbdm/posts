@@ -1,13 +1,2 @@
-_drafts/
-_site/
-_book/
-.DS_Store
-*.swp
-node_modules/
-npm-debug.log
-local.json
-posts/local
-local.html
-static/
-posts/others
-others
+cache
+dist
