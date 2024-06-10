@@ -11,7 +11,19 @@
 * `2020-07-25`接入 [dundalek/markmap](https://github.com/dundalek/markmap) 思维导图渲染
 * `2020-08-15`添加 tree 入口, 支持 blog, mind, ppt, 源码入口
 * `2020-08-19`添加 husky 和 commitizen
-
+### Technology
+* [GitHub Pages](https://pages.github.com/)
+* [Single Page Apps for GitHub Pages](https://github.com/rafrex/spa-github-pages)
+* [Web Components](https://www.webcomponents.org/)
+* [PWA](https://web.dev/progressive-web-apps/)
+* [Workbox](https://developers.google.com/web/tools/workbox)
+* [Mermaid](https://github.com/mermaid-js/mermaid)
+* [Markdown-it](https://github.com/markdown-it/markdown-it) with custom plugins
+* [Prism highlighter](https://prismjs.com/)
+* [RemarkJS](https://remarkjs.com/#1)
+* [dundalek/markmap](https://github.com/dundalek/markmap)
+* [Jsdelivr CDN](https://www.jsdelivr.com/)
+* [Gitalk](https://gitalk.github.io/)
 ## 8.0 js3.0 fremework
 
 * `2017-10-16`将 posts 移到 submodule
